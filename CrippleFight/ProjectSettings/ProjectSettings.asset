@@ -618,9 +618,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: f00f2221-85d5-430f-b1c4-23f3fa4510d4
-  projectName: CrippleFight (1)
-  organizationId: roppii
+  cloudProjectId: 668d1e0c-deea-46db-9ba2-f4477a0d1680
+  projectName: CrippleFight
+  organizationId: byzness
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
