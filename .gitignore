@@ -1,1 +1,4 @@
 CrippleFight/Temp/
+Library/
+*.sln
+*.csproj
