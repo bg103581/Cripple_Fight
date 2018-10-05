@@ -2,3 +2,4 @@ CrippleFight/Temp/
 Library/
 *.sln
 *.csproj
+.vs/
