@@ -1,5 +1,5 @@
 CrippleFight/Temp/
-Library/
+CrippleFight/Library/
 *.sln
 *.csproj
-.vs/
+CrippleFight/.vs/
