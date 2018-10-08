@@ -6,10 +6,10 @@ public class BasicMoveRyu : MonoBehaviour {
 
     public int speed; // speed de déplacement de Ryu
     public int jumpForce; // speed de jump
-    public float jumpTime, jumpTimeCounter;
+    public float jumpTime;
+    public float jumpTimeCounter;
     public Rigidbody2D rbRyu; // pour sauter
     private bool isJumping = false;
-    private bool stoppedJumping = true;
 
 	// Use this for initialization
 	void Start () {
@@ -26,13 +26,12 @@ public class BasicMoveRyu : MonoBehaviour {
             transform.Translate(Vector2.left * speed * Time.deltaTime); // faire avancer Ryu à gauche
         }
 
-        if (Input.GetKeyDown("space") && !isJumping) { // faire sauter Ryu
+        if (Input.GetKeyDown("space") && (jumpTimeCounter == jumpTime)) { // faire sauter Ryu
             rbRyu.velocity = new Vector2(rbRyu.velocity.x, jumpForce);
             isJumping = true;
-            stoppedJumping = false;
         }
 
-        if (Input.GetKey("space") && !stoppedJumping) { // augmente le jump quand rester appuyer
+        if (Input.GetKey("space") && isJumping) { // augmente le jump quand rester appuyer
             if (jumpTimeCounter > 0) {
                 rbRyu.velocity = new Vector2(rbRyu.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
@@ -40,8 +39,7 @@ public class BasicMoveRyu : MonoBehaviour {
         }
 
         if (Input.GetKeyUp("space")) { // empeche de reaugmenter le jump après stop jump
-            jumpTimeCounter = 0;
-            stoppedJumping = true;
+            isJumping = false;
         }
     }
 
@@ -49,7 +47,6 @@ public class BasicMoveRyu : MonoBehaviour {
         if (collision.gameObject.tag == "ground") {
             isJumping = false;
             jumpTimeCounter = jumpTime;
-            stoppedJumping = true;
         }
     }
 }
