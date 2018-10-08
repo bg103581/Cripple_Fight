@@ -6,8 +6,8 @@ public class BasicMoveRyu : MonoBehaviour {
 
     public int speed; // speed de déplacement de Ryu
     public int jumpForce; // speed de jump
-    public float jumpTime;
-    public float jumpTimeCounter;
+    public float jumpTime; //nb de sec max du jump
+    public float jumpTimeCounter; //compteur du temps de jump
     public Rigidbody2D rbRyu; // pour sauter
     private bool isJumping = false;
 
