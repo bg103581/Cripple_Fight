@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 70713867996621582}
   - component: {fileID: 50766940039941936}
   - component: {fileID: 114616868427168118}
+  - component: {fileID: 114556939042267736}
+  - component: {fileID: 95754814236957830}
   m_Layer: 0
   m_Name: Ruy
   m_TagString: Untagged
@@ -30,6 +32,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1217278989066212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4314482506171756}
+  - component: {fileID: 58727399169959582}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4314482506171756
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1217278989066212}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3143286, y: 0.45456743, z: -0.010531972}
+  m_LocalScale: {x: 0.2417912, y: 0.2417912, z: 0.2417912}
+  m_Children: []
+  m_Father: {fileID: 4782618337278648}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4782618337278648
 Transform:
   m_ObjectHideFlags: 1
@@ -39,7 +70,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.18, y: -3.36, z: 0}
   m_LocalScale: {x: 4.1358, y: 4.1358, z: 4.1358}
-  m_Children: []
+  m_Children:
+  - {fileID: 4314482506171756}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63,6 +95,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58727399169959582
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1217278989066212}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!70 &70713867996621582
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -78,6 +125,37 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.35, y: 0.79}
   m_Direction: 0
+--- !u!95 &95754814236957830
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1133906412906022}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a33a38152a4dc14d8fac4a0421b9b06, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114556939042267736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1133906412906022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb4b42c2c1170b4cae89b12f0658860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Col: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!114 &114616868427168118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,6 +172,7 @@ MonoBehaviour:
   jumpTime: 0.25
   jumpTimeCounter: 0.25
   rbRyu: {fileID: 50766940039941936}
+  ryuAnimator: {fileID: 95754814236957830}
 --- !u!212 &212486563578529640
 SpriteRenderer:
   m_ObjectHideFlags: 1
