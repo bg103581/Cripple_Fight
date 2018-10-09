@@ -94,6 +94,7 @@ MonoBehaviour:
   jumpTime: 0.25
   jumpTimeCounter: 0.25
   rbRyu: {fileID: 50766940039941936}
+  ryuAnimator: {fileID: 0}
 --- !u!212 &212486563578529640
 SpriteRenderer:
   m_ObjectHideFlags: 1

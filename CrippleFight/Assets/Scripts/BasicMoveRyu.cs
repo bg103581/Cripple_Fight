@@ -10,32 +10,44 @@ public class BasicMoveRyu : MonoBehaviour {
     public float jumpTimeCounter; //compteur du temps de jump
     public Rigidbody2D rbRyu; // pour sauter
     private bool isJumping = false;
+    public Animator ryuAnimator;
+    
 
 	// Use this for initialization
 	void Start () {
         jumpTimeCounter = jumpTime;
+        ryuAnimator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey("right") && transform.position.x <= 10.45f) {
             transform.Translate(Vector2.right * speed * Time.deltaTime); // faire avancer Ryu à droite
+            ryuAnimator.SetBool("isWalking", true);
+            
         }
 
-        if (Input.GetKey("left") && transform.position.x >= -10.40f) {
+        else if (Input.GetKey("left") && transform.position.x >= -10.40f) {
             transform.Translate(Vector2.left * speed * Time.deltaTime); // faire avancer Ryu à gauche
+           ryuAnimator.SetBool("isWalking", true);
+        } else {
+            ryuAnimator.SetBool("isWalking", false);
         }
 
         if (Input.GetKeyDown("space") && (jumpTimeCounter == jumpTime)) { // faire sauter Ryu
             rbRyu.velocity = new Vector2(rbRyu.velocity.x, jumpForce);
             isJumping = true;
+            ryuAnimator.SetBool("isJumping", true);
         }
 
-        if (Input.GetKey("space") && isJumping) { // augmente le jump quand rester appuyer
+        else if (Input.GetKey("space") && isJumping) { // augmente le jump quand rester appuyer
             if (jumpTimeCounter > 0) {
                 rbRyu.velocity = new Vector2(rbRyu.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
+                ryuAnimator.SetBool("isJumping", true);
             }
+        } else {
+            ryuAnimator.SetBool("isJumping", false);
         }
 
         if (Input.GetKeyUp("space")) { // empeche de reaugmenter le jump après stop jump
