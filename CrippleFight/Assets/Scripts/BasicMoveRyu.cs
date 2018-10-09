@@ -21,14 +21,16 @@ public class BasicMoveRyu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey("right") && transform.position.x <= 10.45f) {
+		if (Input.GetKey("right") && transform.position.x <= 10.45f && ryuAnimator.GetBool("isCrouching") == false) {
+            rbRyu.transform.rotation = new Quaternion(0, 0f, 0f, 0f);
             transform.Translate(Vector2.right * speed * Time.deltaTime); // faire avancer Ryu à droite
             ryuAnimator.SetBool("isWalking", true);
             
         }
 
-        else if (Input.GetKey("left") && transform.position.x >= -10.40f) {
-            transform.Translate(Vector2.left * speed * Time.deltaTime); // faire avancer Ryu à gauche
+        else if (Input.GetKey("left") && transform.position.x >= -10.40f && ryuAnimator.GetBool("isCrouching")==false) {
+            rbRyu.transform.rotation = new Quaternion(0, 180f, 0f, 0f);
+            transform.Translate(-Vector2.left * speed * Time.deltaTime); // faire avancer Ryu à gauche
            ryuAnimator.SetBool("isWalking", true);
         } else {
             ryuAnimator.SetBool("isWalking", false);
@@ -52,6 +54,32 @@ public class BasicMoveRyu : MonoBehaviour {
 
         if (Input.GetKeyUp("space")) { // empeche de reaugmenter le jump après stop jump
             isJumping = false;
+        }
+        if (Input.GetKey("w"))
+        {
+            ryuAnimator.SetBool("isKicking", true);
+          
+        }
+        else
+        {
+            ryuAnimator.SetBool("isKicking", false);
+        }
+        if (Input.GetKey("x"))
+        {
+            ryuAnimator.SetBool("isPunching", true);
+        }
+        else
+        {
+            ryuAnimator.SetBool("isPunching", false);
+        }
+        if (Input.GetKey("down"))
+        {
+            ryuAnimator.SetBool("isCrouching", true);
+
+        }
+        else
+        {
+            ryuAnimator.SetBool("isCrouching", false);
         }
     }
 
