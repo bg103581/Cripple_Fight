@@ -22,13 +22,13 @@ public class BasicMoveP1 : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKey("d") && transform.position.x <= 10.45f && ryuAnimator.GetBool("isCrouching") == false) {
-            rbRyu.transform.rotation = new Quaternion(0, 180f, 0f, 0f);
-            transform.Translate(-Vector2.right * speed * Time.deltaTime); // faire avancer Ryu à droite
+            rbRyu.transform.rotation = new Quaternion(0, 0f, 0f, 0f);
+            transform.Translate(Vector2.right * speed * Time.deltaTime); // faire avancer Ryu à droite
             ryuAnimator.SetBool("isWalking", true);
 
         } else if (Input.GetKey("q") && transform.position.x >= -10.40f && ryuAnimator.GetBool("isCrouching") == false) {
-            rbRyu.transform.rotation = new Quaternion(0, 0f, 0f, 0f);
-            transform.Translate(Vector2.left * speed * Time.deltaTime); // faire avancer Ryu à gauche
+            rbRyu.transform.rotation = new Quaternion(0, 180f, 0f, 0f);
+            transform.Translate(-Vector2.left * speed * Time.deltaTime); // faire avancer Ryu à gauche
             ryuAnimator.SetBool("isWalking", true);
         } else {
             ryuAnimator.SetBool("isWalking", false);
