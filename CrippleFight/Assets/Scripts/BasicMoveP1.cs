@@ -11,43 +11,24 @@ public class BasicMoveP1 : MonoBehaviour {
     public Rigidbody2D rbRyu; // pour sauter
     private bool isJumping = false;
     public Animator ryuAnimator;
-    Vector2 camMin, camMax, pos;
 
 
     // Use this for initialization
     void Start() {
         jumpTimeCounter = jumpTime;
         ryuAnimator = GetComponent<Animator>();
-
-        camMin = Camera.main.WorldToScreenPoint(new Vector2(0, 0));
-        camMax = Camera.main.WorldToScreenPoint(new Vector2(0, 1));
-        Debug.Log(camMax.x);
-        float w = Screen.width;
-       
-
     }
 
     // Update is called once per frame
     void Update() {
-
-        
-
-        if (Input.GetKey("d") && ryuAnimator.GetBool("isCrouching") == false) {
-            pos = transform.position;
-            transform.Translate(Vector2.right * speed * Time.deltaTime); // faire avancer Ryu à droite
-            pos.x=Mathf.Clamp(pos.x, camMin.x, camMax.x);
-            transform.position = pos;
-            rbRyu.transform.rotation = new Quaternion(0, 0f, 0f, 0f);
-            
+        if (Input.GetKey("d") && transform.position.x <= 10.45f && ryuAnimator.GetBool("isCrouching") == false) {
+            rbRyu.transform.rotation = new Quaternion(0, 180f, 0f, 0f);
+            transform.Translate(-Vector2.right * speed * Time.deltaTime); // faire avancer Ryu à droite
             ryuAnimator.SetBool("isWalking", true);
 
-        } else if (Input.GetKey("q") && ryuAnimator.GetBool("isCrouching") == false) {
-            pos = transform.position;
-            rbRyu.transform.rotation = new Quaternion(0, 180f, 0f, 0f);
-            transform.Translate(-Vector2.left * speed * Time.deltaTime); // faire avancer Ryu à gauche
-            pos = transform.position;
-            pos.x = Mathf.Clamp(pos.x, camMin.x, camMax.x);
-            transform.position = pos;
+        } else if (Input.GetKey("q") && transform.position.x >= -10.40f && ryuAnimator.GetBool("isCrouching") == false) {
+            rbRyu.transform.rotation = new Quaternion(0, 0f, 0f, 0f);
+            transform.Translate(Vector2.left * speed * Time.deltaTime); // faire avancer Ryu à gauche
             ryuAnimator.SetBool("isWalking", true);
         } else {
             ryuAnimator.SetBool("isWalking", false);
