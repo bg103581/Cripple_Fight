@@ -306,8 +306,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\BasicMoveRyu.cs" />
+    <Compile Include="Assets\Scripts\BasicMoveP1.cs" />
+    <Compile Include="Assets\Scripts\BasicMoveP2.cs" />
     <Compile Include="Assets\Scripts\Collusion.cs" />
+    <Compile Include="Assets\Scripts\HealthBarP1.cs" />
+    <Compile Include="Assets\Scripts\HealthBarP2.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
