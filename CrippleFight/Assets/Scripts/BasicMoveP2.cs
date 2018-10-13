@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasicMoveP2 : MonoBehaviour {
-
+    
     public int speed; // speed de déplacement de Ryu
     public int jumpForce; // speed de jump
-    private int rightPress, leftPress; // nb de fois qu'on a appué sur left ou right
+    private int rightPress, leftPress; // nb de fois qu'on a appuyé sur left ou right
     public float jumpTime; //nb de sec max du jump
     public float jumpTimeCounter; //compteur du temps de jump
     private float delay, delayPress, timePassed, timePassedPress, dashTime, dashTimeCounter;
@@ -31,6 +31,16 @@ public class BasicMoveP2 : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        //////////////////////////////////////////////
+        /// CODE FOR KEYBOARD AND JOYSTICK CONTROL ///
+        //////////////////////////////////////////////
+
+
+        /*** CODE POUR LE DASH ***/
+
+
+        // on compte cb de fois on appuie sur left ou right
         if (Input.GetKeyDown("right")) {
             rightPress++;
             startTimer = true;
@@ -39,6 +49,7 @@ public class BasicMoveP2 : MonoBehaviour {
             startTimer = true;
         }
 
+        // Une fois le delay est dépassé, remettre startTimer, rightPress, leftPress et timePassedPress en situation initiale
         if (startTimer) {
             timePassedPress += Time.deltaTime;
             if (timePassedPress >= delayPress) {
@@ -49,46 +60,9 @@ public class BasicMoveP2 : MonoBehaviour {
             }
         }
 
+
         if (leftPress >= 2 || rightPress >= 2) {
             startDelay = true;
-        }
-
-        if (Input.GetKey("right") && transform.position.x <= 10.45f && ryuAnimator.GetBool("isCrouching") == false && grounded) {
-            rbRyu.transform.rotation = new Quaternion(0, 180f, 0f, 0f);
-            transform.Translate(-Vector2.right * speed * Time.deltaTime); // faire avancer Ryu à droite
-            Pos = transform.position;
-            Pos.x = Mathf.Clamp(Pos.x, Max.x - Max.x / 10, -Max.x + Max.x / 10);
-            transform.position = Pos;
-            ryuAnimator.SetBool("isWalking", true);
-            isRight = true;
-            isLeft = false;
-
-        } else if (Input.GetKey("left") && transform.position.x >= -10.40f && ryuAnimator.GetBool("isCrouching") == false && grounded) {
-            rbRyu.transform.rotation = new Quaternion(0, 0f, 0f, 0f);
-            transform.Translate(Vector2.left * speed * Time.deltaTime); // faire avancer Ryu à gauche
-            Pos = transform.position;
-            Pos.x = Mathf.Clamp(Pos.x, Max.x - Max.x / 10, -Max.x + Max.x / 10);
-            transform.position = Pos;
-            ryuAnimator.SetBool("isWalking", true);
-            isLeft = true;
-            isRight = false;
-        } else {
-            ryuAnimator.SetBool("isWalking", false);
-        }
-
-        if (Input.GetKeyDown("up") && (jumpTimeCounter == jumpTime)) { // faire sauter Ryu
-            rbRyu.velocity = new Vector2(rbRyu.velocity.x, jumpForce);
-            isJumping = true;
-            ryuAnimator.SetBool("isJumping", true);
-            grounded = false;
-        } else if (Input.GetKey("up") && isJumping) { // augmente le jump quand rester appuyer
-            if (jumpTimeCounter > 0) {
-                rbRyu.velocity = new Vector2(rbRyu.velocity.x, jumpForce);
-                jumpTimeCounter -= Time.deltaTime;
-                ryuAnimator.SetBool("isJumping", true);
-            }
-        } else {
-            ryuAnimator.SetBool("isJumping", false);
         }
 
         if (startDelay) {
@@ -138,21 +112,76 @@ public class BasicMoveP2 : MonoBehaviour {
             isRight = false;
         }
 
+        /*** CODE POUR MARCHER ***/
+
+        if ((Input.GetKey("right") || (Input.GetAxis("JHorizontal2") > 0)) && transform.position.x <= 10.45f && ryuAnimator.GetBool("isCrouching") == false && grounded) {
+            rbRyu.transform.rotation = new Quaternion(0, 180f, 0f, 0f); // regarder à droite quand on avance à droite
+            transform.Translate(-Vector2.right * speed * Time.deltaTime); // faire avancer Ryu à droite
+            Pos = transform.position;
+            Pos.x = Mathf.Clamp(Pos.x, Max.x - Max.x / 10, -Max.x + Max.x / 10);
+            transform.position = Pos;
+            ryuAnimator.SetBool("isWalking", true); // déclencher l'animation de marche
+            isRight = true;
+            isLeft = false;
+
+        } else if ((Input.GetKey("left") || (Input.GetAxis("JHorizontal2") < 0)) && transform.position.x >= -10.40f && ryuAnimator.GetBool("isCrouching") == false && grounded) {
+            rbRyu.transform.rotation = new Quaternion(0, 0f, 0f, 0f);  // regarder à gauche quand on avance à gauche
+            transform.Translate(Vector2.left * speed * Time.deltaTime); // faire avancer Ryu à gauche
+            Pos = transform.position;
+            Pos.x = Mathf.Clamp(Pos.x, Max.x - Max.x / 10, -Max.x + Max.x / 10);
+            transform.position = Pos;
+            ryuAnimator.SetBool("isWalking", true);  // déclencher l'animation de marche
+            isLeft = true;
+            isRight = false;
+        } else {
+            ryuAnimator.SetBool("isWalking", false);  // arreter l'animation de marche si on n'avance pas
+        }
+
+
+        /*** CODE POUR SAUTER ***/
+
+
+        if ((Input.GetKeyDown("up") || Input.GetButtonDown("A2")) && (jumpTimeCounter == jumpTime)) { // faire sauter Ryu
+            rbRyu.velocity = new Vector2(rbRyu.velocity.x, jumpForce);
+            isJumping = true;
+            ryuAnimator.SetBool("isJumping", true);
+            grounded = false;
+        } else if ((Input.GetKey("up") || Input.GetButton("A2")) && isJumping) { // augmente le jump quand rester appuyer
+            if (jumpTimeCounter > 0) {
+                rbRyu.velocity = new Vector2(rbRyu.velocity.x, jumpForce);
+                jumpTimeCounter -= Time.deltaTime;
+                ryuAnimator.SetBool("isJumping", true);
+            }
+        } else {
+            ryuAnimator.SetBool("isJumping", false);
+        }
+
         if (Input.GetKeyUp("up")) { // empeche de reaugmenter le jump après stop jump
             isJumping = false;
         }
-        if (Input.GetKey("l")) {
+
+
+        /*** CODE POUR LE KICK ***/
+
+
+        if (Input.GetKey("l") || Input.GetButtonDown("Y2")) {
             ryuAnimator.SetBool("isKicking", true);
 
         } else {
             ryuAnimator.SetBool("isKicking", false);
         }
-        if (Input.GetKey("m")) {
+
+        /*** CODE POUR LE PUNCH ***/
+
+        if (Input.GetKey("m") || Input.GetButtonDown("X2")) {
             ryuAnimator.SetBool("isPunching", true);
         } else {
             ryuAnimator.SetBool("isPunching", false);
         }
-        if (Input.GetKey("down")) {
+
+        /*** CODE POUR LE CROUCH ***/
+
+        if (Input.GetKey("down") || Input.GetAxis("JVertical2") > 0) {
             ryuAnimator.SetBool("isCrouching", true);
 
         } else {
