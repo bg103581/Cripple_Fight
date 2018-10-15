@@ -11,7 +11,7 @@ public class BasicMoveP1 : MonoBehaviour {
     public float jumpTimeCounter; // compteur du temps de jump
     private float delay, delayPress, timePassed, timePassedPress, dashTime, dashTimeCounter;
     public Rigidbody2D rbRyu; // pour sauter
-    private bool isJumping = false, startTimer, startDelay, grounded, isRight, isLeft, isDashingRight, isDashingLeft;
+    private bool isJumping = false, startTimer, startDelay, grounded, isRight, isLeft, isDashingRight, isDashingLeft, hasRightPress, hasLeftPress;
     private bool startNeutralDelay, startDashDelay;
     private float neutralDelay, dashDelay;
     public Animator ryuAnimator;
@@ -27,7 +27,7 @@ public class BasicMoveP1 : MonoBehaviour {
         delayPress = 0.25f;
         delay = 0.25f;
         dashTime = 0.1f;
-        isDashingLeft = isDashingRight = isRight = isLeft = false;
+        isDashingLeft = isDashingRight = isRight = isLeft = hasRightPress = hasLeftPress = false;
         Vector3 Cam = Camera.main.transform.position;
         Max = Camera.main.ScreenToWorldPoint(Cam);
        
@@ -83,14 +83,23 @@ public class BasicMoveP1 : MonoBehaviour {
 
         /*** CODE POUR LE DASH ***/
 
-        if (Input.GetKeyDown("d")) {
+        if ((Input.GetKeyDown("d") || Input.GetAxis("JHorizontal1") > 0.1f) && !hasRightPress) {    // 0.3 ? bug sur ma manette ?
             rightPress++;
+            hasRightPress = true;
             startTimer = true;
-        } else if (Input.GetKeyDown("q")) {
+        }
+        if ((Input.GetKeyDown("q") || Input.GetAxis("JHorizontal1") < -0.1f) && !hasLeftPress) {
             leftPress++;
+            hasLeftPress = true;
             startTimer = true;
         }
 
+        if ((Input.GetKeyUp("d") || Input.GetAxis("JHorizontal1") == 0)) {
+            hasRightPress = false;
+        }
+        if ((Input.GetKeyUp("q") || Input.GetAxis("JHorizontal1") == 0)) {
+            hasLeftPress = false;
+        }
        
         if (startTimer) {
             timePassedPress += Time.deltaTime;
@@ -142,18 +151,6 @@ public class BasicMoveP1 : MonoBehaviour {
             }
         }
 
-        if (isRight && !grounded) {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-        } else if (isLeft && !grounded) {
-            transform.Translate(-Vector2.left * speed * Time.deltaTime);
-        }
-
-        if ((!Input.GetKey("q") || !Input.GetKey("d")) && grounded) {
-            isLeft = false;
-            isRight = false;
-        }
-
-
         /*** CODE POUR MARCHER ***/
 
         // Le joueur avance à droite en appuyant sur 'd' ou en bougant le joystick vers la droite,
@@ -175,7 +172,7 @@ public class BasicMoveP1 : MonoBehaviour {
         // Le joueur 1 ne peut avancer ssi il n'est pas en train de se baisser et s'il est au sol
 
         else if ((Input.GetKey("q") || (Input.GetAxis("JHorizontal1") < 0)) && ryuAnimator.GetBool("isCrouching") == false && grounded) {
-        rbRyu.transform.rotation = new Quaternion(0, 180f, 0f, 0f);
+            rbRyu.transform.rotation = new Quaternion(0, 180f, 0f, 0f);
             transform.Translate(-Vector2.left * speed * Time.deltaTime); // faire avancer Ryu à gauche
             Pos = transform.position;
             Pos.x = Mathf.Clamp(Pos.x, Max.x - Max.x / 10, -Max.x + Max.x / 10);
@@ -192,7 +189,7 @@ public class BasicMoveP1 : MonoBehaviour {
 
 
         // Le joueur 1 saute en appuyant sur 'z' ou en appuyant sur le button 'A' de la manette
-        if ((Input.GetKeyDown("z") || Input.GetButtonDown("A1")) && (jumpTimeCounter == jumpTime)) {
+        if ((Input.GetKeyDown("z") || Input.GetButtonDown("A1")) && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight) {
             rbRyu.velocity = new Vector2(rbRyu.velocity.x, jumpForce);                    // faire sauter Ryu
             isJumping = true;
             ryuAnimator.SetBool("isJumping", true);
@@ -211,6 +208,16 @@ public class BasicMoveP1 : MonoBehaviour {
             isJumping = false;
         }
 
+        if (isRight && !grounded) {                                         // pour un saut à la street
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+        } else if (isLeft && !grounded) {
+            transform.Translate(-Vector2.left * speed * Time.deltaTime);
+        }
+
+        if ((!Input.GetKey("q") || !Input.GetKey("d")) && grounded) {
+            isLeft = false;
+            isRight = false;
+        }
 
         /*** CODE POUR LE KICK ***/
 
@@ -231,7 +238,7 @@ public class BasicMoveP1 : MonoBehaviour {
 
         /*** CODE POUR LE CROUCH ***/
 
-        if (Input.GetKey("s") || Input.GetAxis("JVertical1") > 0) {
+        if (Input.GetKey("s") || Input.GetAxis("JVertical1") > 0.3f) {
             ryuAnimator.SetBool("isCrouching", true);
 
         } else {

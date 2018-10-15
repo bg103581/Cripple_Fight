@@ -13,7 +13,7 @@ public class HealthBarP1 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		healthBar = GetComponent<Image> ();
+		healthBar = GetComponent<Image>();
 		Health = MaxHealth;
 		
 	}
