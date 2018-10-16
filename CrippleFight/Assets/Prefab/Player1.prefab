@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4701420923610240}
   - component: {fileID: 58258171758112896}
+  - component: {fileID: 50265679797221176}
   m_Layer: 0
   m_Name: Col
-  m_TagString: Attack
+  m_TagString: AttackP1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,17 +39,16 @@ GameObject:
   - component: {fileID: 212321246595740754}
   - component: {fileID: 70421397767852382}
   - component: {fileID: 50808994036933526}
-  - component: {fileID: 114048131014189684}
   - component: {fileID: 114719433237354654}
   - component: {fileID: 95232585357134092}
-  - component: {fileID: 114776118437405784}
+  - component: {fileID: 114400317943082292}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4682270233950500
 Transform:
   m_ObjectHideFlags: 1
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813718301939570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.37, y: -3.16, z: 0}
+  m_LocalPosition: {x: -9.68, y: -3.44, z: 0}
   m_LocalScale: {x: -4.1358, y: 4.1358, z: 4.1358}
   m_Children:
   - {fileID: 4701420923610240}
@@ -76,6 +76,26 @@ Transform:
   m_Father: {fileID: 4682270233950500}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50265679797221176
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568381448884812}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 3
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!50 &50808994036933526
 Rigidbody2D:
   serializedVersion: 4
@@ -144,7 +164,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114048131014189684
+--- !u!114 &114400317943082292
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,15 +172,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1813718301939570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 003e7288e78099c4b912aafdde407d27, type: 3}
+  m_Script: {fileID: 11500000, guid: bb77960c24f37974a921b183847d6f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  jumpForce: 15
-  jumpTime: 0.25
-  jumpTimeCounter: 0.25
-  rbRyu: {fileID: 50808994036933526}
-  ryuAnimator: {fileID: 0}
+  PlayerNumber: 1
+  maxSpeed: 25
+  jumpForce: 20
+  jumpDuration: 0.1
 --- !u!114 &114719433237354654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,23 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Col: {fileID: 1568381448884812}
---- !u!114 &114776118437405784
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1813718301939570}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a783f17015e1e847a3c83b131bfb537, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  jumpForce: 15
-  jumpTime: 0.25
-  jumpTimeCounter: 0.25
-  rbRyu: {fileID: 50808994036933526}
-  ryuAnimator: {fileID: 95232585357134092}
 --- !u!212 &212321246595740754
 SpriteRenderer:
   m_ObjectHideFlags: 1
