@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4492232087965966
 Transform:
   m_ObjectHideFlags: 1
@@ -90,7 +90,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -188,9 +188,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 2
-  maxSpeed: 25
-  jumpForce: 20
-  jumpDuration: 0.1
+  maxSpeed: 10
+  jumpForce: 15
+  jumpTime: 0.25
 --- !u!212 &212870574029482322
 SpriteRenderer:
   m_ObjectHideFlags: 1
