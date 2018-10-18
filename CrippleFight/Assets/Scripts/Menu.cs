@@ -27,6 +27,7 @@ public class Menu : MonoBehaviour {
     {
         if (Input.GetButtonDown("Fire1"))
         {
+                 
            Menu1.SetActive(false);
             Menu2.SetActive(true);
         }
