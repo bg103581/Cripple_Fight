@@ -25,7 +25,7 @@ public class Menu : MonoBehaviour {
 	}
     public void press()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1"))
         {
                  
            Menu1.SetActive(false);

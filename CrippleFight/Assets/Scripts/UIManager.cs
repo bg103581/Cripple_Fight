@@ -18,16 +18,16 @@ public class UIManager : MonoBehaviour {
 		if(HealthBarP1.healthBar.fillAmount == 0|| HealthBarP2.healthBar.fillAmount == 0)
         {
             Time.timeScale = 0;
-            Player1.GetComponent<BasicMoveP1>().enabled = false;
-            Player2.GetComponent<BasicMoveP2>().enabled = false;
+            Player1.GetComponent<PlayerControl>().enabled = false;
+            Player2.GetComponent<PlayerControl>().enabled = false;
             GameOver.SetActive(true);
             
         }
         else
         {
             Time.timeScale = 1;
-            Player1.GetComponent<BasicMoveP1>().enabled = true;
-            Player2.GetComponent<BasicMoveP2>().enabled = true;
+            Player1.GetComponent<PlayerControl>().enabled = true;
+            Player2.GetComponent<PlayerControl>().enabled = true;
 
 
         }

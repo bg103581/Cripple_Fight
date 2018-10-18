@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4618195536520732}
   - component: {fileID: 58198485065290480}
+  - component: {fileID: 50612757447968412}
   m_Layer: 0
   m_Name: Col
-  m_TagString: Attack
+  m_TagString: AttackP2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,10 +39,9 @@ GameObject:
   - component: {fileID: 212870574029482322}
   - component: {fileID: 70070774873884666}
   - component: {fileID: 50402661102225880}
-  - component: {fileID: 114366804659627258}
   - component: {fileID: 114538296261899030}
   - component: {fileID: 95027290414307980}
-  - component: {fileID: 114402698433512686}
+  - component: {fileID: 114723702605356058}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1666422254454612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.88, y: -3.16, z: 0}
+  m_LocalPosition: {x: 9.23, y: -3.32, z: 0}
   m_LocalScale: {x: 4.1358, y: 4.1358, z: 4.1358}
   m_Children:
   - {fileID: 4618195536520732}
@@ -90,12 +90,32 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!50 &50612757447968412
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281973604236412}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 3
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!58 &58198485065290480
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -144,40 +164,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114366804659627258
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1666422254454612}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 003e7288e78099c4b912aafdde407d27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  jumpForce: 15
-  jumpTime: 0.25
-  jumpTimeCounter: 0.25
-  rbRyu: {fileID: 50402661102225880}
-  ryuAnimator: {fileID: 0}
---- !u!114 &114402698433512686
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1666422254454612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a783f17015e1e847a3c83b131bfb537, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 15
-  jumpForce: 15
-  jumpTime: 0.25
-  jumpTimeCounter: 0.25
-  rbRyu: {fileID: 50402661102225880}
-  ryuAnimator: {fileID: 95027290414307980}
 --- !u!114 &114538296261899030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,6 +176,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Col: {fileID: 1281973604236412}
+--- !u!114 &114723702605356058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1666422254454612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb77960c24f37974a921b183847d6f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerNumber: 2
+  maxSpeed: 10
+  jumpForce: 15
+  jumpTime: 0.25
 --- !u!212 &212870574029482322
 SpriteRenderer:
   m_ObjectHideFlags: 1
