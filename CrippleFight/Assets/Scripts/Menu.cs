@@ -10,43 +10,54 @@ public class Menu : MonoBehaviour {
    public static int NumPlayer1,NumPlayer2;
     public static bool checkPlayer1 = false;
     public static bool checkPlayer2 = false;
-   
-   
+    public static Animator LogoAnim;
+    public GameObject EventSystem1;
+
     // Use this for initialization
     void Start () {
-    
+        LogoAnim = GameObject.Find("Logo").GetComponent<Animator>();
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        press();
-       
-	}
-    public void press()
+        AnimPress();
+        CancelPlayer1();
+        CancelPlayer2();
+
+
+    }
+    public void AnimPress()
     {
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1"))
         {
-                 
+            LogoAnim.enabled = true;
+
+            Invoke("press", 1f);
+        }
+    }
+    public void press()
+    {
+      
+               
            Menu1.SetActive(false);
             Menu2.SetActive(true);
-        }
+        
     }
     public void PlyvsPly()
     {
         Menu2.SetActive(false);
         Menu3.SetActive(true);
-
+        EventSystem1.SetActive(false);
 
     }
     public void SelectPlayer0()
     {
-        if (checkPlayer1 == false)
-        { NumPlayer1 = 0;
+         NumPlayer1 = 0;
             checkPlayer1 = true;
            
         }
-        else if (checkPlayer1 == true && checkPlayer2 == false)
+        public void SelectPPlayer0()
         {
             NumPlayer2 = 0;
             checkPlayer2 = true;
@@ -54,63 +65,60 @@ public class Menu : MonoBehaviour {
         }
              
 
-    }
+    
     public void SelectPlayer1()
     {
-        if (checkPlayer1 == false)
-        {
+      
             NumPlayer1 = 1;
             checkPlayer1 = true;
-            
-        }
-        else if (checkPlayer1 == true && checkPlayer2 == false)
-        {
+
+    }
+    public void SelectPPlayer1()
+    { 
             NumPlayer2 = 1;
             checkPlayer2 = true;
-           
-        }
-    }
+          }
     public void SelectPlayer2()
     {
-        if (checkPlayer1 == false)
-
-        {
+       
             NumPlayer1 = 2;
             checkPlayer1 = true;
           
         }
-        else if (checkPlayer1 == true && checkPlayer2 == false)
-        {
+    public void SelectPPlayer2()
+    {
             NumPlayer2 = 2;
             checkPlayer2 = true;
           
         }
-    }
+    
     public void SelectPlayer3()
     {
-        if (checkPlayer1 == false)
-        { NumPlayer1 = 3;
+        NumPlayer1 = 3;
             checkPlayer1 = true;
          
         }
-         else if (checkPlayer1 == true && checkPlayer2 == false)
-        {
+    public void SelectPPlayer3()
+    {
             NumPlayer2 = 3;
             checkPlayer2 = true;
           
         }
            
-    }
+    
     public void Ready()
     {
+        if (checkPlayer1 == true && checkPlayer2 == true)
         SceneManager.LoadScene("SampleScene");
     }
     public void CancelPlayer1()
-    {
+    { if(Input.GetButton("B1"))
         checkPlayer1 = false;
+   
     }
     public void CancelPlayer2()
     {
-        checkPlayer2 = false;
+        if (Input.GetButton("B2"))
+            checkPlayer2 = false;
     }
 }

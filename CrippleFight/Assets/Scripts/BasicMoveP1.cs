@@ -40,7 +40,9 @@ public class BasicMoveP1 : MonoBehaviour {
         /*
 
         // si on appuie à droite, on commence le delai pour revenir en neutre
-        if (Input.GetAxis("JHorizontal1") > 0.1f) {
+        if (Input.GetAxis("
+        
+        1") > 0.1f) {
             startNeutralDelay = true;
         }
         

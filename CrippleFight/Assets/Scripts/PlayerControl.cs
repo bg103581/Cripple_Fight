@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
 
-    public int PlayerNumber = 1;
+    public int PlayerNumber ;
     private Transform enemy;
 
     private Rigidbody2D rig2d;
@@ -71,10 +71,12 @@ public class PlayerControl : MonoBehaviour {
         // Tap jump and hold button jump
         if (jump && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch) {
             Debug.Log("jump");
+          
             rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
             isJumping = true;
         } else if ((Input.GetButton("Jump" + PlayerNumber.ToString()) || Input.GetButton("A" + PlayerNumber.ToString())) && isJumping) {  // si on reste appuyé, faire un long saut
             if (jumpTimeCounter > 0) {
+               
                 rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
             }
