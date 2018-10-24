@@ -309,8 +309,16 @@
     <Compile Include="Assets\Scripts\BasicMoveP1.cs" />
     <Compile Include="Assets\Scripts\BasicMoveP2.cs" />
     <Compile Include="Assets\Scripts\Collusion.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthBarP1.cs" />
     <Compile Include="Assets\Scripts\HealthBarP2.cs" />
+    <Compile Include="Assets\Scripts\Menu.cs" />
+    <Compile Include="Assets\Scripts\MenuMove.cs" />
+    <Compile Include="Assets\Scripts\MyButtonSelection.cs" />
+    <Compile Include="Assets\Scripts\MyEventSystem.cs" />
+    <Compile Include="Assets\Scripts\MyEventSystemProvider.cs" />
+    <Compile Include="Assets\Scripts\PlayerControl.cs" />
+    <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
