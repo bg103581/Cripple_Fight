@@ -46,7 +46,7 @@ public class PlayerControl : MonoBehaviour {
         delayPress = 0.25f;
         delay = 0.25f;
         dashTime = 0.1f;
-        isDashingLeft = isDashingRight = hasRightPress = hasLeftPress = false;
+        hasRightPress = hasLeftPress = false;
 
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject pl in players) {
@@ -70,13 +70,10 @@ public class PlayerControl : MonoBehaviour {
         
         // Tap jump and hold button jump
         if (jump && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch) {
-            Debug.Log("jump");
-          
             rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
             isJumping = true;
         } else if ((Input.GetButton("Jump" + PlayerNumber.ToString()) || Input.GetButton("A" + PlayerNumber.ToString())) && isJumping) {  // si on reste appuyé, faire un long saut
             if (jumpTimeCounter > 0) {
-               
                 rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
             }
@@ -203,7 +200,7 @@ public class PlayerControl : MonoBehaviour {
             startTimer = true;
         }
 
-        if (Input.GetButtonUp("Horizontal" + PlayerNumber.ToString()) || (jhorizontal == 0)) {
+        if ((horizontal == 0) && (jhorizontal == 0)) {
             hasRightPress = false;
             hasLeftPress = false;
         }
