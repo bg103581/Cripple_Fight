@@ -155,10 +155,12 @@ public class PlayerControl : MonoBehaviour {
 
     // Makes the players look at each other automatically
     void Scalecheck() {
-        if (transform.position.x < enemy.position.x)
-            transform.localScale = new Vector3(-4, 4, 4);
-        else
-            transform.localScale = new Vector3(4,4,4);
+        if (onGround) {
+            if (transform.position.x < enemy.position.x)
+                transform.localScale = new Vector3(-4, 4, 4);
+            else
+                transform.localScale = new Vector3(4, 4, 4);
+        }
     }
 
     void InputCheck() {
