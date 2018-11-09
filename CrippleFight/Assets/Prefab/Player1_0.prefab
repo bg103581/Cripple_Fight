@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerNumber: 1
   maxSpeed: 10
+  stopMovement: 0
   jumpForce: 15
   jumpTime: 0.25
 --- !u!114 &114399677641969610

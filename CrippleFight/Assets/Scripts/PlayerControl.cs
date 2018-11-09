@@ -17,6 +17,9 @@ public class PlayerControl : MonoBehaviour {
     private bool crouch;
     private bool walk;
 
+    // To stop animation
+    public bool stopMoving;
+
     // Variables needed for jumping
     public float jumpForce = 20;
     public float jumpTime = 0.25f;
@@ -26,6 +29,8 @@ public class PlayerControl : MonoBehaviour {
 
     private bool punch;
     private bool kick;
+    private bool shoryuken;
+    private bool downKick;
 
     //Variables for dashing
     private bool isDashingLeft, isDashingRight = false;
@@ -67,7 +72,10 @@ public class PlayerControl : MonoBehaviour {
 
     // Used instead of Update because we're dealing with physics
     void FixedUpdate() {
-        
+
+        // Stops movement when attacking
+        stopMovement();
+
         // Tap jump and hold button jump
         if (jump && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch) {
             rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
@@ -78,7 +86,7 @@ public class PlayerControl : MonoBehaviour {
                 jumpTimeCounter -= Time.deltaTime;
             }
         }
-
+        
         // Movement is possible if the player is not crouching
         if (!crouch) {
             if (onGround) { //au sol
@@ -89,20 +97,17 @@ public class PlayerControl : MonoBehaviour {
                     if (jhorizontal != 0) {
                         rig2d.velocity = new Vector2(jhorizontal * maxSpeed, rig2d.velocity.y);
                         //rig2d.AddForce(jmovement * (maxSpeed - horizontalVelocity.magnitude), ForceMode2D.Impulse); jgarde ça peut être utile
-                    }
-                    else {
+                    } else {
                         rig2d.velocity = new Vector2(horizontal * maxSpeed, rig2d.velocity.y);
                     }
                 }
-            }
-            else {  //en l'air pour air control
+            } else {  //en l'air pour air control
                 if (walk) {
                     if (jhorizontal != 0) {
                         if ((rig2d.velocity.x > 0 && jmovement.x < 0) || (rig2d.velocity.x < 0 && jmovement.x > 0) || (Mathf.Abs(rig2d.velocity.x) < maxSpeed)) {
                             rig2d.AddForce(jmovement * maxSpeed * 10);
                         }
-                    }
-                    else {
+                    } else {
                         if ((rig2d.velocity.x > 0 && movement.x < 0) || (rig2d.velocity.x < 0 && movement.x > 0) || (Mathf.Abs(rig2d.velocity.x) < maxSpeed)) {
                             rig2d.AddForce(movement * maxSpeed * 10);
                         }
@@ -131,8 +136,20 @@ public class PlayerControl : MonoBehaviour {
                 isDashingLeft = false;
             }
         }
+
+        
+
     }
 
+    // Changes the speed to zero. Used for attack animations.
+    void stopMovement() {
+        float mySpeed = maxSpeed;
+        if (stopMoving) {
+            maxSpeed = 0;
+        } else {
+            maxSpeed = 10;
+        }
+    }
     
     // To update animations
     void UpdateAnimator() {
@@ -141,6 +158,8 @@ public class PlayerControl : MonoBehaviour {
         anim.SetBool("isJumping", jump);
         anim.SetBool("isPunching", punch);
         anim.SetBool("isKicking", kick);
+        anim.SetBool("isShoryuken", shoryuken);
+        anim.SetBool("isDownKicking", downKick);
     }
 
     // Allows player to fall faster
@@ -162,12 +181,13 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
+    // Assigns keyboard and controller input
     void InputCheck() {
         // Get input from keyboard
         horizontal = Input.GetAxis("Horizontal" + PlayerNumber.ToString());
         vertical = Input.GetAxis("Vertical" + PlayerNumber.ToString());
 
-        // Get input from controlle
+        // Get input from controller
         jhorizontal = Input.GetAxis("JHorizontal" + PlayerNumber.ToString());
         jvertical = Input.GetAxis("JVertical" + PlayerNumber.ToString());
 
@@ -176,12 +196,15 @@ public class PlayerControl : MonoBehaviour {
         jmovement = new Vector2(jhorizontal, 0);
 
         // Booleans to be used for animation
-        crouch = ((vertical < -0.3f) || (jvertical < -0.3f)) && onGround;
+        crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround;
         walk = ((horizontal != 0) || (jhorizontal != 0));
-        jump = Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString());
+        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString())) && onGround && !stopMoving;
         punch = Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString());
-        kick = Input.GetButtonDown("Kick" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString());
-
+        kick = walk && punch;
+        shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
+        downKick = crouch && punch;
+        
+        
         if (Input.GetButtonUp("Jump" + PlayerNumber.ToString()) || Input.GetButtonUp("A" + PlayerNumber.ToString())) {  // empeche de reaugmenter le jump après stop jump
             isJumping = false;
         }
@@ -255,10 +278,11 @@ public class PlayerControl : MonoBehaviour {
     }
 
     //à utiliser pour debug.log : startcoroutine dans le start()
-    IEnumerator debug() {
+   IEnumerator debug() {
         while (true) {
             Debug.Log(jhorizontal);
             yield return new WaitForSeconds(0.5f);
         }
     }
+
 }

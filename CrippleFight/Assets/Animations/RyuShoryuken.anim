@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: RyuKick
+  m_Name: RyuShoryuken
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -29,7 +29,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5555556
+        time: 0.7
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -38,7 +38,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.56666666
+        time: 0.71666664
         value: 0
         inSlope: Infinity
         outSlope: Infinity
@@ -56,22 +56,24 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300116, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
-    - time: 0.11111111
-      value: {fileID: 21300118, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
-    - time: 0.22222222
-      value: {fileID: 21300120, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300122, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
-    - time: 0.44444445
-      value: {fileID: 21300124, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
-    - time: 0.5555556
-      value: {fileID: 21300126, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+      value: {fileID: 21300216, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - time: 0.11666667
+      value: {fileID: 21300218, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - time: 0.23333333
+      value: {fileID: 21300220, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - time: 0.35
+      value: {fileID: 21300222, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - time: 0.46666667
+      value: {fileID: 21300224, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - time: 0.5833333
+      value: {fileID: 21300226, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - time: 0.7
+      value: {fileID: 21300228, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 90
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -93,18 +95,19 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300116, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
-    - {fileID: 21300118, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
-    - {fileID: 21300120, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
-    - {fileID: 21300122, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
-    - {fileID: 21300124, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
-    - {fileID: 21300126, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - {fileID: 21300216, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - {fileID: 21300218, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - {fileID: 21300220, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - {fileID: 21300222, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - {fileID: 21300224, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - {fileID: 21300226, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
+    - {fileID: 21300228, guid: d13bfb8521d7cb14ab05fdc35e70024e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5666667
+    m_StopTime: 0.71666664
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -133,7 +136,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.5555556
+        time: 0.7
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -142,7 +145,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.56666666
+        time: 0.71666664
         value: 0
         inSlope: Infinity
         outSlope: Infinity
