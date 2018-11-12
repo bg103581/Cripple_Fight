@@ -48,22 +48,22 @@ public class Collusion : MonoBehaviour {
         if (collision.gameObject.tag == "UpP1")
         {
             HealthBarP1.Health -= 10f;
-            Debug.Log("up");
+          
         }
         if (collision.gameObject.tag == "DownP1")
         {
             HealthBarP1.Health -= 5f;
-            Debug.Log("Down");
+          
         }
         if (collision.gameObject.tag == "UpP2")
         {
             HealthBarP2.Health -= 10f;
-            Debug.Log("up");
+           
         }
         if (collision.gameObject.tag == "DownP2")
         {
             HealthBarP2.Health -= 5f;
-            Debug.Log("Down");
+           
         }
 
     }
