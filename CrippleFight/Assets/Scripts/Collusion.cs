@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Collusion : MonoBehaviour {
-    public GameObject Col;
+   
     
     Animator AnimatorPlayer;
     // Use this for initialization
@@ -15,10 +15,10 @@ public class Collusion : MonoBehaviour {
     // Update is called once per frame
      void Update()
     {
-        StartCoroutine(ColliderActive());
+        //StartCoroutine(ColliderActive());
     }
 
-    public IEnumerator ColliderActive()
+    /*public IEnumerator ColliderActive()
 {
     yield return new WaitForSeconds(0.3f);
 
@@ -30,7 +30,7 @@ public class Collusion : MonoBehaviour {
         {
             Col.SetActive(false);
         }
-    }
+    }*/
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag=="AttackP1")
@@ -40,6 +40,30 @@ public class Collusion : MonoBehaviour {
         if (collision.gameObject.tag == "AttackP2")
         {
             HealthBarP1.Health -= 10f;
+        }
+
+    }
+     void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "UpP1")
+        {
+            HealthBarP1.Health -= 10f;
+            Debug.Log("up");
+        }
+        if (collision.gameObject.tag == "DownP1")
+        {
+            HealthBarP1.Health -= 5f;
+            Debug.Log("Down");
+        }
+        if (collision.gameObject.tag == "UpP2")
+        {
+            HealthBarP2.Health -= 10f;
+            Debug.Log("up");
+        }
+        if (collision.gameObject.tag == "DownP2")
+        {
+            HealthBarP2.Health -= 5f;
+            Debug.Log("Down");
         }
 
     }

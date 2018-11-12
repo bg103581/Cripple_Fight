@@ -5,8 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - ground
-  - AttackP1
-  - AttackP2
+  - Head
+  - UpP2
+  - DownP2
+  - UpP1
+  - DownP1
+  - HeadP2
   layers:
   - Default
   - TransparentFX
