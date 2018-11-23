@@ -7,7 +7,7 @@ public class HealthBarP1 : MonoBehaviour {
 	public static Image healthBar;
 	float MaxHealth=100f;
 	public static float Health;
-	public static float healthBarfill ;
+	public static float healthBarfill;
 
 
 

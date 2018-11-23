@@ -11,6 +11,9 @@ TagManager:
   - UpP1
   - DownP1
   - HeadP2
+  - AttackP2
+  - AttackP1
+  - Hadoken
   layers:
   - Default
   - TransparentFX

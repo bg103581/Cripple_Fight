@@ -10,12 +10,15 @@ public class PlayerControl : MonoBehaviour {
     private Rigidbody2D rig2d;
     private Animator anim;
 
+    public GameObject hadoken;
+
     private float horizontal, jhorizontal;
     private float vertical, jvertical;
     public float maxSpeed = 10;
     private Vector2 movement, jmovement;
-    private bool crouch;
-    private bool walk;
+    private bool crouch, walk, isLeft;
+    public bool blockhigh, blocklow, hit, knockback;
+    private bool block;
 
     // To stop animation
     public bool stopMoving;
@@ -31,6 +34,7 @@ public class PlayerControl : MonoBehaviour {
     private bool kick;
     private bool shoryuken;
     private bool downKick;
+    private bool Super;
 
     //Variables for dashing
     private bool isDashingLeft, isDashingRight = false;
@@ -41,6 +45,8 @@ public class PlayerControl : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        block = hit = knockback = false;
+
         rig2d = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
 
@@ -78,6 +84,7 @@ public class PlayerControl : MonoBehaviour {
 
         // Tap jump and hold button jump
         if (jump && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch) {
+            Debug.Log("JUMP");
             rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
             isJumping = true;
         } else if ((Input.GetButton("Jump" + PlayerNumber.ToString()) || Input.GetButton("A" + PlayerNumber.ToString())) && isJumping) {  // si on reste appuyé, faire un long saut
@@ -94,6 +101,7 @@ public class PlayerControl : MonoBehaviour {
                     rig2d.velocity = new Vector2(0, rig2d.velocity.y);
                 }
                 if (walk) { // Joystick input is prioritised. If there is no joystick input, we check keyboard input
+                    //Debug.Log("block :" + block + "; blockhigh :" + blockhigh + "; blocklow :" + blocklow);
                     if (jhorizontal != 0) {
                         rig2d.velocity = new Vector2(jhorizontal * maxSpeed, rig2d.velocity.y);
                         //rig2d.AddForce(jmovement * (maxSpeed - horizontalVelocity.magnitude), ForceMode2D.Impulse); jgarde ça peut être utile
@@ -137,7 +145,31 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        
+        if (hit) {
+            Debug.Log("player" + PlayerNumber + ": hit = " + hit);
+            hit = false;
+        }
+        if(knockback) {
+            if (isLeft) {
+                rig2d.velocity = new Vector2(-maxSpeed * 0.5f, rig2d.velocity.y);
+                //rig2d.AddForce(new Vector2(-maxSpeed, 0), ForceMode2D.Impulse);
+            } else {
+                rig2d.velocity = new Vector2(maxSpeed * 0.5f, rig2d.velocity.y);
+                //rig2d.AddForce(new Vector2(maxSpeed * 4, 0), ForceMode2D.Impulse);
+            }
+        }
+
+        if(Super) {
+            if(PlayerNumber == 1 && SuperBarP1.Super == 100f) {
+                Instantiate(hadoken, new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                hadoken.transform.Translate(new Vector2(this.transform.position.x + Time.deltaTime, this.transform.position.y));
+                SuperBarP1.Super = 0;
+            }
+            if (PlayerNumber == 2 && SuperBarP2.Super == 100f) {
+                Instantiate(hadoken, new Vector3(this.transform.position.x - 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                SuperBarP2.Super = 0;
+            }
+        }
 
     }
 
@@ -160,6 +192,7 @@ public class PlayerControl : MonoBehaviour {
         anim.SetBool("isKicking", kick);
         anim.SetBool("isShoryuken", shoryuken);
         anim.SetBool("isDownKicking", downKick);
+        anim.SetBool("isHit", hit);
     }
 
     // Allows player to fall faster
@@ -173,12 +206,28 @@ public class PlayerControl : MonoBehaviour {
 
     // Makes the players look at each other automatically
     void Scalecheck() {
+        isLeft = transform.position.x < enemy.position.x;
+
         if (onGround) {
-            if (transform.position.x < enemy.position.x)
+            if (isLeft) {
                 transform.localScale = new Vector3(-4, 4, 4);
-            else
+                if (horizontal < 0 || jhorizontal < 0) {
+                    block = true;
+                } else {
+                    block = false;
+                }
+            } else {
                 transform.localScale = new Vector3(4, 4, 4);
+                if (horizontal > 0 || jhorizontal > 0) {
+                    block = true;
+                } else {
+                    block = false;
+                }
+            }
         }
+
+        blocklow = block && crouch;
+        blockhigh = block && !crouch;
     }
 
     // Assigns keyboard and controller input
@@ -203,8 +252,9 @@ public class PlayerControl : MonoBehaviour {
         kick = walk && punch;
         shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
         downKick = crouch && punch;
-        
-        
+        Super = Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString());
+
+
         if (Input.GetButtonUp("Jump" + PlayerNumber.ToString()) || Input.GetButtonUp("A" + PlayerNumber.ToString())) {  // empeche de reaugmenter le jump après stop jump
             isJumping = false;
         }
@@ -268,6 +318,14 @@ public class PlayerControl : MonoBehaviour {
             isJumping = false;
             jumpTimeCounter = jumpTime;
         }
+        if(col.collider.tag == "Hadoken") {
+            if(PlayerNumber == 1) {
+                HealthBarP1.Health -= 50f;
+            }
+            if (PlayerNumber == 2) {
+                HealthBarP2.Health -= 50f;
+            }
+        }
     }
 
     // To know if the player is jumping
@@ -277,12 +335,16 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
+    public void EndHitEvent() {
+        hit = false;
+        Debug.Log("EndHitEvent() player" + PlayerNumber);
+    }
+
     //à utiliser pour debug.log : startcoroutine dans le start()
-   IEnumerator debug() {
+    IEnumerator debug() {
         while (true) {
             Debug.Log(jhorizontal);
             yield return new WaitForSeconds(0.5f);
         }
     }
-
 }
