@@ -70,6 +70,7 @@ public class PlayerControl : MonoBehaviour {
     // Update each frame
     void Update() {
         InputCheck();
+        ModifValues();
         Scalecheck();
         OnGroundCheck();
         DashCheck();
@@ -83,17 +84,17 @@ public class PlayerControl : MonoBehaviour {
         stopMovement();
 
         // Tap jump and hold button jump
-        if (jump && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch) {
-            Debug.Log("JUMP");
+        if (jump) {
+            //Debug.Log("JUMP");
             rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
-            isJumping = true;
+            //isJumping = true;
         } else if ((Input.GetButton("Jump" + PlayerNumber.ToString()) || Input.GetButton("A" + PlayerNumber.ToString())) && isJumping) {  // si on reste appuyé, faire un long saut
             if (jumpTimeCounter > 0) {
                 rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
             }
         }
-        
+
         // Movement is possible if the player is not crouching
         if (!crouch) {
             if (onGround) { //au sol
@@ -111,6 +112,7 @@ public class PlayerControl : MonoBehaviour {
                 }
             } else {  //en l'air pour air control
                 if (walk) {
+                    Debug.Log("player" + PlayerNumber + ": velocity.x = " + rig2d.velocity.x);
                     if (jhorizontal != 0) {
                         if ((rig2d.velocity.x > 0 && jmovement.x < 0) || (rig2d.velocity.x < 0 && jmovement.x > 0) || (Mathf.Abs(rig2d.velocity.x) < maxSpeed)) {
                             rig2d.AddForce(jmovement * maxSpeed * 10);
@@ -123,6 +125,7 @@ public class PlayerControl : MonoBehaviour {
                 }
             }
         } else {
+            //Debug.Log("Player " + PlayerNumber + ": crouch =" + crouch);
             rig2d.velocity = Vector2.zero;
         }
 
@@ -145,11 +148,8 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if (hit) {
-            Debug.Log("player" + PlayerNumber + ": hit = " + hit);
-            hit = false;
-        }
-        if(knockback) {
+        //knockback after getting hit
+        if (knockback) {
             if (isLeft) {
                 rig2d.velocity = new Vector2(-maxSpeed * 0.5f, rig2d.velocity.y);
                 //rig2d.AddForce(new Vector2(-maxSpeed, 0), ForceMode2D.Impulse);
@@ -159,18 +159,10 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if(Super) {
-            if(PlayerNumber == 1 && SuperBarP1.Super == 100f) {
-                Instantiate(hadoken, new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);
-                hadoken.transform.Translate(new Vector2(this.transform.position.x + Time.deltaTime, this.transform.position.y));
-                SuperBarP1.Super = 0;
-            }
-            if (PlayerNumber == 2 && SuperBarP2.Super == 100f) {
-                Instantiate(hadoken, new Vector3(this.transform.position.x - 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);
-                SuperBarP2.Super = 0;
-            }
+        if (hit) {
+            //Debug.Log("player" + PlayerNumber + ": hit = " + hit);
+            hit = false;
         }
-
     }
 
     // Changes the speed to zero. Used for attack animations.
@@ -204,7 +196,7 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
-    // Makes the players look at each other automatically
+    // Makes the players look at each other automatically and check guard
     void Scalecheck() {
         isLeft = transform.position.x < enemy.position.x;
 
@@ -247,7 +239,7 @@ public class PlayerControl : MonoBehaviour {
         // Booleans to be used for animation
         crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround;
         walk = ((horizontal != 0) || (jhorizontal != 0));
-        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString())) && onGround && !stopMoving;
+        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString())) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch;
         punch = Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString());
         kick = walk && punch;
         shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
@@ -311,9 +303,34 @@ public class PlayerControl : MonoBehaviour {
         }
     }
 
+    //to change values in update instead of fixedupdate
+    void ModifValues() {
+        
+        if (jump) {
+            Debug.Log("JUMP");
+            isJumping = true;
+        }
+
+        //launch super after tapping super button
+        if (Super) {
+            if (PlayerNumber == 1 && SuperBarP1.Super == 100f) {
+                /*Instantiate(hadoken, new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+                hadoken.transform.Translate(new Vector2(this.transform.position.x + Time.deltaTime, this.transform.position.y));*/
+                SuperBarP1.Super = 0;
+            }
+            if (PlayerNumber == 2 && SuperBarP2.Super == 100f) {
+                /*Instantiate(hadoken, new Vector3(this.transform.position.x - 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);*/
+                SuperBarP2.Super = 0;
+            }
+        }
+    }
+
     // To know if the player is on the ground or not
     void OnCollisionEnter2D(Collision2D col) {
         if (col.collider.tag == "ground") {
+            if (PlayerNumber == 1) {
+                Debug.Log("ATTERI");
+            }
             onGround = true;
             isJumping = false;
             jumpTimeCounter = jumpTime;
@@ -343,7 +360,7 @@ public class PlayerControl : MonoBehaviour {
     //à utiliser pour debug.log : startcoroutine dans le start()
     IEnumerator debug() {
         while (true) {
-            Debug.Log(jhorizontal);
+            Debug.Log("player" + PlayerNumber + ": velocity.x = " + rig2d.velocity.x);
             yield return new WaitForSeconds(0.5f);
         }
     }
