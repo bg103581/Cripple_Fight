@@ -186,7 +186,7 @@ public class PlayerControl : MonoBehaviour {
             maxSpeed = 10;
         }
     }
-    
+ 
     // To update animations
     void UpdateAnimator() {
         anim.SetBool("isCrouching", crouch);
