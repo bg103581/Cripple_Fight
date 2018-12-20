@@ -30,11 +30,14 @@ public class PlayerControl : MonoBehaviour {
     private bool onGround;
     private bool jump, isJumping;
 
+    // Variables for player controls
     private bool punch;
     private bool kick;
     private bool shoryuken;
     private bool downKick;
     private bool Super;
+    private bool diveAttack;
+    private bool isDiving;
 
     //Variables for dashing
     private bool isDashingLeft, isDashingRight = false;
@@ -65,6 +68,8 @@ public class PlayerControl : MonoBehaviour {
                 enemy = pl.transform;
             }
         }
+
+        isDiving = false;
     }
 
     // Update each frame
@@ -163,6 +168,12 @@ public class PlayerControl : MonoBehaviour {
             //Debug.Log("player" + PlayerNumber + ": hit = " + hit);
             hit = false;
         }
+
+        if (diveAttack) {
+            isDiving = true;
+            Debug.Log("DIVE KICK !!!");
+        }
+        
     }
 
     // Changes the speed to zero. Used for attack animations.
@@ -190,7 +201,12 @@ public class PlayerControl : MonoBehaviour {
     // Allows player to fall faster
     void OnGroundCheck() {
         if (!onGround) {
-            rig2d.gravityScale = 5;
+            if (!isDiving) {
+                rig2d.gravityScale = 5;
+            } else {
+                rig2d.gravityScale = 35;
+            }
+            
         } else {
             rig2d.gravityScale = 1;
         }
@@ -245,6 +261,7 @@ public class PlayerControl : MonoBehaviour {
         shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
         downKick = crouch && punch;
         Super = Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString());
+        diveAttack = (!onGround && punch && !isDiving);
 
 
         if (Input.GetButtonUp("Jump" + PlayerNumber.ToString()) || Input.GetButtonUp("A" + PlayerNumber.ToString())) {  // empeche de reaugmenter le jump après stop jump
@@ -332,6 +349,7 @@ public class PlayerControl : MonoBehaviour {
                 Debug.Log("ATTERI");
             }
             onGround = true;
+            isDiving = false;
             isJumping = false;
             jumpTimeCounter = jumpTime;
         }
