@@ -15,7 +15,7 @@ public class CheckHead : MonoBehaviour {
 	}
      void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "HeadP2")
+        if (collision.gameObject.tag == "HeadP2" || collision.gameObject.tag == "HeadEnemy")
         {
             if (transform.position.x  <= collision.transform.position.x)
             {

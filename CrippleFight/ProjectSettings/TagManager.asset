@@ -14,6 +14,10 @@ TagManager:
   - AttackP2
   - AttackP1
   - Hadoken
+  - Ennemy
+  - HeadEnemy
+  - UpEnemy
+  - DownEnemy
   layers:
   - Default
   - TransparentFX

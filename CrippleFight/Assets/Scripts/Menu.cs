@@ -121,4 +121,9 @@ public class Menu : MonoBehaviour {
         if (Input.GetButton("B2"))
             checkPlayer2 = false;
     }
+    public void PlayvsCom()
+    {
+       
+            SceneManager.LoadScene("IA");
+    }
 }

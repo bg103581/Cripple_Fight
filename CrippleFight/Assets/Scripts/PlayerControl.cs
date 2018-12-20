@@ -65,6 +65,10 @@ public class PlayerControl : MonoBehaviour {
                 enemy = pl.transform;
             }
         }
+        if (enemy == null)
+        {
+            enemy = GameObject.FindGameObjectWithTag("Ennemy").transform;
+        }
     }
 
     // Update each frame
@@ -160,14 +164,14 @@ public class PlayerControl : MonoBehaviour {
         }
 
         if(Super) {
-            if(PlayerNumber == 1 && SuperBarP1.Super == 100f) {
+            if(PlayerNumber == 1 /*&& SuperBarP1.Super == 100f*/) {
                 Instantiate(hadoken, new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);
                 hadoken.transform.Translate(new Vector2(this.transform.position.x + Time.deltaTime, this.transform.position.y));
-                SuperBarP1.Super = 0;
+                //SuperBarP1.Super = 0;
             }
-            if (PlayerNumber == 2 && SuperBarP2.Super == 100f) {
+            if (PlayerNumber == 2 /*&& SuperBarP2.Super == 100f*/) {
                 Instantiate(hadoken, new Vector3(this.transform.position.x - 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);
-                SuperBarP2.Super = 0;
+               // SuperBarP2.Super = 0;
             }
         }
 
