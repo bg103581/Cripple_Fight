@@ -1151,7 +1151,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 549008230}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efba15e0c0d2aeb4d843a22bb4fc33c3, type: 3}
   m_Name: 
@@ -2965,7 +2965,7 @@ MonoBehaviour:
   Menu1: {fileID: 1680964346}
   Menu2: {fileID: 1739926872}
   Menu3: {fileID: 259687158}
-  EventSystem1: {fileID: 549008230}
+  EventSystem1: {fileID: 1236189946}
 --- !u!4 &1545436009
 Transform:
   m_ObjectHideFlags: 0

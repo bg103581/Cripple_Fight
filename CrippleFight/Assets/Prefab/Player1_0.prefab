@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4539070329885186}
   - component: {fileID: 58379567704253790}
-  - component: {fileID: 114662920759790672}
+  - component: {fileID: 114989168604170898}
   m_Layer: 0
   m_Name: AttackP1
   m_TagString: Untagged
@@ -121,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1715060301753258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.15, y: -1.78, z: -5}
+  m_LocalPosition: {x: -7.1, y: -3.1, z: 0}
   m_LocalScale: {x: -6, y: 6, z: 6}
   m_Children:
   - {fileID: 4576561860512418}
@@ -386,20 +386,13 @@ MonoBehaviour:
   blocklow: 0
   hit: 0
   knockback: 0
+  hitWallLeft: 0
+  hitWallRight: 0
+  hitEnemyWall: 0
+  startTimerHitWall: 0
   stopMoving: 0
   jumpForce: 15
   jumpTime: 0.25
---- !u!114 &114662920759790672
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1002562156183240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f93245baa91162449ab9a9800341d80e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114744332537312602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -409,6 +402,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6bd3272a4df8a49b49018efef2a9ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114989168604170898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002562156183240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb4b42c2c1170b4cae89b12f0658860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212849112339791392

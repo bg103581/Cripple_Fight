@@ -10,13 +10,10 @@ public class SuperBarP2 : MonoBehaviour {
     public static float Super;
     public static float superBarfill;
 
-
-
     // Use this for initialization
     void Start() {
         superBar = GetComponent<Image>();
         Super = 0;
-
     }
 
     // Update is called once per frame
