@@ -22,6 +22,7 @@ public class HealthBarP1 : MonoBehaviour {
 	void Update () {
 		healthBar.fillAmount = Health / MaxHealth;
 		healthBarfill = healthBar.fillAmount;
+       
 	}
 
 }

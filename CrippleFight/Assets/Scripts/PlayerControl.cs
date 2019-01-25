@@ -214,14 +214,14 @@ public class PlayerControl : MonoBehaviour {
 
         if (onGround) {
             if (isLeft) {
-                transform.localScale = new Vector3(-5, 5, 5);
+                transform.localScale = new Vector3(-2, 2, 2);
                 if (horizontal < 0 || jhorizontal < 0) {
                     block = true;
                 } else {
                     block = false;
                 }
             } else {
-                transform.localScale = new Vector3(5, 5, 5);
+                transform.localScale = new Vector3(2, 2, 2);
                 if (horizontal > 0 || jhorizontal > 0) {
                     block = true;
                 } else {
