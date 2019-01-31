@@ -48,7 +48,7 @@ public class EnemyControler : MonoBehaviour
             rb.velocity -= Vector2.up * 2;
 
         }
-        transform.localScale = new Vector3(5, 5, 5);
+        transform.localScale = new Vector3(2, 2, 2);
 
 
 
