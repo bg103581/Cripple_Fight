@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour {
     private Rigidbody2D rig2d;
     private Animator anim;
 
-    public GameObject hadoken;
+    //public GameObject hadoken;
 
     private float horizontal, jhorizontal;
     private float vertical, jvertical;
@@ -50,6 +50,12 @@ public class PlayerControl : MonoBehaviour {
     private int rightPress, leftPress;
     private float delay, delayPress, timePassed, timePassedPress, dashTime, dashTimeCounter;
 
+    //Variables for hitlag
+    public bool startTimerHitLag;
+    private bool countTimerHitLag;
+    private float timerHitLagCounter;
+    private float timerHitLagTime = 0.4f;
+
     // Use this for initialization
     void Start() {
         rig2d = GetComponent<Rigidbody2D>();
@@ -65,6 +71,7 @@ public class PlayerControl : MonoBehaviour {
         dashTime = 0.1f;
         hasRightPress = hasLeftPress = false;
         hitWallKnocbackTimeCounter = 0;
+        timerHitLagCounter = 0;
 
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject pl in players) {
@@ -77,6 +84,8 @@ public class PlayerControl : MonoBehaviour {
         {
             enemy = GameObject.FindGameObjectWithTag("Ennemy").transform;
         }
+
+        //StartCoroutine("debug");
     }
 
     // Update each frame
@@ -160,7 +169,6 @@ public class PlayerControl : MonoBehaviour {
         
         //knockback after getting hit or hitting an enemy near the wall
         if (knockback || hitEnemyWall) {
-
             if (isLeft) {
                 rig2d.velocity = new Vector2(-maxSpeed * 0.25f, rig2d.velocity.y);
                 //rig2d.AddForce(new Vector2(-maxSpeed, 0), ForceMode2D.Impulse);
@@ -249,14 +257,14 @@ public class PlayerControl : MonoBehaviour {
             jmovement = new Vector2(jhorizontal, 0);
 
             // Booleans to be used for animation
-            crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround;
+            crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround && !isDashingLeft && !isDashingRight;
             walk = ((horizontal != 0) || (jhorizontal != 0));
             jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString())) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch;
-            punch = Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString());
+            punch = (Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString())) && !isDashingLeft && !isDashingRight && !countTimerHitLag && onGround;
             kick = walk && punch;
             shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
             downKick = crouch && punch;
-            Super = Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString());
+            Super = Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString()) && !isDashingLeft && !isDashingRight;
 
 
             if (Input.GetButtonUp("Jump" + PlayerNumber.ToString()) || Input.GetButtonUp("A" + PlayerNumber.ToString())) {  // empeche de reaugmenter le jump après stop jump
@@ -353,6 +361,22 @@ public class PlayerControl : MonoBehaviour {
                 hitEnemyWall = false;
             }
         }
+
+        if(startTimerHitLag) {
+            countTimerHitLag = true;
+            timerHitLagCounter = 0;
+            startTimerHitLag = false;
+        }
+
+        if (countTimerHitLag) {
+            if(timerHitLagCounter <= timerHitLagTime) {
+                timerHitLagCounter += Time.deltaTime;
+            }
+            else {
+                timerHitLagCounter = 0;
+                countTimerHitLag = false;
+            }
+        }
     }
 
 
@@ -407,7 +431,7 @@ public class PlayerControl : MonoBehaviour {
     //à utiliser pour debug.log : startcoroutine dans le start()
     IEnumerator debug() {
         while (true) {
-            //Debug.Log("PlayerControl : player" + PlayerNumber + ": moveAvailable = " + moveAvailable);
+            Debug.Log("PlayerControl : player" + PlayerNumber + ": hitEnemyWall = " + hitEnemyWall);
 
             yield return new WaitForSeconds(0.5f);
         }
