@@ -109,23 +109,6 @@ public class PlayerControl : MonoBehaviour {
 
         //  get player distance
 
-        foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
-            if (p.Equals(this.gameObject)) {
-                continue;
-            } else {
-                players.Add(p);
-            }
-        }
-
-        if (players != null) {
-            other = players[0];
-            dist = Mathf.Abs(Vector3.Distance(transform.position, other.transform.position));
-        }
-        
-        if (dist < 14.2f) {
-            
-        }
-
         if (!stopMoving) {
             // Tap jump and hold button jump
             if (jump) {
