@@ -140,6 +140,7 @@ public class PlayerControl : MonoBehaviour {
 
             //Dash
             if (isDashingRight) {
+                anim.SetTrigger("DashRight");
                 if (dashTimeCounter < dashTime) {
                     rig2d.velocity = new Vector2(maxSpeed * 3, rig2d.velocity.y);
                     dashTimeCounter += Time.deltaTime;
@@ -148,6 +149,7 @@ public class PlayerControl : MonoBehaviour {
                     isDashingRight = false;
                 }
             } else if (isDashingLeft) {
+                anim.SetTrigger("DashLeft");
                 if (dashTimeCounter < dashTime) {
                     rig2d.velocity = new Vector2(-maxSpeed * 3, rig2d.velocity.y);
                     dashTimeCounter += Time.deltaTime;
