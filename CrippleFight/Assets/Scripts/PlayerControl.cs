@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour {
     private Rigidbody2D rig2d;
     private Animator anim;
 
-    public GameObject hadoken;
+    //public GameObject hadoken;
 
     private float horizontal, jhorizontal;
     private float vertical, jvertical;
@@ -51,10 +51,11 @@ public class PlayerControl : MonoBehaviour {
     private int rightPress, leftPress;
     private float delay, delayPress, timePassed, timePassedPress, dashTime, dashTimeCounter;
 
-    // Variables for player distance
-    public List<GameObject> players;
-    public GameObject other, wallLeft, wallRight;
-    public float dist;
+    //Variables for hitlag
+    public bool startTimerHitLag;
+    private bool countTimerHitLag;
+    private float timerHitLagCounter;
+    private float timerHitLagTime = 0.4f;
 
     // Use this for initialization
     void Start() {
@@ -71,6 +72,7 @@ public class PlayerControl : MonoBehaviour {
         dashTime = 0.1f;
         hasRightPress = hasLeftPress = false;
         hitWallKnocbackTimeCounter = 0;
+        timerHitLagCounter = 0;
 
         isAirDiving = false;
 
@@ -86,8 +88,7 @@ public class PlayerControl : MonoBehaviour {
             enemy = GameObject.FindGameObjectWithTag("Ennemy").transform;
         }
 
-        wallLeft = GameObject.FindGameObjectWithTag("WallLeft");
-        wallRight = GameObject.FindGameObjectWithTag("WallRight");
+        //StartCoroutine("debug");
     }
 
     // Update each frame
@@ -193,7 +194,6 @@ public class PlayerControl : MonoBehaviour {
         
         //knockback after getting hit or hitting an enemy near the wall
         if (knockback || hitEnemyWall) {
-
             if (isLeft) {
                 rig2d.velocity = new Vector2(-maxSpeed * 0.25f, rig2d.velocity.y);
                 //rig2d.AddForce(new Vector2(-maxSpeed, 0), ForceMode2D.Impulse);
@@ -276,6 +276,7 @@ public class PlayerControl : MonoBehaviour {
 
     // Assigns keyboard and controller input
     void InputCheck() {
+
         // Get input from keyboard
         horizontal = Input.GetAxis("Horizontal" + PlayerNumber.ToString());
         vertical = Input.GetAxis("Vertical" + PlayerNumber.ToString());
@@ -303,7 +304,6 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetButtonUp("Jump" + PlayerNumber.ToString()) || Input.GetButtonUp("A" + PlayerNumber.ToString())) {  // empeche de reaugmenter le jump après stop jump
             isJumping = false;
         }
-
     }
 
     //check if dashing
@@ -394,6 +394,22 @@ public class PlayerControl : MonoBehaviour {
                 hitEnemyWall = false;
             }
         }
+
+        if(startTimerHitLag) {
+            countTimerHitLag = true;
+            timerHitLagCounter = 0;
+            startTimerHitLag = false;
+        }
+
+        if (countTimerHitLag) {
+            if(timerHitLagCounter <= timerHitLagTime) {
+                timerHitLagCounter += Time.deltaTime;
+            }
+            else {
+                timerHitLagCounter = 0;
+                countTimerHitLag = false;
+            }
+        }
     }
 
 
@@ -454,7 +470,7 @@ public class PlayerControl : MonoBehaviour {
     //à utiliser pour debug.log : startcoroutine dans le start()
     IEnumerator debug() {
         while (true) {
-            //Debug.Log("PlayerControl : player" + PlayerNumber + ": moveAvailable = " + moveAvailable);
+            Debug.Log("PlayerControl : player" + PlayerNumber + ": hitEnemyWall = " + hitEnemyWall);
 
             yield return new WaitForSeconds(0.5f);
         }

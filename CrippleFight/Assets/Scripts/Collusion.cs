@@ -44,7 +44,7 @@ public class Collusion : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "UpP1") {
-            Debug.Log("check");
+            Debug.Log("check1");
             if (!playerControlEnemy.blocklow && !playerControlEnemy.blockhigh) {
                 HealthBarP1.Health -= 10f;
                 SuperBarP1.Super += 20f;
@@ -65,18 +65,20 @@ public class Collusion : MonoBehaviour
         }
 
         if (collision.gameObject.tag == "UpP2") {
-            Debug.Log("check");
+            Debug.Log("check2");
             if (!playerControlEnemy.blocklow && !playerControlEnemy.blockhigh) {
-                Debug.Log("check2");
                 HealthBarP2.Health -= 10f;
                 SuperBarP2.Super += 20f;
                 playerControlEnemy.hit = true;
+                myPlayerControl.startTimerHitLag = true;
             } else if (playerControlEnemy.blocklow) {
                 AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
                 playerControlEnemy.hit = true;
+                myPlayerControl.startTimerHitLag = true;
             } else if (playerControlEnemy.blockhigh) {
                 AnimatorPlayerEnemy.SetTrigger("isBlocking");
                 playerControlEnemy.hit = true;
+                myPlayerControl.startTimerHitLag = true;
             }
 
             if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
