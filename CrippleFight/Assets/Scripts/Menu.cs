@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 
 public class Menu : MonoBehaviour {
-    public GameObject Menu1, Menu2, Menu3;
+    public GameObject Menu1, Menu2, Menu3, Menu4;
    public static int NumPlayer1,NumPlayer2;
     public static bool checkPlayer1 = false;
     public static bool checkPlayer2 = false;
@@ -44,6 +44,26 @@ public class Menu : MonoBehaviour {
             Menu2.SetActive(true);
         
     }
+
+    public void backMenu() {
+
+        Menu1.SetActive(false);
+        Menu3.SetActive(false);
+        Menu4.SetActive(false);
+        Menu2.SetActive(true);
+
+    }
+
+    public void Settings() {
+
+        Menu1.SetActive(false);
+        Menu2.SetActive(false);
+        Menu3.SetActive(false);
+        Menu4.SetActive(true);
+        
+
+    }
+
     public void PlyvsPly()
     {
         Menu2.SetActive(false);
@@ -126,4 +146,6 @@ public class Menu : MonoBehaviour {
        
             SceneManager.LoadScene("IA");
     }
+
+    
 }

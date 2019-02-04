@@ -42,6 +42,7 @@ public class PlayerControl : MonoBehaviour {
     private bool shoryuken;
     private bool downKick;
     private bool Super;
+    private bool airDive, isAirDiving;
 
     //Variables for dashing
     private bool isDashingLeft, isDashingRight = false;
@@ -49,6 +50,11 @@ public class PlayerControl : MonoBehaviour {
     private bool startTimer, startDelay;
     private int rightPress, leftPress;
     private float delay, delayPress, timePassed, timePassedPress, dashTime, dashTimeCounter;
+
+    // Variables for player distance
+    public List<GameObject> players;
+    public GameObject other, wallLeft, wallRight;
+    public float dist;
 
     // Use this for initialization
     void Start() {
@@ -66,6 +72,8 @@ public class PlayerControl : MonoBehaviour {
         hasRightPress = hasLeftPress = false;
         hitWallKnocbackTimeCounter = 0;
 
+        isAirDiving = false;
+
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject pl in players) {
             if (pl.transform != this.transform) {
@@ -77,6 +85,9 @@ public class PlayerControl : MonoBehaviour {
         {
             enemy = GameObject.FindGameObjectWithTag("Ennemy").transform;
         }
+
+        wallLeft = GameObject.FindGameObjectWithTag("WallLeft");
+        wallRight = GameObject.FindGameObjectWithTag("WallRight");
     }
 
     // Update each frame
@@ -94,7 +105,26 @@ public class PlayerControl : MonoBehaviour {
 
         // Stops movement when attacking
         //stopMovement();
+
+        //  get player distance
+
+        foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
+            if (p.Equals(this.gameObject)) {
+                continue;
+            } else {
+                players.Add(p);
+            }
+        }
+
+        if (players != null) {
+            other = players[0];
+            dist = Mathf.Abs(Vector3.Distance(transform.position, other.transform.position));
+        }
         
+        if (dist < 14.2f) {
+            
+        }
+
         if (!stopMoving) {
             // Tap jump and hold button jump
             if (jump) {
@@ -105,6 +135,7 @@ public class PlayerControl : MonoBehaviour {
                     jumpTimeCounter -= Time.deltaTime;
                 }
             }
+            
 
             // Movement is possible if the player is not crouching
             if (!crouch) {
@@ -138,6 +169,8 @@ public class PlayerControl : MonoBehaviour {
                 rig2d.velocity = Vector2.zero;
             }
 
+            
+
             //Dash
             if (isDashingRight) {
                 if (dashTimeCounter < dashTime) {
@@ -169,6 +202,8 @@ public class PlayerControl : MonoBehaviour {
                 //rig2d.AddForce(new Vector2(maxSpeed * 4, 0), ForceMode2D.Impulse);
             }
         }
+
+        if (airDive) { isAirDiving = true; }
         
         if (hit) {
             hit = false;
@@ -202,8 +237,13 @@ public class PlayerControl : MonoBehaviour {
     // Allows player to fall faster
     void OnGroundCheck() {
         if (!onGround) {
-            rig2d.gravityScale = 5;
+            if (isAirDiving) {
+                rig2d.gravityScale = 50f;
+            } else {
+                rig2d.gravityScale = 5f;
+            }
         } else {
+            isAirDiving = false;
             rig2d.gravityScale = 1;
         }
     }
@@ -236,32 +276,33 @@ public class PlayerControl : MonoBehaviour {
 
     // Assigns keyboard and controller input
     void InputCheck() {
-            // Get input from keyboard
-            horizontal = Input.GetAxis("Horizontal" + PlayerNumber.ToString());
-            vertical = Input.GetAxis("Vertical" + PlayerNumber.ToString());
+        // Get input from keyboard
+        horizontal = Input.GetAxis("Horizontal" + PlayerNumber.ToString());
+        vertical = Input.GetAxis("Vertical" + PlayerNumber.ToString());
 
-            // Get input from controller
-            jhorizontal = Input.GetAxis("JHorizontal" + PlayerNumber.ToString());
-            jvertical = Input.GetAxis("JVertical" + PlayerNumber.ToString());
+        // Get input from controller
+        jhorizontal = Input.GetAxis("JHorizontal" + PlayerNumber.ToString());
+        jvertical = Input.GetAxis("JVertical" + PlayerNumber.ToString());
 
-            // Movement for keyboard input and controller input respectively
-            movement = new Vector2(horizontal, 0);
-            jmovement = new Vector2(jhorizontal, 0);
+        // Movement for keyboard input and controller input respectively
+        movement = new Vector2(horizontal, 0);
+        jmovement = new Vector2(jhorizontal, 0);
 
-            // Booleans to be used for animation
-            crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround;
-            walk = ((horizontal != 0) || (jhorizontal != 0));
-            jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString())) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch;
-            punch = Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString());
-            kick = walk && punch;
-            shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
-            downKick = crouch && punch;
-            Super = Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString());
+        // Booleans to be used for animation
+        crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround;
+        walk = ((horizontal != 0) || (jhorizontal != 0));
+        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString())) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch;
+        punch = Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString());
+        kick = walk && punch;
+        shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
+        downKick = crouch && punch;
+        Super = Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString());
+        airDive = (!onGround && punch);
 
-
-            if (Input.GetButtonUp("Jump" + PlayerNumber.ToString()) || Input.GetButtonUp("A" + PlayerNumber.ToString())) {  // empeche de reaugmenter le jump après stop jump
-                isJumping = false;
-            }
+    
+        if (Input.GetButtonUp("Jump" + PlayerNumber.ToString()) || Input.GetButtonUp("A" + PlayerNumber.ToString())) {  // empeche de reaugmenter le jump après stop jump
+            isJumping = false;
+        }
 
     }
 
@@ -360,6 +401,7 @@ public class PlayerControl : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col) {
         if (col.collider.tag == "ground") {
             onGround = true;
+            isAirDiving = false;
             isJumping = false;
             jumpTimeCounter = jumpTime;
         }
@@ -397,6 +439,11 @@ public class PlayerControl : MonoBehaviour {
 
         if (col.collider.tag == "WallRight") {
             hitWallRight = true;
+        }
+
+        if (col.collider.tag == "ground") {
+            onGround = true;
+            isAirDiving = false;
         }
     }
 

@@ -31,5 +31,9 @@ public class SoundManager : MonoBehaviour
 
 
             }
-   
+
+    public void SetVolume(float vol) {
+        AudioListener.volume = vol;
+    }
+
 }
