@@ -18,6 +18,8 @@ TagManager:
   - HeadEnemy
   - UpEnemy
   - DownEnemy
+  - WallRight
+  - WallLeft
   layers:
   - Default
   - TransparentFX
