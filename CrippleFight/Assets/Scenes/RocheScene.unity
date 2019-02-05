@@ -321,7 +321,7 @@ Prefab:
     - target: {fileID: 61759456682588864, guid: dfd7d6752e63ef74eaeec34714b0f556,
         type: 2}
       propertyPath: m_Size.y
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1138981740570162, guid: dfd7d6752e63ef74eaeec34714b0f556, type: 2}
       propertyPath: m_TagString
@@ -894,6 +894,7 @@ MonoBehaviour:
   dist: 0
   p1x: 0
   p2x: 0
+  maxDist: 0
   left: {fileID: 0}
   right: {fileID: 0}
 --- !u!1 &434909671
@@ -1381,7 +1382,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30.6, y: 10}
+  m_Size: {x: 30.6, y: 15}
   m_EdgeRadius: 0
 --- !u!4 &693287120
 Transform:
@@ -2266,7 +2267,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30.6, y: 10}
+  m_Size: {x: 30.6, y: 15}
   m_EdgeRadius: 0
 --- !u!4 &1451783382
 Transform:
@@ -2367,6 +2368,11 @@ Prefab:
     - target: {fileID: 1469137986348710, guid: 5630e28042ebac84a97f4411f9dcaefb, type: 2}
       propertyPath: m_TagString
       value: WallRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 61050771810909874, guid: 5630e28042ebac84a97f4411f9dcaefb,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5630e28042ebac84a97f4411f9dcaefb, type: 2}

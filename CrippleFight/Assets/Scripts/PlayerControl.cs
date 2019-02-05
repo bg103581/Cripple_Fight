@@ -237,14 +237,14 @@ public class PlayerControl : MonoBehaviour {
 
         if (onGround) {
             if (isLeft) {
-                transform.localScale = new Vector3(-2, 2, 2);
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 if (horizontal < 0 || jhorizontal < 0) {
                     block = true;
                 } else {
                     block = false;
                 }
             } else {
-                transform.localScale = new Vector3(2, 2, 2);
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 if (horizontal > 0 || jhorizontal > 0) {
                     block = true;
                 } else {
@@ -458,4 +458,5 @@ public class PlayerControl : MonoBehaviour {
             yield return new WaitForSeconds(0.5f);
         }
     }
+    
 }
