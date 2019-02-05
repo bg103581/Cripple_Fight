@@ -154,8 +154,8 @@ public class UIManager : MonoBehaviour {
         }
             else if ( PN > 1)
             {
-                Debug.Log("partienulll");
-                checknumber = false;
+                Debug.Log("Round3");
+                
             }
             else
         {
@@ -163,6 +163,37 @@ public class UIManager : MonoBehaviour {
             
         }
         }
+
+
+
+        if (PN >= 1 && P1W > P2W)
+        {
+            Debug.Log("Player1win");
+            checknumber = false;
+
+        }
+        else if (PN >= 1 && P1W < P2W)
+        {
+            Debug.Log("Player2win");
+            checknumber = false;
+
+        }
+        if (PN >= 2 && P1W > P2W)
+        {
+            Debug.Log("Player1win");
+            checknumber = false;
+
+        }
+        else if (PN >= 2 && P1W < P2W)
+        {
+            Debug.Log("Player2win");
+            checknumber = false;
+
+        }
+
+
+
+
         if (i == 4)
         {
 

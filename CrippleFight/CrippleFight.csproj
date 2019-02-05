@@ -327,6 +327,7 @@
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\SuperBarP1.cs" />
     <Compile Include="Assets\Scripts\SuperBarP2.cs" />
+    <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
