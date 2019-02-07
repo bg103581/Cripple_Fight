@@ -12,12 +12,11 @@ public class Collusion : MonoBehaviour
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject pl in players) {
-            if (pl.transform.position.x != gameObject.GetComponentInParent<Transform>().position.x) {
+
+            if (pl.layer == 9 && pl.CompareTag("Player"))
+             {
                 playerControlEnemy = pl.GetComponent<PlayerControl>();
                 AnimatorPlayerEnemy = pl.GetComponent<Animator>();
-            }
-            else {
-                myPlayerControl = pl.GetComponent<PlayerControl>();
             }
         }
     }
@@ -42,8 +41,8 @@ public class Collusion : MonoBehaviour
     }*/
 
     void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "UpP1") {
+{
+     /*   if (collision.gameObject.tag == "UpP1") {
             Debug.Log("check1");
             if (!playerControlEnemy.blocklow && !playerControlEnemy.blockhigh) {
                 HealthBarP1.Health -= 10f;
@@ -62,7 +61,7 @@ public class Collusion : MonoBehaviour
                 myPlayerControl.hitEnemyWall = true;
                 myPlayerControl.startTimerHitWall = true;
             }
-        }
+        }*/
 
         if (collision.gameObject.tag == "UpP2") {
             Debug.Log("check2");
@@ -87,7 +86,7 @@ public class Collusion : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "DownP1") {
+       /* if (collision.gameObject.tag == "DownP1") {
             if (!playerControlEnemy.blocklow) {
                 HealthBarP1.Health -= 5f;
                 SuperBarP1.Super += 20f;
@@ -102,7 +101,7 @@ public class Collusion : MonoBehaviour
                 myPlayerControl.hitEnemyWall = true;
                 myPlayerControl.startTimerHitWall = true;
             }
-        }
+        }*/
 
         if (collision.gameObject.tag == "DownP2") {
             if (!playerControlEnemy.blocklow) {

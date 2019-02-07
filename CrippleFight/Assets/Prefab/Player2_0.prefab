@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4464990672654170}
   - component: {fileID: 58209884831173048}
-  - component: {fileID: 114801790065087200}
+  - component: {fileID: 114895971880467746}
   m_Layer: 0
   m_Name: AttackP2
   m_TagString: Untagged
@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 1704326601334500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.88, y: -3.16, z: -5}
-  m_LocalScale: {x: 4.1358, y: 4.1358, z: 4.1358}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4914876586519114}
   - {fileID: 4551278595271864}
@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e650c196704af64280d6fcde8fabc35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114801790065087200
+--- !u!114 &114895971880467746
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1645563070071226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb4b42c2c1170b4cae89b12f0658860, type: 3}
+  m_Script: {fileID: 11500000, guid: 75c803b7c49ee4541849dbb0eafd1d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212278300867999768
