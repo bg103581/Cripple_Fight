@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour {
 
     private float horizontal, jhorizontal;
     private float vertical, jvertical;
-    public float maxSpeed = 10;
+    public float maxSpeed = 2;
     private Vector2 movement, jmovement;
     private bool crouch, walk, isLeft;
     public bool blockhigh, blocklow, hit, knockback;
@@ -56,6 +56,9 @@ public class PlayerControl : MonoBehaviour {
     private bool countTimerHitLag;
     private float timerHitLagCounter;
     private float timerHitLagTime = 0.4f;
+
+    //Sounds
+    public AudioClip[] sons;
 
     // Use this for initialization
     void Start() {
@@ -157,7 +160,6 @@ public class PlayerControl : MonoBehaviour {
 
             //Dash
             if (isDashingRight) {
-                anim.SetTrigger("DashRight");
                 if (dashTimeCounter < dashTime) {
                     rig2d.velocity = new Vector2(maxSpeed * 3, rig2d.velocity.y);
                     dashTimeCounter += Time.deltaTime;
@@ -166,7 +168,6 @@ public class PlayerControl : MonoBehaviour {
                     isDashingRight = false;
                 }
             } else if (isDashingLeft) {
-                anim.SetTrigger("DashLeft");
                 if (dashTimeCounter < dashTime) {
                     rig2d.velocity = new Vector2(-maxSpeed * 3, rig2d.velocity.y);
                     dashTimeCounter += Time.deltaTime;
@@ -275,14 +276,14 @@ public class PlayerControl : MonoBehaviour {
         jmovement = new Vector2(jhorizontal, 0);
 
         // Booleans to be used for animation
-        crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround;
-        walk = ((horizontal != 0) || (jhorizontal != 0));
-        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString())) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch;
-        punch = Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString());
+        crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround && !isDashingLeft && !isDashingRight && !countTimerHitLag;
+        walk = ((horizontal != 0) || (jhorizontal != 0)) && !countTimerHitLag;
+        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString())) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag;
+        punch = (Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString())) && !isDashingLeft && !isDashingRight && !countTimerHitLag;
         kick = walk && punch;
         shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
         downKick = crouch && punch;
-        Super = Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString());
+        Super = Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString()) && !isDashingRight && !isDashingLeft;
         airDive = (!onGround && punch);
 
     
@@ -328,9 +329,11 @@ public class PlayerControl : MonoBehaviour {
             if (timePassed <= delay) {
                 if (rightPress >= 2 && leftPress == 0 && onGround) {
                     isDashingRight = true;
+                    anim.SetTrigger("DashRight");
                     rightPress = 0;
                 } else if (leftPress >= 2 && rightPress == 0 && onGround) {
                     isDashingLeft = true;
+                    anim.SetTrigger("DashLeft");
                     leftPress = 0;
                 }
             } else {
@@ -450,6 +453,10 @@ public class PlayerControl : MonoBehaviour {
 
     public void KickEvent() {
         rig2d.velocity = Vector2.zero;
+    }
+
+    public void launchSound(int num) {
+        AudioSource.PlayClipAtPoint(sons[num], gameObject.transform.position);
     }
 
     //à utiliser pour debug.log : startcoroutine dans le start()
