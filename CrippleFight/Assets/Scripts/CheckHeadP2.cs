@@ -2,32 +2,65 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckHeadP2 : MonoBehaviour {
+public class CheckHeadP2 : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-     void OnTriggerEnter2D(Collider2D collision)
+    public GameObject Player1, Player2;
+    Vector2 Trans;
+    Rigidbody2D RB1, RB2;
+
+    void Start()
     {
-        if (collision.gameObject.tag == "Head")
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject p in players)
         {
-            if (transform.position.x  <= collision.transform.position.x)
+
+            if (p.layer == 8 && p.CompareTag("Player"))
             {
-                transform.Translate(new Vector2(-0.3f, 0));
-              
+                Player1 = p;
+                RB1 = Player1.GetComponent<Rigidbody2D>();
+            }
+            if (p.layer == 9 && p.CompareTag("Player"))
+            {
+                Player2 = p;
+                RB2 = Player2.GetComponent<Rigidbody2D>();
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Trans = new Vector2(400 * Time.deltaTime, 0);
+
+        if (collision.gameObject.tag == "Head" || collision.gameObject.tag == "HeadEnemy")
+        {
+            
+            if (transform.position.x < collision.transform.position.x)
+            {
+                RB2.velocity = (Trans);
+                RB1.velocity = (-Trans);
+                
             }
             else if (transform.position.x > collision.transform.position.x)
             {
-                transform.Translate(new Vector2(0.3f, 0));
-               
+
+                RB2.velocity = (-Trans * 10);
+                RB1.velocity = (Trans * 10);
+
+
             }
-        
+            else
+            {
+                RB2.velocity = (-Trans);
+                RB1.velocity = (Trans);
+            }
+
         }
     }
+
 }
