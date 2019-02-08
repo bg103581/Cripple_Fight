@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour {
         checknumber = true;
         NumPartie = 1;
         Gamemanager = GameObject.FindObjectOfType<GameManager>();
-        Count = 100f;
+        Count = 10f;
         EndAnim = false;
 
 
