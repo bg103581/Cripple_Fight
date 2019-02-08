@@ -57,39 +57,54 @@ public class CameraControl : MonoBehaviour {
     }
 
     void LookAtCenter() {
+       
 
         Debug.Log(Camc);
 
         if ((Camc==false) ) {
-            transform.position = new Vector3(center, centerY, transform.position.z );
+            if (Mathf.Abs(p1x - p2x) <= 7)
+            {
+                transform.position = new Vector3(center, transform.position.y, transform.position.z);
+            }
+            else
+            {
+                if (player1.transform.position.x < player2.transform.position.x)
+                {
+                    Camera.main.orthographicSize = Mathf.Abs((3f - (Diff / 10)));
 
+                }
+                else
+                {
+                    Camera.main.orthographicSize = Mathf.Abs((3f + (Diff / 10)));
+
+                }
+                transform.position = new Vector3(center, transform.position.y, transform.position.z);
+            }
             
-            if (player1.transform.position.x< player2.transform.position.x)
-            {
-                Camera.main.orthographicSize = Mathf.Abs((4f - (Diff / 6)));
-                
-            }
-            else 
-            {
-                Camera.main.orthographicSize = Mathf.Abs((4f + (Diff / 6)));
-                
-            }
-            if (Camera.main.orthographicSize > 5f)
-            {
-                ColliderCamL.SetActive(true);
-                ColliderCamR.SetActive(true);
-                Camc = true;
-
-            }
+            
+            
+        }
+        transform.position = new Vector3(transform.position.x, centerY, transform.position.z);
+        Debug.Log(Mathf.Abs(p1x - p2x));
+        if (Mathf.Abs(p1x - p2x) > 17)
+        {
+            Debug.Log("tr");
+            ColliderCamL.SetActive(true);
+            ColliderCamR.SetActive(true);
+            Camc = true;
 
         }
-
-        if (Mathf.Abs(Diff) <= 10)
+        if (Mathf.Abs(p1x - p2x)<= 17)
         {
+
             ColliderCamL.SetActive(false);
             ColliderCamR.SetActive(false);
             Camc = false;
         }
+
+
+
+
 
         //player1.transform.position = new Vector2(Mathf.Clamp(player1.transform.position.x,-10,10),transform.position.y);
 
