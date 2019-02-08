@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class CheckHead : MonoBehaviour {
 
-    public GameObject Player1, Player2;
+    public GameObject Player1, Player2, CheckPosR, CheckPosL;
     Vector2 Trans;
     Rigidbody2D RB1, RB2;
 
     void Start()
     {
+     
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject p in players)
         {
@@ -25,6 +26,8 @@ public class CheckHead : MonoBehaviour {
                 RB2 = Player2.GetComponent<Rigidbody2D>();
             }
         }
+        CheckPosR = GameObject.Find("CheckPosR");
+        CheckPosL = GameObject.Find("CheckPosL");
     }
 
     // Update is called once per frame
@@ -33,18 +36,18 @@ public class CheckHead : MonoBehaviour {
 	}
      void OnTriggerEnter2D(Collider2D collision)
     {
-        Trans= new Vector2(500*Time.deltaTime, 0);
+        Trans= new Vector2(450*Time.deltaTime, 0);
 
         if (collision.gameObject.tag == "HeadP2" || collision.gameObject.tag == "HeadEnemy")
         {
           
-            if (transform.position.x  < collision.transform.position.x)
+            if (transform.position.x  <= collision.transform.position.x && transform.position.x > CheckPosL.transform.position.x)
             {
                 RB2.velocity=(Trans);
                 RB1.velocity=(-Trans);
                 
             }
-            else if (transform.position.x >= collision.transform.position.x)
+            else if (transform.position.x > collision.transform.position.x && transform.position.x < CheckPosR.transform.position.x)
             {
                
                 RB2.velocity = (-Trans);
@@ -52,7 +55,17 @@ public class CheckHead : MonoBehaviour {
                 
 
             }
-        
+           else if((transform.position.x > CheckPosR.transform.position.x))
+            {
+                
+                RB1.velocity = (-Trans);
+            }
+            else if ((transform.position.x < CheckPosR.transform.position.x))
+            {
+
+                RB1.velocity = (-Trans);
+            }
+
         }
     }
 
