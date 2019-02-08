@@ -14,11 +14,14 @@ public class Menu : MonoBehaviour {
     public static Animator LogoAnim, ClinicAnim;
     public GameObject EventSystem1;
     public GameObject FedorP1, FedorP2, NatalyaP1, NatalyaP2, MarcusP1, MarcusP2;
-    public GameObject confirmButton, panelAB;
+    public GameObject Button1, confirmButton, panelAB;
+    public bool Checkconfirm=false;
+    
     
 
     void Start () {
         LogoAnim = GameObject.Find("Logo").GetComponent<Animator>();
+        
     }
 	
 	void Update () {
@@ -82,7 +85,7 @@ public class Menu : MonoBehaviour {
         Menu1.SetActive(false);
         Menu2.SetActive(false);
         Menu3.SetActive(false);
-        Menu4.SetActive(true);
+        StartCoroutine(Versus());
         EventSystem1.SetActive(false);
     }
 
@@ -186,30 +189,45 @@ public class Menu : MonoBehaviour {
             if (checkPlayer1 == true && checkPlayer2 == true) {
                 panelAB.SetActive(false);
                 confirmButton.SetActive(true);
+                
+
             } else {
                 panelAB.SetActive(true);
                 confirmButton.SetActive(false);
+                
             }
-        }
+
+    }
     }
 
-    public void Ready()
-    {
-        if (checkPlayer1 == true && checkPlayer2 == true && confirmButton.activeInHierarchy) {
-            SceneManager.LoadScene("SampleScene");
-        }
-    }
+
 
     public void CancelPlayer1()
-    { if(Input.GetButton("B1"))
-        checkPlayer1 = false;
-   
+    {
+        if (Input.GetButton("B1"))
+        {
+            checkPlayer1 = false;
+            confirmButton.SetActive(false);
+            FedorP1.SetActive(false);
+            NatalyaP1.SetActive(false);
+            
+        }
     }
-
     public void CancelPlayer2()
     {
         if (Input.GetButton("B2"))
+        {
             checkPlayer2 = false;
+            confirmButton.SetActive(false);
+            FedorP2.SetActive(false);
+            NatalyaP2.SetActive(false);
+        }
+    }
+    public IEnumerator Versus()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Menu4.SetActive(true);
+
     }
 
 }

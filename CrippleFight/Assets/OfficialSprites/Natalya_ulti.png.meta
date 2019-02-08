@@ -1,0 +1,498 @@
+fileFormatVersion: 2
+guid: 7de61c1bdcdcc514eba3edf272116404
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Natalya_ulti_0
+    21300002: Natalya_ulti_1
+    21300004: Natalya_ulti_2
+    21300006: Natalya_ulti_3
+    21300008: Natalya_ulti_4
+    21300010: Natalya_ulti_5
+    21300012: Natalya_ulti_6
+    21300014: Natalya_ulti_7
+    21300016: Natalya_ulti_8
+    21300018: Natalya_ulti_9
+    21300020: Natalya_ulti_10
+    21300022: Natalya_ulti_11
+    21300024: Natalya_ulti_12
+    21300026: Natalya_ulti_13
+    21300028: Natalya_ulti_14
+    21300030: Natalya_ulti_15
+    21300032: Natalya_ulti_16
+    21300034: Natalya_ulti_17
+    21300036: Natalya_ulti_18
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Natalya_ulti_0
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1771
+        width: 155
+        height: 324
+      alignment: 9
+      pivot: {x: 0.38735086, y: 0.4958545}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 803bf74c40a06d24f8c698dd3951afc9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_1
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1771
+        width: 155
+        height: 358
+      alignment: 9
+      pivot: {x: 0.43067744, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f1f78a671babf74da699c9325c0f04c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_2
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 1771
+        width: 228
+        height: 444
+      alignment: 9
+      pivot: {x: 0.52356356, y: 0.47579956}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0c94a51e1caea40a9d06f6e4156eba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_3
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 1765
+        width: 221
+        height: 453
+      alignment: 9
+      pivot: {x: 0.7674099, y: 0.47035038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5659783563f1ea849b243b3b83a39576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_4
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 1761
+        width: 235
+        height: 464
+      alignment: 9
+      pivot: {x: 0.7343329, y: 0.4652639}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d71f789bbced34885fce0b9303d7e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_5
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1264
+        width: 235
+        height: 447
+      alignment: 9
+      pivot: {x: 0.7919915, y: 0.53212935}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a166c241f234e8b4697208089e8dedaf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_6
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1264
+        width: 235
+        height: 443
+      alignment: 9
+      pivot: {x: 0.7919914, y: 0.52161276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 278dc41d57287f747840b484a509555b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_7
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1264
+        width: 241
+        height: 431
+      alignment: 9
+      pivot: {x: 0.7847219, y: 0.50370234}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54722f301d72357408f951dfb4caf1be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_8
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1264
+        width: 241
+        height: 436
+      alignment: 9
+      pivot: {x: 0.79134333, y: 0.5366001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4b4a4bdc78e04b43a1530c63bd31f4a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_9
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 1264
+        width: 234
+        height: 447
+      alignment: 9
+      pivot: {x: 0.793239, y: 0.5428393}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2da966758cea1184e84b13a314b41f54
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_10
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 767
+        width: 230
+        height: 456
+      alignment: 9
+      pivot: {x: 0.7150816, y: 0.53149533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b95d50bbfb6194479d40bf155702989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_11
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 767
+        width: 230
+        height: 456
+      alignment: 9
+      pivot: {x: 0.7289579, y: 0.5384943}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfbe7291ff95674b9d4cd30fed80863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 767
+        width: 235
+        height: 454
+      alignment: 9
+      pivot: {x: 0.69013387, y: 0.5246043}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8fd5dac700cc024cb2f82d6a8bb15cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_13
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 767
+        width: 236
+        height: 456
+      alignment: 9
+      pivot: {x: 0.66228133, y: 0.52099687}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f72037e3f0d869b44b8cd8c371daed61
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_14
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 767
+        width: 236
+        height: 456
+      alignment: 9
+      pivot: {x: 0.6825665, y: 0.5174973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be042c5f4478bd4bbf4fdf6f2424701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_15
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 18
+        width: 431
+        height: 456
+      alignment: 9
+      pivot: {x: 0.60709745, y: 0.51807606}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f19cdeef525e9604e8f4a9413747ceee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_16
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 23
+        width: 435
+        height: 704
+      alignment: 9
+      pivot: {x: 0.5880423, y: 0.35946366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd2642ee20d040a499e7b57de923f513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_17
+      rect:
+        serializedVersion: 2
+        x: 1539
+        y: 30
+        width: 254
+        height: 726
+      alignment: 9
+      pivot: {x: 0.3806311, y: 0.34393996}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afdd4dc73a2a9bc4f91a82d971c62b1e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Natalya_ulti_18
+      rect:
+        serializedVersion: 2
+        x: 2191
+        y: 10
+        width: 478
+        height: 425
+      alignment: 9
+      pivot: {x: 0.21289471, y: 0.4286597}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f164a262425d2444bebb6a8cf37c00d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: cc2267a4803dd7c4dad136624a2146d7
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
