@@ -283,7 +283,7 @@ public class PlayerControl : MonoBehaviour {
         kick = walk && punch;
         shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
         downKick = crouch && punch;
-        Super = Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString()) && !isDashingRight && !isDashingLeft;
+        Super = Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString()) && !isDashingRight && !isDashingLeft && onGround;
         airDive = (!onGround && punch);
 
     
@@ -354,14 +354,16 @@ public class PlayerControl : MonoBehaviour {
 
         //launch super after tapping super button
         if (Super) {
-            if (PlayerNumber == 1 && SuperBarP1.Super == 100f) {
+            if (PlayerNumber == 1 && SuperBarP1.Super >= 100f) {
                 /*Instantiate(hadoken, new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);
                 hadoken.transform.Translate(new Vector2(this.transform.position.x + Time.deltaTime, this.transform.position.y));*/
-                SuperBarP1.Super = 0;
+                SuperBarP1.Super = 0f;
+                anim.SetTrigger("Ulti");
             }
-            if (PlayerNumber == 2 && SuperBarP2.Super == 100f) {
+            if (PlayerNumber == 2 && SuperBarP2.Super >= 100f) {
                 /*Instantiate(hadoken, new Vector3(this.transform.position.x - 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);*/
-                SuperBarP2.Super = 0;
+                SuperBarP2.Super = 0f;
+                anim.SetTrigger("Ulti");
             }
         }
 
