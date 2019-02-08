@@ -383,6 +383,16 @@ MonoBehaviour:
   jumpForce: 15
   jumpTime: 0.25
   startTimerHitLag: 0
+  sons:
+  - {fileID: 8300000, guid: 6c4f0db2241edf742bd38c1c00f4a2e0, type: 3}
+  - {fileID: 8300000, guid: 2e841698b01c28a4aab05e2c94627bfb, type: 3}
+  - {fileID: 8300000, guid: cef5f42581ca9ac4ab55355b6cf79e26, type: 3}
+  - {fileID: 8300000, guid: 1158e25962be4534c90770aca345405d, type: 3}
+  - {fileID: 8300000, guid: 39cb78a6134a4684da95d1f14e10c019, type: 3}
+  - {fileID: 8300000, guid: c613cc2644032944cb377d401b541322, type: 3}
+  - {fileID: 8300000, guid: 1c6de93f280ae2f4982773df95369cd8, type: 3}
+  - {fileID: 8300000, guid: d0917b2b7cb2b1f4eba72c65c1e44be9, type: 3}
+  - {fileID: 8300000, guid: e80f7088d6d63a44aa731a6eba7205ae, type: 3}
 --- !u!114 &114446653640787630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,6 +417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1: {fileID: 0}
   Player2: {fileID: 0}
+  CheckPosR: {fileID: 0}
+  CheckPosL: {fileID: 0}
 --- !u!212 &212536278763979428
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -441,7 +453,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 967fa195f7297004d941efaa474c65ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1

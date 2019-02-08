@@ -19,6 +19,12 @@ public class CollusionP2 : MonoBehaviour
                 playerControlEnemy = pl.GetComponent<PlayerControl>();
                 AnimatorPlayerEnemy = pl.GetComponent<Animator>();
             }
+
+            if (pl.layer == 9)
+            {
+                myPlayerControl = pl.GetComponent<PlayerControl>();
+            }
+
         }
     }
 

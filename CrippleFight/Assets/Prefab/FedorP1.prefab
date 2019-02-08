@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 1234613437942920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.6, y: -3.7, z: 0}
-  m_LocalScale: {x: -1.3, y: 1.7, z: 2}
+  m_LocalScale: {x: -1.3, y: 1.3, z: 2}
   m_Children:
   - {fileID: 4932511861062030}
   - {fileID: 4076149413968212}
@@ -378,6 +378,16 @@ MonoBehaviour:
   jumpForce: 15
   jumpTime: 0.25
   startTimerHitLag: 0
+  sons:
+  - {fileID: 8300000, guid: 71a4c1a701a5fd940a863573752f4b5d, type: 3}
+  - {fileID: 8300000, guid: 5021f354d21c7c946922854726f49c2a, type: 3}
+  - {fileID: 8300000, guid: 26c90d0239517034bb97d22774bf4fce, type: 3}
+  - {fileID: 8300000, guid: 617f657600bd3c64d8d483f54c0e63b1, type: 3}
+  - {fileID: 8300000, guid: 9657b87cc9f523b4cb4b7fb81f7c644e, type: 3}
+  - {fileID: 8300000, guid: c613cc2644032944cb377d401b541322, type: 3}
+  - {fileID: 8300000, guid: 6867284eda048bd47addad00d68a8f64, type: 3}
+  - {fileID: 8300000, guid: 5c054b935c0944442945e938c4ad71d8, type: 3}
+  - {fileID: 8300000, guid: e80f7088d6d63a44aa731a6eba7205ae, type: 3}
 --- !u!114 &114842030280405218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -391,6 +401,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1: {fileID: 0}
   Player2: {fileID: 0}
+  CheckPosR: {fileID: 0}
+  CheckPosL: {fileID: 0}
 --- !u!212 &212256505016834730
 SpriteRenderer:
   m_ObjectHideFlags: 1
