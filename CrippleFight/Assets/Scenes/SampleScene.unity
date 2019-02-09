@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 297839}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 581687a8fe7197b4babbbc556e7e7998, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.107
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -585,7 +585,7 @@ GameObject:
   m_Layer: 0
   m_Name: CheckPosL
   m_TagString: ChL
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1040,11 +1040,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4518967181460718, guid: 50dddc883ad5ea544b17c5d7fc6a9e25, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.46
+      value: 1.69
       objectReference: {fileID: 0}
     - target: {fileID: 4518967181460718, guid: 50dddc883ad5ea544b17c5d7fc6a9e25, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.14
+      value: -3.75
       objectReference: {fileID: 0}
     - target: {fileID: 4518967181460718, guid: 50dddc883ad5ea544b17c5d7fc6a9e25, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1717,7 +1717,7 @@ GameObject:
   m_Layer: 0
   m_Name: CheckPosR
   m_TagString: ChR
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2342,11 +2342,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4859534586274784, guid: 27c06c234cb7e804bb221e00e16b97f2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.7
+      value: 1.79
       objectReference: {fileID: 0}
     - target: {fileID: 4859534586274784, guid: 27c06c234cb7e804bb221e00e16b97f2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.7
+      value: -4.95
       objectReference: {fileID: 0}
     - target: {fileID: 4859534586274784, guid: 27c06c234cb7e804bb221e00e16b97f2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2463,7 +2463,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4874924660381264, guid: 7690285e6259aad45945cab28517b0df, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.5
+      value: -1.41
       objectReference: {fileID: 0}
     - target: {fileID: 4874924660381264, guid: 7690285e6259aad45945cab28517b0df, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3433,7 +3433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Players1:
-  - {fileID: 1234613437942920, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
+  - {fileID: 1010990917817764, guid: 7690285e6259aad45945cab28517b0df, type: 2}
   - {fileID: 1010990917817764, guid: 7690285e6259aad45945cab28517b0df, type: 2}
   - {fileID: 1461003511290656, guid: 81b6e91c7eebf704eb667bfc430f2dca, type: 2}
   - {fileID: 1973742671873820, guid: c93b2a3c22ce22e40a4000b7ea3be485, type: 2}
@@ -3453,11 +3453,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4927061593016376, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.6
+      value: -2.88
       objectReference: {fileID: 0}
     - target: {fileID: 4927061593016376, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.7
+      value: -5.09
       objectReference: {fileID: 0}
     - target: {fileID: 4927061593016376, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
       propertyPath: m_LocalPosition.z

@@ -218,6 +218,7 @@ public class PlayerControl : MonoBehaviour {
         anim.SetBool("isShoryuken", shoryuken);
         anim.SetBool("isDownKicking", downKick);
         anim.SetBool("isHit", hit);
+        anim.SetBool("isAirDiving", airDive);
     }
 
     // Allows player to fall faster
@@ -368,12 +369,12 @@ public class PlayerControl : MonoBehaviour {
                 /*Instantiate(hadoken, new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);
                 hadoken.transform.Translate(new Vector2(this.transform.position.x + Time.deltaTime, this.transform.position.y));*/
                 SuperBarP1.Super = 0f;
-                anim.SetTrigger("Ulti");
+                //anim.SetTrigger("Ulti");
             }
             if (PlayerNumber == 2 && SuperBarP2.Super >= 100f) {
                 /*Instantiate(hadoken, new Vector3(this.transform.position.x - 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);*/
                 SuperBarP2.Super = 0f;
-                anim.SetTrigger("Ulti");
+                //anim.SetTrigger("Ulti");
             }
         }
 
@@ -468,7 +469,8 @@ public class PlayerControl : MonoBehaviour {
     }
 
     public void launchSound(int num) {
-        AudioSource.PlayClipAtPoint(sons[num], gameObject.transform.position);
+        //AudioSource.PlayClipAtPoint(sons[num], gameObject.transform.position);
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>().PlayOneShot(sons[num], 2f);
     }
 
     //à utiliser pour debug.log : startcoroutine dans le start()

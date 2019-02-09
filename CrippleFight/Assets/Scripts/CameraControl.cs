@@ -58,7 +58,7 @@ public class CameraControl : MonoBehaviour {
 
     void LookAtCenter() {
 
-        Debug.Log(Camc);
+        //Debug.Log(Camc);
 
         if ((Camc==false) ) {
             transform.position = new Vector3(center, centerY, transform.position.z );
