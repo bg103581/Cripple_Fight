@@ -41,15 +41,15 @@ public class UIManager : MonoBehaviour {
 
         if (HealthBarP1.healthBar.fillAmount == 0|| HealthBarP2.healthBar.fillAmount == 0)
         {
-            Time.timeScale = 0;
-            Player1.GetComponent<PlayerControl>().enabled = false;
-            Player2.GetComponent<PlayerControl>().enabled = false;
+            StartCoroutine(Gamever());
             GameOver.SetActive(true);
+            
+            
             
         }
         else
         {
-            Time.timeScale = 1;
+           
             Player1.GetComponent<PlayerControl>().enabled = true;
             Player2.GetComponent<PlayerControl>().enabled = true;
 
@@ -221,7 +221,12 @@ public class UIManager : MonoBehaviour {
      }
 
     */
-
+    IEnumerator Gamever()
+    {
+        yield return new WaitForSeconds(1f);
+        Player1.GetComponent<PlayerControl>().enabled = false;
+        Player2.GetComponent<PlayerControl>().enabled = false;
+    }
 
 
 

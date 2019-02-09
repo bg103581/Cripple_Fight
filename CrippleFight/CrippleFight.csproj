@@ -321,12 +321,16 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthBarP1.cs" />
     <Compile Include="Assets\Scripts\HealthBarP2.cs" />
+    <Compile Include="Assets\Scripts\HUD\HUDchangeP1.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\MenuMove.cs" />
     <Compile Include="Assets\Scripts\MyButtonSelection.cs" />
     <Compile Include="Assets\Scripts\MyEventSystem.cs" />
     <Compile Include="Assets\Scripts\MyEventSystemProvider.cs" />
     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\ParallaxMovement\ParallaxBackground.cs" />
+    <Compile Include="Assets\Scripts\ParallaxMovement\ParallaxCamera.cs" />
+    <Compile Include="Assets\Scripts\ParallaxMovement\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\SuperBarP1.cs" />

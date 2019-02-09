@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 20949950526783790}
   - component: {fileID: 81303288049696370}
   - component: {fileID: 114691276371564834}
+  - component: {fileID: 114513716418640696}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -83,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1159889038929556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.2, y: 5.48, z: 0}
+  m_LocalPosition: {x: -16.38, y: 5.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4132466198597864}
@@ -96,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937233721628318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.2, y: 5.48, z: 0}
+  m_LocalPosition: {x: 16.47, y: 5.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4132466198597864}
@@ -126,7 +127,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.68
+  orthographic size: 5.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -199,6 +200,17 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1974373047639058}
   m_Enabled: 1
+--- !u!114 &114513716418640696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974373047639058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64670bc50fec71843adf5cfae8c916b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114691276371564834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -224,8 +236,8 @@ MonoBehaviour:
   p1x: 0
   p2x: 0
   maxDist: 0
-  left: {fileID: 61921704977101072}
-  right: {fileID: 61175526018013024}
+  left: {fileID: 0}
+  right: {fileID: 0}
   Cam: {fileID: 20949950526783790}
   ColliderCamR: {fileID: 1937233721628318}
   ColliderCamL: {fileID: 1159889038929556}
