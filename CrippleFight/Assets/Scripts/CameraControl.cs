@@ -15,8 +15,7 @@ public class CameraControl : MonoBehaviour {
     void Start() {
         wallLeft = GameObject.FindGameObjectWithTag("WallLeft");
         wallRight = GameObject.FindGameObjectWithTag("WallRight");
-        left = wallLeft.GetComponent<BoxCollider2D>();
-        right = wallRight.GetComponent<BoxCollider2D>();
+        
         maxDist = 24.5f;
     }
 
@@ -59,7 +58,7 @@ public class CameraControl : MonoBehaviour {
     void LookAtCenter() {
        
 
-        Debug.Log(Camc);
+     
 
         if ((Camc==false) ) {
             if (Mathf.Abs(p1x - p2x) <= 7)
@@ -85,7 +84,7 @@ public class CameraControl : MonoBehaviour {
             
         }
         transform.position = new Vector3(transform.position.x, centerY, transform.position.z);
-        Debug.Log(Mathf.Abs(p1x - p2x));
+       
         if (Mathf.Abs(p1x - p2x) > 17)
         {
             Debug.Log("tr");

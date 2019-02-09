@@ -533,8 +533,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOver: {fileID: 544525255}
   Round: {fileID: 273853861}
-  Player1: {fileID: 1630272289}
-  Player2: {fileID: 1630272289}
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
   Count: 99
   i: 0
   P1W: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
   CountInt: 0
   NumPartie: 0
   Timer: {fileID: 1994236583}
-  Players: []
+  players: []
   RoundT: {fileID: 273853863}
   checknumber: 0
   EndAnim: 0
@@ -2890,11 +2890,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1625494089}
   m_CullTransparentMesh: 0
---- !u!1 &1630272289 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1010990917817764, guid: 7690285e6259aad45945cab28517b0df,
-    type: 2}
-  m_PrefabInternal: {fileID: 1554886561}
 --- !u!1 &1666186145
 GameObject:
   m_ObjectHideFlags: 0
