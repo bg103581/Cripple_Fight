@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour {
     public int i, P1W,P2W,PN, CountInt,NumPartie;
     public static GameManager Gamemanager;
       public Text Timer;
-    public GameObject [] Players;
+    public GameObject [] players;
     public Text RoundT;
    public bool checknumber, EndAnim;
 
@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour {
         checknumber = true;
         NumPartie = 1;
         Gamemanager = GameObject.FindObjectOfType<GameManager>();
-        Count = 10f;
+        Count = 100f;
         EndAnim = false;
 
 
@@ -31,9 +31,14 @@ public class UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Players = GameObject.FindGameObjectsWithTag("Player");
-        //CountTime();
-      
+
+        players = GameObject.FindGameObjectsWithTag("Player");
+        Player1 = players[0];
+        Player2 = players[1];
+
+
+       
+
         if (HealthBarP1.healthBar.fillAmount == 0|| HealthBarP2.healthBar.fillAmount == 0)
         {
             Time.timeScale = 0;
@@ -63,8 +68,8 @@ public class UIManager : MonoBehaviour {
     {
         Application.Quit();
     }
-
-    /*  public void CountTime()
+    /*
+      public void CountTime()
      {
 
          Count -= Time.deltaTime;
@@ -79,8 +84,8 @@ public class UIManager : MonoBehaviour {
 
              if (NumPartie == 1 && checknumber)
              {
-                 Destroy(Players[0]);
-                 Destroy(Players[1]);
+                 Destroy(Player2);
+                 Destroy(Player1);
 
                  //  StartCoroutine(Rounds());
                  NumPartie = 2;
@@ -213,9 +218,9 @@ public class UIManager : MonoBehaviour {
              checknumber = false;
          }
 
-     }*/
+     }
 
-
+    */
 
 
 
