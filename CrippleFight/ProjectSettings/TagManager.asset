@@ -22,6 +22,7 @@ TagManager:
   - Hadoken
   - ChL
   - ChR
+  - AudioManager
   - LeftLimit
   - RightLimit
   layers:

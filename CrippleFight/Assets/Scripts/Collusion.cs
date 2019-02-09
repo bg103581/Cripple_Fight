@@ -71,7 +71,7 @@ public class Collusion : MonoBehaviour
         }*/
 
         if (collision.gameObject.tag == "UpP2") {
-            Debug.Log("check2");
+            Debug.Log("checkUpP2");
             if (!playerControlEnemy.blocklow && !playerControlEnemy.blockhigh) {
                 HealthBarP2.Health -= 10f;
                 SuperBarP2.Super += 20f;
@@ -79,16 +79,15 @@ public class Collusion : MonoBehaviour
                 myPlayerControl.startTimerHitLag = true;
             } else if (playerControlEnemy.blocklow) {
                 AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
-                playerControlEnemy.hit = true;
+                //playerControlEnemy.hit = true;
                 myPlayerControl.startTimerHitLag = true;
             } else if (playerControlEnemy.blockhigh) {
                 AnimatorPlayerEnemy.SetTrigger("isBlocking");
-                playerControlEnemy.hit = true;
+                //playerControlEnemy.hit = true;
                 myPlayerControl.startTimerHitLag = true;
             }
 
             if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
-                Debug.Log("cheeck5");
                 myPlayerControl.hitEnemyWall = true;
                 myPlayerControl.startTimerHitWall = true;
             }
@@ -112,18 +111,17 @@ public class Collusion : MonoBehaviour
         }*/
 
         if (collision.gameObject.tag == "DownP2") {
-            Debug.Log("check2");
+            Debug.Log("checkDownP2");
             if (!playerControlEnemy.blocklow) {
                 HealthBarP2.Health -= 5f;
                 SuperBarP2.Super += 20f;
                 playerControlEnemy.hit = true;
             } else if (playerControlEnemy.blocklow) {
                 AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
-                playerControlEnemy.hit = true;
+                //playerControlEnemy.hit = true;
             }
 
             if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
-                Debug.Log("cheeck6");
                 myPlayerControl.hitEnemyWall = true;
                 myPlayerControl.startTimerHitWall = true;
             }

@@ -116,7 +116,7 @@ public class PlayerControl : MonoBehaviour {
             // Tap jump and hold button jump
             if (jump) {
                 rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
-            } else if ((Input.GetButton("Jump" + PlayerNumber.ToString()) || Input.GetButton("A" + PlayerNumber.ToString())) && isJumping) {  // si on reste appuyé, faire un long saut
+            } else if ((Input.GetButton("Jump" + PlayerNumber.ToString()) || Input.GetButton("A" + PlayerNumber.ToString()) || Input.GetButton("StickCross" + PlayerNumber.ToString())) && isJumping) {  // si on reste appuyé, faire un long saut
                 if (jumpTimeCounter > 0) {
                     rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
                     jumpTimeCounter -= Time.deltaTime;
@@ -218,6 +218,7 @@ public class PlayerControl : MonoBehaviour {
         anim.SetBool("isShoryuken", shoryuken);
         anim.SetBool("isDownKicking", downKick);
         anim.SetBool("isHit", hit);
+        anim.SetBool("isAirDiving", airDive);
     }
 
     // Allows player to fall faster
@@ -268,8 +269,18 @@ public class PlayerControl : MonoBehaviour {
         vertical = Input.GetAxis("Vertical" + PlayerNumber.ToString());
 
         // Get input from controller
-        jhorizontal = Input.GetAxis("JHorizontal" + PlayerNumber.ToString());
-        jvertical = Input.GetAxis("JVertical" + PlayerNumber.ToString());
+        if (Input.GetAxis("StickHorizontal" + PlayerNumber.ToString()) != 0) {
+            jhorizontal = Input.GetAxis("StickHorizontal" + PlayerNumber.ToString());
+        } else {
+            jhorizontal = Input.GetAxis("JHorizontal" + PlayerNumber.ToString());
+        }
+
+        if (Input.GetAxis("StickVertical" + PlayerNumber.ToString()) != 0) {
+            jvertical = Input.GetAxis("StickVertical" + PlayerNumber.ToString());
+        } else {
+            jvertical = Input.GetAxis("JVertical" + PlayerNumber.ToString());
+        }
+        
 
         // Movement for keyboard input and controller input respectively
         movement = new Vector2(horizontal, 0);
@@ -278,16 +289,16 @@ public class PlayerControl : MonoBehaviour {
         // Booleans to be used for animation
         crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround && !isDashingLeft && !isDashingRight && !countTimerHitLag;
         walk = ((horizontal != 0) || (jhorizontal != 0)) && !countTimerHitLag;
-        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString())) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag;
-        punch = (Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString())) && !isDashingLeft && !isDashingRight && !countTimerHitLag;
+        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString()) || Input.GetButton("StickCross" + PlayerNumber.ToString())) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag;
+        punch = (Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString()) || Input.GetButtonDown("StickSquare" + PlayerNumber.ToString())) && !isDashingLeft && !isDashingRight && !countTimerHitLag;
         kick = walk && punch;
         shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
         downKick = crouch && punch;
-        Super = Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString()) && !isDashingRight && !isDashingLeft && onGround;
+        Super = (Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString()) || Input.GetButtonDown("StickTriangle" + PlayerNumber.ToString())) && !isDashingRight && !isDashingLeft && onGround;
         airDive = (!onGround && punch);
 
     
-        if (Input.GetButtonUp("Jump" + PlayerNumber.ToString()) || Input.GetButtonUp("A" + PlayerNumber.ToString())) {  // empeche de reaugmenter le jump après stop jump
+        if (Input.GetButtonUp("Jump" + PlayerNumber.ToString()) || Input.GetButtonUp("A" + PlayerNumber.ToString()) || Input.GetButton("StickCross" + PlayerNumber.ToString())) {  // empeche de reaugmenter le jump après stop jump
             isJumping = false;
         }
     }
@@ -358,12 +369,12 @@ public class PlayerControl : MonoBehaviour {
                 /*Instantiate(hadoken, new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);
                 hadoken.transform.Translate(new Vector2(this.transform.position.x + Time.deltaTime, this.transform.position.y));*/
                 SuperBarP1.Super = 0f;
-                anim.SetTrigger("Ulti");
+                //anim.SetTrigger("Ulti");
             }
             if (PlayerNumber == 2 && SuperBarP2.Super >= 100f) {
                 /*Instantiate(hadoken, new Vector3(this.transform.position.x - 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);*/
                 SuperBarP2.Super = 0f;
-                anim.SetTrigger("Ulti");
+                //anim.SetTrigger("Ulti");
             }
         }
 
@@ -458,7 +469,8 @@ public class PlayerControl : MonoBehaviour {
     }
 
     public void launchSound(int num) {
-        AudioSource.PlayClipAtPoint(sons[num], gameObject.transform.position);
+        //AudioSource.PlayClipAtPoint(sons[num], gameObject.transform.position);
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>().PlayOneShot(sons[num], 2f);
     }
 
     //à utiliser pour debug.log : startcoroutine dans le start()

@@ -14,7 +14,8 @@ public class SoundManager : MonoBehaviour
     {
 
        soundManager = this;
-
+        //Inputt.clip = Inputs[2];
+        //Inputt.PlayDelayed(15f);
 
     }
     void Update()
@@ -28,9 +29,10 @@ public class SoundManager : MonoBehaviour
             Inputt.PlayOneShot(Inputs[0]);
         }
 
-
-
-            }
+        if (!Inputt.isPlaying) {
+            Inputt.PlayOneShot(Inputs[2]);
+        }
+    }
 
     public void SetVolume(float vol) {
         AudioListener.volume = vol;
