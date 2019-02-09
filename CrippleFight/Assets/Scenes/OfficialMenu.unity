@@ -2595,7 +2595,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1250689712}
-        m_MethodName: Ready
+        m_MethodName: clickConfirm
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3955,6 +3955,118 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1119324742}
   m_CullTransparentMesh: 0
+--- !u!1001 &1137391688
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4470588583336240, guid: 5a31568d080c88c40ad0de6b7b3202b5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 592.586
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470588583336240, guid: 5a31568d080c88c40ad0de6b7b3202b5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 169.91737
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470588583336240, guid: 5a31568d080c88c40ad0de6b7b3202b5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -16.1875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470588583336240, guid: 5a31568d080c88c40ad0de6b7b3202b5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470588583336240, guid: 5a31568d080c88c40ad0de6b7b3202b5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470588583336240, guid: 5a31568d080c88c40ad0de6b7b3202b5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470588583336240, guid: 5a31568d080c88c40ad0de6b7b3202b5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470588583336240, guid: 5a31568d080c88c40ad0de6b7b3202b5, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: Menu1
+      value: 
+      objectReference: {fileID: 1372160559}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: Menu2
+      value: 
+      objectReference: {fileID: 641731482}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: Menu3
+      value: 
+      objectReference: {fileID: 506673406}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: Menu4
+      value: 
+      objectReference: {fileID: 338982366}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: MenuSettings
+      value: 
+      objectReference: {fileID: 1396358245}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: EventSystem1
+      value: 
+      objectReference: {fileID: 1810805612}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: FedorP1
+      value: 
+      objectReference: {fileID: 2031629775}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: FedorP2
+      value: 
+      objectReference: {fileID: 219361004}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: NatalyaP1
+      value: 
+      objectReference: {fileID: 771831973}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: NatalyaP2
+      value: 
+      objectReference: {fileID: 1256706666}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: MarcusP1
+      value: 
+      objectReference: {fileID: 2007434667}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: MarcusP2
+      value: 
+      objectReference: {fileID: 1454038811}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: confirmButton
+      value: 
+      objectReference: {fileID: 774823123}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: panelAB
+      value: 
+      objectReference: {fileID: 208771332}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a31568d080c88c40ad0de6b7b3202b5, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1156751639
 GameObject:
   m_ObjectHideFlags: 0
@@ -4099,62 +4211,12 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1167326898}
   m_CullTransparentMesh: 0
---- !u!1 &1250689711
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1250689713}
-  - component: {fileID: 1250689712}
-  m_Layer: 0
-  m_Name: MenuManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1250689712
+--- !u!114 &1250689712 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1250689711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1137391688}
   m_Script: {fileID: 11500000, guid: 18398c8b06fb4d34a9c07b0a00a4528d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Menu1: {fileID: 1372160559}
-  Menu2: {fileID: 641731482}
-  Menu3: {fileID: 506673406}
-  Menu4: {fileID: 338982366}
-  MenuSettings: {fileID: 1396358245}
-  EventSystem1: {fileID: 1810805612}
-  FedorP1: {fileID: 2031629775}
-  FedorP2: {fileID: 219361004}
-  NatalyaP1: {fileID: 771831973}
-  NatalyaP2: {fileID: 1256706666}
-  MarcusP1: {fileID: 2007434667}
-  MarcusP2: {fileID: 1454038811}
-  Button1: {fileID: 0}
-  confirmButton: {fileID: 774823123}
-  panelAB: {fileID: 208771332}
-  Checkconfirm: 0
---- !u!4 &1250689713
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1250689711}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 592.586, y: 169.91737, z: -16.1875}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1256706666
 GameObject:
   m_ObjectHideFlags: 0

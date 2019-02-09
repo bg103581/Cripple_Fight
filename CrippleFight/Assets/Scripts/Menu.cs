@@ -30,6 +30,26 @@ public class Menu : MonoBehaviour {
         CancelPlayer1();
         CancelPlayer2();
         Confirm();
+        clickConfirm();
+
+        if (dataHolder.FromMenuButton) {
+            Menu4.SetActive(true);
+            Menu1.SetActive(false);
+            Menu2.SetActive(false);
+            Menu3.SetActive(false);
+            MenuSettings.SetActive(false);
+            dataHolder.FromMenuButton = false;
+        }
+    }
+
+    public void clickConfirm() {
+        if (Menu4.activeInHierarchy) {
+            if (confirmButton.activeInHierarchy) {
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1")) {
+                    SceneManager.LoadScene("SampleScene");
+                }
+            }
+        }
     }
 
     // Animation du logo quand on click sur play

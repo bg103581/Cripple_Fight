@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public GameObject[] Players1, Players2;
     public  GameObject PosPlayer1, PosPlayer2;
+    public Menu myMenu;
     // Use this for initialization
     void Start () {
         Instantiates();
         Menu.checkPlayer1 = false;
         Menu.checkPlayer2 = false;
+
+        myMenu = GetComponent<Menu>();
     }
 	
 	// Update is called once per frame
@@ -25,5 +29,16 @@ public class GameManager : MonoBehaviour {
         Instantiate(Players2[Menu.NumPlayer2], PosPlayer2.transform.position, PosPlayer2.transform.rotation);
     }
     
+    public void again() {
+        SceneManager.LoadScene("SampleScene");
+    }
 
+    public void menu() {
+        dataHolder.FromMenuButton = true;
+        SceneManager.LoadScene("OfficialMenu");
+    }
+
+    public void quitter() {
+        Application.Quit();
+    }
 }

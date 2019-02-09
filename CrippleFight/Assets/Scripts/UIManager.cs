@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour {
             Player1.GetComponent<PlayerControl>().enabled = false;
             Player2.GetComponent<PlayerControl>().enabled = false;
             GameOver.SetActive(true);
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>().mute = true;
             
         }
         else
