@@ -1302,7 +1302,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1010990917817764, guid: 7690285e6259aad45945cab28517b0df, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1010990917817764, guid: 7690285e6259aad45945cab28517b0df, type: 2}
       propertyPath: m_Name
@@ -2308,7 +2308,7 @@ MonoBehaviour:
   CountInt: 0
   NumPartie: 0
   Timer: {fileID: 1277191560}
-  Players: []
+  players: []
   RoundT: {fileID: 1727125024}
   checknumber: 0
   EndAnim: 0
@@ -3617,7 +3617,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1234613437942920, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1234613437942920, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
       propertyPath: m_Name
@@ -5423,9 +5423,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1813426837}
   - component: {fileID: 1813426836}
+  - component: {fileID: 1813426838}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5439,9 +5440,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 24c3f51f1a65d8d4fb7b5c4a6846d0bf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 581687a8fe7197b4babbbc556e7e7998, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5538,6 +5539,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1813426838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1813426835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88d70e84f2a5733469436d55cd2d5dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  themeLoop: {fileID: 8300000, guid: f4d4153fb789aab479bee2be0c79f120, type: 3}
+  me: {fileID: 1813426836}
 --- !u!1 &1819389681
 GameObject:
   m_ObjectHideFlags: 0
