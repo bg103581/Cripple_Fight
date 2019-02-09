@@ -6,18 +6,19 @@ public class CameraControl : MonoBehaviour {
 
     public GameObject[] players;
     public GameObject player1, player2, wallLeft, wallRight;
-    public float minLimitX, maxLimitX, center, centerY, Diff, dist, p1x, p2x, maxDist;
+    public float center, centerY, Diff, dist, p1x, p2x, maxDist;
     public BoxCollider2D left, right;
     public Camera Cam;
     public GameObject ColliderCamR, ColliderCamL;
     public float CamL;
     public bool Camc;
+
     void Start() {
-        wallLeft = GameObject.FindGameObjectWithTag("WallLeft");
-        wallRight = GameObject.FindGameObjectWithTag("WallRight");
+        wallLeft = GameObject.FindGameObjectWithTag("LeftLimit");
+        wallRight = GameObject.FindGameObjectWithTag("RightLimit");
         left = wallLeft.GetComponent<BoxCollider2D>();
         right = wallRight.GetComponent<BoxCollider2D>();
-        maxDist = 24.5f;
+        maxDist = 10f;
     }
 
     void LateUpdate() {
@@ -43,12 +44,12 @@ public class CameraControl : MonoBehaviour {
 
         
     }
-     void Update()
+   void Update()
     {
 
    
-       CamL=Cam.transform.position.x- ColliderCamL.transform.position.x;
-        ColliderCamL.transform.position = new Vector2(Cam.ScreenToWorldPoint(new Vector3(0, 0, 0)).x , transform.position.y);
+        CamL = Cam.transform.position.x - ColliderCamL.transform.position.x;
+        ColliderCamL.transform.position = new Vector2(Cam.ScreenToWorldPoint(new Vector3(0, 0, 0)).x + 1, transform.position.y);
         ColliderCamR.transform.position = new Vector2(Cam.transform.position.x+CamL, transform.position.y);
 
 
@@ -123,7 +124,7 @@ public class CameraControl : MonoBehaviour {
             // si le distance max est atteint, enabled un collider droite
             if (dist >= maxDist) {
                 if (!right.enabled) {
-                    right.offset = new Vector2(Mathf.Max(p1x, p2x) + 16.2f, 0f);
+                    right.offset = new Vector2(Mathf.Max(p1x, p2x) + 5.5f, 0f);
                     right.enabled = true;
                 }
             } else {
@@ -139,7 +140,7 @@ public class CameraControl : MonoBehaviour {
             // si distance max , enable collider gauche
             if (dist >= maxDist) {
                 if (!left.enabled) {
-                    left.offset = new Vector2(Mathf.Min(p1x, p2x) - 16.2f, 0f);
+                    left.offset = new Vector2(Mathf.Min(p1x, p2x) - 5.5f, 0f);
                     left.enabled = true;
                 }
             } else {
@@ -152,12 +153,12 @@ public class CameraControl : MonoBehaviour {
             
             if (dist >= maxDist) {
                 if (!right.enabled) {
-                    right.offset = new Vector2(Mathf.Max(p1x, p2x) + 16.2f, 0f);
+                    right.offset = new Vector2(Mathf.Max(p1x, p2x) + 5.5f, 0f);
                     right.enabled = true;
                 }
 
                 if (!left.enabled) {
-                    left.offset = new Vector2(Mathf.Min(p1x, p2x) - 16.2f, 0f);
+                    left.offset = new Vector2(Mathf.Min(p1x, p2x) - 5.5f, 0f);
                     left.enabled = true;
                 }
             } else {
