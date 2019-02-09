@@ -35,3 +35,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 CrippleFight/Assets/OfficialMusic.meta
+CrippleFight/Assets/Scripts/dataHolder.cs.meta
