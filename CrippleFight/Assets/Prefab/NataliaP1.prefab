@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50369386381584146}
   - component: {fileID: 95578725768349878}
   - component: {fileID: 114311062142275236}
-  - component: {fileID: 58617633951245360}
+  - component: {fileID: 70657996159285806}
   m_Layer: 8
   m_Name: NataliaP1
   m_TagString: Player
@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1010990917817764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.41, y: -3.72, z: -5}
+  m_LocalPosition: {x: 4.17, y: -3.72, z: -5}
   m_LocalScale: {x: -1.3, y: 1.3, z: 1.5}
   m_Children:
   - {fileID: 4921782677030598}
@@ -264,21 +264,6 @@ CircleCollider2D:
   m_Offset: {x: -0.53, y: 4.11}
   serializedVersion: 2
   m_Radius: 0.8
---- !u!58 &58617633951245360
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1010990917817764}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.12, y: -1.03}
-  serializedVersion: 2
-  m_Radius: 0.38
 --- !u!58 &58780517538639188
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -308,6 +293,21 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.3, y: -2.3}
   m_Size: {x: 3.6, y: 3.9}
+  m_Direction: 0
+--- !u!70 &70657996159285806
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010990917817764}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.08, y: -0.22}
+  m_Size: {x: 0.69, y: 2.37}
   m_Direction: 0
 --- !u!70 &70674428740854190
 CapsuleCollider2D:
@@ -377,6 +377,7 @@ MonoBehaviour:
   stopMoving: 0
   jumpForce: 15
   jumpTime: 0.25
+  attackName: 
   startTimerHitLag: 0
   sons:
   - {fileID: 8300000, guid: 6c4f0db2241edf742bd38c1c00f4a2e0, type: 3}
