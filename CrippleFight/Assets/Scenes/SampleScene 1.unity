@@ -585,6 +585,16 @@ Prefab:
       propertyPath: orthographic size
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114691276371564834, guid: 8b86674e134c8f343a92d98c142f64ec,
+        type: 2}
+      propertyPath: wallRight
+      value: 
+      objectReference: {fileID: 1667378160}
+    - target: {fileID: 114691276371564834, guid: 8b86674e134c8f343a92d98c142f64ec,
+        type: 2}
+      propertyPath: wallLeft
+      value: 
+      objectReference: {fileID: 1290265511}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b86674e134c8f343a92d98c142f64ec, type: 2}
   m_IsPrefabAsset: 0
@@ -4090,12 +4100,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1399308172}
   m_CullTransparentMesh: 0
---- !u!114 &1412766689 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114513716418640696, guid: 8b86674e134c8f343a92d98c142f64ec,
-    type: 2}
-  m_PrefabInternal: {fileID: 147888322}
-  m_Script: {fileID: 11500000, guid: 64670bc50fec71843adf5cfae8c916b4, type: 3}
 --- !u!1001 &1464267996
 Prefab:
   m_ObjectHideFlags: 0
@@ -5728,6 +5732,7 @@ MonoBehaviour:
   - {fileID: 1615121749373946, guid: d28bf9f4bab57ad4893dda0fc9305afb, type: 2}
   PosPlayer1: {fileID: 1666186145}
   PosPlayer2: {fileID: 972584509}
+  myMenu: {fileID: 0}
 --- !u!1 &1886728537
 GameObject:
   m_ObjectHideFlags: 0
@@ -5889,7 +5894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883df2be4bf61c24f88e1c48b8f198ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxCamera: {fileID: 1412766689}
+  parallaxCamera: {fileID: 0}
 --- !u!4 &1946570731
 Transform:
   m_ObjectHideFlags: 0
