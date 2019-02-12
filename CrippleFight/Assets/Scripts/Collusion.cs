@@ -7,7 +7,7 @@ public class Collusion : MonoBehaviour
 
     PlayerControl myPlayerControl, playerControlEnemy;
     Animator AnimatorPlayerEnemy;
-
+    
     void Start()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -22,10 +22,7 @@ public class Collusion : MonoBehaviour
             {
                 myPlayerControl = pl.GetComponent<PlayerControl>();
             }
-            
         }
-
-        
     }
 
     void Update()
@@ -70,25 +67,34 @@ public class Collusion : MonoBehaviour
             }
         }*/
 
-        if (collision.gameObject.tag == "UpP2") {
-            Debug.Log("check2");
+        if ((collision.gameObject.tag == "UpP2") && ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "airdive"))) {
+            Debug.Log("checkUpP2");
             if (!playerControlEnemy.blocklow && !playerControlEnemy.blockhigh) {
                 HealthBarP2.Health -= 10f;
                 SuperBarP2.Super += 20f;
                 playerControlEnemy.hit = true;
-                myPlayerControl.startTimerHitLag = true;
+                if (myPlayerControl.attackName == "kick") {
+                    myPlayerControl.startTimerHitLag = true;
+                }
             } else if (playerControlEnemy.blocklow) {
-                AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
-                playerControlEnemy.hit = true;
-                myPlayerControl.startTimerHitLag = true;
+                if (myPlayerControl.attackName == "airdive") {
+                    HealthBarP2.Health -= 10f;
+                    SuperBarP2.Super += 20f;
+                    playerControlEnemy.hit = true;
+                } else {
+                    AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
+                    //playerControlEnemy.hit = true;
+                    myPlayerControl.startTimerHitLag = true;
+                }
             } else if (playerControlEnemy.blockhigh) {
                 AnimatorPlayerEnemy.SetTrigger("isBlocking");
-                playerControlEnemy.hit = true;
-                myPlayerControl.startTimerHitLag = true;
+                //playerControlEnemy.hit = true;
+                if (myPlayerControl.attackName == "kick") {
+                    myPlayerControl.startTimerHitLag = true;
+                }
             }
 
             if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
-                Debug.Log("cheeck5");
                 myPlayerControl.hitEnemyWall = true;
                 myPlayerControl.startTimerHitWall = true;
             }
@@ -111,19 +117,18 @@ public class Collusion : MonoBehaviour
             }
         }*/
 
-        if (collision.gameObject.tag == "DownP2") {
-            Debug.Log("check2");
+        if ((collision.gameObject.tag == "DownP2") && (myPlayerControl.attackName == "downkick")) {
+            Debug.Log("checkDownP2");
             if (!playerControlEnemy.blocklow) {
                 HealthBarP2.Health -= 5f;
                 SuperBarP2.Super += 20f;
                 playerControlEnemy.hit = true;
             } else if (playerControlEnemy.blocklow) {
                 AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
-                playerControlEnemy.hit = true;
+                //playerControlEnemy.hit = true;
             }
 
             if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
-                Debug.Log("cheeck6");
                 myPlayerControl.hitEnemyWall = true;
                 myPlayerControl.startTimerHitWall = true;
             }

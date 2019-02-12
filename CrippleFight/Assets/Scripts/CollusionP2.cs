@@ -37,24 +37,37 @@ public class CollusionP2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "UpP1")
+        if ((collision.gameObject.tag == "UpP1") && ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "airdive")))
         {
-            Debug.Log("check1");
+            Debug.Log("checkUP1");
             if (!playerControlEnemy.blocklow && !playerControlEnemy.blockhigh)
             {
                 HealthBarP1.Health -= 10f;
                 SuperBarP1.Super += 20f;
                 playerControlEnemy.hit = true;
+                if (myPlayerControl.attackName == "kick") {
+                    myPlayerControl.startTimerHitLag = true;
+                }
             }
             else if (playerControlEnemy.blocklow)
             {
-                AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
-                playerControlEnemy.hit = true;
+                if (myPlayerControl.attackName == "airdive") {
+                    HealthBarP1.Health -= 10f;
+                    SuperBarP1.Super += 20f;
+                    playerControlEnemy.hit = true;
+                } else {
+                    AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
+                    //playerControlEnemy.hit = true;
+                    myPlayerControl.startTimerHitLag = true;
+                }
             }
             else if (playerControlEnemy.blockhigh)
             {
                 AnimatorPlayerEnemy.SetTrigger("isBlocking");
-                playerControlEnemy.hit = true;
+                //playerControlEnemy.hit = true;
+                if (myPlayerControl.attackName == "kick") {
+                    myPlayerControl.startTimerHitLag = true;
+                }
             }
 
             if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight)
@@ -65,18 +78,21 @@ public class CollusionP2 : MonoBehaviour
         }
 
 
-        if (collision.gameObject.tag == "DownP1")
+        if ((collision.gameObject.tag == "DownP1") && (myPlayerControl.attackName == "downkick"))
         {
+            Debug.Log("checkDownP1");
             if (!playerControlEnemy.blocklow)
             {
                 HealthBarP1.Health -= 5f;
                 SuperBarP1.Super += 20f;
                 playerControlEnemy.hit = true;
+                myPlayerControl.startTimerHitLag = true;
             }
             else if (playerControlEnemy.blocklow)
             {
                 AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
-                playerControlEnemy.hit = true;
+                //playerControlEnemy.hit = true;
+                myPlayerControl.startTimerHitLag = true;
             }
 
             if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight)

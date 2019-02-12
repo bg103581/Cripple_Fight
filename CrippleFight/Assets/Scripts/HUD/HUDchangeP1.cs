@@ -11,13 +11,13 @@ public class HUDchangeP1 : MonoBehaviour {
         players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject pl in players) {
             if (pl.layer == 8) {
-                if (pl.name == "FedorP1(Clone)") {
+                if (pl.name == "FedorP1") {
                     Fedor1.SetActive(true);
                     Natalya1.SetActive(false);
                     Marcus1.SetActive(false);
                 }
 
-                else if (pl.name == "NataliaP1(Clone)") {
+                else if (pl.name == "NataliaP1") {
                     Fedor1.SetActive(false);
                     Natalya1.SetActive(true);
                     Marcus1.SetActive(false);
@@ -29,15 +29,15 @@ public class HUDchangeP1 : MonoBehaviour {
                     Marcus1.SetActive(true);
                 }
             } else {
-                if (pl.name == "FedorP2(Clone)") {
+                if (pl.name == "FedorP2") {
                     Fedor2.SetActive(true);
                     Natalya2.SetActive(false);
                     Marcus2.SetActive(false);
-                } else if (pl.name == "NataliaP2(Clone)") {
+                } else if (pl.name == "NataliaP2") {
                     Fedor2.SetActive(false);
                     Natalya2.SetActive(true);
                     Marcus2.SetActive(false);
-                } else  if (pl.name == "MarcusP2(Clone)") {
+                } else  if (pl.name == "MarcusP2") {
                     Fedor2.SetActive(false);
                     Natalya2.SetActive(false);
                     Marcus2.SetActive(true);
