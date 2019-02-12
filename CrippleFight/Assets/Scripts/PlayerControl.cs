@@ -290,7 +290,7 @@ public class PlayerControl : MonoBehaviour {
         // Booleans to be used for animation
         crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround && !isDashingLeft && !isDashingRight && !countTimerHitLag;
         walk = ((horizontal != 0) || (jhorizontal != 0)) && !countTimerHitLag;
-        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || /*Input.GetButtonDown("A" + PlayerNumber.ToString()) || Input.GetButton("StickCross" + PlayerNumber.ToString())*/) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag;
+        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString()) /*|| Input.GetButton("StickCross" + PlayerNumber.ToString())*/) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag;
         punch = (Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString()) /*|| Input.GetButtonDown("StickSquare" + PlayerNumber.ToString())*/) && !isDashingLeft && !isDashingRight && !countTimerHitLag;
         kick = walk && punch;
         shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
