@@ -306,6 +306,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AudioManagerFight.cs" />
     <Compile Include="Assets\Scripts\BasicMoveP1.cs" />
     <Compile Include="Assets\Scripts\BasicMoveP2.cs" />
     <Compile Include="Assets\Scripts\CameraControl.cs" />
@@ -317,6 +318,7 @@
     <Compile Include="Assets\Scripts\CollusionEnnemy1.cs" />
     <Compile Include="Assets\Scripts\CollusionP2.cs" />
     <Compile Include="Assets\Scripts\Confirm.cs" />
+    <Compile Include="Assets\Scripts\dataHolder.cs" />
     <Compile Include="Assets\Scripts\EnemyControler.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthBarP1.cs" />
