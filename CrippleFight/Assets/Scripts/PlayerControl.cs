@@ -43,6 +43,7 @@ public class PlayerControl : MonoBehaviour {
     private bool downKick;
     private bool Super;
     private bool airDive, isAirDiving;
+    public string attackName;
 
     //Variables for dashing
     private bool isDashingLeft, isDashingRight = false;
@@ -473,10 +474,14 @@ public class PlayerControl : MonoBehaviour {
         GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>().PlayOneShot(sons[num], 2f);
     }
 
+    public void setAttackName(string name) {
+        attackName = name;
+    }
+
     //à utiliser pour debug.log : startcoroutine dans le start()
     IEnumerator debug() {
         while (true) {
-            Debug.Log("PlayerControl : player" + PlayerNumber + ": hitEnemyWall = " + hitEnemyWall);
+            Debug.Log("PlayerControl : player" + PlayerNumber + ": attackName = " + attackName);
 
             yield return new WaitForSeconds(0.5f);
         }
