@@ -45,7 +45,7 @@ public class Menu : MonoBehaviour {
     public void clickConfirm() {
         if (Menu4.activeInHierarchy) {
             if (confirmButton.activeInHierarchy) {
-                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1")) {
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start")) {
                     SceneManager.LoadScene("SampleScene");
                 }
             }
@@ -70,7 +70,7 @@ public class Menu : MonoBehaviour {
 
     public void GoToMenu3() {
         if (Menu2.activeInHierarchy) {
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1")) {
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start")) {
                 Invoke("press", 0.2f);
             }
         }
@@ -216,12 +216,9 @@ public class Menu : MonoBehaviour {
                 confirmButton.SetActive(false);
                 
             }
-
+        }
     }
-    }
-
-
-
+    
     public void CancelPlayer1()
     {
         if (Input.GetButton("B1"))
@@ -233,6 +230,7 @@ public class Menu : MonoBehaviour {
             
         }
     }
+
     public void CancelPlayer2()
     {
         if (Input.GetButton("B2"))
@@ -243,6 +241,7 @@ public class Menu : MonoBehaviour {
             NatalyaP2.SetActive(false);
         }
     }
+
     public IEnumerator Versus()
     {
         yield return new WaitForSeconds(0.1f);
