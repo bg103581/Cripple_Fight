@@ -9,14 +9,15 @@ public class PlayerControl : MonoBehaviour {
 
     private Rigidbody2D rig2d;
     private Animator anim;
-
+    public GameObject Player1, Player2;
+    Rigidbody2D RB1, RB2;
     //public GameObject hadoken;
 
     private float horizontal, jhorizontal;
     private float vertical, jvertical;
     public float maxSpeed;
     private Vector2 movement, jmovement;
-    private bool crouch, walk, isLeft;
+    public bool crouch, walk, isLeft;
     public bool blockhigh, blocklow, hit, knockback;
     private bool block;
     public bool hitWallLeft, hitWallRight, hitEnemyWall;
@@ -35,7 +36,7 @@ public class PlayerControl : MonoBehaviour {
     public float jumpTime = 0.25f;
     private float jumpTimeCounter;
     private bool onGround;
-    private bool jump, isJumping;
+    public  bool jump, isJumping;
 
     private bool punch;
     private bool kick;
@@ -63,7 +64,22 @@ public class PlayerControl : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        rig2d = GetComponent<Rigidbody2D>();
+        GameObject[] playerss = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject p in playerss)
+        {
+
+            if (p.layer == 8 && p.CompareTag("Player"))
+            {
+                Player1 = p;
+                RB1 = Player1.GetComponent<Rigidbody2D>();
+            }
+            if (p.layer == 9 && p.CompareTag("Player"))
+            {
+                Player2 = p;
+                RB2 = Player2.GetComponent<Rigidbody2D>();
+            }
+        }
+            rig2d = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
 
         jumpTimeCounter = jumpTime;
@@ -129,8 +145,33 @@ public class PlayerControl : MonoBehaviour {
             // Movement is possible if the player is not crouching
             if (!crouch) {
                 if (onGround) { //au sol
-                    if (!walk && !jump) {
+                    if (!walk && !jump && !CheckHead.CheckCollusion && !CheckHeadP2.CheckCollusion && !CheckHead.CheckCollusionL && !CheckHeadP2.CheckCollusionL)
+                    {
                         rig2d.velocity = new Vector2(0, rig2d.velocity.y);
+                    }
+                    else if( CheckHead.CheckCollusion && !CheckHeadP2.CheckCollusion)
+                    {
+                        Vector2 Trans= new Vector2(60, rig2d.velocity.y);
+                        RB2.velocity = Trans;
+                        CheckHead.CheckCollusion = false;
+                    }
+                    else if ( !CheckHead.CheckCollusion && CheckHeadP2.CheckCollusion)
+                    {
+                        Vector2 Trans = new Vector2(60, rig2d.velocity.y);
+                        RB1.velocity = Trans;
+                        CheckHeadP2.CheckCollusion = false;
+                    }
+                    else if ( CheckHead.CheckCollusionL && !CheckHeadP2.CheckCollusionL)
+                    {
+                        Vector2 Trans = new Vector2(60, rig2d.velocity.y);
+                        RB2.velocity = -Trans;
+                        CheckHead.CheckCollusionL = false;
+                    }
+                    else if ( !CheckHead.CheckCollusionL && CheckHeadP2.CheckCollusionL)
+                    {
+                        Vector2 Trans = new Vector2(60, rig2d.velocity.y);
+                        RB1.velocity = -Trans;
+                        CheckHeadP2.CheckCollusion = false;
                     }
                     if (walk) { // Joystick input is prioritised. If there is no joystick input, we check keyboard input
                         if (jump) {
