@@ -144,17 +144,29 @@ public class PlayerControl : MonoBehaviour {
             // Movement is possible if the player is not crouching
             if (!crouch) {
                 if (onGround) { //au sol
-                    if (!walk && !jump && !CheckHead.CheckCollusion && !CheckHeadP2.CheckCollusion)
+                    if (!walk && !jump && !CheckHead.CheckCollusion && !CheckHeadP2.CheckCollusion && !CheckHead.CheckCollusionL && !CheckHeadP2.CheckCollusionL)
                     {
                         rig2d.velocity = new Vector2(0, rig2d.velocity.y);
                     }
-                    else if(!walk && !jump && CheckHead.CheckCollusion && !CheckHeadP2.CheckCollusion)
+                    else if( CheckHead.CheckCollusion && !CheckHeadP2.CheckCollusion)
                     {
                         Vector2 Trans= new Vector2(60, rig2d.velocity.y);
                         RB2.velocity = Trans;
                         CheckHead.CheckCollusion = false;
                     }
-                    else if (!walk && !jump && !CheckHead.CheckCollusion && CheckHeadP2.CheckCollusion)
+                    else if ( !CheckHead.CheckCollusion && CheckHeadP2.CheckCollusion)
+                    {
+                        Vector2 Trans = new Vector2(60, rig2d.velocity.y);
+                        RB1.velocity = Trans;
+                        CheckHeadP2.CheckCollusion = false;
+                    }
+                    else if ( CheckHead.CheckCollusionL && !CheckHeadP2.CheckCollusionL)
+                    {
+                        Vector2 Trans = new Vector2(60, rig2d.velocity.y);
+                        RB2.velocity = -Trans;
+                        CheckHead.CheckCollusionL = false;
+                    }
+                    else if ( !CheckHead.CheckCollusionL && CheckHeadP2.CheckCollusionL)
                     {
                         Vector2 Trans = new Vector2(60, rig2d.velocity.y);
                         RB1.velocity = -Trans;

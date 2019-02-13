@@ -8,7 +8,7 @@ public class CheckHead : MonoBehaviour
     public GameObject Player1, Player2, CheckPosR, CheckPosL;
     Vector2 Trans;
     Rigidbody2D RB1, RB2;
-    public static bool CheckCollusion;
+    public static bool CheckCollusion, CheckCollusionL;
     void Start()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -45,7 +45,7 @@ public class CheckHead : MonoBehaviour
 
             if (Player1.transform.position.x <= Player2.transform.position.x && Player1.transform.position.x > CheckPosL.transform.position.x)
             {
-                RB2.velocity = (-Trans);
+                //RB2.velocity = (-Trans);
                 CheckCollusion = true;
                 
                 Debug.Log("aaa");
@@ -53,20 +53,20 @@ public class CheckHead : MonoBehaviour
             else if (Player1.transform.position.x > Player2.transform.position.x && Player1.transform.position.x < CheckPosR.transform.position.x)
             {
 
-                RB2.velocity = (Trans);
-
+                //RB2.velocity = (Trans);
+                CheckCollusionL = true;
 
 
             }
             else if ((Player1.transform.position.x > CheckPosR.transform.position.x))
             {
 
-                RB2.velocity = (-Trans);
+                //RB2.velocity = (-Trans);
             }
             else if ((Player1.transform.position.x < CheckPosL.transform.position.x))
             {
 
-                RB2.velocity = (Trans);
+                //RB2.velocity = (Trans);
             }
             
         }

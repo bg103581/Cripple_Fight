@@ -8,7 +8,7 @@ public class CheckHeadP2 : MonoBehaviour
     public GameObject Player1, Player2, CheckPosR, CheckPosL;
     Vector2 Trans;
     Rigidbody2D RB1, RB2;
-    public static bool CheckCollusion;
+    public static bool CheckCollusion, CheckCollusionL;
 
     void Start()
     {
@@ -46,27 +46,27 @@ public class CheckHeadP2 : MonoBehaviour
 
             if (Player2.transform.position.x <= Player1.transform.position.x && Player2.transform.position.x > CheckPosL.transform.position.x)
             {
-                RB2.velocity = (-Trans);
+                //RB2.velocity = (-Trans);
                 CheckCollusion = true;
 
             }
             else if (Player2.transform.position.x > Player1.transform.position.x && Player2.transform.position.x < CheckPosR.transform.position.x)
             {
 
-                RB2.velocity = (Trans);
-                
+                // RB2.velocity = (Trans);
+                CheckCollusionL = true;
 
 
             }
             else if ((Player2.transform.position.x > CheckPosR.transform.position.x))
             {
 
-                RB2.velocity = (-Trans);
+               // RB2.velocity = (-Trans);
             }
             else if ((Player2.transform.position.x < CheckPosL.transform.position.x))
             {
 
-                RB2.velocity = (Trans);
+                //RB2.velocity = (Trans);
             }
 
         }
