@@ -11,10 +11,11 @@ public class UIManager : MonoBehaviour {
     public float Count=10f;
     public int i, P1W,P2W,PN, CountInt,NumPartie;
     public static GameManager Gamemanager;
-      public Text Timer;
+    public Text Timer;
     public GameObject [] players;
     public Text RoundT;
-   public bool checknumber, EndAnim;
+    public bool checknumber, EndAnim, p1Lose, p2Lose;
+    public GameObject Fedor, Natalya, Marcus, doubleKO, winner;
 
 
     // Use this for initialization
@@ -25,8 +26,7 @@ public class UIManager : MonoBehaviour {
         Gamemanager = GameObject.FindObjectOfType<GameManager>();
         Count = 100f;
         EndAnim = false;
-
-
+        p1Lose = p2Lose = false;
     }
 	
 	// Update is called once per frame
@@ -35,19 +35,71 @@ public class UIManager : MonoBehaviour {
         players = GameObject.FindGameObjectsWithTag("Player");
         Player1 = players[0];
         Player2 = players[1];
+        p1Lose = (HealthBarP1.healthBar.fillAmount == 0);
+        p2Lose = (HealthBarP2.healthBar.fillAmount == 0);
 
 
-       
-
-        if (HealthBarP1.healthBar.fillAmount == 0|| HealthBarP2.healthBar.fillAmount == 0)
+        if (p1Lose || p2Lose)
         {
             Time.timeScale = 0;
             Player1.GetComponent<PlayerControl>().enabled = false;
             Player2.GetComponent<PlayerControl>().enabled = false;
             GameOver.SetActive(true);
+
+            if (p1Lose) {
+                if (Player2.name == "FedorP2") {
+                    Fedor.SetActive(true);
+                    Natalya.SetActive(false);
+                    Marcus.SetActive(false);
+                }
+
+                else if (Player2.name == "NataliaP2") {
+                    Fedor.SetActive(false);
+                    Natalya.SetActive(true);
+                    Marcus.SetActive(false);
+                }
+
+                else if (Player2.name == "MarcusP2") {
+                    Fedor.SetActive(false);
+                    Natalya.SetActive(false);
+                    Marcus.SetActive(true);
+                }
+
+                winner.SetActive(true);
+                doubleKO.SetActive(false);
+            }
+
+            else if (p2Lose) {
+                if (Player1.name == "FedorP1") {
+                    Fedor.SetActive(true);
+                    Natalya.SetActive(false);
+                    Marcus.SetActive(false);
+                } else if (Player1.name == "NataliaP1") {
+                    Fedor.SetActive(false);
+                    Natalya.SetActive(true);
+                    Marcus.SetActive(false);
+                } else if (Player1.name == "MarcusP1") {
+                    Fedor.SetActive(false);
+                    Natalya.SetActive(false);
+                    Marcus.SetActive(true);
+                }
+
+                winner.SetActive(true);
+                doubleKO.SetActive(false);
+            }
+
+            else if (p1Lose && p2Lose) {
+                Fedor.SetActive(false);
+                Natalya.SetActive(false);
+                Marcus.SetActive(false);
+                doubleKO.SetActive(true);
+                winner.SetActive(false);
+            }
+
             GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>().mute = true;
             
         }
+
         else
         {
             Time.timeScale = 1;
