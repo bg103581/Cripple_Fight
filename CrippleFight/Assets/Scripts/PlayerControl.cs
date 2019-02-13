@@ -349,7 +349,7 @@ public class PlayerControl : MonoBehaviour {
         // Booleans to be used for animation
         crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround && !isDashingLeft && !isDashingRight && !countTimerHitLag;
         walk = ((horizontal != 0) || (jhorizontal != 0)) && !countTimerHitLag;
-        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || (vertical > 0f) || (jvertical > 0f)) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag;
+        jump = (/*Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || */(vertical > 0f) || (jvertical > 0f)) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag;
         /*Input.GetButtonDown("A" + PlayerNumber.ToString()) || Input.GetButton("StickCross" + PlayerNumber.ToString())*/
         punch = !isDashingLeft && !isDashingRight && !countTimerHitLag;/*(Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString()) || Input.GetButtonDown("StickSquare" + PlayerNumber.ToString())) && */
         kick = punch && (Input.GetButtonDown("X" + PlayerNumber.ToString()) || Input.GetButtonDown("Punch" + PlayerNumber.ToString()));
