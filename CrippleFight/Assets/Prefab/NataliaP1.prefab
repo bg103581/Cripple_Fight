@@ -375,7 +375,7 @@ MonoBehaviour:
   hitEnemyWall: 0
   startTimerHitWall: 0
   stopMoving: 0
-  jumpForce: 15
+  jumpForce: 18
   jumpTime: 0.25
   attackName: 
   startTimerHitLag: 0

@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour {
 
     private float horizontal, jhorizontal;
     private float vertical, jvertical;
-    public float maxSpeed = 2;
+    public float maxSpeed;
     private Vector2 movement, jmovement;
     private bool crouch, walk, isLeft;
     public bool blockhigh, blocklow, hit, knockback;
@@ -31,7 +31,7 @@ public class PlayerControl : MonoBehaviour {
     public bool stopMoving;
 
     // Variables needed for jumping
-    public float jumpForce = 20;
+    public float jumpForce;
     public float jumpTime = 0.25f;
     private float jumpTimeCounter;
     private bool onGround;
@@ -117,12 +117,13 @@ public class PlayerControl : MonoBehaviour {
             // Tap jump and hold button jump
             if (jump) {
                 rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
-            } else if ((Input.GetButton("Jump" + PlayerNumber.ToString()) || Input.GetButton("A" + PlayerNumber.ToString()) /*|| Input.GetButton("StickCross" + PlayerNumber.ToString())*/) && isJumping) {  // si on reste appuyé, faire un long saut
+            }
+            /*else if ((Input.GetButton("Jump" + PlayerNumber.ToString()) || Input.GetButton("A" + PlayerNumber.ToString()) /*|| Input.GetButton("StickCross" + PlayerNumber.ToString())) && isJumping) {  // si on reste appuyé, faire un long saut
                 if (jumpTimeCounter > 0) {
                     rig2d.velocity = new Vector2(rig2d.velocity.x, jumpForce);
                     jumpTimeCounter -= Time.deltaTime;
                 }
-            }
+            }*/
             
 
             // Movement is possible if the player is not crouching
@@ -132,14 +133,22 @@ public class PlayerControl : MonoBehaviour {
                         rig2d.velocity = new Vector2(0, rig2d.velocity.y);
                     }
                     if (walk) { // Joystick input is prioritised. If there is no joystick input, we check keyboard input
-                        if (jhorizontal != 0) {
+                        if (jump) {
+                            if ((jhorizontal < 0f) || (horizontal < 0f)) {
+                                rig2d.velocity = new Vector2(-maxSpeed, rig2d.velocity.y);
+                            }
+                            else if ((jhorizontal > 0f) || (horizontal > 0f)) {
+                                rig2d.velocity = new Vector2(maxSpeed, rig2d.velocity.y);
+                            }
+                        }
+                        else if (jhorizontal != 0) {
                             rig2d.velocity = new Vector2(jhorizontal * maxSpeed, rig2d.velocity.y);
                             //rig2d.AddForce(jmovement * (maxSpeed - horizontalVelocity.magnitude), ForceMode2D.Impulse); jgarde ça peut être utile
                         } else {
                             rig2d.velocity = new Vector2(horizontal * maxSpeed, rig2d.velocity.y);
                         }
                     }
-                } else {  //en l'air pour air control
+                }/* else {  //en l'air pour air control
                     if (walk) {
                         if (jhorizontal != 0) {
                             if ((rig2d.velocity.x > 0 && jmovement.x < 0) || (rig2d.velocity.x < 0 && jmovement.x > 0) || (Mathf.Abs(rig2d.velocity.x) < maxSpeed)) {
@@ -151,8 +160,7 @@ public class PlayerControl : MonoBehaviour {
                             }
                         }
                     }
-                }
-
+                }*/
             } else {
                 rig2d.velocity = Vector2.zero;
             }
@@ -190,12 +198,14 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        if (airDive) { isAirDiving = true; }
+        if (airDive) {
+            isAirDiving = true;
+            rig2d.velocity = Vector2.zero;
+        }
         
         if (hit) {
             hit = false;
         }
-
     }
 
     // Changes the speed to zero. Used for attack animations.
@@ -214,10 +224,12 @@ public class PlayerControl : MonoBehaviour {
         anim.SetBool("isCrouching", crouch);
         anim.SetBool("isWalking", walk);
         anim.SetBool("isJumping", jump);
-        anim.SetBool("isPunching", punch);
-        anim.SetBool("isKicking", kick);
-        anim.SetBool("isShoryuken", shoryuken);
-        anim.SetBool("isDownKicking", downKick);
+        //anim.SetBool("isPunching", punch);
+        if (onGround) {
+            anim.SetBool("isKicking", kick);
+            anim.SetBool("isShoryuken", shoryuken);
+            anim.SetBool("isDownKicking", downKick);
+        }
         anim.SetBool("isHit", hit);
         anim.SetBool("isAirDiving", airDive);
     }
@@ -226,7 +238,13 @@ public class PlayerControl : MonoBehaviour {
     void OnGroundCheck() {
         if (!onGround) {
             if (isAirDiving) {
-                rig2d.gravityScale = 50f;
+                if (isLeft) {
+                    rig2d.velocity = new Vector2(maxSpeed, rig2d.velocity.y);
+                }
+                else {
+                    rig2d.velocity = new Vector2(-maxSpeed, rig2d.velocity.y);
+                }
+                rig2d.gravityScale = 25f;
             } else {
                 rig2d.gravityScale = 5f;
             }
@@ -290,16 +308,17 @@ public class PlayerControl : MonoBehaviour {
         // Booleans to be used for animation
         crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround && !isDashingLeft && !isDashingRight && !countTimerHitLag;
         walk = ((horizontal != 0) || (jhorizontal != 0)) && !countTimerHitLag;
-        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || Input.GetButtonDown("A" + PlayerNumber.ToString()) /*|| Input.GetButton("StickCross" + PlayerNumber.ToString())*/) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag;
-        punch = (Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString()) /*|| Input.GetButtonDown("StickSquare" + PlayerNumber.ToString())*/) && !isDashingLeft && !isDashingRight && !countTimerHitLag;
-        kick = walk && punch;
-        shoryuken = ((vertical > 0f) && punch) || ((jvertical > 0f) && punch);
-        downKick = crouch && punch;
-        Super = (Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("Y" + PlayerNumber.ToString()) /*|| Input.GetButtonDown("StickTriangle" + PlayerNumber.ToString())*/) && !isDashingRight && !isDashingLeft && onGround;
-        airDive = (!onGround && punch);
+        jump = (Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || (vertical > 0f) || (jvertical > 0f)) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag;
+        /*Input.GetButtonDown("A" + PlayerNumber.ToString()) || Input.GetButton("StickCross" + PlayerNumber.ToString())*/
+        punch = !isDashingLeft && !isDashingRight && !countTimerHitLag;/*(Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString()) || Input.GetButtonDown("StickSquare" + PlayerNumber.ToString())) && */
+        kick = punch && (Input.GetButtonDown("X" + PlayerNumber.ToString()) || Input.GetButtonDown("Punch" + PlayerNumber.ToString()));
+        shoryuken = punch && (Input.GetButtonDown("Y" + PlayerNumber.ToString()) || Input.GetButtonDown("UpAttack" + PlayerNumber.ToString())); /*((vertical > 0f) && punch) || ((jvertical > 0f) && punch)*/
+        downKick = punch && (Input.GetButtonDown("A" + PlayerNumber.ToString()) || Input.GetButtonDown("LowAttack" + PlayerNumber.ToString()));/*crouch && punch*/
+        Super = (Input.GetButtonDown("Super" + PlayerNumber.ToString()) || Input.GetButtonDown("B" + PlayerNumber.ToString()) /*|| Input.GetButtonDown("StickTriangle" + PlayerNumber.ToString())*/) && !isDashingRight && !isDashingLeft && onGround;
+        airDive = (!onGround && !isAirDiving && (kick || shoryuken || downKick));
 
     
-        if (Input.GetButtonUp("Jump" + PlayerNumber.ToString()) || Input.GetButtonUp("A" + PlayerNumber.ToString()) /*|| Input.GetButton("StickCross" + PlayerNumber.ToString())*/) {  // empeche de reaugmenter le jump après stop jump
+        if (Input.GetButtonUp("Jump" + PlayerNumber.ToString())/*Input.GetButtonUp("A" + PlayerNumber.ToString()) || Input.GetButton("StickCross" + PlayerNumber.ToString())*/) {  // empeche de reaugmenter le jump après stop jump
             isJumping = false;
         }
     }
@@ -370,12 +389,12 @@ public class PlayerControl : MonoBehaviour {
                 /*Instantiate(hadoken, new Vector3(this.transform.position.x + 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);
                 hadoken.transform.Translate(new Vector2(this.transform.position.x + Time.deltaTime, this.transform.position.y));*/
                 SuperBarP1.Super = 0f;
-                //anim.SetTrigger("Ulti");
+                anim.SetTrigger("Ulti");
             }
             if (PlayerNumber == 2 && SuperBarP2.Super >= 100f) {
                 /*Instantiate(hadoken, new Vector3(this.transform.position.x - 2, this.transform.position.y, this.transform.position.z), Quaternion.identity);*/
                 SuperBarP2.Super = 0f;
-                //anim.SetTrigger("Ulti");
+                anim.SetTrigger("Ulti");
             }
         }
 

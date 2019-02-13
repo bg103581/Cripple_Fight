@@ -1269,7 +1269,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4874924660381264, guid: 7690285e6259aad45945cab28517b0df, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.17
+      value: -3.52
       objectReference: {fileID: 0}
     - target: {fileID: 4874924660381264, guid: 7690285e6259aad45945cab28517b0df, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1301,7 +1301,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1010990917817764, guid: 7690285e6259aad45945cab28517b0df, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7690285e6259aad45945cab28517b0df, type: 2}
@@ -1640,7 +1640,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4518967181460718, guid: 50dddc883ad5ea544b17c5d7fc6a9e25, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.46
+      value: 1.23
       objectReference: {fileID: 0}
     - target: {fileID: 4518967181460718, guid: 50dddc883ad5ea544b17c5d7fc6a9e25, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1669,6 +1669,10 @@ Prefab:
     - target: {fileID: 4518967181460718, guid: 50dddc883ad5ea544b17c5d7fc6a9e25, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943799645959852, guid: 50dddc883ad5ea544b17c5d7fc6a9e25, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50dddc883ad5ea544b17c5d7fc6a9e25, type: 2}
@@ -2374,7 +2378,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1957549038736450, guid: 27c06c234cb7e804bb221e00e16b97f2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1957549038736450, guid: 27c06c234cb7e804bb221e00e16b97f2, type: 2}
       propertyPath: m_Name
@@ -3350,12 +3354,12 @@ Prefab:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1234613437942920, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1234613437942920, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
       propertyPath: m_Name
       value: FedorP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234613437942920, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
