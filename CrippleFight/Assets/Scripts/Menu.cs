@@ -33,10 +33,10 @@ public class Menu : MonoBehaviour {
         clickConfirm();
 
         if (dataHolder.FromMenuButton) {
-            Menu4.SetActive(true);
+            Menu4.SetActive(false);
             Menu1.SetActive(false);
             Menu2.SetActive(false);
-            Menu3.SetActive(false);
+            Menu3.SetActive(true);
             MenuSettings.SetActive(false);
             dataHolder.FromMenuButton = false;
         }

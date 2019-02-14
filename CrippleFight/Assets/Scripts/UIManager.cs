@@ -47,19 +47,19 @@ public class UIManager : MonoBehaviour {
             GameOver.SetActive(true);
 
             if (p1Lose) {
-                if (Player2.name == "FedorP2") {
+                if (Player2.name == "FedorP2(Clone)") {
                     Fedor.SetActive(true);
                     Natalya.SetActive(false);
                     Marcus.SetActive(false);
                 }
 
-                else if (Player2.name == "NataliaP2") {
+                else if (Player2.name == "NataliaP2(Clone)") {
                     Fedor.SetActive(false);
                     Natalya.SetActive(true);
                     Marcus.SetActive(false);
                 }
 
-                else if (Player2.name == "MarcusP2") {
+                else if (Player2.name == "MarcusP2(Clone)") {
                     Fedor.SetActive(false);
                     Natalya.SetActive(false);
                     Marcus.SetActive(true);
@@ -70,15 +70,15 @@ public class UIManager : MonoBehaviour {
             }
 
             else if (p2Lose) {
-                if (Player1.name == "FedorP1") {
+                if (Player1.name == "FedorP1(Clone)") {
                     Fedor.SetActive(true);
                     Natalya.SetActive(false);
                     Marcus.SetActive(false);
-                } else if (Player1.name == "NataliaP1") {
+                } else if (Player1.name == "NataliaP1(Clone)") {
                     Fedor.SetActive(false);
                     Natalya.SetActive(true);
                     Marcus.SetActive(false);
-                } else if (Player1.name == "MarcusP1") {
+                } else if (Player1.name == "MarcusP1(Clone)") {
                     Fedor.SetActive(false);
                     Natalya.SetActive(false);
                     Marcus.SetActive(true);
