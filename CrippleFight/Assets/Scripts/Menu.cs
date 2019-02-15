@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
 
-    public GameObject Menu1, Menu2, Menu3, Menu4, MenuSettings;
+    public GameObject Menu1, Menu2, Menu3, Menu4, Menu5, MenuSettings;
     public static int NumPlayer1, NumPlayer2;
     public static bool checkPlayer1 = false;
     public static bool checkPlayer2 = false;
@@ -16,6 +16,7 @@ public class Menu : MonoBehaviour {
     public GameObject FedorP1, FedorP2, NatalyaP1, NatalyaP2, MarcusP1, MarcusP2;
     public GameObject Button1, confirmButton, panelAB;
     public bool Checkconfirm=false;
+    public GameObject ringNom, laboNom, panelABArena, confirmButtonArena;
     
     
 
@@ -31,6 +32,8 @@ public class Menu : MonoBehaviour {
         CancelPlayer2();
         Confirm();
         clickConfirm();
+        cancelArena();
+        confirmArena();
 
         if (dataHolder.FromMenuButton) {
             Menu4.SetActive(false);
@@ -42,17 +45,8 @@ public class Menu : MonoBehaviour {
         }
     }
 
-    public void clickConfirm() {
-        if (Menu4.activeInHierarchy) {
-            if (confirmButton.activeInHierarchy) {
-                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start")) {
-                    SceneManager.LoadScene("SampleScene");
-                }
-            }
-        }
-    }
-
-    // Animation du logo quand on click sur play
+    
+    // Menu 1, 2 and 3 navigation
     public void GotItPress()
     {
         if (Menu1.activeInHierarchy) {
@@ -80,21 +74,14 @@ public class Menu : MonoBehaviour {
     {
         Menu2.SetActive(false);
         Menu3.SetActive(true);
-    }
-
-
-    // SCENE NAVIGATION
-    public void backMenu() {
-
-        Menu1.SetActive(false);
-        Menu2.SetActive(false);
-        Menu3.SetActive(true);
         Menu4.SetActive(false);
         MenuSettings.SetActive(false);
-        
-
+        Menu1.SetActive(false);
+        Menu5.SetActive(false);
     }
+    
 
+    // game choice (solo or vs)
     public void PlayvsCom() {
 
         SceneManager.LoadScene("IA");
@@ -105,16 +92,26 @@ public class Menu : MonoBehaviour {
         Menu1.SetActive(false);
         Menu2.SetActive(false);
         Menu3.SetActive(false);
+        Menu4.SetActive(true);
+        Menu5.SetActive(false);
+        MenuSettings.SetActive(false);
+
+        /*Menu1.SetActive(false);
+        Menu2.SetActive(false);
+        Menu3.SetActive(false);
         StartCoroutine(Versus());
-        EventSystem1.SetActive(false);
+        EventSystem1.SetActive(false);*/
     }
 
+
+    // settings
     public void Settings() {
 
         Menu1.SetActive(false);
         Menu2.SetActive(false);
         Menu3.SetActive(false);
         Menu4.SetActive(false);
+        Menu5.SetActive(false);
         MenuSettings.SetActive(true);
 
     }
@@ -164,8 +161,8 @@ public class Menu : MonoBehaviour {
           
         }
 
-    // ENABLE IMAGES ON PLAYER SELECT
 
+    // ENABLE IMAGES ON PLAYER SELECT
     public void FedorSelect1 () {
         FedorP1.SetActive(true);
         NatalyaP1.SetActive(false);
@@ -242,11 +239,70 @@ public class Menu : MonoBehaviour {
         }
     }
 
-    public IEnumerator Versus()
+    /*public IEnumerator Versus()
     {
         yield return new WaitForSeconds(0.1f);
         Menu4.SetActive(true);
 
+    }*/
+
+
+    // confirm player
+    public void clickConfirm() {
+        if (Menu4.activeInHierarchy) {
+            if (confirmButton.activeInHierarchy) {
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start")) {
+                    Menu1.SetActive(false);
+                    Menu2.SetActive(false);
+                    Menu3.SetActive(false);
+                    Menu4.SetActive(false);
+                    Menu5.SetActive(true);
+                    MenuSettings.SetActive(false);
+
+                    
+                }
+            }
+        }
     }
 
+
+    // select arena
+    public void selectRing() {
+        ringNom.SetActive(true);
+        laboNom.SetActive(false);
+        confirmButtonArena.SetActive(true);
+        panelABArena.SetActive(false);
+    }
+
+    public void selectLabo() {
+        laboNom.SetActive(true);
+        ringNom.SetActive(false);
+        confirmButtonArena.SetActive(true);
+        panelABArena.SetActive(false);
+    }
+
+    // confirm arena
+    public void confirmArena() {
+        if (confirmButtonArena.activeInHierarchy) {
+            if (ringNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
+                SceneManager.LoadScene("SampleScene");
+            }
+
+            else if (laboNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
+                SceneManager.LoadScene("LaboScene");
+            }
+        }
+    }
+
+    // cancel arena
+    public void cancelArena() {
+        if (Menu5.activeInHierarchy) {
+            if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetButtonDown("B1")) {
+                ringNom.SetActive(false);
+                laboNom.SetActive(false);
+                confirmButtonArena.SetActive(false);
+                panelABArena.SetActive(true);
+            }
+        }
+    }
 }
