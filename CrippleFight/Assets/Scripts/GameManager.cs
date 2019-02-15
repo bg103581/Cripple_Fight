@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour {
     }
     
     public void again() {
-        SceneManager.LoadScene("SampleScene");
+        Scene loadedLevel = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(loadedLevel.name);
     }
 
     public void menu() {
