@@ -1,26 +1,26 @@
 fileFormatVersion: 2
-guid: 7de61c1bdcdcc514eba3edf272116404
+guid: 96ee85eb13862b042acd5a1ce6e3eac1
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Natalya_ulti_0
-    21300002: Natalya_ulti_1
-    21300004: Natalya_ulti_2
-    21300006: Natalya_ulti_3
-    21300008: Natalya_ulti_4
-    21300010: Natalya_ulti_5
-    21300012: Natalya_ulti_6
-    21300014: Natalya_ulti_7
-    21300016: Natalya_ulti_8
-    21300018: Natalya_ulti_9
-    21300020: Natalya_ulti_10
-    21300022: Natalya_ulti_11
-    21300024: Natalya_ulti_12
-    21300026: Natalya_ulti_13
-    21300028: Natalya_ulti_14
-    21300030: Natalya_ulti_15
-    21300032: Natalya_ulti_16
-    21300034: Natalya_ulti_17
-    21300036: Natalya_ulti_18
+    21300000: Fedor_ulti_0
+    21300002: Fedor_ulti_1
+    21300004: Fedor_ulti_2
+    21300006: Fedor_ulti_3
+    21300008: Fedor_ulti_4
+    21300010: Fedor_ulti_5
+    21300012: Fedor_ulti_6
+    21300014: Fedor_ulti_7
+    21300016: Fedor_ulti_8
+    21300018: Fedor_ulti_9
+    21300020: Fedor_ulti_10
+    21300022: Fedor_ulti_11
+    21300024: Fedor_ulti_12
+    21300026: Fedor_ulti_13
+    21300028: Fedor_ulti_14
+    21300030: Fedor_ulti_15
+    21300032: Fedor_ulti_16
+    21300034: Fedor_ulti_17
+    21300036: Fedor_ulti_18
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -103,381 +103,381 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Natalya_ulti_0
+      name: Fedor_ulti_0
       rect:
         serializedVersion: 2
-        x: 76
-        y: 1771
-        width: 155
-        height: 324
-      alignment: 9
-      pivot: {x: 0.38735086, y: 0.4958545}
+        x: 88
+        y: 1580
+        width: 188
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 803bf74c40a06d24f8c698dd3951afc9
+      spriteID: 4ba7cb3eb2870e44f8d76c917712d40b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Natalya_ulti_1
+      name: Fedor_ulti_1
       rect:
         serializedVersion: 2
-        x: 325
-        y: 1771
-        width: 155
-        height: 358
+        x: 444
+        y: 1589
+        width: 291
+        height: 316
       alignment: 9
-      pivot: {x: 0.42636758, y: 0.45113197}
+      pivot: {x: 0.5, y: 0.39}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f1f78a671babf74da699c9325c0f04c
+      spriteID: 9fbba12d2ea494c468128a100a90e440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Natalya_ulti_2
+      name: Fedor_ulti_2
       rect:
         serializedVersion: 2
-        x: 501
-        y: 1771
-        width: 228
-        height: 444
+        x: 814
+        y: 1589
+        width: 298
+        height: 378
       alignment: 9
-      pivot: {x: 0.54, y: 0.36}
+      pivot: {x: 0.5, y: 0.32}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd0c94a51e1caea40a9d06f6e4156eba
+      spriteID: fb3d2cb87364b2242bcda22aa1db8224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Natalya_ulti_3
+      name: Fedor_ulti_3
       rect:
         serializedVersion: 2
-        x: 769
-        y: 1765
-        width: 221
+        x: 1209
+        y: 1570
+        width: 293
+        height: 421
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fca668efafc3d9e4087c552207b331eb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_4
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 1569
+        width: 316
         height: 453
-      alignment: 9
-      pivot: {x: 0.76741046, y: 0.3820375}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5659783563f1ea849b243b3b83a39576
+      spriteID: 61d06e43db9b1184bafb90d9ac56065d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Natalya_ulti_4
+      name: Fedor_ulti_5
       rect:
         serializedVersion: 2
-        x: 1011
-        y: 1761
-        width: 235
+        x: 83
+        y: 1075
+        width: 241
+        height: 457
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11aa733cde61aa241873439ed0aab849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_6
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 1075
+        width: 243
+        height: 445
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75c4e96c229a37c48bccbb6793dd6ca5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_7
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 1075
+        width: 261
+        height: 439
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03880c4e65b4f0d4f8609a95c020a8a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_8
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 1075
+        width: 246
+        height: 445
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5e7768b7c4e3445b1aa30860d71a59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_9
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 1075
+        width: 242
+        height: 457
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1649a6869d8193a43ae239609339992c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 607
+        width: 249
+        height: 435
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b479914047c066747b539a841a5a2507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_11
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 592
+        width: 266
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54c876549c95aa4bb907344418b2b59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_12
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 592
+        width: 283
+        height: 440
+      alignment: 9
+      pivot: {x: 0.5, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc91c81469c25d440b0cb599d6acb8e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_13
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 582
+        width: 318
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba2676af8ac92d428da7d27c468c424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_14
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 580
+        width: 270
+        height: 457
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b0fdddd37bca184b93dd20b3addad16
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_15
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 5
+        width: 248
+        height: 481
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8400724fea56cb42ae34fea8c1a5d04
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_16
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 5
+        width: 259
+        height: 499
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128dc5a8d26f39345850f6c73198e2b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_17
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 5
+        width: 407
         height: 464
       alignment: 9
-      pivot: {x: 0.7343329, y: 0.37}
+      pivot: {x: 0.5, y: 0.31}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49d71f789bbced34885fce0b9303d7e6
+      spriteID: 947d6237e64ec534f80cf27f5a9d7c4b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Natalya_ulti_5
+      name: Fedor_ulti_18
       rect:
         serializedVersion: 2
-        x: 8
-        y: 1264
-        width: 235
-        height: 447
+        x: 1739
+        y: 5
+        width: 338
+        height: 408
       alignment: 9
-      pivot: {x: 0.7919915, y: 0.35}
+      pivot: {x: 0.5, y: 0.37}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a166c241f234e8b4697208089e8dedaf
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_6
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 1264
-        width: 235
-        height: 443
-      alignment: 9
-      pivot: {x: 0.7919914, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 278dc41d57287f747840b484a509555b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_7
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 1264
-        width: 241
-        height: 431
-      alignment: 9
-      pivot: {x: 0.7847219, y: 0.36}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54722f301d72357408f951dfb4caf1be
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_8
-      rect:
-        serializedVersion: 2
-        x: 754
-        y: 1264
-        width: 241
-        height: 436
-      alignment: 9
-      pivot: {x: 0.79134333, y: 0.36}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4b4a4bdc78e04b43a1530c63bd31f4a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_9
-      rect:
-        serializedVersion: 2
-        x: 1013
-        y: 1264
-        width: 234
-        height: 447
-      alignment: 9
-      pivot: {x: 0.793239, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2da966758cea1184e84b13a314b41f54
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_10
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 767
-        width: 230
-        height: 456
-      alignment: 9
-      pivot: {x: 0.7150816, y: 0.34}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b95d50bbfb6194479d40bf155702989
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_11
-      rect:
-        serializedVersion: 2
-        x: 261
-        y: 767
-        width: 230
-        height: 456
-      alignment: 9
-      pivot: {x: 0.7289579, y: 0.34}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7cfbe7291ff95674b9d4cd30fed80863
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_12
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 767
-        width: 235
-        height: 454
-      alignment: 9
-      pivot: {x: 0.69013387, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8fd5dac700cc024cb2f82d6a8bb15cc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_13
-      rect:
-        serializedVersion: 2
-        x: 765
-        y: 767
-        width: 236
-        height: 456
-      alignment: 9
-      pivot: {x: 0.66228133, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f72037e3f0d869b44b8cd8c371daed61
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_14
-      rect:
-        serializedVersion: 2
-        x: 1009
-        y: 767
-        width: 236
-        height: 456
-      alignment: 9
-      pivot: {x: 0.6825665, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5be042c5f4478bd4bbf4fdf6f2424701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_15
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 18
-        width: 431
-        height: 456
-      alignment: 9
-      pivot: {x: 0.60709745, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f19cdeef525e9604e8f4a9413747ceee
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_16
-      rect:
-        serializedVersion: 2
-        x: 705
-        y: 23
-        width: 435
-        height: 704
-      alignment: 9
-      pivot: {x: 0.5880423, y: 0.22}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd2642ee20d040a499e7b57de923f513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_17
-      rect:
-        serializedVersion: 2
-        x: 1539
-        y: 30
-        width: 254
-        height: 726
-      alignment: 9
-      pivot: {x: 0.3806311, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afdd4dc73a2a9bc4f91a82d971c62b1e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Natalya_ulti_18
-      rect:
-        serializedVersion: 2
-        x: 2191
-        y: 10
-        width: 478
-        height: 425
-      alignment: 9
-      pivot: {x: 0.21289471, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f164a262425d2444bebb6a8cf37c00d
+      spriteID: 9e266a95eefe1634da761c578119883e
       vertices: []
       indices: 
       edges: []
@@ -485,7 +485,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cc2267a4803dd7c4dad136624a2146d7
+    spriteID: 33e8b2aa114c7a040ae51ebd2c24cc30
     vertices: []
     indices: 
     edges: []
