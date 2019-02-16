@@ -17,8 +17,10 @@ public class Menu : MonoBehaviour {
     public GameObject Button1, confirmButton, panelAB;
     public bool Checkconfirm=false;
     public GameObject ringNom, laboNom, panelABArena, confirmButtonArena;
-    
-    
+    public GameObject colorFedor1, colorFedor2, colorNatalya1, colorNatalya2, colorMarcus1, colorMarcus2;
+    public GameObject FedorP1Skin, FedorP2Skin, NatalyaP1Skin, NatalyaP2Skin, MarcusP1Skin, MarcusP2Skin;
+    public Button Fedor1Pink, Fedor1Green, Fedor2Pink, Fedor2Green, Natalya1Yellow, Natalya1Orange, Natalya2Yellow, Natalya2Orange, Marcus2Yellow, Marcus2Orange, Marcus1Yellow, Marcus1Orange; 
+
 
     void Start () {
         LogoAnim = GameObject.Find("Logo").GetComponent<Animator>();
@@ -161,42 +163,281 @@ public class Menu : MonoBehaviour {
           
         }
 
+    
+    // ENABLE COLOR SELECTION
+    public void Fedor1Skin () {
+        colorFedor1.SetActive(true);
+        colorNatalya1.SetActive(false);
+        colorMarcus1.SetActive(false);
+
+        NatalyaP1.SetActive(false);
+        NatalyaP1Skin.SetActive(false);
+        MarcusP1.SetActive(false);
+        MarcusP1Skin.SetActive(false);
+    }
+
+    public void Fedor2Skin() {
+        colorFedor2.SetActive(true);
+        colorNatalya2.SetActive(false);
+        colorMarcus2.SetActive(false);
+
+        NatalyaP2.SetActive(false);
+        NatalyaP2Skin.SetActive(false);
+        MarcusP2.SetActive(false);
+        MarcusP2Skin.SetActive(false);
+    }
+
+    public void Natalya1Skin() {
+        colorFedor1.SetActive(false);
+        colorNatalya1.SetActive(true);
+        colorMarcus1.SetActive(false);
+
+        FedorP1.SetActive(false);
+        FedorP1Skin.SetActive(false);
+        MarcusP1.SetActive(false);
+        MarcusP1Skin.SetActive(false);
+    }
+
+    public void Natalya2Skin() {
+        colorFedor2.SetActive(false);
+        colorNatalya2.SetActive(true);
+        colorMarcus2.SetActive(false);
+
+        FedorP2.SetActive(false);
+        FedorP2Skin.SetActive(false);
+        MarcusP2.SetActive(false);
+        MarcusP2Skin.SetActive(false);
+    }
+
+    public void Marcus1Skin() {
+        colorFedor1.SetActive(false);
+        colorNatalya1.SetActive(false);
+        colorMarcus1.SetActive(true);
+
+        FedorP1.SetActive(false);
+        FedorP1Skin.SetActive(false);
+        NatalyaP1.SetActive(false);
+        NatalyaP1Skin.SetActive(false);
+    }
+
+    public void Marcus2Skin() {
+        colorFedor2.SetActive(false);
+        colorNatalya2.SetActive(false);
+        colorMarcus2.SetActive(true);
+
+        FedorP2.SetActive(false);
+        FedorP2Skin.SetActive(false);
+        NatalyaP2.SetActive(false);
+        NatalyaP2Skin.SetActive(false);
+    }
 
     // ENABLE IMAGES ON PLAYER SELECT
     public void FedorSelect1 () {
         FedorP1.SetActive(true);
         NatalyaP1.SetActive(false);
         MarcusP1.SetActive(false);
+
+        FedorP1Skin.SetActive(false);
+
+        Fedor2Pink.interactable = false;
+        Fedor2Green.interactable = true;
+        
+        Natalya2Yellow.interactable = true;
+        Natalya2Orange.interactable = true;
+        
+        Marcus2Yellow.interactable = true;
+        Marcus2Orange.interactable = true;
     }
 
     public void FedorSelect2() {
         FedorP2.SetActive(true);
         NatalyaP2.SetActive(false);
         MarcusP2.SetActive(false);
+
+        FedorP2Skin.SetActive(false);
+
+        Fedor1Pink.interactable = false;
+        Fedor1Green.interactable = true;
+
+        Natalya1Yellow.interactable = true;
+        Natalya1Orange.interactable = true;
+
+        Marcus1Yellow.interactable = true;
+        Marcus1Orange.interactable = true;
     }
+
+    public void FedorSkinSelect1() {
+        FedorP1Skin.SetActive(true);
+        NatalyaP1Skin.SetActive(false);
+        MarcusP1Skin.SetActive(false);
+
+        FedorP1.SetActive(false);
+
+        Fedor2Pink.interactable = true;
+        Fedor2Green.interactable = false;
+        
+        Natalya2Yellow.interactable = true;
+        Natalya2Orange.interactable = true;
+        
+        Marcus2Yellow.interactable = true;
+        Marcus2Orange.interactable = true;
+    }
+
+    public void FedorSkinSelect2() {
+        FedorP2Skin.SetActive(true);
+        NatalyaP2Skin.SetActive(false);
+        MarcusP2Skin.SetActive(false);
+
+        FedorP2.SetActive(false);
+
+        Fedor1Pink.interactable = true;
+        Fedor1Green.interactable = false;
+
+        Natalya1Yellow.interactable = true;
+        Natalya1Orange.interactable = true;
+
+        Marcus1Yellow.interactable = true;
+        Marcus1Orange.interactable = true;
+    }
+
+
 
     public void NatalyaSelect1() {
         FedorP1.SetActive(false);
         NatalyaP1.SetActive(true);
         MarcusP1.SetActive(false);
+
+        NatalyaP1Skin.SetActive(false);
+
+        Natalya2Yellow.interactable = false;
+        Natalya2Orange.interactable = true;
+        
+        Fedor2Pink.interactable = true;
+        Fedor2Green.interactable = true;
+        
+        Marcus2Yellow.interactable = true;
+        Marcus2Orange.interactable = true;
     }
 
     public void NatalyaSelect2() {
         FedorP2.SetActive(false);
         NatalyaP2.SetActive(true);
         MarcusP2.SetActive(false);
+
+        NatalyaP2Skin.SetActive(false);
+
+        Natalya1Yellow.interactable = false;
+        Natalya1Orange.interactable = true;
+
+        Fedor1Pink.interactable = true;
+        Fedor1Green.interactable = true;
+
+        Marcus1Yellow.interactable = true;
+        Marcus1Orange.interactable = true;
     }
+
+    public void NatalyaSkinSelect1() {
+        FedorP1Skin.SetActive(false);
+        NatalyaP1Skin.SetActive(true);
+        MarcusP1Skin.SetActive(false);
+
+        NatalyaP1.SetActive(false);
+
+        Natalya2Yellow.interactable = true;
+        Natalya2Orange.interactable = false;
+        
+        Fedor2Pink.interactable = true;
+        Fedor2Green.interactable = true;
+        
+        Marcus2Yellow.interactable = true;
+        Marcus2Orange.interactable = true;
+    }
+
+    public void NatalyaSkinSelect2() {
+        FedorP2Skin.SetActive(false);
+        NatalyaP2Skin.SetActive(true);
+        MarcusP2Skin.SetActive(false);
+
+        NatalyaP2.SetActive(false);
+
+        Natalya1Yellow.interactable = true;
+        Natalya1Orange.interactable = false;
+
+        Fedor1Pink.interactable = true;
+        Fedor1Green.interactable = true;
+
+        Marcus1Yellow.interactable = true;
+        Marcus1Orange.interactable = true;
+    }
+
+
 
     public void MarcusSelect1() {
         FedorP1.SetActive(false);
         NatalyaP1.SetActive(false);
         MarcusP1.SetActive(true);
+
+        MarcusP1Skin.SetActive(false);
+
+        Marcus2Yellow.interactable = false;
+        Marcus2Orange.interactable = true;
+
+        Fedor1Pink.interactable = true;
+        Fedor1Green.interactable = true;
+
+        Natalya1Yellow.interactable = true;
+        Natalya1Orange.interactable = true;
     }
 
     public void MarcusSelect2() {
         FedorP2.SetActive(false);
         NatalyaP2.SetActive(false);
         MarcusP2.SetActive(true);
+
+        MarcusP2Skin.SetActive(false);
+
+        Marcus1Yellow.interactable = false;
+        Marcus1Orange.interactable = true;
+        
+        Fedor2Pink.interactable = true;
+        Fedor2Green.interactable = true;
+        
+        Natalya2Yellow.interactable = true;
+        Natalya2Orange.interactable = true;
+    }
+
+    public void MarcusSkinSelect1() {
+        FedorP1Skin.SetActive(false);
+        NatalyaP1Skin.SetActive(false);
+        MarcusP1Skin.SetActive(true);
+
+        MarcusP1.SetActive(false);
+
+        Marcus2Yellow.interactable = true;
+        Marcus2Orange.interactable = false;
+        
+        Fedor2Pink.interactable = true;
+        Fedor2Green.interactable = true;
+        
+        Natalya2Yellow.interactable = true;
+        Natalya2Orange.interactable = true;
+    }
+
+    public void MarcusSkinSelect2() {
+        FedorP2Skin.SetActive(false);
+        NatalyaP2Skin.SetActive(false);
+        MarcusP2Skin.SetActive(true);
+
+        MarcusP2.SetActive(false);
+
+        Marcus1Yellow.interactable = true;
+        Marcus1Orange.interactable = false;
+
+        Fedor1Pink.interactable = true;
+        Fedor1Green.interactable = true;
+
+        Natalya1Yellow.interactable = true;
+        Natalya1Orange.interactable = true;
     }
 
 
