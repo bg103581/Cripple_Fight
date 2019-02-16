@@ -19,7 +19,7 @@ public class SuperBarP1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         superBar.fillAmount = Super / MaxSuper;
-       
-      
+        superBarfill = superBar.fillAmount;
+
     }
 }
