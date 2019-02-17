@@ -120,10 +120,12 @@ public class Menu : MonoBehaviour {
 
 
     // PLAYER SELECTION
+
+    // FEDOR
     public void SelectPlayer0()
     {
          NumPlayer1 = 0;
-            checkPlayer1 = true;
+         checkPlayer1 = true;
         
     }
 
@@ -134,6 +136,19 @@ public class Menu : MonoBehaviour {
            
         }
 
+    public void SelectPlayer3() {
+        NumPlayer1 = 3;
+        checkPlayer1 = true;
+
+    }
+
+    public void SelectPPlayer3() {
+        NumPlayer2 = 3;
+        checkPlayer2 = true;
+
+    }
+
+    // NATALYA
     public void SelectPlayer1()
     {
       
@@ -146,8 +161,22 @@ public class Menu : MonoBehaviour {
     { 
             NumPlayer2 = 1;
             checkPlayer2 = true;
-          }
+    }
 
+    public void SelectPlayer4() {
+        NumPlayer1 = 4;
+        checkPlayer1 = true;
+
+    }
+
+    public void SelectPPlayer4() {
+        NumPlayer2 = 4;
+        checkPlayer2 = true;
+
+    }
+
+
+    // MARCUS
     public void SelectPlayer2()
     {
        
@@ -163,7 +192,19 @@ public class Menu : MonoBehaviour {
           
         }
 
-    
+    public void SelectPlayer5() {
+        NumPlayer1 = 5;
+        checkPlayer1 = true;
+
+    }
+
+    public void SelectPPlayer5() {
+        NumPlayer2 = 5;
+        checkPlayer2 = true;
+
+    }
+
+
     // ENABLE COLOR SELECTION
     public void Fedor1Skin () {
         colorFedor1.SetActive(true);
@@ -526,7 +567,7 @@ public class Menu : MonoBehaviour {
     public void confirmArena() {
         if (confirmButtonArena.activeInHierarchy) {
             if (ringNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("RocheScene");
             }
 
             else if (laboNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
@@ -545,5 +586,10 @@ public class Menu : MonoBehaviour {
                 panelABArena.SetActive(true);
             }
         }
+    }
+
+    // quit game
+    public void quitMenu() {
+        Application.Quit();
     }
 }

@@ -23,8 +23,6 @@ public class GameManager : MonoBehaviour {
 
    public void Instantiates()
     {
-
-
         Instantiate(Players1[Menu.NumPlayer1], PosPlayer1.transform.position, PosPlayer1.transform.rotation);
         Instantiate(Players2[Menu.NumPlayer2], PosPlayer2.transform.position, PosPlayer2.transform.rotation);
     }
