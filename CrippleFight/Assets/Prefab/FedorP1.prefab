@@ -365,7 +365,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 1
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
   maxSpeed: 10
+  crouch: 0
+  walk: 0
+  isLeft: 0
   blockhigh: 0
   blocklow: 0
   hit: 0
@@ -377,6 +382,8 @@ MonoBehaviour:
   stopMoving: 0
   jumpForce: 18
   jumpTime: 0.25
+  jump: 0
+  isJumping: 0
   attackName: 
   startTimerHitLag: 0
   sons:
@@ -444,7 +451,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.33, y: 3.09}
+  m_Size: {x: 1.57, y: 2.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

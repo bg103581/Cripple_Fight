@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1957549038736450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.79, y: -4.95, z: 0}
+  m_LocalPosition: {x: 4.7, y: -3.7, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 2}
   m_Children:
   - {fileID: 4832595208976908}
@@ -380,7 +380,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 2
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
   maxSpeed: 10
+  crouch: 0
+  walk: 0
+  isLeft: 0
   blockhigh: 0
   blocklow: 0
   hit: 0
@@ -392,6 +397,8 @@ MonoBehaviour:
   stopMoving: 0
   jumpForce: 18
   jumpTime: 0.25
+  jump: 0
+  isJumping: 0
   attackName: 
   startTimerHitLag: 0
   sons:
@@ -444,7 +451,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.33, y: 3.09}
+  m_Size: {x: 1.57, y: 2.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

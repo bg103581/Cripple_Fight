@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour {
 
     public int PlayerNumber ;
     private Transform enemy;
+    private GameObject enemyGameobject;
 
     private Rigidbody2D rig2d;
     private Animator anim;
@@ -59,6 +60,11 @@ public class PlayerControl : MonoBehaviour {
     private float timerHitLagCounter;
     private float timerHitLagTime = 0.4f;
 
+    //Variables when frozen
+    public bool isFrozen;
+    private bool hasBlockHigh;
+    private bool hasBlockLow;
+
     //Sounds
     public AudioClip[] sons;
 
@@ -100,6 +106,7 @@ public class PlayerControl : MonoBehaviour {
         foreach (GameObject pl in players) {
             if (pl.transform != this.transform) {
                 enemy = pl.transform;
+                enemyGameobject = pl;
             }
         }
 
@@ -183,10 +190,18 @@ public class PlayerControl : MonoBehaviour {
                             }
                         }
                         else if (jhorizontal != 0) {
-                            rig2d.velocity = new Vector2(jhorizontal * maxSpeed, rig2d.velocity.y);
-                            //rig2d.AddForce(jmovement * (maxSpeed - horizontalVelocity.magnitude), ForceMode2D.Impulse); jgarde ça peut être utile
+                            if (block) {
+                                rig2d.velocity = new Vector2(jhorizontal * maxSpeed * 0.75f, rig2d.velocity.y);
+                            } else {
+                                rig2d.velocity = new Vector2(jhorizontal * maxSpeed, rig2d.velocity.y);
+                                //rig2d.AddForce(jmovement * (maxSpeed - horizontalVelocity.magnitude), ForceMode2D.Impulse); jgarde ça peut être utile
+                            }
                         } else {
-                            rig2d.velocity = new Vector2(horizontal * maxSpeed, rig2d.velocity.y);
+                            if (block) {
+                                rig2d.velocity = new Vector2(horizontal * maxSpeed * 0.75f, rig2d.velocity.y);
+                            } else {
+                                rig2d.velocity = new Vector2(horizontal * maxSpeed, rig2d.velocity.y);
+                            }
                         }
                     }
                 }/* else {  //en l'air pour air control
@@ -317,8 +332,14 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        blocklow = block && crouch;
-        blockhigh = block && !crouch;
+        if (!isFrozen) {
+            blocklow = block && crouch;
+            blockhigh = block && !crouch;
+        }
+        else {
+            blocklow = hasBlockLow;
+            blockhigh = hasBlockHigh;
+        }
     }
 
     // Assigns keyboard and controller input
@@ -536,6 +557,20 @@ public class PlayerControl : MonoBehaviour {
 
     public void setAttackName(string name) {
         attackName = name;
+    }
+
+    public void FreezeEnemy() {
+        enemyGameobject.GetComponent<PlayerControl>().isFrozen = true;
+        enemyGameobject.GetComponent<PlayerControl>().hasBlockHigh = enemyGameobject.GetComponent<PlayerControl>().blockhigh;
+        enemyGameobject.GetComponent<PlayerControl>().hasBlockLow = enemyGameobject.GetComponent<PlayerControl>().blocklow;
+        enemyGameobject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        enemyGameobject.GetComponent<Animator>().enabled = false;
+    }
+
+    public void DeFreezeEnemy() {
+        enemyGameobject.GetComponent<PlayerControl>().isFrozen = false;
+        enemyGameobject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+        enemyGameobject.GetComponent<Animator>().enabled = true;
     }
 
     //à utiliser pour debug.log : startcoroutine dans le start()

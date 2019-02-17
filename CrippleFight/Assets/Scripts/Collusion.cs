@@ -67,19 +67,24 @@ public class Collusion : MonoBehaviour
             }
         }*/
 
-        if ((collision.gameObject.tag == "UpP2") && ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "airdive"))) {
+        if ((collision.gameObject.tag == "UpP2") && ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "airdive") || (myPlayerControl.attackName == "Ulti"))) {
             Debug.Log("checkUpP2");
             if (!playerControlEnemy.blocklow && !playerControlEnemy.blockhigh) {
-                HealthBarP2.Health -= 10f;
-                SuperBarP2.Super += 20f;
+                if (myPlayerControl.attackName == "Ulti") {
+                    HealthBarP2.Health -= 40f;
+                    SuperBarP2.Super += 20f;
+                } else {
+                    HealthBarP2.Health -= 10f;
+                    SuperBarP2.Super += 12.5f;
+                }
                 playerControlEnemy.hit = true;
-                if (myPlayerControl.attackName == "kick") {
+                if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
                     myPlayerControl.startTimerHitLag = true;
                 }
             } else if (playerControlEnemy.blocklow) {
                 if (myPlayerControl.attackName == "airdive") {
                     HealthBarP2.Health -= 10f;
-                    SuperBarP2.Super += 20f;
+                    SuperBarP2.Super += 12.5f;
                     playerControlEnemy.hit = true;
                 } else {
                     AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
@@ -89,7 +94,7 @@ public class Collusion : MonoBehaviour
             } else if (playerControlEnemy.blockhigh) {
                 AnimatorPlayerEnemy.SetTrigger("isBlocking");
                 //playerControlEnemy.hit = true;
-                if (myPlayerControl.attackName == "kick") {
+                if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
                     myPlayerControl.startTimerHitLag = true;
                 }
             }
@@ -120,8 +125,8 @@ public class Collusion : MonoBehaviour
         if ((collision.gameObject.tag == "DownP2") && (myPlayerControl.attackName == "downkick")) {
             Debug.Log("checkDownP2");
             if (!playerControlEnemy.blocklow) {
-                HealthBarP2.Health -= 5f;
-                SuperBarP2.Super += 20f;
+                HealthBarP2.Health -= 10f;
+                SuperBarP2.Super += 12.5f;
                 playerControlEnemy.hit = true;
             } else if (playerControlEnemy.blocklow) {
                 AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");

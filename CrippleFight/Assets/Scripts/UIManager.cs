@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour {
     public Text RoundT;
     public bool RoundN,checknumber, EndAnim, p1Lose, p2Lose;
     public GameObject Fedor, Natalya, Marcus, doubleKO, winner;
+    public GameObject FedorSkin, NatalyaSkin, MarcusSkin;
 
 
 
@@ -55,18 +56,56 @@ public class UIManager : MonoBehaviour {
                     Fedor.SetActive(true);
                     Natalya.SetActive(false);
                     Marcus.SetActive(false);
+
+                    FedorSkin.SetActive(false);
+                    NatalyaSkin.SetActive(false);
+                    MarcusSkin.SetActive(false);
                 }
 
                 else if (Player2.name == "NataliaP2(Clone)") {
                     Fedor.SetActive(false);
                     Natalya.SetActive(true);
                     Marcus.SetActive(false);
+
+                    FedorSkin.SetActive(false);
+                    NatalyaSkin.SetActive(false);
+                    MarcusSkin.SetActive(false);
                 }
 
                 else if (Player2.name == "MarcusP2(Clone)") {
                     Fedor.SetActive(false);
                     Natalya.SetActive(false);
                     Marcus.SetActive(true);
+
+                    FedorSkin.SetActive(false);
+                    NatalyaSkin.SetActive(false);
+                    MarcusSkin.SetActive(false);
+                }
+
+                else if (Player2.name == "FedorP2skin(Clone)") {
+                    Fedor.SetActive(false);
+                    Natalya.SetActive(false);
+                    Marcus.SetActive(false);
+
+                    FedorSkin.SetActive(true);
+                    NatalyaSkin.SetActive(false);
+                    MarcusSkin.SetActive(false);
+                } else if (Player2.name == "NataliaP2skin(Clone)") {
+                    Fedor.SetActive(false);
+                    Natalya.SetActive(false);
+                    Marcus.SetActive(false);
+
+                    FedorSkin.SetActive(false);
+                    NatalyaSkin.SetActive(true);
+                    MarcusSkin.SetActive(false);
+                } else if (Player2.name == "MarcusP2skin(Clone)") {
+                    Fedor.SetActive(false);
+                    Natalya.SetActive(false);
+                    Marcus.SetActive(false);
+
+                    FedorSkin.SetActive(false);
+                    NatalyaSkin.SetActive(false);
+                    MarcusSkin.SetActive(true);
                 }
 
                 winner.SetActive(true);
@@ -74,18 +113,55 @@ public class UIManager : MonoBehaviour {
             }
 
             else if (p2Lose) {
+                Debug.Log(Player1.name);
                 if (Player1.name == "FedorP1(Clone)") {
                     Fedor.SetActive(true);
                     Natalya.SetActive(false);
                     Marcus.SetActive(false);
+
+                    FedorSkin.SetActive(false);
+                    NatalyaSkin.SetActive(false);
+                    MarcusSkin.SetActive(false);
                 } else if (Player1.name == "NataliaP1(Clone)") {
                     Fedor.SetActive(false);
                     Natalya.SetActive(true);
                     Marcus.SetActive(false);
+
+                    FedorSkin.SetActive(false);
+                    NatalyaSkin.SetActive(false);
+                    MarcusSkin.SetActive(false);
                 } else if (Player1.name == "MarcusP1(Clone)") {
                     Fedor.SetActive(false);
                     Natalya.SetActive(false);
                     Marcus.SetActive(true);
+
+                    FedorSkin.SetActive(false);
+                    NatalyaSkin.SetActive(false);
+                    MarcusSkin.SetActive(false);
+                } else if (Player1.name == "FedorP1skin(Clone)") {
+                    Fedor.SetActive(false);
+                    Natalya.SetActive(false);
+                    Marcus.SetActive(false);
+
+                    FedorSkin.SetActive(true);
+                    NatalyaSkin.SetActive(false);
+                    MarcusSkin.SetActive(false);
+                } else if (Player1.name == "NataliaP1skin(Clone)") {
+                    Fedor.SetActive(false);
+                    Natalya.SetActive(false);
+                    Marcus.SetActive(false);
+
+                    FedorSkin.SetActive(false);
+                    NatalyaSkin.SetActive(true);
+                    MarcusSkin.SetActive(false);
+                } else if (Player1.name == "MarcusP1skin(Clone)") {
+                    Fedor.SetActive(false);
+                    Natalya.SetActive(false);
+                    Marcus.SetActive(false);
+
+                    FedorSkin.SetActive(false);
+                    NatalyaSkin.SetActive(false);
+                    MarcusSkin.SetActive(true);
                 }
 
                 winner.SetActive(true);
@@ -96,6 +172,9 @@ public class UIManager : MonoBehaviour {
                 Fedor.SetActive(false);
                 Natalya.SetActive(false);
                 Marcus.SetActive(false);
+                FedorSkin.SetActive(false);
+                NatalyaSkin.SetActive(false);
+                MarcusSkin.SetActive(false);
                 doubleKO.SetActive(true);
                 winner.SetActive(false);
             }
@@ -115,7 +194,8 @@ public class UIManager : MonoBehaviour {
 	}
    public void Replay()
     {
-        SceneManager.LoadScene("SampleScene");
+        Scene loadedLevel = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(loadedLevel.name);
     }
     public void menu()
     {
