@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
     public Menu myMenu;
     // Use this for initialization
     void Start () {
-        Instantiates();
+       
         Menu.checkPlayer1 = false;
         Menu.checkPlayer2 = false;
 

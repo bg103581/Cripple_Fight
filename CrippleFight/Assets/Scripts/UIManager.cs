@@ -5,33 +5,37 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
-    public GameObject GameOver,Round;
+    public GameObject TimerO,GameOver,Round;
     public GameObject Player1;
     public GameObject Player2;
     public float Count=10f;
     public int i, P1W,P2W,PN, CountInt,NumPartie;
     public static GameManager Gamemanager;
     public Text Timer;
-    public GameObject [] players;
+    public GameObject [] players, RoundNumber;
     public Text RoundT;
-    public bool checknumber, EndAnim, p1Lose, p2Lose;
+    public bool RoundN,checknumber, EndAnim, p1Lose, p2Lose;
     public GameObject Fedor, Natalya, Marcus, doubleKO, winner;
+
 
 
     // Use this for initialization
     void Start () {
-        i = 1;
+        i = 0;
+        Count = 0;
+        RoundN = false;
         checknumber = true;
         NumPartie = 1;
         Gamemanager = GameObject.FindObjectOfType<GameManager>();
-        Count = 100f;
+        Count =0f;
         EndAnim = false;
         p1Lose = p2Lose = false;
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
-
+        CountTime();
         players = GameObject.FindGameObjectsWithTag("Player");
         Player1 = players[0];
         Player2 = players[1];
@@ -121,164 +125,203 @@ public class UIManager : MonoBehaviour {
     {
         Application.Quit();
     }
-    /*
-      public void CountTime()
-     {
 
-         Count -= Time.deltaTime;
-         CountInt = (int)Count;
-         Timer.text = CountInt.ToString();
+     public void CountTime()
+      {
 
-         if (CountInt == 0)
-         {
-             i++;
-             winnercheck();
+        Count -= Time.deltaTime;
+        CountInt = (int)Count;
+        Timer.text = CountInt.ToString();
 
+        if (CountInt == 0  )
+          {
+            
+             
+              winnercheck();
 
-             if (NumPartie == 1 && checknumber)
-             {
-                 Destroy(Player2);
-                 Destroy(Player1);
+           
+            if (checknumber )
+              {
+                // if (RoundT.text=="0")
+                // {
+               
+                Count = 10;
+                    
+                RoundNumber[i].SetActive(true);
+                
+                    StartCoroutine(Rounds());
+                TimerO.SetActive(false);
+                //RoundT.text = "Round" + i;
+                // Round.SetActive(true);
+                Destroy(Player2);
+                    Destroy(Player1);
+                Debug.Log("cro");
+                
+            }
+                /*else if(i==2 )
+                  { RoundT.text = "Round" + i;
+                      Round.SetActive(true);
+                      Destroy(Player2);
+                      Destroy(Player1);
 
-                 //  StartCoroutine(Rounds());
-                 NumPartie = 2;
-                 RoundT.text = "Round"+i;
-                 Round.SetActive(true);
-
-
-             }
-
-
-                 if (NumPartie == 2)
-                 {
-
-                 Count = 10;
-                 StartCoroutine(Rounds());
-                 NumPartie = 1;
-
-
-
-             }
-
-
-
-
+                      StartCoroutine(Rounds());
 
 
-         }
-             }
-    public IEnumerator Rounds()
-     {
+                  }               
+              */
 
-         yield return new WaitForSeconds(5f);
-         Round.SetActive(false);
 
-         Count = 10;
-         Count -= Time.deltaTime;
-         Timer.text = CountInt.ToString();
-         Gamemanager.Instantiates();
-         EndAnim = true;
+            
+
+
+           // }
+
+
+            
 
 
 
 
 
-     }
 
-     public void winnercheck()
-     {
-         if (HealthBarP1.healthBarfill > HealthBarP2.healthBarfill)
-         {
-             P1W += 1;
-         }
-         else if (HealthBarP1.healthBarfill < HealthBarP2.healthBarfill)
-         {
-             P2W += 1;
-         }
-         else
-             PN += 1;
+        }
+              }
+     public IEnumerator Rounds()
+      {
 
-         if(i==3)
-         { 
-             if( P1W==2 && P1W>P2W || P1W > P2W && PN>1)
-         {
-            Debug.Log ("Player1win");
-             checknumber = false;
-         }
-         else if ( P1W < P2W && P2W==2 || P1W < P2W && PN > 1)
-         {
-             Debug.Log("Player2win");
-             checknumber = false;
-         }
-             else if ( PN > 1)
-             {
-                 Debug.Log("Round3");
-
-             }
-             else
-         {
-             Debug.Log("Round3");
-
-         }
-         }
-
-
-
-         if (PN >= 1 && P1W > P2W)
-         {
-             Debug.Log("Player1win");
-             checknumber = false;
-
-         }
-         else if (PN >= 1 && P1W < P2W)
-         {
-             Debug.Log("Player2win");
-             checknumber = false;
-
-         }
-         if (PN >= 2 && P1W > P2W)
-         {
-             Debug.Log("Player1win");
-             checknumber = false;
-
-         }
-         else if (PN >= 2 && P1W < P2W)
-         {
-             Debug.Log("Player2win");
-             checknumber = false;
-
-         }
-
-
-
-
-         if (i == 4)
-         {
-
-
-             if (P1W > P2W)
-             {
-                 Debug.Log("Player1win");
-                 checknumber = false;
-             }
-             else if (P1W < P2W)
-             {
-                 Debug.Log("Player2win");
-                 checknumber = false;
-             }
-             else 
-                  Debug.Log("egalité");
-             checknumber = false;
-         }
-
-     }
-
-    */
+          yield return new WaitForSeconds(2f);
+        // Round.SetActive(false);
+        RoundNumber[i].SetActive(false);
+        i++;
+        Count = 10;
+        TimerO.SetActive(true);
+       
+          Count -= Time.deltaTime;
+          Timer.text = CountInt.ToString();
+          Gamemanager.Instantiates();
+        HealthBarP1.Health = 100;
+        HealthBarP2.Health = 100;
+          EndAnim = true;
+        RoundN = true;
 
 
 
 
 
+
+
+    }
+
+      public void winnercheck()
+      {
+        if( (Timer.text == "0") && RoundN==true  && HealthBarP1.healthBarfill > HealthBarP2.healthBarfill)
+        {
+            P1W += 1;
+            
+        }
+        else if(( Timer.text == "0") && RoundN == true && (HealthBarP1.healthBarfill < HealthBarP2.healthBarfill))
+        {
+            P2W += 1;
+            
+        }
+        else if((Timer.text == "0") && RoundN == true && (HealthBarP1.healthBarfill == HealthBarP2.healthBarfill))
+        {
+            PN += 1;
+            
+        }
+
+        if (i==2)
+          { 
+              if((Timer.text == "0") && RoundN == true && P1W ==2 && P1W>P2W || P1W > P2W && PN>1)
+          {
+             Debug.Log ("Player1win");
+              checknumber = false;
+          }
+          else if ((Timer.text == "0") && RoundN == true && P1W < P2W && P2W==2 || P1W < P2W && PN > 1)
+          {
+              Debug.Log("Player2win");
+              checknumber = false;
+          }
+              else if ((Timer.text == "0") && RoundN == true && PN > 1)
+              {
+                  Debug.Log("Round3");
+
+              }
+           
+          }
+
+
+
+          if ((Timer.text == "0") && RoundN == true &&  PN >= 1 && P1W > P2W)
+          {
+              Debug.Log("Player1win");
+            TimerO.SetActive(false);
+            checknumber = false;
+           
+
+        }
+          else if ( (Timer.text == "0") && RoundN == true && PN >= 1 && P1W < P2W)
+          {
+              Debug.Log("Player2win");
+            TimerO.SetActive(false);
+            checknumber = false;
+           
+
+        }
+          if ((Timer.text == "0") && RoundN == true && (PN >= 2 && P1W > P2W))
+          {
+              Debug.Log("Player1win");
+            TimerO.SetActive(false);
+            checknumber = false;
+            
+
+        }
+          else if ((Timer.text == "0") && RoundN == true && PN >= 2 && P1W < P2W)
+          {
+              Debug.Log("Player2win");
+            TimerO.SetActive(false);
+            checknumber = false;
+            
+
+        }
+
+
+
+
+          if (i == 3)
+          {
+
+
+              if ((Timer.text == "0") && RoundN == true && P1W > P2W)
+              {
+                  Debug.Log("Player1win");
+                TimerO.SetActive(false);
+                checknumber = false;
+              
+            }
+              else if ((Timer.text == "0") && RoundN == true && P1W < P2W)
+              {
+                  Debug.Log("Player2win");
+                TimerO.SetActive(false);
+                checknumber = false;
+                
+            }
+              else 
+                   Debug.Log("egalité");
+            TimerO.SetActive(false);
+            checknumber = false;
+       
+        }
+
+      }
+     
+  
+
+
+
+
+
+    
 
 
 
