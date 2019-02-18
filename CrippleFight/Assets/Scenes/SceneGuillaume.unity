@@ -1466,7 +1466,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4927061593016376, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.6
+      value: 1.87
       objectReference: {fileID: 0}
     - target: {fileID: 4927061593016376, guid: c6f227395c2f28d4b8716fa9d460757f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1534,6 +1534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baba211e1ec0877488e168ea5ec5bde8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimerO: {fileID: 0}
   GameOver: {fileID: 414076755}
   Round: {fileID: 240006795}
   Player1: {fileID: 199416625}
@@ -1547,7 +1548,12 @@ MonoBehaviour:
   NumPartie: 0
   Timer: {fileID: 813131335}
   players: []
+  RoundNumber: []
   RoundT: {fileID: 240006797}
+  ppn: 0
+  pp1Lose: 0
+  pp2Lose: 0
+  RoundN: 0
   checknumber: 0
   EndAnim: 0
   p1Lose: 0
@@ -1557,6 +1563,9 @@ MonoBehaviour:
   Marcus: {fileID: 271491125}
   doubleKO: {fileID: 697726182}
   winner: {fileID: 947280692}
+  FedorSkin: {fileID: 0}
+  NatalyaSkin: {fileID: 0}
+  MarcusSkin: {fileID: 0}
 --- !u!4 &492689989
 Transform:
   m_ObjectHideFlags: 0
@@ -4763,10 +4772,6 @@ Prefab:
       propertyPath: m_Name
       value: NataliaP1
       objectReference: {fileID: 0}
-    - target: {fileID: 1010990917817764, guid: 7690285e6259aad45945cab28517b0df, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7690285e6259aad45945cab28517b0df, type: 2}
   m_IsPrefabAsset: 0
@@ -6141,10 +6146,6 @@ Prefab:
     - target: {fileID: 4859534586274784, guid: 27c06c234cb7e804bb221e00e16b97f2, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1957549038736450, guid: 27c06c234cb7e804bb221e00e16b97f2, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1957549038736450, guid: 27c06c234cb7e804bb221e00e16b97f2, type: 2}
       propertyPath: m_Name
