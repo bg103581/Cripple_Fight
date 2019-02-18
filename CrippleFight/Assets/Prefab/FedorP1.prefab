@@ -64,7 +64,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1392972537349562
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,9 +291,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: -0.46}
+  m_Offset: {x: 0.25, y: -0.5}
   serializedVersion: 2
-  m_Radius: 0.57
+  m_Radius: 0.4
 --- !u!70 &70100219616953282
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -412,6 +412,7 @@ MonoBehaviour:
   Player2: {fileID: 0}
   CheckPosR: {fileID: 0}
   CheckPosL: {fileID: 0}
+  OnGround: 0
 --- !u!212 &212256505016834730
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -320,11 +320,11 @@ public class UIManager : MonoBehaviour
     public IEnumerator Rounds()
     {
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         // Round.SetActive(false);
         RoundNumber[i].SetActive(false);
         i++;
-        Count = 5;
+        Count =100;
         TimerO.SetActive(true);
 
         Count -= Time.deltaTime;

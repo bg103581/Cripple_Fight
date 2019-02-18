@@ -160,9 +160,10 @@ public class PlayerControl : MonoBehaviour {
                     {
                         Vector2 Trans= new Vector2(60, rig2d.velocity.y);
                         RB2.velocity = Trans;
+
                         CheckHead.CheckCollusion = false;
                     }
-                    else if ( !CheckHead.CheckCollusion && CheckHeadP2.CheckCollusion)
+                    else if (!CheckHead.CheckCollusion && CheckHeadP2.CheckCollusion)
                     {
                         Vector2 Trans = new Vector2(60, rig2d.velocity.y);
                         RB1.velocity = Trans;
@@ -174,7 +175,7 @@ public class PlayerControl : MonoBehaviour {
                         RB2.velocity = -Trans;
                         CheckHead.CheckCollusionL = false;
                     }
-                    else if ( !CheckHead.CheckCollusionL && CheckHeadP2.CheckCollusionL)
+                    else if ( CheckHeadP2.CheckCollusionL && !CheckHead.CheckCollusionL)
                     {
                         Vector2 Trans = new Vector2(60, rig2d.velocity.y);
                         RB1.velocity = -Trans;
@@ -204,7 +205,7 @@ public class PlayerControl : MonoBehaviour {
                             }
                         }
                     }
-                }/* else {  //en l'air pour air control
+                }/*else {  //en l'air pour air control
                     if (walk) {
                         if (jhorizontal != 0) {
                             if ((rig2d.velocity.x > 0 && jmovement.x < 0) || (rig2d.velocity.x < 0 && jmovement.x > 0) || (Mathf.Abs(rig2d.velocity.x) < maxSpeed)) {
@@ -312,7 +313,7 @@ public class PlayerControl : MonoBehaviour {
 
     // Makes the players look at each other automatically
     void Scalecheck() {
-        isLeft = transform.position.x < enemy.position.x;
+        isLeft = transform.position.x < enemy.position.x+0.1f;
 
         if (onGround) {
             if (isLeft) {

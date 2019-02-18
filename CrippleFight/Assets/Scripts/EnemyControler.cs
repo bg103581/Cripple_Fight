@@ -48,7 +48,7 @@ public class EnemyControler : MonoBehaviour
             rb.velocity -= Vector2.up * 2;
 
         }
-        transform.localScale = new Vector3(2, 2, 2);
+        
 
 
 
@@ -76,19 +76,19 @@ public class EnemyControler : MonoBehaviour
                 changestate();
 
             }
-            if (Mathf.Abs(distance) > 2 && Mathf.Abs(distance) <= 4)
+           else if (Mathf.Abs(distance) >= 2 && Mathf.Abs(distance) <= 4)
             {
 
                 WalkThink();
 
             }
-            if (Mathf.Abs(distance) > 4 && Mathf.Abs(distance) <= 6)
+           else if (Mathf.Abs(distance) > 4 && Mathf.Abs(distance) <= 6)
             {
 
                 Think();
 
             }
-            if (Mathf.Abs(distance) > 6)
+           else if (Mathf.Abs(distance) > 6)
             {
 
                 state = StateEnemy.walk;
