@@ -8,10 +8,12 @@ public class CheckHeadP2 : MonoBehaviour
     public GameObject Player1, Player2, CheckPosR, CheckPosL;
     Vector2 Trans;
     Rigidbody2D RB1, RB2;
+    public bool OnGround;
     public static bool CheckCollusion, CheckCollusionL;
 
     void Start()
     {
+        OnGround = true;
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject p in players)
         {
@@ -41,35 +43,56 @@ public class CheckHeadP2 : MonoBehaviour
     {
         Trans = new Vector2(450 * Time.deltaTime, 0);
 
-        if (collision.gameObject.tag == "Head" || collision.gameObject.tag == "HeadEnemy")
+        if (collision.gameObject.tag == "ground")
+        {
+            OnGround = true;
+            Debug.Log(OnGround);
+        }
+
+        else if ((collision.gameObject.tag == "DownP1" || collision.gameObject.tag == "HeadEnemy") && !OnGround)
         {
 
             if (Player2.transform.position.x <= Player1.transform.position.x && Player2.transform.position.x > CheckPosL.transform.position.x)
             {
-                //RB2.velocity = (-Trans);
+               
                 CheckCollusion = true;
+                
 
             }
             else if (Player2.transform.position.x > Player1.transform.position.x && Player2.transform.position.x < CheckPosR.transform.position.x)
             {
 
-                // RB2.velocity = (Trans);
                 CheckCollusionL = true;
-
+             
 
             }
             else if ((Player2.transform.position.x > CheckPosR.transform.position.x))
             {
-
-               // RB2.velocity = (-Trans);
+                CheckCollusionL = true;
+                
+                
             }
             else if ((Player2.transform.position.x < CheckPosL.transform.position.x))
             {
+                CheckCollusion = true;
+                
 
-                //RB2.velocity = (Trans);
+               
             }
 
         }
     }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+       
 
+
+        if (collision.gameObject.tag == "ground")
+        {
+            OnGround = false;
+            Debug.Log(OnGround);
+        }
+
+
+    }
 }
