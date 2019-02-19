@@ -248,6 +248,9 @@ public class UIManager : MonoBehaviour
             HUD2.SetActive(false);
             triangle.SetActive(false);
             counter.SetActive(false);
+
+            Player1.GetComponent<PlayerControl>().enabled = false;
+            Player2.GetComponent<PlayerControl>().enabled = false;
         }
 	}
     
