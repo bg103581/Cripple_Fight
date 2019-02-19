@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour {
     public Menu myMenu;
     // Use this for initialization
     void Start () {
-       
+
+        Instantiates();
+
         Menu.checkPlayer1 = false;
         Menu.checkPlayer2 = false;
 
@@ -18,7 +20,6 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
    public void Instantiates()

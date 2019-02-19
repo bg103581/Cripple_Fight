@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     public GameObject Fedor, Natalya, Marcus, doubleKO, winner;
     public GameObject FedorSkin, NatalyaSkin, MarcusSkin;
 
+    public GameObject HUD1, HUD2, triangle, counter;
+
 
 
 
@@ -33,10 +35,15 @@ public class UIManager : MonoBehaviour
         Gamemanager = GameObject.FindObjectOfType<GameManager>();
         Count = 0f;
         EndAnim = false;
+
+        p1Lose = p2Lose = false;
+        HUD1.SetActive(true);
+        HUD2.SetActive(true);
+        triangle.SetActive(true);
+        counter.SetActive(true);
+
        ppn= p1Lose = p2Lose = false;
-
-
-
+       
     }
 
     // Update is called once per frame
@@ -234,17 +241,21 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 1;
             Player1.GetComponent<PlayerControl>().enabled = true;
             Player2.GetComponent<PlayerControl>().enabled = true;
-
-
         }
-    }
+
+        if (GameOver.activeInHierarchy) {
+            HUD1.SetActive(false);
+            HUD2.SetActive(false);
+            triangle.SetActive(false);
+            counter.SetActive(false);
+        }
+	}
+    
     public void Replay()
     {
         Scene loadedLevel = SceneManager.GetActiveScene();
         SceneManager.LoadScene(loadedLevel.name);
-
-
-
+    
     }
     public void menu()
     {

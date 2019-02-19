@@ -4,6 +4,8 @@ using UnityEngine;
 public class MyEventSystem : EventSystem
 {
 
+    public void Start() {
+    }
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -15,5 +17,9 @@ public class MyEventSystem : EventSystem
         current = this;
         base.Update();
         current = originalCurrent;
+
+        if (EventSystem.current.currentSelectedGameObject == null) {
+            EventSystem.current.SetSelectedGameObject(firstSelectedGameObject);
+        }
     }
 }
