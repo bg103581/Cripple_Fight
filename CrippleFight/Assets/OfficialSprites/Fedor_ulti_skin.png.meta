@@ -1,0 +1,498 @@
+fileFormatVersion: 2
+guid: 099b873bf912a8a42b81981b4a32c560
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Fedor_ulti_skin_0
+    21300002: Fedor_ulti_skin_1
+    21300004: Fedor_ulti_skin_2
+    21300006: Fedor_ulti_skin_3
+    21300008: Fedor_ulti_skin_4
+    21300010: Fedor_ulti_skin_5
+    21300012: Fedor_ulti_skin_6
+    21300014: Fedor_ulti_skin_7
+    21300016: Fedor_ulti_skin_8
+    21300018: Fedor_ulti_skin_9
+    21300020: Fedor_ulti_skin_10
+    21300022: Fedor_ulti_skin_11
+    21300024: Fedor_ulti_skin_12
+    21300026: Fedor_ulti_skin_13
+    21300028: Fedor_ulti_skin_14
+    21300030: Fedor_ulti_skin_15
+    21300032: Fedor_ulti_skin_16
+    21300034: Fedor_ulti_skin_17
+    21300036: Fedor_ulti_skin_18
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_0
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 1580
+        width: 188
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a051ed3f3cf919141af2c9b5715900a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_1
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 1583
+        width: 291
+        height: 316
+      alignment: 9
+      pivot: {x: 0.5, y: 0.39}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff146c40e83edf4cb81d009eee0a38d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_2
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 1584
+        width: 298
+        height: 378
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fce8ee54f839bf46849ecbfa09d899c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_3
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 1565
+        width: 293
+        height: 421
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b660b55c7ffbb2488e5619d32ba9b47
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_4
+      rect:
+        serializedVersion: 2
+        x: 1694
+        y: 1567
+        width: 316
+        height: 453
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c55f40c4c40f494393ebfb95fb31689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_5
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1075
+        width: 241
+        height: 457
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcfbf797c4dc96e438d7faba2401c09c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_6
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 1075
+        width: 243
+        height: 445
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4eafd4d0b7d0164ca63782c356f8b1b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_7
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 1075
+        width: 261
+        height: 439
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076a7dfd1c3fbc34a892b12b10988bd2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_8
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 1075
+        width: 246
+        height: 445
+      alignment: 9
+      pivot: {x: 0.5, y: 0.34}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c770c79a1fc3fc045beb05ee08cfffe5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_9
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 1075
+        width: 242
+        height: 457
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561bdbffb639b3347b8980d047d8a7c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 607
+        width: 249
+        height: 435
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a8f22a8a4ca0b4ca362de44ad86379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_11
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 592
+        width: 266
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4860192284dbd514f82f6ba5a142f974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_12
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 592
+        width: 283
+        height: 440
+      alignment: 9
+      pivot: {x: 0.5, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7264bc0f64a8e70499b05897091f7ce1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_13
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 582
+        width: 318
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41f7f918dc7abf942b795014c987b989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_14
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 580
+        width: 270
+        height: 457
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baeca90eea1cc3c458f7d9908f783ab1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_15
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 5
+        width: 248
+        height: 481
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 826324f3c997c244aaf3525994cae8e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_16
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 5
+        width: 259
+        height: 499
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d7ccad5db5621c4a87215ffa6dc441c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_17
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 5
+        width: 407
+        height: 464
+      alignment: 9
+      pivot: {x: 0.5, y: 0.31}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 050d3c9495d22a74595e5a4d90d489e8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fedor_ulti_skin_18
+      rect:
+        serializedVersion: 2
+        x: 1739
+        y: 5
+        width: 338
+        height: 408
+      alignment: 9
+      pivot: {x: 0.5, y: 0.37}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3d7897be2d3ed499507a7689e09835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 385d9a8fcd560c74ca94dee68af11479
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
