@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c803b7c49ee4541849dbb0eafd1d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Fedor
 --- !u!114 &114813699824598262
 MonoBehaviour:
   m_ObjectHideFlags: 1

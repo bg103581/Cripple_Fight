@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c803b7c49ee4541849dbb0eafd1d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Natalya
 --- !u!114 &114556460176138492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -394,6 +395,7 @@ MonoBehaviour:
   Player2: {fileID: 0}
   CheckPosR: {fileID: 0}
   CheckPosL: {fileID: 0}
+  OnGround: 0
 --- !u!114 &114699702255315096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -421,12 +423,13 @@ MonoBehaviour:
   hitEnemyWall: 0
   startTimerHitWall: 0
   stopMoving: 0
-  jumpForce: 18
+  jumpForce: 20
   jumpTime: 0.25
   jump: 0
   isJumping: 0
   attackName: 
   startTimerHitLag: 0
+  isFrozen: 0
   sons:
   - {fileID: 8300000, guid: 6c4f0db2241edf742bd38c1c00f4a2e0, type: 3}
   - {fileID: 8300000, guid: 2e841698b01c28a4aab05e2c94627bfb, type: 3}

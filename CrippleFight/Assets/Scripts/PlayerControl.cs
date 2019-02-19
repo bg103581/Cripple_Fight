@@ -7,6 +7,8 @@ public class PlayerControl : MonoBehaviour {
     public int PlayerNumber ;
     private Transform enemy;
     private GameObject enemyGameobject;
+    private GameObject effectsAnim;
+    private GameObject ground;
 
     private Rigidbody2D rig2d;
     private Animator anim;
@@ -115,6 +117,8 @@ public class PlayerControl : MonoBehaviour {
             enemy = GameObject.FindGameObjectWithTag("Ennemy").transform;
         }
 
+        effectsAnim = GameObject.FindGameObjectWithTag("EffectsAnim" + PlayerNumber);
+        ground = GameObject.FindGameObjectWithTag("ground");
         //StartCoroutine("debug");
     }
 
@@ -572,6 +576,16 @@ public class PlayerControl : MonoBehaviour {
         enemyGameobject.GetComponent<PlayerControl>().isFrozen = false;
         enemyGameobject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         enemyGameobject.GetComponent<Animator>().enabled = true;
+    }
+
+    public void AnimDustLeft() {
+        effectsAnim.transform.position = transform.position - new Vector3(0, (transform.position.y - ground.transform.position.y),0);
+        effectsAnim.GetComponent<Animator>().SetTrigger("dashLeft");
+    }
+
+    public void AnimDustRight() {
+        effectsAnim.transform.position = transform.position - new Vector3(0, (transform.position.y - ground.transform.position.y), 0);
+        effectsAnim.GetComponent<Animator>().SetTrigger("dashRight");
     }
 
     //à utiliser pour debug.log : startcoroutine dans le start()
