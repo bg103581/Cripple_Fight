@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4138399776922844
 Transform:
   m_ObjectHideFlags: 1
@@ -332,8 +332,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08, y: -0.22}
-  m_Size: {x: 0.69, y: 2.37}
+  m_Offset: {x: -0.17, y: -0.28}
+  m_Size: {x: 0.06, y: 0.92}
   m_Direction: 0
 --- !u!70 &70692360590444846
 CapsuleCollider2D:
@@ -394,6 +394,7 @@ MonoBehaviour:
   Player2: {fileID: 0}
   CheckPosR: {fileID: 0}
   CheckPosL: {fileID: 0}
+  OnGround: 0
 --- !u!114 &114699702255315096
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,6 +428,7 @@ MonoBehaviour:
   isJumping: 0
   attackName: 
   startTimerHitLag: 0
+  isFrozen: 0
   sons:
   - {fileID: 8300000, guid: 6c4f0db2241edf742bd38c1c00f4a2e0, type: 3}
   - {fileID: 8300000, guid: 2e841698b01c28a4aab05e2c94627bfb, type: 3}

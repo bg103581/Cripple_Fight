@@ -346,12 +346,7 @@ public class UIManager : MonoBehaviour
 
         EndAnim = true;
         RoundN = true;
-
-
-
-
-
-
+        
 
     }
 

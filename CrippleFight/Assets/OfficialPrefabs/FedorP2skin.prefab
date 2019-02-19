@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95161767374308656}
   - component: {fileID: 58345417102128726}
   - component: {fileID: 114105591207747860}
+  - component: {fileID: 70532318806032254}
   m_Layer: 9
   m_Name: FedorP2skin
   m_TagString: Player
@@ -64,7 +65,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1586580198310514
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,15 +256,15 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1307500189805890}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: -0.5}
+  m_Offset: {x: 0.28, y: -0.5}
   serializedVersion: 2
-  m_Radius: 0.53
+  m_Radius: 0.4
 --- !u!58 &58457716750407218
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -324,6 +325,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -1.3}
   m_Size: {x: 4.7, y: 2}
   m_Direction: 1
+--- !u!70 &70532318806032254
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1307500189805890}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.17, y: -0.28}
+  m_Size: {x: 0.06, y: 0.92}
+  m_Direction: 0
 --- !u!95 &95161767374308656
 Animator:
   serializedVersion: 3
@@ -357,6 +373,7 @@ MonoBehaviour:
   Player2: {fileID: 0}
   CheckPosR: {fileID: 0}
   CheckPosL: {fileID: 0}
+  OnGround: 0
 --- !u!114 &114105591207747860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -390,6 +407,7 @@ MonoBehaviour:
   isJumping: 0
   attackName: 
   startTimerHitLag: 0
+  isFrozen: 0
   sons:
   - {fileID: 8300000, guid: 71a4c1a701a5fd940a863573752f4b5d, type: 3}
   - {fileID: 8300000, guid: 5021f354d21c7c946922854726f49c2a, type: 3}
