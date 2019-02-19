@@ -357,6 +357,7 @@ MonoBehaviour:
   Player2: {fileID: 0}
   CheckPosR: {fileID: 0}
   CheckPosL: {fileID: 0}
+  OnGround: 0
 --- !u!114 &114410506476136772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,6 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb4b42c2c1170b4cae89b12f0658860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Fedor
 --- !u!114 &114842895710597228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,7 +397,7 @@ MonoBehaviour:
   hitEnemyWall: 0
   startTimerHitWall: 0
   stopMoving: 0
-  jumpForce: 18
+  jumpForce: 20
   jumpTime: 0.25
   jump: 0
   isJumping: 0

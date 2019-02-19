@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb4b42c2c1170b4cae89b12f0658860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Natalya
 --- !u!114 &114311062142275236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,6 +439,7 @@ MonoBehaviour:
   Player2: {fileID: 0}
   CheckPosR: {fileID: 0}
   CheckPosL: {fileID: 0}
+  OnGround: 0
 --- !u!212 &212746526117237892
 SpriteRenderer:
   m_ObjectHideFlags: 1

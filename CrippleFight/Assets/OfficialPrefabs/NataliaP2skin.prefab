@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c803b7c49ee4541849dbb0eafd1d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Natalya
 --- !u!114 &114556460176138492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -422,7 +423,7 @@ MonoBehaviour:
   hitEnemyWall: 0
   startTimerHitWall: 0
   stopMoving: 0
-  jumpForce: 18
+  jumpForce: 20
   jumpTime: 0.25
   jump: 0
   isJumping: 0
