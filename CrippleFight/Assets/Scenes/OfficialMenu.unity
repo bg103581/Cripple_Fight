@@ -2062,6 +2062,7 @@ GameObject:
   - component: {fileID: 381720467}
   - component: {fileID: 381720468}
   - component: {fileID: 381720470}
+  - component: {fileID: 381720471}
   m_Layer: 0
   m_Name: EventArena
   m_TagString: Untagged
@@ -2089,7 +2090,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 381720466}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -2129,6 +2130,24 @@ MonoBehaviour:
   m_VerticalAxis: Vertical2
   m_SubmitButton: LowAttack1
   m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &381720471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381720466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal1
+  m_VerticalAxis: StickVertical1
+  m_SubmitButton: A1
+  m_CancelButton: B1
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -2966,7 +2985,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 511465642}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -3022,8 +3041,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: StickHorizontal2
   m_VerticalAxis: StickVertical2
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
+  m_SubmitButton: A2
+  m_CancelButton: B2
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -4106,7 +4125,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 821619697}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4162,8 +4181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: StickHorizontal1
   m_VerticalAxis: StickVertical1
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
+  m_SubmitButton: A1
+  m_CancelButton: B1
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -6571,6 +6590,7 @@ GameObject:
   - component: {fileID: 1247702589}
   - component: {fileID: 1247702591}
   - component: {fileID: 1247702590}
+  - component: {fileID: 1247702593}
   m_Layer: 0
   m_Name: EventSlider
   m_TagString: Untagged
@@ -6616,7 +6636,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1247702588}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -6641,6 +6661,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1247702593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247702588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal1
+  m_VerticalAxis: StickVertical1
+  m_SubmitButton: A1
+  m_CancelButton: B1
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!114 &1250689712 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
@@ -7668,6 +7706,7 @@ GameObject:
   - component: {fileID: 1437623616}
   - component: {fileID: 1437623615}
   - component: {fileID: 1437623614}
+  - component: {fileID: 1437623618}
   m_Layer: 0
   m_Name: EventColorNatalia1
   m_TagString: Untagged
@@ -7699,7 +7738,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1437623613}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -7738,6 +7777,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1437623618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1437623613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal1
+  m_VerticalAxis: StickVertical1
+  m_SubmitButton: A1
+  m_CancelButton: B1
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &1444796751
 GameObject:
   m_ObjectHideFlags: 0
@@ -8433,6 +8490,7 @@ GameObject:
   - component: {fileID: 1799138991}
   - component: {fileID: 1799138990}
   - component: {fileID: 1799138989}
+  - component: {fileID: 1799138993}
   m_Layer: 0
   m_Name: EventColorFedor1
   m_TagString: Untagged
@@ -8464,7 +8522,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1799138988}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -8503,6 +8561,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1799138993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1799138988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal1
+  m_VerticalAxis: StickVertical1
+  m_SubmitButton: A1
+  m_CancelButton: B1
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &1810805612
 GameObject:
   m_ObjectHideFlags: 0
@@ -8514,6 +8590,7 @@ GameObject:
   - component: {fileID: 1810805616}
   - component: {fileID: 1810805615}
   - component: {fileID: 1810805618}
+  - component: {fileID: 1810805613}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -8521,13 +8598,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1810805615
+--- !u!114 &1810805613
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1810805612}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal1
+  m_VerticalAxis: StickVertical1
+  m_SubmitButton: A1
+  m_CancelButton: B1
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1810805615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810805612}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -9107,6 +9202,7 @@ GameObject:
   - component: {fileID: 1884259922}
   - component: {fileID: 1884259921}
   - component: {fileID: 1884259920}
+  - component: {fileID: 1884259924}
   m_Layer: 0
   m_Name: EventColorFedor2
   m_TagString: Untagged
@@ -9138,7 +9234,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1884259919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -9177,6 +9273,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1884259924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1884259919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal2
+  m_VerticalAxis: StickVertical2
+  m_SubmitButton: A2
+  m_CancelButton: B2
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &1922277213
 GameObject:
   m_ObjectHideFlags: 0
@@ -9690,6 +9804,7 @@ GameObject:
   - component: {fileID: 2029797657}
   - component: {fileID: 2029797656}
   - component: {fileID: 2029797655}
+  - component: {fileID: 2029797659}
   m_Layer: 0
   m_Name: EventColorNatalia2
   m_TagString: Untagged
@@ -9721,7 +9836,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2029797654}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -9760,6 +9875,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2029797659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2029797654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal2
+  m_VerticalAxis: StickVertical2
+  m_SubmitButton: A2
+  m_CancelButton: B2
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &2030756465
 GameObject:
   m_ObjectHideFlags: 0

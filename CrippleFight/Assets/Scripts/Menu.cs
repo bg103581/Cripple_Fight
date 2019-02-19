@@ -47,8 +47,8 @@ public class Menu : MonoBehaviour {
             dataHolder.FromMenuButton = false;
         }
 
-        if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("LEFT CLICKED");
+        if (Input.GetButtonDown("StickCross1")) {
+            Debug.Log("Stick x");
         }
     }
 
@@ -57,7 +57,7 @@ public class Menu : MonoBehaviour {
     public void GotItPress()
     {
         if (Menu1.activeInHierarchy) {
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1")) {
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1") || Input.GetButtonDown("StickCross1")) {
                 LogoAnim.enabled = true;
                 Invoke("StartPress", 1f);
             }

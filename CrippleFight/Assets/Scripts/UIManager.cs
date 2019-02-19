@@ -37,10 +37,10 @@ public class UIManager : MonoBehaviour
         EndAnim = false;
 
         p1Lose = p2Lose = false;
-        HUD1.SetActive(true);
-        HUD2.SetActive(true);
-        triangle.SetActive(true);
-        counter.SetActive(true);
+        HUD1.SetActive(false);
+        HUD2.SetActive(false);
+        triangle.SetActive(false);
+        counter.SetActive(false);
 
        ppn= p1Lose = p2Lose = false;
        
@@ -343,6 +343,10 @@ public class UIManager : MonoBehaviour
         HealthBarP1.Health = 120;
         HealthBarP2.Health = 120;
         Gamemanager.Instantiates();
+        HUD1.SetActive(true);
+        HUD2.SetActive(true);
+        triangle.SetActive(true);
+        counter.SetActive(true);
 
         EndAnim = true;
         RoundN = true;
