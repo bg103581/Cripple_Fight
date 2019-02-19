@@ -57,27 +57,36 @@ public class CheckHead : MonoBehaviour
             {
                 //RB2.velocity = (-Trans);
                 CheckCollusion = true;
-               
-               
+                CheckCollusionL = false;
+                CheckHeadP2.CheckCollusion = false;
+                CheckHeadP2.CheckCollusionL = false;
+
             }
             else if (Player1.transform.position.x > Player2.transform.position.x && Player1.transform.position.x < CheckPosR.transform.position.x)
             {
 
                 //RB2.velocity = (Trans);
                 CheckCollusionL = true;
-              
+                CheckCollusion = false;
+                CheckHeadP2.CheckCollusion = false;
+                CheckHeadP2.CheckCollusionL = false;
 
 
             }
             else if ((Player1.transform.position.x >= CheckPosR.transform.position.x))
             {
                 CheckCollusionL = true;
-                
+                CheckCollusionL = false;
+                CheckHeadP2.CheckCollusion = false;
+                CheckHeadP2.CheckCollusionL = false;
+
             }
             else if ((Player1.transform.position.x <= CheckPosL.transform.position.x))
             {
                 CheckCollusion = true;
-              
+                CheckCollusionL = false;
+                CheckHeadP2.CheckCollusion = false;
+                CheckHeadP2.CheckCollusionL = false;
             }
 
         }

@@ -58,28 +58,39 @@ public class CheckHeadP2 : MonoBehaviour
             {
                
                 CheckCollusion = true;
-                
+                CheckCollusionL = false;
+                CheckHead.CheckCollusion = false;
+                CheckHead.CheckCollusionL = false;
 
             }
             else if (Player2.transform.position.x > Player1.transform.position.x && Player2.transform.position.x < CheckPosR.transform.position.x)
             {
 
                 CheckCollusionL = true;
-             
+                CheckCollusion = false;
+
+                CheckHead.CheckCollusion = false;
+                CheckHead.CheckCollusionL = false;
+
 
             }
             else if ((Player2.transform.position.x > CheckPosR.transform.position.x))
             {
                 CheckCollusionL = true;
-                
-                
+                CheckCollusion = false;
+           
+                CheckHead.CheckCollusion = false;
+                CheckHead.CheckCollusionL = false;
+
             }
             else if ((Player2.transform.position.x < CheckPosL.transform.position.x))
             {
                 CheckCollusion = true;
-                
+                CheckCollusionL = false;
+                CheckHead.CheckCollusion = false;
+                CheckHead.CheckCollusionL = false;
 
-               
+
             }
             else if (!OnGround && !CheckHead.Ground)
             {

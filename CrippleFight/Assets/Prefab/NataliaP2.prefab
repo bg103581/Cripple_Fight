@@ -333,7 +333,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.17, y: -0.28}
-  m_Size: {x: 0.04, y: 0.92}
+  m_Size: {x: 0.06, y: 0.92}
   m_Direction: 0
 --- !u!70 &70571908758690202
 CapsuleCollider2D:
@@ -438,6 +438,7 @@ MonoBehaviour:
   Player2: {fileID: 0}
   CheckPosR: {fileID: 0}
   CheckPosL: {fileID: 0}
+  OnGround: 0
 --- !u!212 &212536278763979428
 SpriteRenderer:
   m_ObjectHideFlags: 1
