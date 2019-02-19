@@ -433,11 +433,21 @@ public class PlayerControl : MonoBehaviour {
             if (timePassed <= delay) {
                 if (rightPress >= 2 && leftPress == 0 && onGround) {
                     isDashingRight = true;
-                    anim.SetTrigger("DashRight");
+                    if (isLeft) {
+                        anim.SetTrigger("DashRight");
+                    }
+                    else {
+                        anim.SetTrigger("DashLeft");
+                    }
                     rightPress = 0;
                 } else if (leftPress >= 2 && rightPress == 0 && onGround) {
                     isDashingLeft = true;
-                    anim.SetTrigger("DashLeft");
+                    if (isLeft) {
+                        anim.SetTrigger("DashLeft");
+                    }
+                    else {
+                        anim.SetTrigger("DashRight");
+                    }
                     leftPress = 0;
                 }
             } else {
@@ -586,12 +596,22 @@ public class PlayerControl : MonoBehaviour {
 
     public void AnimDustLeft() {
         effectsAnim.transform.position = transform.position - new Vector3(0, (transform.position.y - ground.transform.position.y),0);
-        effectsAnim.GetComponent<Animator>().SetTrigger("dashLeft");
+        if (isLeft) {
+            effectsAnim.GetComponent<Animator>().SetTrigger("dashLeft");
+        }
+        else {
+            effectsAnim.GetComponent<Animator>().SetTrigger("dashRight");
+        }
     }
 
     public void AnimDustRight() {
         effectsAnim.transform.position = transform.position - new Vector3(0, (transform.position.y - ground.transform.position.y), 0);
-        effectsAnim.GetComponent<Animator>().SetTrigger("dashRight");
+        if (isLeft) {
+            effectsAnim.GetComponent<Animator>().SetTrigger("dashRight");
+        }
+        else {
+            effectsAnim.GetComponent<Animator>().SetTrigger("dashLeft");
+        }
     }
 
     //à utiliser pour debug.log : startcoroutine dans le start()
