@@ -2062,6 +2062,7 @@ GameObject:
   - component: {fileID: 381720467}
   - component: {fileID: 381720468}
   - component: {fileID: 381720470}
+  - component: {fileID: 381720471}
   m_Layer: 0
   m_Name: EventArena
   m_TagString: Untagged
@@ -2089,7 +2090,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 381720466}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -2129,6 +2130,24 @@ MonoBehaviour:
   m_VerticalAxis: Vertical2
   m_SubmitButton: LowAttack1
   m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &381720471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 381720466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal1
+  m_VerticalAxis: StickVertical1
+  m_SubmitButton: A1
+  m_CancelButton: B1
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -2966,7 +2985,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 511465642}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -3022,8 +3041,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: StickHorizontal2
   m_VerticalAxis: StickVertical2
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
+  m_SubmitButton: A2
+  m_CancelButton: B2
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -3721,9 +3740,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.78431374, b: 0.7411765, a: 1}
-    m_HighlightedColor: {r: 0.94509804, g: 0.41960785, b: 0.36078432, a: 1}
-    m_PressedColor: {r: 0.94509804, g: 0.41960785, b: 0.36078432, a: 1}
+    m_NormalColor: {r: 0.8584906, g: 0.2648743, b: 0.19842473, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.7677254, b: 0.7311321, a: 1}
+    m_PressedColor: {r: 1, g: 0.7686275, b: 0.7294118, a: 1}
     m_DisabledColor: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3777,7 +3796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.78431374, b: 0.7411765, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4106,7 +4125,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 821619697}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -4162,8 +4181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: StickHorizontal1
   m_VerticalAxis: StickVertical1
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
+  m_SubmitButton: A1
+  m_CancelButton: B1
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
@@ -5078,9 +5097,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.64705884, g: 0.94509804, b: 0.69411767, a: 1}
-    m_HighlightedColor: {r: 0, g: 0.53333336, b: 0.08235294, a: 1}
-    m_PressedColor: {r: 0, g: 0.53333336, b: 0.08235294, a: 1}
+    m_NormalColor: {r: 0, g: 0.53333336, b: 0.08235294, a: 1}
+    m_HighlightedColor: {r: 0.64705884, g: 0.94509804, b: 0.6901961, a: 1}
+    m_PressedColor: {r: 0.64705884, g: 0.9450981, b: 0.6901961, a: 1}
     m_DisabledColor: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5134,7 +5153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6452474, g: 0.9433962, b: 0.6906796, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6571,6 +6590,7 @@ GameObject:
   - component: {fileID: 1247702589}
   - component: {fileID: 1247702591}
   - component: {fileID: 1247702590}
+  - component: {fileID: 1247702593}
   m_Layer: 0
   m_Name: EventSlider
   m_TagString: Untagged
@@ -6616,7 +6636,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1247702588}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -6641,6 +6661,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1247702593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247702588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal1
+  m_VerticalAxis: StickVertical1
+  m_SubmitButton: A1
+  m_CancelButton: B1
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!114 &1250689712 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
@@ -7020,9 +7058,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 1404662217}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9843137, g: 0.9764706, b: 0.7294118, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.85484546, b: 0.25943398, a: 1}
-    m_PressedColor: {r: 1, g: 0.85490197, b: 0.2627451, a: 1}
+    m_NormalColor: {r: 1, g: 0.80319154, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.94150573, g: 1, b: 0.5896226, a: 1}
+    m_PressedColor: {r: 0.94117653, g: 1, b: 0.5882353, a: 1}
     m_DisabledColor: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -7076,7 +7114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9811321, g: 0.97412646, b: 0.72659314, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7579,9 +7617,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.78431374, b: 0.7411765, a: 1}
-    m_HighlightedColor: {r: 0.9433962, g: 0.4168658, b: 0.36044857, a: 1}
-    m_PressedColor: {r: 0.94509804, g: 0.41960785, b: 0.36078432, a: 1}
+    m_NormalColor: {r: 0.8584906, g: 0.2648743, b: 0.19842473, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.7677254, b: 0.7311321, a: 1}
+    m_PressedColor: {r: 1, g: 0.7686275, b: 0.7294118, a: 1}
     m_DisabledColor: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -7635,7 +7673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.7833593, b: 0.740566, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7668,6 +7706,7 @@ GameObject:
   - component: {fileID: 1437623616}
   - component: {fileID: 1437623615}
   - component: {fileID: 1437623614}
+  - component: {fileID: 1437623618}
   m_Layer: 0
   m_Name: EventColorNatalia1
   m_TagString: Untagged
@@ -7699,7 +7738,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1437623613}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -7738,6 +7777,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1437623618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1437623613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal1
+  m_VerticalAxis: StickVertical1
+  m_SubmitButton: A1
+  m_CancelButton: B1
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &1444796751
 GameObject:
   m_ObjectHideFlags: 0
@@ -7794,9 +7851,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 1000485428}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.81568635, b: 0.9176471, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.2509804, b: 0.56078434, a: 1}
-    m_PressedColor: {r: 1, g: 0.2509804, b: 0.56078434, a: 1}
+    m_NormalColor: {r: 1, g: 0.2509804, b: 0.56078434, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.7216981, b: 0.7852139, a: 1}
+    m_PressedColor: {r: 1, g: 0.72156864, b: 0.7843138, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -7850,7 +7907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8160377, b: 0.9157763, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8433,6 +8490,7 @@ GameObject:
   - component: {fileID: 1799138991}
   - component: {fileID: 1799138990}
   - component: {fileID: 1799138989}
+  - component: {fileID: 1799138993}
   m_Layer: 0
   m_Name: EventColorFedor1
   m_TagString: Untagged
@@ -8464,7 +8522,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1799138988}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -8503,6 +8561,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1799138993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1799138988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal1
+  m_VerticalAxis: StickVertical1
+  m_SubmitButton: A1
+  m_CancelButton: B1
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &1810805612
 GameObject:
   m_ObjectHideFlags: 0
@@ -8514,6 +8590,7 @@ GameObject:
   - component: {fileID: 1810805616}
   - component: {fileID: 1810805615}
   - component: {fileID: 1810805618}
+  - component: {fileID: 1810805613}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -8521,13 +8598,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1810805615
+--- !u!114 &1810805613
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1810805612}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal1
+  m_VerticalAxis: StickVertical1
+  m_SubmitButton: A1
+  m_CancelButton: B1
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1810805615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810805612}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -8768,9 +8863,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 1969428009}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.8196079, b: 0.9176471, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.2509804, b: 0.56078434, a: 1}
-    m_PressedColor: {r: 1, g: 0.2509804, b: 0.56078434, a: 1}
+    m_NormalColor: {r: 1, g: 0.2509804, b: 0.56078434, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.7216981, b: 0.7852139, a: 1}
+    m_PressedColor: {r: 1, g: 0.72156864, b: 0.7843138, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -8824,7 +8919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.81960785, b: 0.91764706, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9107,6 +9202,7 @@ GameObject:
   - component: {fileID: 1884259922}
   - component: {fileID: 1884259921}
   - component: {fileID: 1884259920}
+  - component: {fileID: 1884259924}
   m_Layer: 0
   m_Name: EventColorFedor2
   m_TagString: Untagged
@@ -9138,7 +9234,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1884259919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -9177,6 +9273,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1884259924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1884259919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal2
+  m_VerticalAxis: StickVertical2
+  m_SubmitButton: A2
+  m_CancelButton: B2
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &1922277213
 GameObject:
   m_ObjectHideFlags: 0
@@ -9233,9 +9347,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 761662468}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9843137, g: 0.9764706, b: 0.7294118, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.85490197, b: 0.2627451, a: 1}
-    m_PressedColor: {r: 1, g: 0.85490197, b: 0.2627451, a: 1}
+    m_NormalColor: {r: 1, g: 0.80319154, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.94150573, g: 1, b: 0.5896226, a: 1}
+    m_PressedColor: {r: 0.94117653, g: 1, b: 0.5882353, a: 1}
     m_DisabledColor: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -9289,7 +9403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9843137, g: 0.9764706, b: 0.7294118, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9378,9 +9492,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.64705884, g: 0.94509804, b: 0.6901961, a: 1}
-    m_HighlightedColor: {r: 0, g: 0.53333336, b: 0.08235294, a: 1}
-    m_PressedColor: {r: 0, g: 0.53333336, b: 0.08235294, a: 1}
+    m_NormalColor: {r: 0, g: 0.53333336, b: 0.08235294, a: 1}
+    m_HighlightedColor: {r: 0.64705884, g: 0.94509804, b: 0.6901961, a: 1}
+    m_PressedColor: {r: 0.64705884, g: 0.9450981, b: 0.6901961, a: 1}
     m_DisabledColor: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -9434,7 +9548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.64705884, g: 0.94509804, b: 0.6901961, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9690,6 +9804,7 @@ GameObject:
   - component: {fileID: 2029797657}
   - component: {fileID: 2029797656}
   - component: {fileID: 2029797655}
+  - component: {fileID: 2029797659}
   m_Layer: 0
   m_Name: EventColorNatalia2
   m_TagString: Untagged
@@ -9721,7 +9836,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2029797654}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -9760,6 +9875,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2029797659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2029797654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: StickHorizontal2
+  m_VerticalAxis: StickVertical2
+  m_SubmitButton: A2
+  m_CancelButton: B2
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &2030756465
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     public GameObject FedorSkin, NatalyaSkin, MarcusSkin;
 
     public GameObject HUD1, HUD2, triangle, counter;
+    public GameObject r1w, r2w, r1w1, r2w1;
 
 
 
@@ -37,13 +38,18 @@ public class UIManager : MonoBehaviour
         EndAnim = false;
 
         p1Lose = p2Lose = false;
-        HUD1.SetActive(true);
-        HUD2.SetActive(true);
-        triangle.SetActive(true);
-        counter.SetActive(true);
+        HUD1.SetActive(false);
+        HUD2.SetActive(false);
+        triangle.SetActive(false);
+        counter.SetActive(false);
 
        ppn= p1Lose = p2Lose = false;
-       
+
+        r1w.SetActive(false);
+        r2w.SetActive(false);
+        r1w1.SetActive(false);
+        r2w1.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -248,6 +254,9 @@ public class UIManager : MonoBehaviour
             HUD2.SetActive(false);
             triangle.SetActive(false);
             counter.SetActive(false);
+
+            Player1.GetComponent<PlayerControl>().enabled = false;
+            Player2.GetComponent<PlayerControl>().enabled = false;
         }
 	}
     
@@ -343,6 +352,10 @@ public class UIManager : MonoBehaviour
         HealthBarP1.Health = 120;
         HealthBarP2.Health = 120;
         Gamemanager.Instantiates();
+        HUD1.SetActive(true);
+        HUD2.SetActive(true);
+        triangle.SetActive(true);
+        counter.SetActive(true);
 
         EndAnim = true;
         RoundN = true;
@@ -357,10 +370,22 @@ public class UIManager : MonoBehaviour
         {
             P1W += 1;
 
+            if(P1W == 1) {
+                r1w.SetActive(true);
+            } else if (P1W == 2) {
+                r2w.SetActive(true);
+            }
+
         }
         else if ((Timer.text == "0" || p1Lose) && RoundN == true && (HealthBarP1.healthBarfill < HealthBarP2.healthBarfill))
         {
             P2W += 1;
+
+            if (P2W == 1) {
+                r1w1.SetActive(true);
+            } else if (P2W == 2) {
+                r2w1.SetActive(true);
+            }
 
         }
         else if ((Timer.text == "0") && RoundN == true && (HealthBarP1.healthBarfill == HealthBarP2.healthBarfill))
