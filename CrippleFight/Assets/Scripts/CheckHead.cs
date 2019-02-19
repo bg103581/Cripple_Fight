@@ -10,6 +10,7 @@ public class CheckHead : MonoBehaviour
     Rigidbody2D RB1, RB2;
     public bool OnGround;
     public static bool CheckCollusion, CheckCollusionL;
+    public static bool Ground;
     void Start()
     {
         OnGround = true;
@@ -36,7 +37,7 @@ public class CheckHead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Ground = OnGround;
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -49,15 +50,14 @@ public class CheckHead : MonoBehaviour
             
         }
 
-       else if ((collision.gameObject.tag == "DownP2" || collision.gameObject.tag == "HeadEnemy") && !OnGround)
+       else if ((collision.gameObject.tag == "DownP2" || collision.gameObject.tag == "HeadEnemy") && !OnGround && CheckHeadP2.Ground)
         {
 
             if (Player1.transform.position.x <= Player2.transform.position.x && Player1.transform.position.x > CheckPosL.transform.position.x)
             {
                 //RB2.velocity = (-Trans);
                 CheckCollusion = true;
-                Debug.Log(OnGround);
-                Debug.Log("aaa");
+               
                
             }
             else if (Player1.transform.position.x > Player2.transform.position.x && Player1.transform.position.x < CheckPosR.transform.position.x)
@@ -69,17 +69,24 @@ public class CheckHead : MonoBehaviour
 
 
             }
-            else if ((Player1.transform.position.x > CheckPosR.transform.position.x))
+            else if ((Player1.transform.position.x >= CheckPosR.transform.position.x))
             {
                 CheckCollusionL = true;
                 
             }
-            else if ((Player1.transform.position.x < CheckPosL.transform.position.x))
+            else if ((Player1.transform.position.x <= CheckPosL.transform.position.x))
             {
                 CheckCollusion = true;
               
             }
 
+        }
+        else if(!OnGround && !CheckHeadP2.Ground)
+        {
+            CheckCollusion = false;
+            CheckCollusionL = false;
+            CheckHeadP2.CheckCollusion = false;
+            CheckHeadP2.CheckCollusionL = false;
         }
     }
     void OnTriggerExit2D(Collider2D collision)

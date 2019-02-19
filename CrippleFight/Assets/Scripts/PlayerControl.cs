@@ -182,22 +182,22 @@ public class PlayerControl : MonoBehaviour {
                         CheckHeadP2.CheckCollusionL = false;
                     }
                     if (walk) { // Joystick input is prioritised. If there is no joystick input, we check keyboard input
-                        if (jump) { //direction en x du jump
+                        if (jump) {
                             if ((jhorizontal < 0f) || (horizontal < 0f)) {
-                                rig2d.velocity = new Vector2(-maxSpeed * 0.70f, rig2d.velocity.y);
+                                rig2d.velocity = new Vector2(-maxSpeed, rig2d.velocity.y);
                             }
                             else if ((jhorizontal > 0f) || (horizontal > 0f)) {
-                                rig2d.velocity = new Vector2(maxSpeed * 0.70f, rig2d.velocity.y);
+                                rig2d.velocity = new Vector2(maxSpeed, rig2d.velocity.y);
                             }
                         }
-                        else if (jhorizontal != 0) { //au sol reculer et avancer (joystick input)
+                        else if (jhorizontal != 0) {
                             if (block) {
                                 rig2d.velocity = new Vector2(jhorizontal * maxSpeed * 0.75f, rig2d.velocity.y);
                             } else {
                                 rig2d.velocity = new Vector2(jhorizontal * maxSpeed, rig2d.velocity.y);
                                 //rig2d.AddForce(jmovement * (maxSpeed - horizontalVelocity.magnitude), ForceMode2D.Impulse); jgarde ça peut être utile
                             }
-                        } else { //au sol reculer et avancer (inputs clavier)
+                        } else {
                             if (block) {
                                 rig2d.velocity = new Vector2(horizontal * maxSpeed * 0.75f, rig2d.velocity.y);
                             } else {
@@ -247,10 +247,10 @@ public class PlayerControl : MonoBehaviour {
         //knockback after getting hit or hitting an enemy near the wall
         if (knockback || hitEnemyWall) {
             if (isLeft) {
-                rig2d.velocity = new Vector2(-maxSpeed * 0.35f, rig2d.velocity.y);
+                rig2d.velocity = new Vector2(-maxSpeed * 0.25f, rig2d.velocity.y);
                 //rig2d.AddForce(new Vector2(-maxSpeed, 0), ForceMode2D.Impulse);
             } else {
-                rig2d.velocity = new Vector2(maxSpeed * 0.35f, rig2d.velocity.y);
+                rig2d.velocity = new Vector2(maxSpeed * 0.25f, rig2d.velocity.y);
                 //rig2d.AddForce(new Vector2(maxSpeed * 4, 0), ForceMode2D.Impulse);
             }
         }
@@ -301,7 +301,7 @@ public class PlayerControl : MonoBehaviour {
                 else {
                     rig2d.velocity = new Vector2(-maxSpeed, rig2d.velocity.y);
                 }
-                rig2d.gravityScale = 10f;
+                rig2d.gravityScale = 25f;
             } else {
                 rig2d.gravityScale = 5f;
             }
@@ -313,7 +313,7 @@ public class PlayerControl : MonoBehaviour {
 
     // Makes the players look at each other automatically
     void Scalecheck() {
-        isLeft = transform.position.x < enemy.position.x+0.1f;
+        isLeft = transform.position.x < enemy.position.x;
 
         if (onGround) {
             if (isLeft) {
