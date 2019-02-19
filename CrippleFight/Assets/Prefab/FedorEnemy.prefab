@@ -44,7 +44,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1390484393764144
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 95876305145874854}
   - component: {fileID: 58445691627743050}
   - component: {fileID: 114005621183691006}
+  - component: {fileID: 70275524023277702}
   m_Layer: 0
   m_Name: FedorEnemy
   m_TagString: Ennemy
@@ -270,15 +271,15 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1930301334999912}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: -0.5}
+  m_Offset: {x: 0.25, y: -0.5}
   serializedVersion: 2
-  m_Radius: 0.53
+  m_Radius: 0.4
 --- !u!58 &58860624421381916
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -308,6 +309,21 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.08, y: 1.9}
   m_Size: {x: 4.3, y: 4.9}
+  m_Direction: 0
+--- !u!70 &70275524023277702
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930301334999912}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.17, y: -0.28}
+  m_Size: {x: 0.09, y: 0.92}
   m_Direction: 0
 --- !u!70 &70678936871744562
 CapsuleCollider2D:
@@ -354,7 +370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  state: 0
+  attackName: 
+  state: 8
   playersate:
   - isWalking
   - isPunching
@@ -386,6 +403,7 @@ MonoBehaviour:
   Player2: {fileID: 0}
   CheckPosR: {fileID: 0}
   CheckPosL: {fileID: 0}
+  OnGround: 0
 --- !u!212 &212329731038634636
 SpriteRenderer:
   m_ObjectHideFlags: 1

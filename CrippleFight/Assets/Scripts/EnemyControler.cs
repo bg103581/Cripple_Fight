@@ -11,7 +11,8 @@ public class EnemyControler : MonoBehaviour
     private GameObject wallleft;
     private GameObject wallRight;
     bool isleft;
-    bool isright;
+    public string attackName;
+    bool isright ,onGround;
     public enum StateEnemy
     {
         walk, dashright, dashleft, jump, kick, crouch, Punch, KickCrouch, idle
@@ -20,6 +21,7 @@ public class EnemyControler : MonoBehaviour
     Animator playeranim;
     void Start()
     {
+        onGround = true;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -33,14 +35,15 @@ public class EnemyControler : MonoBehaviour
     void Update()
     {
         float distance = transform.position.x - target.transform.position.x;
+        Debug.Log(distance);
         if (distance > 0)
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             checkleft();
         }
         else
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             checkright();
         }
         if (onGround == false && state != StateEnemy.jump)
@@ -69,6 +72,7 @@ public class EnemyControler : MonoBehaviour
             float distance = Vector3.Distance(transform.position, target.transform.position);
             //print (distance);
             //changestate ();
+           
             if (Mathf.Abs(distance) < 2)
             {
 
@@ -278,9 +282,9 @@ public class EnemyControler : MonoBehaviour
 
 
     }
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collision2D col)
     {
-        if (col.collider.tag == "ground")
+        if (col.gameObject.tag == "ground")
         {
             onGround = true;
 
@@ -289,10 +293,10 @@ public class EnemyControler : MonoBehaviour
     }
 
 
-    bool onGround;
-    void OnCollisionExit2D(Collision2D col)
+   
+    void OnTriggerExit2D(Collision2D col)
     {
-        if (col.collider.tag == "ground")
+        if (col.gameObject.tag == "ground")
         {
             onGround = false;
         }

@@ -10,6 +10,7 @@ public class CheckHeadP2 : MonoBehaviour
     Rigidbody2D RB1, RB2;
     public bool OnGround;
     public static bool CheckCollusion, CheckCollusionL;
+    public static bool Ground;
 
     void Start()
     {
@@ -37,7 +38,8 @@ public class CheckHeadP2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Ground = OnGround;
+        
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -46,38 +48,57 @@ public class CheckHeadP2 : MonoBehaviour
         if (collision.gameObject.tag == "ground")
         {
             OnGround = true;
-            Debug.Log(OnGround);
+            
         }
 
-        else if ((collision.gameObject.tag == "DownP1" || collision.gameObject.tag == "HeadEnemy") && !OnGround)
+        else if ((collision.gameObject.tag == "DownP1" || collision.gameObject.tag == "HeadEnemy") && !OnGround && CheckHead.Ground)
         {
 
             if (Player2.transform.position.x <= Player1.transform.position.x && Player2.transform.position.x > CheckPosL.transform.position.x)
             {
                
                 CheckCollusion = true;
-                
+                CheckCollusionL = false;
+                CheckHead.CheckCollusion = false;
+                CheckHead.CheckCollusionL = false;
 
             }
             else if (Player2.transform.position.x > Player1.transform.position.x && Player2.transform.position.x < CheckPosR.transform.position.x)
             {
 
                 CheckCollusionL = true;
-             
+                CheckCollusion = false;
+
+                CheckHead.CheckCollusion = false;
+                CheckHead.CheckCollusionL = false;
+
 
             }
             else if ((Player2.transform.position.x > CheckPosR.transform.position.x))
             {
                 CheckCollusionL = true;
-                
-                
+                CheckCollusion = false;
+           
+                CheckHead.CheckCollusion = false;
+                CheckHead.CheckCollusionL = false;
+
             }
             else if ((Player2.transform.position.x < CheckPosL.transform.position.x))
             {
                 CheckCollusion = true;
-                
+                CheckCollusionL = false;
+                CheckHead.CheckCollusion = false;
+                CheckHead.CheckCollusionL = false;
 
-               
+
+            }
+            else if (!OnGround && !CheckHead.Ground)
+            {
+                CheckCollusion = false;
+                CheckCollusionL = false;
+                CheckHead.CheckCollusion = false;
+                CheckHead.CheckCollusionL = false;
+
             }
 
         }
@@ -90,7 +111,6 @@ public class CheckHeadP2 : MonoBehaviour
         if (collision.gameObject.tag == "ground")
         {
             OnGround = false;
-            Debug.Log(OnGround);
         }
 
 

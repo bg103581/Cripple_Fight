@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 
 public class Menu : MonoBehaviour {
-
+    
     public GameObject Menu1, Menu2, Menu3, Menu4, Menu5, MenuSettings;
     public static int NumPlayer1, NumPlayer2;
     public static bool checkPlayer1 = false;
     public static bool checkPlayer2 = false;
     public static Animator LogoAnim, ClinicAnim;
-    public GameObject EventSystem1;
+    public GameObject EventSystem1, EventP1, EventP2;
     public GameObject FedorP1, FedorP2, NatalyaP1, NatalyaP2, MarcusP1, MarcusP2;
     public GameObject Button1, confirmButton, panelAB;
     public bool Checkconfirm=false;
@@ -21,10 +22,10 @@ public class Menu : MonoBehaviour {
     public GameObject FedorP1Skin, FedorP2Skin, NatalyaP1Skin, NatalyaP2Skin, MarcusP1Skin, MarcusP2Skin;
     public Button Fedor1Pink, Fedor1Green, Fedor2Pink, Fedor2Green, Natalya1Yellow, Natalya1Orange, Natalya2Yellow, Natalya2Orange, Marcus2Yellow, Marcus2Orange, Marcus1Yellow, Marcus1Orange; 
 
-
     void Start () {
         LogoAnim = GameObject.Find("Logo").GetComponent<Animator>();
-        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 	
 	void Update () {
@@ -44,6 +45,10 @@ public class Menu : MonoBehaviour {
             Menu3.SetActive(true);
             MenuSettings.SetActive(false);
             dataHolder.FromMenuButton = false;
+        }
+
+        if (Input.GetMouseButtonDown(0)) {
+            Debug.Log("LEFT CLICKED");
         }
     }
 
@@ -124,8 +129,8 @@ public class Menu : MonoBehaviour {
     // FEDOR
     public void SelectPlayer0()
     {
-         NumPlayer1 = 0;
-         checkPlayer1 = true;
+        NumPlayer1 = 0;
+        checkPlayer1 = true;
         
     }
 
@@ -215,6 +220,8 @@ public class Menu : MonoBehaviour {
         NatalyaP1Skin.SetActive(false);
         MarcusP1.SetActive(false);
         MarcusP1Skin.SetActive(false);
+
+        EventP1.SetActive(false);
     }
 
     public void Fedor2Skin() {
@@ -226,6 +233,8 @@ public class Menu : MonoBehaviour {
         NatalyaP2Skin.SetActive(false);
         MarcusP2.SetActive(false);
         MarcusP2Skin.SetActive(false);
+
+        EventP2.SetActive(false);
     }
 
     public void Natalya1Skin() {
@@ -237,6 +246,8 @@ public class Menu : MonoBehaviour {
         FedorP1Skin.SetActive(false);
         MarcusP1.SetActive(false);
         MarcusP1Skin.SetActive(false);
+
+        EventP1.SetActive(false);
     }
 
     public void Natalya2Skin() {
@@ -248,6 +259,8 @@ public class Menu : MonoBehaviour {
         FedorP2Skin.SetActive(false);
         MarcusP2.SetActive(false);
         MarcusP2Skin.SetActive(false);
+
+        EventP2.SetActive(false);
     }
 
     public void Marcus1Skin() {
@@ -500,24 +513,63 @@ public class Menu : MonoBehaviour {
     
     public void CancelPlayer1()
     {
-        if (Input.GetButton("B1"))
+        if (Input.GetButton("B1") || Input.GetKeyDown(KeyCode.Backspace))
         {
             checkPlayer1 = false;
             confirmButton.SetActive(false);
             FedorP1.SetActive(false);
             NatalyaP1.SetActive(false);
-            
+
+            EventP1.SetActive(true);
+
+            colorFedor1.SetActive(false);
+            colorNatalya1.SetActive(false);
+
+            FedorP1.SetActive(false);
+            NatalyaP1.SetActive(false);
+
+            FedorP1Skin.SetActive(false);
+            NatalyaP1Skin.SetActive(false);
+
+            if (NumPlayer1 == 0 || NumPlayer1 == 3) {
+                Fedor2Pink.interactable = true;
+                Fedor2Green.interactable = true;
+            } else {
+                Natalya2Yellow.interactable = true;
+                Natalya2Orange.interactable = true;
+            }
         }
     }
 
     public void CancelPlayer2()
     {
-        if (Input.GetButton("B2"))
+        if (Input.GetButton("B2") || Input.GetKeyDown(KeyCode.Backspace))
         {
             checkPlayer2 = false;
             confirmButton.SetActive(false);
             FedorP2.SetActive(false);
             NatalyaP2.SetActive(false);
+
+            EventP2.SetActive(true);
+
+            colorFedor2.SetActive(false);
+            colorNatalya2.SetActive(false);
+
+            FedorP2.SetActive(false);
+            NatalyaP2.SetActive(false);
+            
+            FedorP2Skin.SetActive(false);
+            NatalyaP2Skin.SetActive(false);
+
+            if (NumPlayer2 == 0 || NumPlayer2 == 3) {
+                Fedor1Pink.interactable = true;
+                Fedor1Green.interactable = true;
+            } else {
+                Natalya1Yellow.interactable = true;
+                Natalya1Orange.interactable = true;
+            }
+
+            
         }
     }
 
@@ -592,4 +644,6 @@ public class Menu : MonoBehaviour {
     public void quitMenu() {
         Application.Quit();
     }
+
+    
 }
