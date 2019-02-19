@@ -2443,6 +2443,10 @@ MonoBehaviour:
   FedorSkin: {fileID: 1978112727}
   NatalyaSkin: {fileID: 1773972962}
   MarcusSkin: {fileID: 2072588285}
+  HUD1: {fileID: 0}
+  HUD2: {fileID: 0}
+  triangle: {fileID: 0}
+  counter: {fileID: 0}
 --- !u!4 &703327218
 Transform:
   m_ObjectHideFlags: 0
