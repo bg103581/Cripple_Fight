@@ -45,7 +45,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1393742685673582
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +158,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1957549038736450}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.7, y: -3.7, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 2}
   m_Children:
@@ -276,9 +276,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: -0.5}
+  m_Offset: {x: 0.25, y: -0.5}
   serializedVersion: 2
-  m_Radius: 0.53
+  m_Radius: 0.4
 --- !u!58 &58871929258841646
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -368,6 +368,7 @@ MonoBehaviour:
   Player2: {fileID: 0}
   CheckPosR: {fileID: 0}
   CheckPosL: {fileID: 0}
+  OnGround: 0
 --- !u!114 &114999558149372720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,12 +396,13 @@ MonoBehaviour:
   hitEnemyWall: 0
   startTimerHitWall: 0
   stopMoving: 0
-  jumpForce: 18
+  jumpForce: 20
   jumpTime: 0.25
   jump: 0
   isJumping: 0
   attackName: 
   startTimerHitLag: 0
+  isFrozen: 0
   sons:
   - {fileID: 8300000, guid: 71a4c1a701a5fd940a863573752f4b5d, type: 3}
   - {fileID: 8300000, guid: 5021f354d21c7c946922854726f49c2a, type: 3}

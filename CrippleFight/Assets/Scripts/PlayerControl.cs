@@ -160,9 +160,10 @@ public class PlayerControl : MonoBehaviour {
                     {
                         Vector2 Trans= new Vector2(60, rig2d.velocity.y);
                         RB2.velocity = Trans;
+
                         CheckHead.CheckCollusion = false;
                     }
-                    else if ( !CheckHead.CheckCollusion && CheckHeadP2.CheckCollusion)
+                    else if (!CheckHead.CheckCollusion && CheckHeadP2.CheckCollusion)
                     {
                         Vector2 Trans = new Vector2(60, rig2d.velocity.y);
                         RB1.velocity = Trans;
@@ -174,29 +175,29 @@ public class PlayerControl : MonoBehaviour {
                         RB2.velocity = -Trans;
                         CheckHead.CheckCollusionL = false;
                     }
-                    else if ( !CheckHead.CheckCollusionL && CheckHeadP2.CheckCollusionL)
+                    else if ( CheckHeadP2.CheckCollusionL && !CheckHead.CheckCollusionL)
                     {
                         Vector2 Trans = new Vector2(60, rig2d.velocity.y);
                         RB1.velocity = -Trans;
-                        CheckHeadP2.CheckCollusion = false;
+                        CheckHeadP2.CheckCollusionL = false;
                     }
                     if (walk) { // Joystick input is prioritised. If there is no joystick input, we check keyboard input
-                        if (jump) {
+                        if (jump) { //direction en x du jump
                             if ((jhorizontal < 0f) || (horizontal < 0f)) {
-                                rig2d.velocity = new Vector2(-maxSpeed, rig2d.velocity.y);
+                                rig2d.velocity = new Vector2(-maxSpeed * 0.70f, rig2d.velocity.y);
                             }
                             else if ((jhorizontal > 0f) || (horizontal > 0f)) {
-                                rig2d.velocity = new Vector2(maxSpeed, rig2d.velocity.y);
+                                rig2d.velocity = new Vector2(maxSpeed * 0.70f, rig2d.velocity.y);
                             }
                         }
-                        else if (jhorizontal != 0) {
+                        else if (jhorizontal != 0) { //au sol reculer et avancer (joystick input)
                             if (block) {
                                 rig2d.velocity = new Vector2(jhorizontal * maxSpeed * 0.75f, rig2d.velocity.y);
                             } else {
                                 rig2d.velocity = new Vector2(jhorizontal * maxSpeed, rig2d.velocity.y);
                                 //rig2d.AddForce(jmovement * (maxSpeed - horizontalVelocity.magnitude), ForceMode2D.Impulse); jgarde ça peut être utile
                             }
-                        } else {
+                        } else { //au sol reculer et avancer (inputs clavier)
                             if (block) {
                                 rig2d.velocity = new Vector2(horizontal * maxSpeed * 0.75f, rig2d.velocity.y);
                             } else {
@@ -204,7 +205,7 @@ public class PlayerControl : MonoBehaviour {
                             }
                         }
                     }
-                }/* else {  //en l'air pour air control
+                }/*else {  //en l'air pour air control
                     if (walk) {
                         if (jhorizontal != 0) {
                             if ((rig2d.velocity.x > 0 && jmovement.x < 0) || (rig2d.velocity.x < 0 && jmovement.x > 0) || (Mathf.Abs(rig2d.velocity.x) < maxSpeed)) {
@@ -246,10 +247,10 @@ public class PlayerControl : MonoBehaviour {
         //knockback after getting hit or hitting an enemy near the wall
         if (knockback || hitEnemyWall) {
             if (isLeft) {
-                rig2d.velocity = new Vector2(-maxSpeed * 0.25f, rig2d.velocity.y);
+                rig2d.velocity = new Vector2(-maxSpeed * 0.35f, rig2d.velocity.y);
                 //rig2d.AddForce(new Vector2(-maxSpeed, 0), ForceMode2D.Impulse);
             } else {
-                rig2d.velocity = new Vector2(maxSpeed * 0.25f, rig2d.velocity.y);
+                rig2d.velocity = new Vector2(maxSpeed * 0.35f, rig2d.velocity.y);
                 //rig2d.AddForce(new Vector2(maxSpeed * 4, 0), ForceMode2D.Impulse);
             }
         }
@@ -300,7 +301,7 @@ public class PlayerControl : MonoBehaviour {
                 else {
                     rig2d.velocity = new Vector2(-maxSpeed, rig2d.velocity.y);
                 }
-                rig2d.gravityScale = 25f;
+                rig2d.gravityScale = 10f;
             } else {
                 rig2d.gravityScale = 5f;
             }
@@ -312,7 +313,7 @@ public class PlayerControl : MonoBehaviour {
 
     // Makes the players look at each other automatically
     void Scalecheck() {
-        isLeft = transform.position.x < enemy.position.x;
+        isLeft = transform.position.x < enemy.position.x+0.1f;
 
         if (onGround) {
             if (isLeft) {

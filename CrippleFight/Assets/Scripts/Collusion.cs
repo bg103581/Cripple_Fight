@@ -128,9 +128,11 @@ public class Collusion : MonoBehaviour
                 HealthBarP2.Health -= 10f;
                 SuperBarP2.Super += 12.5f;
                 playerControlEnemy.hit = true;
+                myPlayerControl.startTimerHitLag = true;
             } else if (playerControlEnemy.blocklow) {
                 AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
                 //playerControlEnemy.hit = true;
+                myPlayerControl.startTimerHitLag = true;
             }
 
             if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
