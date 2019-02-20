@@ -50,7 +50,7 @@ public class CheckHead : MonoBehaviour
             
         }
 
-       else if ((collision.gameObject.tag == "DownP2" || collision.gameObject.tag == "HeadEnemy") && !OnGround && CheckHeadP2.Ground)
+       else if ((collision.gameObject.tag == "DownP2" || collision.gameObject.tag == "DownEnemy") && !OnGround && CheckHeadP2.Ground)
         {
 
             if (Player1.transform.position.x <= Player2.transform.position.x && Player1.transform.position.x > CheckPosL.transform.position.x)

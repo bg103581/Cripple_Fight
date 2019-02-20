@@ -84,6 +84,10 @@ public class PlayerControl : MonoBehaviour {
                 Player2 = p;
                 RB2 = Player2.GetComponent<Rigidbody2D>();
             }
+            else
+            {
+                Player2 = p;
+            }
         }
             rig2d = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
@@ -113,6 +117,7 @@ public class PlayerControl : MonoBehaviour {
         if (enemy == null)
         {
             enemy = GameObject.FindGameObjectWithTag("Ennemy").transform;
+            enemyGameobject = GameObject.FindGameObjectWithTag("Ennemy");
         }
 
         //StartCoroutine("debug");

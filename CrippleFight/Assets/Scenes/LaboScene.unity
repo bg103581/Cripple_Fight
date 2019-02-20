@@ -5256,6 +5256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baba211e1ec0877488e168ea5ec5bde8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimerO: {fileID: 0}
   GameOver: {fileID: 606018539}
   Round: {fileID: 658649255}
   Player1: {fileID: 1978568238}
@@ -5269,7 +5270,12 @@ MonoBehaviour:
   NumPartie: 0
   Timer: {fileID: 304206981}
   players: []
+  RoundNumber: []
   RoundT: {fileID: 658649257}
+  ppn: 0
+  pp1Lose: 0
+  pp2Lose: 0
+  RoundN: 0
   checknumber: 0
   EndAnim: 0
   p1Lose: 0

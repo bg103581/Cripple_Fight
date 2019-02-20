@@ -318,6 +318,7 @@
     <Compile Include="Assets\Scripts\CollusionP2.cs" />
     <Compile Include="Assets\Scripts\Confirm.cs" />
     <Compile Include="Assets\Scripts\dataHolder.cs" />
+    <Compile Include="Assets\Scripts\EnemyCollusion.cs" />
     <Compile Include="Assets\Scripts\EnemyControler.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthBarP1.cs" />
@@ -338,7 +339,7 @@
     <Compile Include="Assets\Scripts\SuperBarP2.cs" />
     <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
-    <Compile Include="Assets\Scripts\UIManager2.cs" />
+    <Compile Include="Assets\Scripts\UIManager1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />

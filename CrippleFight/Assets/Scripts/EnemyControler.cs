@@ -12,16 +12,16 @@ public class EnemyControler : MonoBehaviour
     private GameObject wallRight;
     bool isleft;
     public string attackName;
-    bool isright ,onGround;
+    bool isright, onGround;
     public enum StateEnemy
     {
-        walk, dashright, dashleft, jump, kick, crouch, Punch, KickCrouch, idle
+        walk, dashright, dashleft, jump, kick, crouch, Punch, KickCrouch, idle, down
     }
     public StateEnemy state;
     Animator playeranim;
     void Start()
     {
-        onGround = true;
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -34,6 +34,12 @@ public class EnemyControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (onGround == false)
+        {
+            state = StateEnemy.down;
+            rb.velocity -= Vector2.up * 2;
+            return;
+        }
         float distance = transform.position.x - target.transform.position.x;
         Debug.Log(distance);
         if (distance > 0)
@@ -51,7 +57,7 @@ public class EnemyControler : MonoBehaviour
             rb.velocity -= Vector2.up * 2;
 
         }
-        
+
 
 
 
@@ -65,14 +71,16 @@ public class EnemyControler : MonoBehaviour
 
         Vector2 mytransform = transform.position + new Vector3(-1, 0, 0);
         RaycastHit2D ray = Physics2D.Raycast(mytransform, Vector2.left);
+        print(ray.collider.transform.name);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.left), Color.yellow);
-        if (ray.collider != null && ray.collider.transform.tag == "Player")
+        if (ray.collider != null && ray.collider.transform.root.tag == "Player")
         {
             isleft = true;
+            print(isleft);
             float distance = Vector3.Distance(transform.position, target.transform.position);
             //print (distance);
             //changestate ();
-           
+
             if (Mathf.Abs(distance) < 2)
             {
 
@@ -80,25 +88,25 @@ public class EnemyControler : MonoBehaviour
                 changestate();
 
             }
-           else if (Mathf.Abs(distance) >= 2 && Mathf.Abs(distance) <= 4)
+            else if (Mathf.Abs(distance) >= 2 && Mathf.Abs(distance) <= 4)
             {
 
                 WalkThink();
 
             }
-           else if (Mathf.Abs(distance) > 4 && Mathf.Abs(distance) <= 6)
+            else if (Mathf.Abs(distance) > 4 && Mathf.Abs(distance) <= 6)
             {
 
                 Think();
 
             }
-           else if (Mathf.Abs(distance) > 6)
+            else if (Mathf.Abs(distance) > 6)
             {
 
                 state = StateEnemy.walk;
 
             }
-          
+
         }
         else
             isleft = false;
@@ -108,19 +116,19 @@ public class EnemyControler : MonoBehaviour
         Vector2 mytransform = transform.position + new Vector3(1, 0, 0);
         RaycastHit2D ray = Physics2D.Raycast(mytransform, Vector2.right);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.right), Color.red);
-        if (ray.collider != null && ray.collider.transform.tag == "Player")
+        if (ray.collider != null && ray.collider.transform.root.tag == "Player")
         {
             isright = true;
             float distance = Vector3.Distance(transform.position, target.transform.position);
             print(distance);
-            
+
             if (Mathf.Abs(distance) <= 2)
             {
 
                 changestate();
 
             }
-            if (Mathf.Abs(distance) > 2 &&  Mathf.Abs(distance)<=4)
+            if (Mathf.Abs(distance) > 2 && Mathf.Abs(distance) <= 4)
             {
 
                 WalkThink();
@@ -129,7 +137,7 @@ public class EnemyControler : MonoBehaviour
             if (Mathf.Abs(distance) > 4 && Mathf.Abs(distance) <= 6)
             {
 
-               Think();
+                Think();
 
             }
             if (Mathf.Abs(distance) > 6)
@@ -138,7 +146,7 @@ public class EnemyControler : MonoBehaviour
                 state = StateEnemy.walk;
 
             }
-            
+
         }
         else
             isright = false;
@@ -175,7 +183,7 @@ public class EnemyControler : MonoBehaviour
             case StateEnemy.jump:
                 if (onGround)
                 {
-                    
+
                     rb.velocity = Vector2.up * 16;
                     anim.SetFloat("vertical", 10);
 
@@ -187,7 +195,7 @@ public class EnemyControler : MonoBehaviour
                 timethink = 0.0f;
                 break;
             case StateEnemy.idle:
-                
+
                 anim.SetFloat("horizantal", 0);
                 anim.SetFloat("vertical", 0);
                 break;
@@ -282,25 +290,27 @@ public class EnemyControler : MonoBehaviour
 
 
     }
-    void OnTriggerEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
+        print(onGround);
         if (col.gameObject.tag == "ground")
         {
             onGround = true;
 
+
         }
-
     }
-
-
-   
-    void OnTriggerExit2D(Collision2D col)
+    void OnCollisionExit2D(Collision2D col)
     {
         if (col.gameObject.tag == "ground")
         {
             onGround = false;
+
         }
     }
+
+
+
 
 
 
@@ -338,14 +348,14 @@ public class EnemyControler : MonoBehaviour
     {
         timethink += Time.deltaTime;
 
-        if (timethink >1)
+        if (timethink > 1)
         {
 
-           
-                state = StateEnemy.walk;
+
+            state = StateEnemy.walk;
 
 
-           
+
 
         }
         else
