@@ -626,7 +626,7 @@ public class Menu : MonoBehaviour {
             }
 
             else if (laboNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
-                SceneManager.LoadScene("LaboScene");
+                SceneManager.LoadScene("SceneLabo");
             }
         }
     }

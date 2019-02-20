@@ -5776,7 +5776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &676097188
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10253,6 +10253,16 @@ Prefab:
       propertyPath: EventP2
       value: 
       objectReference: {fileID: 511465642}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: Menu4IA
+      value: 
+      objectReference: {fileID: 676097187}
+    - target: {fileID: 114386679767009144, guid: 5a31568d080c88c40ad0de6b7b3202b5,
+        type: 2}
+      propertyPath: Menu5IA
+      value: 
+      objectReference: {fileID: 944750332}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a31568d080c88c40ad0de6b7b3202b5, type: 2}
   m_IsPrefabAsset: 0
@@ -12144,7 +12154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1372160560
 MonoBehaviour:
   m_ObjectHideFlags: 0
