@@ -59,9 +59,9 @@ public class UIManager : MonoBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
         Player1 = players[0];
         Player2 = players[1];
-        p1Lose = (HealthBarP1.Health == 0);
+        p1Lose = (HealthBarP1.Health <= 0);
 
-        p2Lose = (HealthBarP2.Health == 0);
+        p2Lose = (HealthBarP2.Health <= 0);
 
 
         if (pp1Lose || pp2Lose || ppn)

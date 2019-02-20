@@ -397,12 +397,13 @@ MonoBehaviour:
   hitEnemyWall: 0
   startTimerHitWall: 0
   stopMoving: 0
-  jumpForce: 20
+  jumpForce: 23
   jumpTime: 0.25
   jump: 0
   isJumping: 0
   attackName: 
   startTimerHitLag: 0
+  startTimerNoJump: 0
   isFrozen: 0
   sons:
   - {fileID: 8300000, guid: 71a4c1a701a5fd940a863573752f4b5d, type: 3}

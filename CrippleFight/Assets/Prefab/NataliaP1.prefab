@@ -332,9 +332,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: -0.46}
-  m_Size: {x: 0.1, y: 0.46}
-  m_Direction: 1
+  m_Offset: {x: 0.09, y: -0.63}
+  m_Size: {x: 0.34, y: 0.94}
+  m_Direction: 0
 --- !u!70 &70674428740854190
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -407,12 +407,13 @@ MonoBehaviour:
   hitEnemyWall: 0
   startTimerHitWall: 0
   stopMoving: 0
-  jumpForce: 20
+  jumpForce: 23
   jumpTime: 0.25
   jump: 0
   isJumping: 0
   attackName: 
   startTimerHitLag: 0
+  startTimerNoJump: 0
   isFrozen: 0
   sons:
   - {fileID: 8300000, guid: 6c4f0db2241edf742bd38c1c00f4a2e0, type: 3}

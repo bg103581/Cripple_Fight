@@ -8,6 +8,7 @@ public class Collusion : MonoBehaviour {
     Animator AnimatorPlayerEnemy;
     RaycastHit2D circlecast2D;
     int layerMask;
+    Vector3 direction;
 
     Transform[] visualEffectsTransforms;
     GameObject visualEffectsGameobject;
@@ -44,8 +45,13 @@ public class Collusion : MonoBehaviour {
 
     void Update()
     {
-        circlecast2D = Physics2D.CircleCast(transform.position, 0.75f, transform.right, 0.5f, layerMask);
-        Debug.DrawRay(transform.position, transform.right, Color.green);
+        if (myPlayerControl.isLeft) {
+            direction = transform.right;
+        } else {
+            direction = -transform.right;
+        }
+        circlecast2D = Physics2D.CircleCast(transform.position, 0.75f, direction, 0.5f, layerMask);
+        Debug.DrawRay(transform.position, direction, Color.green);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -73,12 +79,14 @@ public class Collusion : MonoBehaviour {
                 if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
                     myPlayerControl.startTimerHitLag = true;
                 }
+                //myPlayerControl.startTimerHitLag = true;
             } else if (playerControlEnemy.blocklow) {
                 if (myPlayerControl.attackName == "airdive") {
                     HealthBarP2.Health -= 10f;
                     SuperBarP2.Super += 12.5f;
                     playerControlEnemy.hit = true;
                     visualEffects.SetTrigger("hit_effect");
+                    myPlayerControl.startTimerHitLag = true;
                 } else {
                     AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
                     //playerControlEnemy.hit = true;
@@ -91,6 +99,7 @@ public class Collusion : MonoBehaviour {
                 if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
                     myPlayerControl.startTimerHitLag = true;
                 }
+                //myPlayerControl.startTimerHitLag = true;
                 visualEffects.SetTrigger("block_effect");
             }
 
