@@ -6058,11 +6058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baba211e1ec0877488e168ea5ec5bde8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  TimerO: {fileID: 0}
-=======
   TimerO: {fileID: 1210011335}
->>>>>>> bbe7c81bd790caf2728bc9c0117947e4479f9090
   GameOver: {fileID: 606018539}
   Round: {fileID: 658649255}
   Player1: {fileID: 1978568238}
@@ -6076,16 +6072,11 @@ MonoBehaviour:
   NumPartie: 0
   Timer: {fileID: 1210011337}
   players: []
-<<<<<<< HEAD
-  RoundNumber: []
-  RoundT: {fileID: 658649257}
-=======
   RoundNumber:
   - {fileID: 481859934}
   - {fileID: 1480334280}
   - {fileID: 1636451077}
   RoundT: {fileID: 618804060}
->>>>>>> bbe7c81bd790caf2728bc9c0117947e4479f9090
   ppn: 0
   pp1Lose: 0
   pp2Lose: 0

@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/RocheScene.unity
     guid: d450c01c860942c409ab19022968f075
   - enabled: 1
-    path: Assets/Scenes/LaboScene.unity
-    guid: d84c21107fb771741885b8424d9211d1
+    path: Assets/Scenes/SceneLabo.unity
+    guid: b0ecbd9ce49e365489cd893d5a06ae36
   - enabled: 1
-    path: Assets/Scenes/IA.unity
-    guid: ddeb4aef7a17fa94eb6dab1cea8eb530
+    path: Assets/Scenes/IAlabo.unity
+    guid: 6c12224f8aaffcc46902b66e80220dcf
+  - enabled: 1
+    path: Assets/Scenes/IAring.unity
+    guid: d1d77731c7cdfe54293e9b8534b4fdc4
   m_configObjects: {}
