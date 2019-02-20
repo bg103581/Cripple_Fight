@@ -62,6 +62,12 @@ public class PlayerControl : MonoBehaviour {
     private float timerHitLagCounter;
     private float timerHitLagTime = 0.4f;
 
+    //Variables for no jump after airdive
+    public bool startTimerNoJump;
+    private bool countTimerNoJump;
+    private float timerNoJumpCounter;
+    private float timerNoJumpTime = 0.4f;
+
     //Variables when frozen
     public bool isFrozen;
     private bool hasBlockHigh;
@@ -86,6 +92,10 @@ public class PlayerControl : MonoBehaviour {
                 Player2 = p;
                 RB2 = Player2.GetComponent<Rigidbody2D>();
             }
+            else
+            {
+                Player2 = p;
+            }
         }
             rig2d = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
@@ -101,6 +111,7 @@ public class PlayerControl : MonoBehaviour {
         hasRightPress = hasLeftPress = false;
         hitWallKnocbackTimeCounter = 0;
         timerHitLagCounter = 0;
+        timerNoJumpCounter = 0;
 
         isAirDiving = false;
 
@@ -115,6 +126,7 @@ public class PlayerControl : MonoBehaviour {
         if (enemy == null)
         {
             enemy = GameObject.FindGameObjectWithTag("Ennemy").transform;
+            enemyGameobject = GameObject.FindGameObjectWithTag("Ennemy");
         }
 
         effectsAnim = GameObject.FindGameObjectWithTag("EffectsAnim" + PlayerNumber);
@@ -331,7 +343,7 @@ public class PlayerControl : MonoBehaviour {
     void Scalecheck() {
         isLeft = transform.position.x < enemy.position.x;
 
-        if (onGround) {
+        if (onGround && enemyGameobject.GetComponent<PlayerControl>().onGround) {
             if (isLeft) {
                 transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 if (horizontal < 0 || jhorizontal < 0 || shorizontal < 0) {
@@ -351,7 +363,7 @@ public class PlayerControl : MonoBehaviour {
 
         if (!isFrozen) {
             blocklow = block && crouch;
-            blockhigh = block && !crouch;
+            blockhigh = block && !crouch && onGround;
         }
         else {
             blocklow = hasBlockLow;
@@ -381,7 +393,7 @@ public class PlayerControl : MonoBehaviour {
         // Booleans to be used for animation
         crouch = ((vertical < 0f) || (jvertical < -0.3f) || (svertical < -0.3f)) && onGround && !isDashingLeft && !isDashingRight && !countTimerHitLag;
         walk = ((horizontal != 0) || (jhorizontal != 0) || (shorizontal != 0)) && !countTimerHitLag;
-        jump = (/*Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || */(vertical > 0f) || (jvertical > 0f) || (svertical > 0f)) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag;
+        jump = (/*Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || */(vertical > 0f) || (jvertical > 0f) || (svertical > 0f)) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag && !countTimerNoJump;
         /*Input.GetButtonDown("A" + PlayerNumber.ToString()) || Input.GetButton("StickCross" + PlayerNumber.ToString())*/
         punch = !isDashingLeft && !isDashingRight && !countTimerHitLag;/*(Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString()) || Input.GetButtonDown("StickSquare" + PlayerNumber.ToString())) && */
         kick = punch && (Input.GetButtonDown("X" + PlayerNumber.ToString()) || Input.GetButtonDown("Punch" + PlayerNumber.ToString()));
@@ -514,6 +526,21 @@ public class PlayerControl : MonoBehaviour {
                 countTimerHitLag = false;
             }
         }
+
+        if (startTimerNoJump) {
+            countTimerNoJump = true;
+            timerNoJumpCounter = 0;
+            startTimerNoJump = false;
+        }
+
+        if (countTimerNoJump) {
+            if (timerNoJumpCounter <= timerNoJumpTime) {
+                timerNoJumpCounter += Time.deltaTime;
+            } else {
+                timerNoJumpCounter = 0;
+                countTimerNoJump = false;
+            }
+        }
     }
 
 
@@ -612,6 +639,10 @@ public class PlayerControl : MonoBehaviour {
         else {
             effectsAnim.GetComponent<Animator>().SetTrigger("dashLeft");
         }
+    }
+
+    public void StartTimerNoJump() {
+        startTimerNoJump = true;
     }
 
     //à utiliser pour debug.log : startcoroutine dans le start()

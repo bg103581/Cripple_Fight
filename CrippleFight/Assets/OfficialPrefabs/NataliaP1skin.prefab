@@ -108,8 +108,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1680866510321108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -3.72, z: -5}
-  m_LocalScale: {x: -2.5, y: 2.5, z: 1.5}
+  m_LocalPosition: {x: 1.57, y: -3.72, z: -5}
+  m_LocalScale: {x: -1.3, y: 1.3, z: 1.5}
   m_Children:
   - {fileID: 4277012660445908}
   - {fileID: 4647021077070834}
@@ -347,9 +347,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: -0.46}
-  m_Size: {x: 0.1, y: 0.46}
-  m_Direction: 1
+  m_Offset: {x: 0.09, y: -0.63}
+  m_Size: {x: 0.34, y: 0.94}
+  m_Direction: 0
 --- !u!95 &95849512230783990
 Animator:
   serializedVersion: 3
@@ -423,12 +423,13 @@ MonoBehaviour:
   hitEnemyWall: 0
   startTimerHitWall: 0
   stopMoving: 0
-  jumpForce: 20
+  jumpForce: 23
   jumpTime: 0.25
   jump: 0
   isJumping: 0
   attackName: 
   startTimerHitLag: 0
+  startTimerNoJump: 0
   isFrozen: 0
   sons:
   - {fileID: 8300000, guid: 6c4f0db2241edf742bd38c1c00f4a2e0, type: 3}

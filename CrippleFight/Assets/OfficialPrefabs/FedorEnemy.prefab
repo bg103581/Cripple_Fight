@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4193982733329180}
   - component: {fileID: 58412108338566240}
-  - component: {fileID: 114365410863049002}
+  - component: {fileID: 114285939874862854}
   m_Layer: 0
   m_Name: AttackP2
   m_TagString: Untagged
@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4579362985895366}
   - component: {fileID: 212329731038634636}
+  - component: {fileID: 114969484804579890}
   - component: {fileID: 50709214170227566}
   - component: {fileID: 95876305145874854}
   - component: {fileID: 58445691627743050}
@@ -377,7 +378,7 @@ MonoBehaviour:
   - isPunching
   - isDownKicking
   - isKicking
---- !u!114 &114365410863049002
+--- !u!114 &114285939874862854
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -385,7 +386,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1782076929779016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c803b7c49ee4541849dbb0eafd1d17, type: 3}
+  m_Script: {fileID: 11500000, guid: f93245baa91162449ab9a9800341d80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
@@ -405,6 +406,17 @@ MonoBehaviour:
   CheckPosR: {fileID: 0}
   CheckPosL: {fileID: 0}
   OnGround: 0
+--- !u!114 &114969484804579890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930301334999912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563789b6a4c1f5f439822cef974cdb58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212329731038634636
 SpriteRenderer:
   m_ObjectHideFlags: 1

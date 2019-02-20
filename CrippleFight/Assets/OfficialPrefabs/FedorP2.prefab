@@ -158,9 +158,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1957549038736450}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.46, y: -3.7, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.7, y: -3.7, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 2}
   m_Children:
   - {fileID: 4832595208976908}
   - {fileID: 4250875798434224}
@@ -306,7 +306,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.17, y: -0.28}
+  m_Offset: {x: -0.17, y: -0.22}
   m_Size: {x: 0.06, y: 0.92}
   m_Direction: 0
 --- !u!70 &70569751343512060
@@ -397,12 +397,13 @@ MonoBehaviour:
   hitEnemyWall: 0
   startTimerHitWall: 0
   stopMoving: 0
-  jumpForce: 18
+  jumpForce: 23
   jumpTime: 0.25
   jump: 0
   isJumping: 0
   attackName: 
   startTimerHitLag: 0
+  startTimerNoJump: 0
   isFrozen: 0
   sons:
   - {fileID: 8300000, guid: 71a4c1a701a5fd940a863573752f4b5d, type: 3}

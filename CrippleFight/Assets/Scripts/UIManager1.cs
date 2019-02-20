@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager1 : MonoBehaviour
 {
     public GameObject TimerO, GameOver, Round;
     public GameObject Player1;
@@ -20,9 +20,8 @@ public class UIManager : MonoBehaviour
     public GameObject FedorSkin, NatalyaSkin, MarcusSkin;
 
     public GameObject HUD1, HUD2, triangle, counter;
-    public GameObject r1w, r2w, r1w1, r2w1;
-    
-    public GameObject PauseMenuUI;
+
+
 
 
     // Use this for initialization
@@ -38,66 +37,26 @@ public class UIManager : MonoBehaviour
         EndAnim = false;
 
         p1Lose = p2Lose = false;
-        HUD1.SetActive(false);
-        HUD2.SetActive(false);
-        triangle.SetActive(false);
-        counter.SetActive(false);
+        HUD1.SetActive(true);
+        HUD2.SetActive(true);
+        triangle.SetActive(true);
+        counter.SetActive(true);
 
        ppn= p1Lose = p2Lose = false;
-
-        r1w.SetActive(false);
-        r2w.SetActive(false);
-        r1w1.SetActive(false);
-        r2w1.SetActive(false);
-
-        PauseMenuUI.SetActive(false);
-
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!PauseMenuUI.activeInHierarchy) {
-            CountTime();
-        }
-        
- 
+        CountTime();
         players = GameObject.FindGameObjectsWithTag("Player");
         Player1 = players[0];
-        Player2 = players[1];
-        p1Lose = (HealthBarP1.Health <= 0);
+        Player2 = GameObject.FindGameObjectWithTag("Ennemy");
+        p1Lose = (HealthBarP1.Health == 0);
 
-        p2Lose = (HealthBarP2.Health <= 0);
+        p2Lose = (HealthBarP2.Health == 0);
 
-        /*if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause1") || Input.GetButtonDown("Pause2")) {
-            if (PauseMenuUI.activeInHierarchy) {
-                Player1.GetComponent<PlayerControl>().enabled = true;
-                Player2.GetComponent<PlayerControl>().enabled = true;
-                Resume();
-            } else {
-                Player1.GetComponent<PlayerControl>().enabled = false;
-                Player2.GetComponent<PlayerControl>().enabled = false;
-                Pause();
-            }
-        }*/
-
-        if (PauseMenuUI.activeInHierarchy) {
-
-            Player1.GetComponent<PlayerControl>().enabled = false;
-            Player2.GetComponent<PlayerControl>().enabled = false;
-            
-            if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause1") || Input.GetButtonDown("Pause2")) {
-                Resume();
-            }
-
-        } else {
-            Player1.GetComponent<PlayerControl>().enabled = true;
-            Player2.GetComponent<PlayerControl>().enabled = true;
-
-            if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause1") || Input.GetButtonDown("Pause2")) {
-                Pause();
-            }
-        }
 
         if (pp1Lose || pp2Lose || ppn)
         {
@@ -289,9 +248,6 @@ public class UIManager : MonoBehaviour
             HUD2.SetActive(false);
             triangle.SetActive(false);
             counter.SetActive(false);
-
-            Player1.GetComponent<PlayerControl>().enabled = false;
-            Player2.GetComponent<PlayerControl>().enabled = false;
         }
 	}
     
@@ -303,8 +259,7 @@ public class UIManager : MonoBehaviour
     }
     public void menu()
     {
-        dataHolder.FromMenuButton = true;
-        SceneManager.LoadScene("OfficialMenu");
+        SceneManager.LoadScene("Menu");
     }
     public void QuitGame()
     {
@@ -387,15 +342,16 @@ public class UIManager : MonoBehaviour
         Timer.text = CountInt.ToString();
         HealthBarP1.Health = 120;
         HealthBarP2.Health = 120;
-        Gamemanager.Instantiates();
-        HUD1.SetActive(true);
-        HUD2.SetActive(true);
-        triangle.SetActive(true);
-        counter.SetActive(true);
+        Gamemanager.InstantiatesAi();
 
         EndAnim = true;
         RoundN = true;
-        
+
+
+
+
+
+
 
     }
 
@@ -406,22 +362,10 @@ public class UIManager : MonoBehaviour
         {
             P1W += 1;
 
-            if(P1W == 1) {
-                r1w.SetActive(true);
-            } else if (P1W == 2) {
-                r2w.SetActive(true);
-            }
-
         }
         else if ((Timer.text == "0" || p1Lose) && RoundN == true && (HealthBarP1.healthBarfill < HealthBarP2.healthBarfill))
         {
             P2W += 1;
-
-            if (P2W == 1) {
-                r1w1.SetActive(true);
-            } else if (P2W == 2) {
-                r2w1.SetActive(true);
-            }
 
         }
         else if ((Timer.text == "0") && RoundN == true && (HealthBarP1.healthBarfill == HealthBarP2.healthBarfill))
@@ -528,13 +472,13 @@ public class UIManager : MonoBehaviour
     }
 
 
-    // resume
-    public void Resume() {
-        PauseMenuUI.SetActive(false);
-    }
 
-    // pause
-    public void Pause() {
-        PauseMenuUI.SetActive(true);
-    }
+
+
+
+
+
+
+
+
 }

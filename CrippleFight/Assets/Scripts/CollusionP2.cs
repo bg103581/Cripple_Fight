@@ -87,6 +87,7 @@ public class CollusionP2 : MonoBehaviour
                 if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
                     myPlayerControl.startTimerHitLag = true;
                 }
+                //myPlayerControl.startTimerHitLag = true;
             }
             else if (playerControlEnemy.blocklow)
             {
@@ -95,6 +96,7 @@ public class CollusionP2 : MonoBehaviour
                     SuperBarP1.Super += 12.5f;
                     playerControlEnemy.hit = true;
                     visualEffects.SetTrigger("hit_effect");
+                    myPlayerControl.startTimerHitLag = true;
                 } else {
                     AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
                     //playerControlEnemy.hit = true;
@@ -109,6 +111,7 @@ public class CollusionP2 : MonoBehaviour
                 if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
                     myPlayerControl.startTimerHitLag = true;
                 }
+                //myPlayerControl.startTimerHitLag = true;
                 visualEffects.SetTrigger("block_effect");
             }
 
