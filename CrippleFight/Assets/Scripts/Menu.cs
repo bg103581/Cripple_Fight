@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour {
     
-    public GameObject Menu1, Menu2, Menu3, Menu4, Menu5, MenuSettings;
+    public GameObject Menu1, Menu2, Menu3, Menu4, Menu5, MenuSettings, Menu4IA, Menu5IA;
     public static int NumPlayer1, NumPlayer2;
     public static bool checkPlayer1 = false;
     public static bool checkPlayer2 = false;
@@ -45,10 +45,6 @@ public class Menu : MonoBehaviour {
             Menu3.SetActive(true);
             MenuSettings.SetActive(false);
             dataHolder.FromMenuButton = false;
-        }
-
-        if (Input.GetButtonDown("StickCross1")) {
-            Debug.Log("Stick x");
         }
     }
 
@@ -90,8 +86,15 @@ public class Menu : MonoBehaviour {
 
     // game choice (solo or vs)
     public void PlayvsCom() {
+        Menu1.SetActive(false);
+        Menu2.SetActive(false);
+        Menu3.SetActive(false);
+        Menu4.SetActive(false);
+        Menu5.SetActive(false);
+        MenuSettings.SetActive(false);
 
-        SceneManager.LoadScene("IA");
+        Menu4IA.SetActive(true);
+        Menu5IA.SetActive(false);
     }
 
     public void PlyvsPly()
@@ -103,11 +106,8 @@ public class Menu : MonoBehaviour {
         Menu5.SetActive(false);
         MenuSettings.SetActive(false);
 
-        /*Menu1.SetActive(false);
-        Menu2.SetActive(false);
-        Menu3.SetActive(false);
-        StartCoroutine(Versus());
-        EventSystem1.SetActive(false);*/
+        Menu4IA.SetActive(false);
+        Menu5IA.SetActive(false);
     }
 
 
@@ -120,6 +120,9 @@ public class Menu : MonoBehaviour {
         Menu4.SetActive(false);
         Menu5.SetActive(false);
         MenuSettings.SetActive(true);
+
+        Menu4IA.SetActive(false);
+        Menu5IA.SetActive(false);
 
     }
 
