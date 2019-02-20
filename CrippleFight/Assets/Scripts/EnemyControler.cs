@@ -13,6 +13,7 @@ public class EnemyControler : MonoBehaviour
     bool isleft;
     public string attackName;
     bool isright, onGround;
+    public static bool Ground;
     public enum StateEnemy
     {
         walk, dashright, dashleft, jump, kick, crouch, Punch, KickCrouch, idle, down
@@ -34,6 +35,7 @@ public class EnemyControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Ground = onGround;
         if (onGround == false)
         {
             state = StateEnemy.down;

@@ -342,22 +342,49 @@ public class PlayerControl : MonoBehaviour {
     // Makes the players look at each other automatically
     void Scalecheck() {
         isLeft = transform.position.x < enemy.position.x;
+        if (enemyGameobject.tag == "player")
+        {
+            if (onGround && (enemyGameobject.GetComponent<PlayerControl>().onGround))
+            {
+                if (isLeft)
+                {
+                    transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                    if (horizontal < 0 || jhorizontal < 0 || shorizontal < 0)
+                    {
+                        block = true;
+                    }
+                    else
+                    {
+                        block = false;
+                    }
+                }
+                else
+                {
+                    transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                    if (horizontal > 0 || jhorizontal > 0 || shorizontal > 0)
+                    {
+                        block = true;
+                    }
+                    else
+                    {
+                        block = false;
+                    }
+                }
 
-        if (onGround && enemyGameobject.GetComponent<PlayerControl>().onGround) {
-            if (isLeft) {
+            }
+        }
+        else
+        {
+            if (isLeft)
+            {
                 transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                if (horizontal < 0 || jhorizontal < 0 || shorizontal < 0) {
-                    block = true;
-                } else {
-                    block = false;
-                }
-            } else {
+
+
+            }
+            else
+            {
                 transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                if (horizontal > 0 || jhorizontal > 0 || shorizontal > 0) {
-                    block = true;
-                } else {
-                    block = false;
-                }
+
             }
         }
 
