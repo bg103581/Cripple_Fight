@@ -37,7 +37,7 @@ public class Menu : MonoBehaviour {
         clickConfirm();
         cancelArena();
         confirmArena();
-
+        
         if (dataHolder.FromMenuButton) {
             Menu4.SetActive(false);
             Menu1.SetActive(false);
