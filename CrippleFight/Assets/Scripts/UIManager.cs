@@ -21,8 +21,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject HUD1, HUD2, triangle, counter;
     public GameObject r1w, r2w, r1w1, r2w1;
-
-
+    
+    public GameObject PauseMenuUI;
 
 
     // Use this for initialization
@@ -50,12 +50,18 @@ public class UIManager : MonoBehaviour
         r1w1.SetActive(false);
         r2w1.SetActive(false);
 
+        PauseMenuUI.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        CountTime();
+        if (!PauseMenuUI.activeInHierarchy) {
+            CountTime();
+        }
+        
+ 
         players = GameObject.FindGameObjectsWithTag("Player");
         Player1 = players[0];
         Player2 = players[1];
@@ -63,6 +69,35 @@ public class UIManager : MonoBehaviour
 
         p2Lose = (HealthBarP2.Health <= 0);
 
+        /*if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause1") || Input.GetButtonDown("Pause2")) {
+            if (PauseMenuUI.activeInHierarchy) {
+                Player1.GetComponent<PlayerControl>().enabled = true;
+                Player2.GetComponent<PlayerControl>().enabled = true;
+                Resume();
+            } else {
+                Player1.GetComponent<PlayerControl>().enabled = false;
+                Player2.GetComponent<PlayerControl>().enabled = false;
+                Pause();
+            }
+        }*/
+
+        if (PauseMenuUI.activeInHierarchy) {
+
+            Player1.GetComponent<PlayerControl>().enabled = false;
+            Player2.GetComponent<PlayerControl>().enabled = false;
+            
+            if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause1") || Input.GetButtonDown("Pause2")) {
+                Resume();
+            }
+
+        } else {
+            Player1.GetComponent<PlayerControl>().enabled = true;
+            Player2.GetComponent<PlayerControl>().enabled = true;
+
+            if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause1") || Input.GetButtonDown("Pause2")) {
+                Pause();
+            }
+        }
 
         if (pp1Lose || pp2Lose || ppn)
         {
@@ -268,7 +303,8 @@ public class UIManager : MonoBehaviour
     }
     public void menu()
     {
-        SceneManager.LoadScene("Menu");
+        dataHolder.FromMenuButton = true;
+        SceneManager.LoadScene("OfficialMenu");
     }
     public void QuitGame()
     {
@@ -492,13 +528,13 @@ public class UIManager : MonoBehaviour
     }
 
 
+    // resume
+    public void Resume() {
+        PauseMenuUI.SetActive(false);
+    }
 
-
-
-
-
-
-
-
-
+    // pause
+    public void Pause() {
+        PauseMenuUI.SetActive(true);
+    }
 }
