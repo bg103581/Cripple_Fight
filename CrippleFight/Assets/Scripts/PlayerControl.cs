@@ -7,6 +7,8 @@ public class PlayerControl : MonoBehaviour {
     public int PlayerNumber ;
     private Transform enemy;
     private GameObject enemyGameobject;
+    private GameObject effectsAnim;
+    private GameObject ground;
 
     private Rigidbody2D rig2d;
     private Animator anim;
@@ -14,10 +16,10 @@ public class PlayerControl : MonoBehaviour {
     Rigidbody2D RB1, RB2;
     //public GameObject hadoken;
 
-    private float horizontal, jhorizontal;
-    private float vertical, jvertical;
+    private float horizontal, jhorizontal, shorizontal;
+    private float vertical, jvertical, svertical;
     public float maxSpeed;
-    private Vector2 movement, jmovement;
+    private Vector2 movement, jmovement, smovement;
     public bool crouch, walk, isLeft;
     public bool blockhigh, blocklow, hit, knockback;
     private bool block;
@@ -59,6 +61,12 @@ public class PlayerControl : MonoBehaviour {
     private bool countTimerHitLag;
     private float timerHitLagCounter;
     private float timerHitLagTime = 0.4f;
+
+    //Variables for no jump after airdive
+    public bool startTimerNoJump;
+    private bool countTimerNoJump;
+    private float timerNoJumpCounter;
+    private float timerNoJumpTime = 0.4f;
 
     //Variables when frozen
     public bool isFrozen;
@@ -103,6 +111,7 @@ public class PlayerControl : MonoBehaviour {
         hasRightPress = hasLeftPress = false;
         hitWallKnocbackTimeCounter = 0;
         timerHitLagCounter = 0;
+        timerNoJumpCounter = 0;
 
         isAirDiving = false;
 
@@ -120,6 +129,8 @@ public class PlayerControl : MonoBehaviour {
             enemyGameobject = GameObject.FindGameObjectWithTag("Ennemy");
         }
 
+        effectsAnim = GameObject.FindGameObjectWithTag("EffectsAnim" + PlayerNumber);
+        ground = GameObject.FindGameObjectWithTag("ground");
         //StartCoroutine("debug");
     }
 
@@ -187,15 +198,27 @@ public class PlayerControl : MonoBehaviour {
                         CheckHeadP2.CheckCollusionL = false;
                     }
                     if (walk) { // Joystick input is prioritised. If there is no joystick input, we check keyboard input
-                        if (jump) {
-                            if ((jhorizontal < 0f) || (horizontal < 0f)) {
-                                rig2d.velocity = new Vector2(-maxSpeed, rig2d.velocity.y);
+
+                        if (jump) { //direction en x du jump
+                            if ((jhorizontal < 0f) || (shorizontal < 0f) || (horizontal < 0f)) {
+                                rig2d.velocity = new Vector2(-maxSpeed * 0.70f, rig2d.velocity.y);
                             }
-                            else if ((jhorizontal > 0f) || (horizontal > 0f)) {
-                                rig2d.velocity = new Vector2(maxSpeed, rig2d.velocity.y);
+                            else if ((jhorizontal > 0f) || (shorizontal > 0f) || (horizontal > 0f)) {
+                                rig2d.velocity = new Vector2(maxSpeed * 0.70f, rig2d.velocity.y);
                             }
                         }
-                        else if (jhorizontal != 0) {
+                        
+                        else if (shorizontal != 0) { //au sol reculer et avancer (joystick input)
+                            if (block) {
+                                rig2d.velocity = new Vector2(shorizontal * maxSpeed * 0.75f, rig2d.velocity.y);
+                            } else {
+                                rig2d.velocity = new Vector2(shorizontal * maxSpeed, rig2d.velocity.y);
+                                //rig2d.AddForce(jmovement * (maxSpeed - horizontalVelocity.magnitude), ForceMode2D.Impulse); jgarde ça peut être utile
+                            }
+                        } 
+
+                        else if (jhorizontal != 0) { //au sol reculer et avancer (joystick input)
+
                             if (block) {
                                 rig2d.velocity = new Vector2(jhorizontal * maxSpeed * 0.75f, rig2d.velocity.y);
                             } else {
@@ -320,17 +343,17 @@ public class PlayerControl : MonoBehaviour {
     void Scalecheck() {
         isLeft = transform.position.x < enemy.position.x;
 
-        if (onGround) {
+        if (onGround && enemyGameobject.GetComponent<PlayerControl>().onGround) {
             if (isLeft) {
                 transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                if (horizontal < 0 || jhorizontal < 0) {
+                if (horizontal < 0 || jhorizontal < 0 || shorizontal < 0) {
                     block = true;
                 } else {
                     block = false;
                 }
             } else {
                 transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-                if (horizontal > 0 || jhorizontal > 0) {
+                if (horizontal > 0 || jhorizontal > 0 || shorizontal > 0) {
                     block = true;
                 } else {
                     block = false;
@@ -340,7 +363,7 @@ public class PlayerControl : MonoBehaviour {
 
         if (!isFrozen) {
             blocklow = block && crouch;
-            blockhigh = block && !crouch;
+            blockhigh = block && !crouch && onGround;
         }
         else {
             blocklow = hasBlockLow;
@@ -355,28 +378,22 @@ public class PlayerControl : MonoBehaviour {
         horizontal = Input.GetAxis("Horizontal" + PlayerNumber.ToString());
         vertical = Input.GetAxis("Vertical" + PlayerNumber.ToString());
 
-        // Get input from controller
-        if (Input.GetAxis("StickHorizontal" + PlayerNumber.ToString()) != 0) {
-            jhorizontal = Input.GetAxis("StickHorizontal" + PlayerNumber.ToString());
-        } else {
-            jhorizontal = Input.GetAxis("JHorizontal" + PlayerNumber.ToString());
-        }
+        jhorizontal = Input.GetAxis("JHorizontal" + PlayerNumber.ToString());
+        jvertical = Input.GetAxis("JVertical" + PlayerNumber.ToString());
 
-        if (Input.GetAxis("StickVertical" + PlayerNumber.ToString()) != 0) {
-            jvertical = Input.GetAxis("StickVertical" + PlayerNumber.ToString());
-        } else {
-            jvertical = Input.GetAxis("JVertical" + PlayerNumber.ToString());
-        }
+        shorizontal = Input.GetAxis("StickHorizontal" + PlayerNumber.ToString());
+        svertical = Input.GetAxis("StickVertical" + PlayerNumber.ToString());
         
 
         // Movement for keyboard input and controller input respectively
         movement = new Vector2(horizontal, 0);
         jmovement = new Vector2(jhorizontal, 0);
+        smovement = new Vector2(shorizontal, 0);
 
         // Booleans to be used for animation
-        crouch = ((vertical < 0f) || (jvertical < -0.3f)) && onGround && !isDashingLeft && !isDashingRight && !countTimerHitLag;
-        walk = ((horizontal != 0) || (jhorizontal != 0)) && !countTimerHitLag;
-        jump = (/*Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || */(vertical > 0f) || (jvertical > 0f)) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag;
+        crouch = ((vertical < 0f) || (jvertical < -0.3f) || (svertical < -0.3f)) && onGround && !isDashingLeft && !isDashingRight && !countTimerHitLag;
+        walk = ((horizontal != 0) || (jhorizontal != 0) || (shorizontal != 0)) && !countTimerHitLag;
+        jump = (/*Input.GetButtonDown("Jump" + PlayerNumber.ToString()) || */(vertical > 0f) || (jvertical > 0f) || (svertical > 0f)) && onGround && !stopMoving && (jumpTimeCounter == jumpTime) && !isDashingLeft && !isDashingRight && !crouch && !countTimerHitLag && !countTimerNoJump;
         /*Input.GetButtonDown("A" + PlayerNumber.ToString()) || Input.GetButton("StickCross" + PlayerNumber.ToString())*/
         punch = !isDashingLeft && !isDashingRight && !countTimerHitLag;/*(Input.GetButtonDown("Punch" + PlayerNumber.ToString()) || Input.GetButtonDown("X" + PlayerNumber.ToString()) || Input.GetButtonDown("StickSquare" + PlayerNumber.ToString())) && */
         kick = punch && (Input.GetButtonDown("X" + PlayerNumber.ToString()) || Input.GetButtonDown("Punch" + PlayerNumber.ToString()));
@@ -393,18 +410,18 @@ public class PlayerControl : MonoBehaviour {
 
     //check if dashing
     void DashCheck() {
-        if (((horizontal > 0) || (jhorizontal > 0)) && !hasRightPress) {
+        if (((horizontal > 0) || (jhorizontal > 0) || (shorizontal > 0)) && !hasRightPress) {
             rightPress++;
             hasRightPress = true;
             startTimer = true;
         }
-        if (((horizontal < 0) || (jhorizontal < 0)) && !hasLeftPress) {
+        if (((horizontal < 0) || (jhorizontal < 0) || (shorizontal < 0)) && !hasLeftPress) {
             leftPress++;
             hasLeftPress = true;
             startTimer = true;
         }
 
-        if ((horizontal == 0) && (jhorizontal == 0)) {
+        if ((horizontal == 0) && (jhorizontal == 0) && (shorizontal == 0)) {
             hasRightPress = false;
             hasLeftPress = false;
         }
@@ -428,11 +445,21 @@ public class PlayerControl : MonoBehaviour {
             if (timePassed <= delay) {
                 if (rightPress >= 2 && leftPress == 0 && onGround) {
                     isDashingRight = true;
-                    anim.SetTrigger("DashRight");
+                    if (isLeft) {
+                        anim.SetTrigger("DashRight");
+                    }
+                    else {
+                        anim.SetTrigger("DashLeft");
+                    }
                     rightPress = 0;
                 } else if (leftPress >= 2 && rightPress == 0 && onGround) {
                     isDashingLeft = true;
-                    anim.SetTrigger("DashLeft");
+                    if (isLeft) {
+                        anim.SetTrigger("DashLeft");
+                    }
+                    else {
+                        anim.SetTrigger("DashRight");
+                    }
                     leftPress = 0;
                 }
             } else {
@@ -497,6 +524,21 @@ public class PlayerControl : MonoBehaviour {
             else {
                 timerHitLagCounter = 0;
                 countTimerHitLag = false;
+            }
+        }
+
+        if (startTimerNoJump) {
+            countTimerNoJump = true;
+            timerNoJumpCounter = 0;
+            startTimerNoJump = false;
+        }
+
+        if (countTimerNoJump) {
+            if (timerNoJumpCounter <= timerNoJumpTime) {
+                timerNoJumpCounter += Time.deltaTime;
+            } else {
+                timerNoJumpCounter = 0;
+                countTimerNoJump = false;
             }
         }
     }
@@ -577,6 +619,30 @@ public class PlayerControl : MonoBehaviour {
         enemyGameobject.GetComponent<PlayerControl>().isFrozen = false;
         enemyGameobject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         enemyGameobject.GetComponent<Animator>().enabled = true;
+    }
+
+    public void AnimDustLeft() {
+        effectsAnim.transform.position = transform.position - new Vector3(0, (transform.position.y - ground.transform.position.y),0);
+        if (isLeft) {
+            effectsAnim.GetComponent<Animator>().SetTrigger("dashLeft");
+        }
+        else {
+            effectsAnim.GetComponent<Animator>().SetTrigger("dashRight");
+        }
+    }
+
+    public void AnimDustRight() {
+        effectsAnim.transform.position = transform.position - new Vector3(0, (transform.position.y - ground.transform.position.y), 0);
+        if (isLeft) {
+            effectsAnim.GetComponent<Animator>().SetTrigger("dashRight");
+        }
+        else {
+            effectsAnim.GetComponent<Animator>().SetTrigger("dashLeft");
+        }
+    }
+
+    public void StartTimerNoJump() {
+        startTimerNoJump = true;
     }
 
     //à utiliser pour debug.log : startcoroutine dans le start()

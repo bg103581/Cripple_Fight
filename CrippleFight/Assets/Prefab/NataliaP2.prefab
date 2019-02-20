@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 1943799645959852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.46, y: -4.14, z: -5}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.5}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1.5}
   m_Children:
   - {fileID: 4203458129740138}
   - {fileID: 4208396151701112}
@@ -332,8 +332,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.17, y: -0.28}
-  m_Size: {x: 0.06, y: 0.92}
+  m_Offset: {x: -0.17, y: -0.47}
+  m_Size: {x: 0.06, y: 1.23}
   m_Direction: 0
 --- !u!70 &70571908758690202
 CapsuleCollider2D:
@@ -347,7 +347,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3, y: -2.3}
+  m_Offset: {x: -0.3, y: -1.98}
   m_Size: {x: 3.6, y: 3.9}
   m_Direction: 0
 --- !u!95 &95235438207038782
@@ -395,12 +395,13 @@ MonoBehaviour:
   hitEnemyWall: 0
   startTimerHitWall: 0
   stopMoving: 0
-  jumpForce: 20
+  jumpForce: 23
   jumpTime: 0.25
   jump: 0
   isJumping: 0
   attackName: 
   startTimerHitLag: 0
+  startTimerNoJump: 0
   isFrozen: 0
   sons:
   - {fileID: 8300000, guid: 6c4f0db2241edf742bd38c1c00f4a2e0, type: 3}
@@ -423,6 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c803b7c49ee4541849dbb0eafd1d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Natalya
 --- !u!114 &114975164011802200
 MonoBehaviour:
   m_ObjectHideFlags: 1

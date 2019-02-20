@@ -25,6 +25,12 @@ TagManager:
   - AudioManager
   - LeftLimit
   - RightLimit
+  - EffectsAnim1
+  - EffectsAnim2
+  - VisualEffects1
+  - VisualEffects2
+  - VisualEffectNatalya
+  - VisualEffectFedor
   layers:
   - Default
   - TransparentFX

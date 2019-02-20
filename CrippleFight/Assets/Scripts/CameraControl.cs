@@ -58,16 +58,13 @@ public class CameraControl : MonoBehaviour
 
     void LookAtCenter()
     {
-
-
-
-
         if ((Camc == false))
         {
             if (Mathf.Abs(p1x - p2x) <= 7)
             {
-                transform.position = new Vector3(center, transform.position.y, transform.position.z);
+                transform.position = new Vector3(center, transform.position.y+3, transform.position.z);
             }
+
             else
             {
                 if (player1.transform.position.x < player2.transform.position.x)
@@ -75,18 +72,18 @@ public class CameraControl : MonoBehaviour
                     Camera.main.orthographicSize = Mathf.Abs((6.5f - (Diff / 10)));
 
                 }
+
                 else
                 {
                     Camera.main.orthographicSize = Mathf.Abs((6.5f + (Diff / 10)));
 
                 }
-                transform.position = new Vector3(center, transform.position.y, transform.position.z);
+
+                transform.position = new Vector3(center, transform.position.y+3, transform.position.z);
             }
-
-
-
         }
-        transform.position = new Vector3(transform.position.x, centerY, transform.position.z);
+
+        transform.position = new Vector3(transform.position.x, centerY+3, transform.position.z);
 
         if (Mathf.Abs(p1x - p2x) > 17)
         {
@@ -96,6 +93,7 @@ public class CameraControl : MonoBehaviour
             Camc = true;
 
         }
+
         if (Mathf.Abs(p1x - p2x) <= 17)
         {
 
