@@ -72,7 +72,7 @@ public class CamLabo : MonoBehaviour {
                     }
 
                     if (center <= -4.08f) {
-                        transform.position = new Vector3(-4.09f, transform.position.y + 3, transform.position.z);
+                        transform.position = new Vector3(-4.06f, transform.position.y + 3, transform.position.z);
                     } else if (center >= 5.95f) {
                         transform.position = new Vector3(5.8f, transform.position.y + 3, transform.position.z);
                     } else {
@@ -80,7 +80,7 @@ public class CamLabo : MonoBehaviour {
                     }
                 } else {
                     if (center <= -4.08f) {
-                        transform.position = new Vector3(-4.09f, transform.position.y + 3, transform.position.z);
+                        transform.position = new Vector3(-4.06f, transform.position.y + 3, transform.position.z);
                     } else if (center >= 5.95f) {
                         transform.position = new Vector3(5.8f, transform.position.y + 3, transform.position.z);
                     } else {
