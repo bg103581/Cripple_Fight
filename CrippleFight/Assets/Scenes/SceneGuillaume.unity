@@ -1607,6 +1607,7 @@ MonoBehaviour:
   r2w: {fileID: 0}
   r1w1: {fileID: 0}
   r2w1: {fileID: 0}
+  PauseMenuUI: {fileID: 0}
 --- !u!4 &492689989
 Transform:
   m_ObjectHideFlags: 0
@@ -3259,6 +3260,7 @@ MonoBehaviour:
   PosPlayer1: {fileID: 1035755289}
   PosPlayer2: {fileID: 1224955922}
   myMenu: {fileID: 0}
+  myMenuIA: {fileID: 0}
 --- !u!4 &952120195
 Transform:
   m_ObjectHideFlags: 0
@@ -6421,7 +6423,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4859534586274784, guid: 27c06c234cb7e804bb221e00e16b97f2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.7
+      value: 2.29
       objectReference: {fileID: 0}
     - target: {fileID: 4859534586274784, guid: 27c06c234cb7e804bb221e00e16b97f2, type: 2}
       propertyPath: m_LocalPosition.y

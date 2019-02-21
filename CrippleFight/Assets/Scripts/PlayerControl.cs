@@ -284,10 +284,19 @@ public class PlayerControl : MonoBehaviour {
         }
 
         if (airDive) {
-            isAirDiving = true;
             rig2d.velocity = Vector2.zero;
         }
-        
+
+        if (!onGround) {
+            if (isAirDiving) {
+                if (isLeft) {
+                    rig2d.velocity = new Vector2(maxSpeed * 1.8f, rig2d.velocity.y);
+                } else {
+                    rig2d.velocity = new Vector2(-maxSpeed * 1.8f, rig2d.velocity.y);
+                }
+            }
+        }
+
         if (hit) {
             hit = false;
         }
@@ -323,12 +332,6 @@ public class PlayerControl : MonoBehaviour {
     void OnGroundCheck() {
         if (!onGround) {
             if (isAirDiving) {
-                if (isLeft) {
-                    rig2d.velocity = new Vector2(maxSpeed, rig2d.velocity.y);
-                }
-                else {
-                    rig2d.velocity = new Vector2(-maxSpeed, rig2d.velocity.y);
-                }
                 rig2d.gravityScale = 25f;
             } else {
                 rig2d.gravityScale = 5f;
@@ -341,8 +344,11 @@ public class PlayerControl : MonoBehaviour {
 
     // Makes the players look at each other automatically
     void Scalecheck() {
-        isLeft = transform.position.x < enemy.position.x;
-        if (enemyGameobject.tag == "player")
+        if (onGround) {
+            isLeft = transform.position.x < enemy.position.x;
+        }
+
+        if (enemyGameobject.tag == "Player")
         {
             if (onGround && (enemyGameobject.GetComponent<PlayerControl>().onGround))
             {
@@ -507,6 +513,10 @@ public class PlayerControl : MonoBehaviour {
         
         if (jump) {
             isJumping = true;
+        }
+
+        if (airDive) {
+            isAirDiving = true;
         }
 
         //launch super after tapping super button
