@@ -516,62 +516,71 @@ public class Menu : MonoBehaviour {
     
     public void CancelPlayer1()
     {
-        if (Input.GetButton("B1") || Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetButtonDown("B1") || Input.GetKeyDown(KeyCode.E))
         {
-            checkPlayer1 = false;
-            confirmButton.SetActive(false);
-            FedorP1.SetActive(false);
-            NatalyaP1.SetActive(false);
-
-            EventP1.SetActive(true);
-
-            colorFedor1.SetActive(false);
-            colorNatalya1.SetActive(false);
-
-            FedorP1.SetActive(false);
-            NatalyaP1.SetActive(false);
-
-            FedorP1Skin.SetActive(false);
-            NatalyaP1Skin.SetActive(false);
-
-            if (NumPlayer1 == 0 || NumPlayer1 == 3) {
-                Fedor2Pink.interactable = true;
-                Fedor2Green.interactable = true;
+            if (!checkPlayer1 && !checkPlayer2) {
+                press();
             } else {
-                Natalya2Yellow.interactable = true;
-                Natalya2Orange.interactable = true;
+                checkPlayer1 = false;
+                confirmButton.SetActive(false);
+                FedorP1.SetActive(false);
+                NatalyaP1.SetActive(false);
+
+                EventP1.SetActive(true);
+
+                colorFedor1.SetActive(false);
+                colorNatalya1.SetActive(false);
+
+                FedorP1.SetActive(false);
+                NatalyaP1.SetActive(false);
+
+                FedorP1Skin.SetActive(false);
+                NatalyaP1Skin.SetActive(false);
+
+                if (NumPlayer1 == 0 || NumPlayer1 == 3) {
+                    Fedor2Pink.interactable = true;
+                    Fedor2Green.interactable = true;
+                } else {
+                    Natalya2Yellow.interactable = true;
+                    Natalya2Orange.interactable = true;
+                }
             }
+            
         }
     }
 
     public void CancelPlayer2()
     {
-        if (Input.GetButton("B2") || Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetButtonDown("B2") || Input.GetKeyDown(KeyCode.O))
         {
-            checkPlayer2 = false;
-            confirmButton.SetActive(false);
-            FedorP2.SetActive(false);
-            NatalyaP2.SetActive(false);
 
-            EventP2.SetActive(true);
-
-            colorFedor2.SetActive(false);
-            colorNatalya2.SetActive(false);
-
-            FedorP2.SetActive(false);
-            NatalyaP2.SetActive(false);
-            
-            FedorP2Skin.SetActive(false);
-            NatalyaP2Skin.SetActive(false);
-
-            if (NumPlayer2 == 0 || NumPlayer2 == 3) {
-                Fedor1Pink.interactable = true;
-                Fedor1Green.interactable = true;
+            if (!checkPlayer1 && !checkPlayer2) {
+                press();
             } else {
-                Natalya1Yellow.interactable = true;
-                Natalya1Orange.interactable = true;
-            }
+                checkPlayer2 = false;
+                confirmButton.SetActive(false);
+                FedorP2.SetActive(false);
+                NatalyaP2.SetActive(false);
 
+                EventP2.SetActive(true);
+
+                colorFedor2.SetActive(false);
+                colorNatalya2.SetActive(false);
+
+                FedorP2.SetActive(false);
+                NatalyaP2.SetActive(false);
+
+                FedorP2Skin.SetActive(false);
+                NatalyaP2Skin.SetActive(false);
+
+                if (NumPlayer2 == 0 || NumPlayer2 == 3) {
+                    Fedor1Pink.interactable = true;
+                    Fedor1Green.interactable = true;
+                } else {
+                    Natalya1Yellow.interactable = true;
+                    Natalya1Orange.interactable = true;
+                }
+            }
             
         }
     }
