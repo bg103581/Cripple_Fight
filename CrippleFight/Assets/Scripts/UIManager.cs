@@ -476,7 +476,6 @@ public class UIManager : MonoBehaviour
             
 
         }
-
     }
 
 

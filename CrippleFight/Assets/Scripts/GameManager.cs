@@ -38,8 +38,7 @@ public class GameManager : MonoBehaviour {
         Instantiate(Players2[MenuIA.NumPlayer2], PosPlayer2.transform.position, PosPlayer2.transform.rotation);
     }
     public void again() {
-        Scene loadedLevel = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(loadedLevel.name);
+        StartCoroutine(waitAgain());
     }
 
     public void menu() {
@@ -49,5 +48,11 @@ public class GameManager : MonoBehaviour {
 
     public void quitter() {
         Application.Quit();
+    }
+
+    IEnumerator waitAgain() {
+        yield return new WaitForSeconds(2f);
+        Scene loadedLevel = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(loadedLevel.name);
     }
 }
