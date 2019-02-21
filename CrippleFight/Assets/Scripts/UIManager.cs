@@ -51,6 +51,7 @@ public class UIManager : MonoBehaviour
         r2w1.SetActive(false);
 
         PauseMenuUI.SetActive(false);
+        
 
     }
 
@@ -272,6 +273,7 @@ public class UIManager : MonoBehaviour
 
             Player1.GetComponent<PlayerControl>().enabled = false;
             Player2.GetComponent<PlayerControl>().enabled = false;
+            
         }
 	}
     

@@ -229,6 +229,7 @@ public class UIManager1 : MonoBehaviour
             counter.SetActive(false);
             Player1.GetComponent<PlayerControl>().enabled = false;
             Player2.GetComponent<EnemyControler>().enabled = false;
+            
         }
 	}
     

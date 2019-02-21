@@ -3543,6 +3543,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b86674e134c8f343a92d98c142f64ec, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &742110815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114686750533562258, guid: 8b86674e134c8f343a92d98c142f64ec,
+    type: 2}
+  m_PrefabInternal: {fileID: 742110814}
+  m_Script: {fileID: 11500000, guid: 64670bc50fec71843adf5cfae8c916b4, type: 3}
 --- !u!1 &747415106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5554,7 +5560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 883df2be4bf61c24f88e1c48b8f198ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxCamera: {fileID: 0}
+  parallaxCamera: {fileID: 742110815}
 --- !u!4 &1220538779
 Transform:
   m_ObjectHideFlags: 0
@@ -6999,7 +7005,7 @@ MonoBehaviour:
   - {fileID: 1592006138611320, guid: ade23ad8aac4a7f4b90dad55cbf9228f, type: 2}
   Players2:
   - {fileID: 1930301334999912, guid: 8098f5d134fec8b49890579e0b2ddfae, type: 2}
-  - {fileID: 1943799645959852, guid: 50dddc883ad5ea544b17c5d7fc6a9e25, type: 2}
+  - {fileID: 1061882263535944, guid: 3e5f68d5522967243a4ba500466729ee, type: 2}
   - {fileID: 1666422254454612, guid: 2544ecead45b058409d3bfd133ba6c58, type: 2}
   - {fileID: 1222945388145444, guid: 5bac36ee6a06ef741afa5b752243e17f, type: 2}
   - {fileID: 1061882263535944, guid: 3e5f68d5522967243a4ba500466729ee, type: 2}
