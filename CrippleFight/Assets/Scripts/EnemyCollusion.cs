@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyCollusion : MonoBehaviour {
-    Rigidbody2D RB1,RB2;
-    GameObject Player;
+   public Rigidbody2D RB1,RB2;
+   public GameObject Player;
     // Use this for initialization
 
     void Start () {

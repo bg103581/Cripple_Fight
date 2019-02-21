@@ -28,6 +28,10 @@ public class CheckHead : MonoBehaviour
                 Player2 = p;
                 RB2 = Player2.GetComponent<Rigidbody2D>();
             }
+            else
+            {
+                Player2 = GameObject.FindGameObjectWithTag("Ennemy");
+            }
 
             CheckPosR = GameObject.Find("CheckPosR");
             CheckPosL = GameObject.Find("CheckPosL");
