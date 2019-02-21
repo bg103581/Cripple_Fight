@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114446411765703376}
   - component: {fileID: 70302065408622944}
   m_Layer: 0
-  m_Name: NataliaEnemy
+  m_Name: NataliaSkinEnemy
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

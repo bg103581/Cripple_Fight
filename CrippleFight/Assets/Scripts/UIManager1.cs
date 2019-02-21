@@ -20,6 +20,9 @@ public class UIManager1 : MonoBehaviour
     public GameObject FedorSkin, NatalyaSkin, MarcusSkin;
 
     public GameObject HUD1, HUD2, triangle, counter;
+    public GameObject r1w, r2w, r1w1, r2w1;
+
+    public GameObject PauseMenuUI;
 
 
 
@@ -37,39 +40,69 @@ public class UIManager1 : MonoBehaviour
         EndAnim = false;
 
         p1Lose = p2Lose = false;
-        HUD1.SetActive(true);
-        HUD2.SetActive(true);
-        triangle.SetActive(true);
-        counter.SetActive(true);
+        HUD1.SetActive(false);
+        HUD2.SetActive(false);
+        triangle.SetActive(false);
+        counter.SetActive(false);
 
-       ppn= p1Lose = p2Lose = false;
-       
+        ppn = p1Lose = p2Lose = false;
+
+        r1w.SetActive(false);
+        r2w.SetActive(false);
+        r1w1.SetActive(false);
+        r2w1.SetActive(false);
+
+        PauseMenuUI.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        CountTime();
+        if (!PauseMenuUI.activeInHierarchy) {
+            CountTime();
+        }
+
         players = GameObject.FindGameObjectsWithTag("Player");
         Player1 = players[0];
         Player2 = GameObject.FindGameObjectWithTag("Ennemy");
-        p1Lose = (HealthBarP1.Health == 0);
 
+        p1Lose = (HealthBarP1.Health == 0);
         p2Lose = (HealthBarP2.Health == 0);
 
+        if (PauseMenuUI.activeInHierarchy) {
+
+            Player1.GetComponent<PlayerControl>().enabled = false;
+            Player2.GetComponent<EnemyControler>().enabled = false;
+
+            if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause1") || Input.GetButtonDown("Pause2")) {
+                Resume();
+            }
+
+        } else {
+            Player1.GetComponent<PlayerControl>().enabled = true;
+            Player2.GetComponent<EnemyControler>().enabled = true;
+
+            if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause1") || Input.GetButtonDown("Pause2")) {
+                if (!GameOver.activeInHierarchy) {
+                    Pause();
+                }
+
+            }
+        }
 
         if (pp1Lose || pp2Lose || ppn)
         {
             i = 0;
             Time.timeScale = 0;
             Player1.GetComponent<PlayerControl>().enabled = false;
-            Player2.GetComponent<PlayerControl>().enabled = false;
+            Player2.GetComponent<EnemyControler>().enabled = false;
             GameOver.SetActive(true);
             TimerO.SetActive(false);
 
             if (pp1Lose)
             {
-                if (Player2.name == "FedorP2(Clone)")
+                if (Player2.name == "FedorEnemy(Clone)")
                 {
                     Fedor.SetActive(true);
                     Natalya.SetActive(false);
@@ -81,7 +114,7 @@ public class UIManager1 : MonoBehaviour
                     ppn = pp1Lose = pp2Lose = false;
                 }
 
-                else if (Player2.name == "NataliaP2(Clone)")
+                else if (Player2.name == "NataliaEnemy(Clone)")
                 {
                     Fedor.SetActive(false);
                     Natalya.SetActive(true);
@@ -93,18 +126,7 @@ public class UIManager1 : MonoBehaviour
                     ppn = pp1Lose = pp2Lose = false;
                 }
 
-                else if (Player2.name == "MarcusP2(Clone)")
-                {
-                    Fedor.SetActive(false);
-                    Natalya.SetActive(false);
-                    Marcus.SetActive(true);
-                    ppn = pp1Lose = pp2Lose = false;
-                    FedorSkin.SetActive(false);
-                    NatalyaSkin.SetActive(false);
-                    MarcusSkin.SetActive(false);
-                }
-
-                else if (Player2.name == "FedorP2skin(Clone)")
+                else if (Player2.name == "FedorSkinEnemy(Clone)")
                 {
                     Fedor.SetActive(false);
                     Natalya.SetActive(false);
@@ -114,7 +136,7 @@ public class UIManager1 : MonoBehaviour
                     NatalyaSkin.SetActive(false);
                     MarcusSkin.SetActive(false);
                 }
-                else if (Player2.name == "NataliaP2skin(Clone)")
+                else if (Player2.name == "NataliaSkinEnemy(Clone)")
                 {
                     Fedor.SetActive(false);
                     Natalya.SetActive(false);
@@ -124,16 +146,6 @@ public class UIManager1 : MonoBehaviour
                     NatalyaSkin.SetActive(true);
                     MarcusSkin.SetActive(false);
                 }
-                else if (Player2.name == "MarcusP2skin(Clone)")
-                {
-                    Fedor.SetActive(false);
-                    Natalya.SetActive(false);
-                    Marcus.SetActive(false);
-                    ppn = pp1Lose = pp2Lose = false;
-                    FedorSkin.SetActive(false);
-                    NatalyaSkin.SetActive(false);
-                    MarcusSkin.SetActive(true);
-                }
 
                 winner.SetActive(true);
                 doubleKO.SetActive(false);
@@ -141,7 +153,6 @@ public class UIManager1 : MonoBehaviour
 
             else if (pp2Lose)
             {
-                Debug.Log(Player1.name);
                 if (Player1.name == "FedorP1(Clone)")
                 {
                     Fedor.SetActive(true);
@@ -157,16 +168,6 @@ public class UIManager1 : MonoBehaviour
                     Fedor.SetActive(false);
                     Natalya.SetActive(true);
                     Marcus.SetActive(false);
-                    ppn = pp1Lose = pp2Lose = false;
-                    FedorSkin.SetActive(false);
-                    NatalyaSkin.SetActive(false);
-                    MarcusSkin.SetActive(false);
-                }
-                else if (Player1.name == "MarcusP1(Clone)")
-                {
-                    Fedor.SetActive(false);
-                    Natalya.SetActive(false);
-                    Marcus.SetActive(true);
                     ppn = pp1Lose = pp2Lose = false;
                     FedorSkin.SetActive(false);
                     NatalyaSkin.SetActive(false);
@@ -192,21 +193,12 @@ public class UIManager1 : MonoBehaviour
                     NatalyaSkin.SetActive(true);
                     MarcusSkin.SetActive(false);
                 }
-                else if (Player1.name == "MarcusP1skin(Clone)")
-                {
-                    Fedor.SetActive(false);
-                    Natalya.SetActive(false);
-                    Marcus.SetActive(false);
-                    ppn = pp1Lose = pp2Lose = false;
-                    FedorSkin.SetActive(false);
-                    NatalyaSkin.SetActive(false);
-                    MarcusSkin.SetActive(true);
-                }
             
 
                 winner.SetActive(true);
                 doubleKO.SetActive(false);
             }
+
             else if(ppn)
             {
                 Fedor.SetActive(false);
@@ -219,19 +211,6 @@ public class UIManager1 : MonoBehaviour
                 ppn = pp1Lose = pp2Lose = false;
             }
 
-           /* else if (pp1Lose && pp2Lose)
-            {
-                Fedor.SetActive(false);
-                Natalya.SetActive(false);
-                Marcus.SetActive(false);
-                FedorSkin.SetActive(false);
-                NatalyaSkin.SetActive(false);
-                MarcusSkin.SetActive(false);
-                doubleKO.SetActive(true);
-                winner.SetActive(false);
-                pp1Lose = pp2Lose = false;
-            }*/
-
             GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>().mute = true;
 
         }
@@ -240,7 +219,7 @@ public class UIManager1 : MonoBehaviour
         {
             Time.timeScale = 1;
             Player1.GetComponent<PlayerControl>().enabled = true;
-            Player2.GetComponent<PlayerControl>().enabled = true;
+            Player2.GetComponent<EnemyControler>().enabled = true;
         }
 
         if (GameOver.activeInHierarchy) {
@@ -248,6 +227,8 @@ public class UIManager1 : MonoBehaviour
             HUD2.SetActive(false);
             triangle.SetActive(false);
             counter.SetActive(false);
+            Player1.GetComponent<PlayerControl>().enabled = false;
+            Player2.GetComponent<EnemyControler>().enabled = false;
         }
 	}
     
@@ -259,7 +240,7 @@ public class UIManager1 : MonoBehaviour
     }
     public void menu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("OfficialMenu");
     }
     public void QuitGame()
     {
@@ -273,18 +254,13 @@ public class UIManager1 : MonoBehaviour
         CountInt = (int)Count;
         Timer.text = CountInt.ToString();
 
-        if (CountInt == 0 || p2Lose || p1Lose)
-        {
+        if (CountInt == 0 || p2Lose || p1Lose) {
 
 
             winnercheck();
 
 
-            if (checknumber)
-            {
-                // if (RoundT.text=="0")
-                // {
-
+            if (checknumber) {
                 Count = 20;
                 HealthBarP1.Health = 120;
                 HealthBarP2.Health = 120;
@@ -292,50 +268,21 @@ public class UIManager1 : MonoBehaviour
 
                 StartCoroutine(Rounds());
                 TimerO.SetActive(false);
-                //RoundT.text = "Round" + i;
-                // Round.SetActive(true);
+
                 Destroy(Player2);
                 Destroy(Player1);
 
-                Debug.Log("cro");
-
             }
-            /*else if(i==2 )
-              { RoundT.text = "Round" + i;
-                  Round.SetActive(true);
-                  Destroy(Player2);
-                  Destroy(Player1);
-
-                  StartCoroutine(Rounds());
-
-
-              }               
-          */
-
-
-
-
-
-            // }
-
-
-
-
-
-
-
-
-
         }
     }
+
     public IEnumerator Rounds()
     {
 
         yield return new WaitForSeconds(4f);
-        // Round.SetActive(false);
         RoundNumber[i].SetActive(false);
         i++;
-        Count =100;
+        Count = 100;
         TimerO.SetActive(true);
 
         Count -= Time.deltaTime;
@@ -343,53 +290,52 @@ public class UIManager1 : MonoBehaviour
         HealthBarP1.Health = 120;
         HealthBarP2.Health = 120;
         Gamemanager.InstantiatesAi();
+        HUD1.SetActive(true);
+        HUD2.SetActive(true);
+        triangle.SetActive(true);
+        counter.SetActive(true);
 
         EndAnim = true;
         RoundN = true;
-
-
-
-
-
-
 
     }
 
     public void winnercheck()
     {
 
-        if ((Timer.text == "0" || p2Lose) && RoundN == true && (HealthBarP1.healthBarfill > HealthBarP2.healthBarfill))
-        {
+        if ((Timer.text == "0" || p2Lose) && RoundN == true && (HealthBarP1.healthBarfill > HealthBarP2.healthBarfill)) {
             P1W += 1;
 
-        }
-        else if ((Timer.text == "0" || p1Lose) && RoundN == true && (HealthBarP1.healthBarfill < HealthBarP2.healthBarfill))
-        {
+            if (P1W == 1) {
+                r1w.SetActive(true);
+            } else if (P1W == 2) {
+                r2w.SetActive(true);
+            }
+
+        } else if ((Timer.text == "0" || p1Lose) && RoundN == true && (HealthBarP1.healthBarfill < HealthBarP2.healthBarfill)) {
             P2W += 1;
 
-        }
-        else if ((Timer.text == "0") && RoundN == true && (HealthBarP1.healthBarfill == HealthBarP2.healthBarfill))
-        {
+            if (P2W == 1) {
+                r1w1.SetActive(true);
+            } else if (P2W == 2) {
+                r2w1.SetActive(true);
+            }
+
+        } else if ((Timer.text == "0") && RoundN == true && (HealthBarP1.healthBarfill == HealthBarP2.healthBarfill)) {
             PN += 1;
 
         }
 
-        if (i == 2)
-        {
-            if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && P1W == 2 && P1W > P2W || P1W > P2W && PN > 1)
-            {
+        if (i == 2) {
+            if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && P1W == 2 && P1W > P2W || P1W > P2W && PN > 1) {
                 Debug.Log("Player1win");
                 checknumber = false;
                 pp2Lose = true;
-            }
-            else if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && P1W < P2W && P2W == 2 || P1W < P2W && PN > 1)
-            {
+            } else if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && P1W < P2W && P2W == 2 || P1W < P2W && PN > 1) {
                 Debug.Log("Player2win");
                 checknumber = false;
                 pp1Lose = true;
-            }
-            else if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && PN > 1)
-            {
+            } else if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && PN > 1) {
                 Debug.Log("Round3");
 
             }
@@ -398,17 +344,14 @@ public class UIManager1 : MonoBehaviour
 
 
 
-        if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && PN >= 1 && P1W > P2W)
-        {
+        if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && PN >= 1 && P1W > P2W) {
             Debug.Log("Player1win");
             TimerO.SetActive(false);
             checknumber = false;
             pp2Lose = true;
 
 
-        }
-        else if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && PN >= 1 && P1W < P2W)
-        {
+        } else if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && PN >= 1 && P1W < P2W) {
             Debug.Log("Player2win");
             TimerO.SetActive(false);
             checknumber = false;
@@ -416,17 +359,14 @@ public class UIManager1 : MonoBehaviour
 
 
         }
-        if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && (PN >= 2 && P1W > P2W))
-        {
+        if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && (PN >= 2 && P1W > P2W)) {
             Debug.Log("Player1win");
             TimerO.SetActive(false);
             checknumber = false;
             pp2Lose = true;
 
 
-        }
-        else if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && PN >= 2 && P1W < P2W)
-        {
+        } else if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && PN >= 2 && P1W < P2W) {
             Debug.Log("Player2win");
             TimerO.SetActive(false);
             checknumber = false;
@@ -434,51 +374,45 @@ public class UIManager1 : MonoBehaviour
 
 
         }
+        
+
+        if (i == 3) {
 
 
-
-
-        if (i == 3)
-        {
-
-
-            if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && P1W > P2W)
-            {
+            if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && P1W > P2W) {
                 Debug.Log("Player1win");
                 TimerO.SetActive(false);
                 checknumber = false;
                 pp2Lose = true;
 
 
-            }
-            else if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && P1W < P2W)
-            {
+            } else if ((Timer.text == "0" || p1Lose || p2Lose) && RoundN == true && P1W < P2W) {
                 Debug.Log("Player2win");
                 TimerO.SetActive(false);
                 checknumber = false;
                 pp1Lose = true;
 
 
-            }
-            else
+            } else
                 Debug.Log("egalité");
             TimerO.SetActive(false);
             checknumber = false;
-           ppn = true;
-            
+            ppn = true;
+
 
         }
+
 
     }
 
 
+    // resume
+    public void Resume() {
+        PauseMenuUI.SetActive(false);
+    }
 
-
-
-
-
-
-
-
-
+    // pause
+    public void Pause() {
+        PauseMenuUI.SetActive(true);
+    }
 }

@@ -65,21 +65,9 @@ public class UIManager : MonoBehaviour
         players = GameObject.FindGameObjectsWithTag("Player");
         Player1 = players[0];
         Player2 = players[1];
+
         p1Lose = (HealthBarP1.Health <= 0);
-
         p2Lose = (HealthBarP2.Health <= 0);
-
-        /*if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause1") || Input.GetButtonDown("Pause2")) {
-            if (PauseMenuUI.activeInHierarchy) {
-                Player1.GetComponent<PlayerControl>().enabled = true;
-                Player2.GetComponent<PlayerControl>().enabled = true;
-                Resume();
-            } else {
-                Player1.GetComponent<PlayerControl>().enabled = false;
-                Player2.GetComponent<PlayerControl>().enabled = false;
-                Pause();
-            }
-        }*/
 
         if (PauseMenuUI.activeInHierarchy) {
 
@@ -95,7 +83,10 @@ public class UIManager : MonoBehaviour
             Player2.GetComponent<PlayerControl>().enabled = true;
 
             if (Input.GetKeyDown(KeyCode.P) || Input.GetButtonDown("Pause1") || Input.GetButtonDown("Pause2")) {
-                Pause();
+                if (!GameOver.activeInHierarchy) {
+                    Pause();
+                }
+                
             }
         }
 
@@ -260,18 +251,7 @@ public class UIManager : MonoBehaviour
                 ppn = pp1Lose = pp2Lose = false;
             }
 
-           /* else if (pp1Lose && pp2Lose)
-            {
-                Fedor.SetActive(false);
-                Natalya.SetActive(false);
-                Marcus.SetActive(false);
-                FedorSkin.SetActive(false);
-                NatalyaSkin.SetActive(false);
-                MarcusSkin.SetActive(false);
-                doubleKO.SetActive(true);
-                winner.SetActive(false);
-                pp1Lose = pp2Lose = false;
-            }*/
+           
 
             GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>().mute = true;
 
@@ -327,9 +307,6 @@ public class UIManager : MonoBehaviour
 
             if (checknumber)
             {
-                // if (RoundT.text=="0")
-                // {
-
                 Count = 20;
                 HealthBarP1.Health = 120;
                 HealthBarP2.Health = 120;
@@ -337,40 +314,13 @@ public class UIManager : MonoBehaviour
 
                 StartCoroutine(Rounds());
                 TimerO.SetActive(false);
-                //RoundT.text = "Round" + i;
-                // Round.SetActive(true);
+
                 Destroy(Player2);
                 Destroy(Player1);
 
                 Debug.Log("cro");
 
             }
-            /*else if(i==2 )
-              { RoundT.text = "Round" + i;
-                  Round.SetActive(true);
-                  Destroy(Player2);
-                  Destroy(Player1);
-
-                  StartCoroutine(Rounds());
-
-
-              }               
-          */
-
-
-
-
-
-            // }
-
-
-
-
-
-
-
-
-
         }
     }
     public IEnumerator Rounds()

@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 114608425017413632}
   - component: {fileID: 70835048212289048}
   m_Layer: 0
-  m_Name: FedorSkiEnemy
+  m_Name: FedorSkinEnemy
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

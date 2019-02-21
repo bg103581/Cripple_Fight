@@ -2078,6 +2078,7 @@ MonoBehaviour:
   PosPlayer1: {fileID: 251112162}
   PosPlayer2: {fileID: 1862713310}
   myMenu: {fileID: 0}
+  myMenuIA: {fileID: 0}
 --- !u!4 &548912718
 Transform:
   m_ObjectHideFlags: 0

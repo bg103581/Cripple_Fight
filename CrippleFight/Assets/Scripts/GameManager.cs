@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     public GameObject[] Players1, Players2;
     public  GameObject PosPlayer1, PosPlayer2;
-    public Menu myMenu;
-    public GameObject fed;
+    public Menu myMenu, myMenuIA;
+
     // Use this for initialization
     void Start () {
 
@@ -16,7 +16,11 @@ public class GameManager : MonoBehaviour {
         Menu.checkPlayer1 = false;
         Menu.checkPlayer2 = false;
 
+        MenuIA.checkPlayer1 = false;
+        MenuIA.checkPlayer2 = false;
+
         myMenu = GetComponent<Menu>();
+        myMenuIA = GetComponent<Menu>();
     }
 	
 	// Update is called once per frame
@@ -30,8 +34,8 @@ public class GameManager : MonoBehaviour {
     }
     public void InstantiatesAi()
     {
-        Instantiate(Players1[Menu.NumPlayer1], PosPlayer1.transform.position, PosPlayer1.transform.rotation);
-        Instantiate(fed, PosPlayer2.transform.position, PosPlayer2.transform.rotation);
+        Instantiate(Players1[MenuIA.NumPlayer1], PosPlayer1.transform.position, PosPlayer1.transform.rotation);
+        Instantiate(Players2[MenuIA.NumPlayer2], PosPlayer2.transform.position, PosPlayer2.transform.rotation);
     }
     public void again() {
         Scene loadedLevel = SceneManager.GetActiveScene();
