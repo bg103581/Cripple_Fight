@@ -28,7 +28,7 @@ public class CameraControl : MonoBehaviour
         p2x = player2.transform.position.x;
 
         center = ((player1.transform.position.x + player2.transform.position.x) / 2f);
-        centerY = (player1.transform.position.y + player2.transform.position.y) / 2f;
+        centerY = ((player1.transform.position.y + player2.transform.position.y) / 2f)-2;
         Diff = (player1.transform.position.x - player2.transform.position.x);
 
         dist = Mathf.Abs(Vector3.Distance(player1.transform.position, player2.transform.position));
