@@ -377,9 +377,13 @@ public class PlayerControl : MonoBehaviour {
         {
             if (isLeft)
             {
-                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                if (onGround && (EnemyControler.Ground))
+                {
 
+             
+                    transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
 
+                }
             }
             else
             {

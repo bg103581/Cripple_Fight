@@ -323,6 +323,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthBarP1.cs" />
     <Compile Include="Assets\Scripts\HealthBarP2.cs" />
+    <Compile Include="Assets\Scripts\HUD\HUDchangeIA.cs" />
     <Compile Include="Assets\Scripts\HUD\HUDchangeP1.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\MenuIA.cs" />

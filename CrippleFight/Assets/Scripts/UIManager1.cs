@@ -67,8 +67,8 @@ public class UIManager1 : MonoBehaviour
         Player1 = players[0];
         Player2 = GameObject.FindGameObjectWithTag("Ennemy");
 
-        p1Lose = (HealthBarP1.Health == 0);
-        p2Lose = (HealthBarP2.Health == 0);
+        p1Lose = (HealthBarP1.Health <= 0);
+        p2Lose = (HealthBarP2.Health <= 0);
 
         if (PauseMenuUI.activeInHierarchy) {
 

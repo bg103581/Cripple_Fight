@@ -22,10 +22,7 @@ public class CameraControl : MonoBehaviour
     void LateUpdate()
     {
 
-        players = GameObject.FindGameObjectsWithTag("Player");
-        player1 = players[0];
-        player2 = players[1];
-
+     
 
         p1x = player1.transform.position.x;
         p2x = player2.transform.position.x;
@@ -45,6 +42,20 @@ public class CameraControl : MonoBehaviour
     }
     void Update()
     {
+       
+        players = GameObject.FindGameObjectsWithTag("Player");
+        if (players.Length>1)
+        {
+            player1 = players[0];
+            player2 = players[1];
+        }
+            
+       else
+        {
+            player1 = players[0];
+            player2 = GameObject.FindGameObjectWithTag("Ennemy");
+        }
+
 
 
         CamL = Cam.transform.position.x - ColliderCamL.transform.position.x;
