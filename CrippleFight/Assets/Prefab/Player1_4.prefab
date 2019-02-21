@@ -380,7 +380,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNumber: 1
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
   maxSpeed: 10
+  crouch: 0
+  walk: 0
+  isLeft: 0
   blockhigh: 0
   blocklow: 0
   hit: 0
@@ -392,7 +397,13 @@ MonoBehaviour:
   stopMoving: 0
   jumpForce: 15
   jumpTime: 0.25
+  jump: 0
+  isJumping: 0
+  attackName: 
   startTimerHitLag: 0
+  startTimerNoJump: 0
+  isFrozen: 0
+  sons: []
 --- !u!114 &114744332537312602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -404,6 +415,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6bd3272a4df8a49b49018efef2a9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
+  CheckPosR: {fileID: 0}
+  CheckPosL: {fileID: 0}
+  OnGround: 0
 --- !u!114 &114989168604170898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -415,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb4b42c2c1170b4cae89b12f0658860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
 --- !u!212 &212849112339791392
 SpriteRenderer:
   m_ObjectHideFlags: 1

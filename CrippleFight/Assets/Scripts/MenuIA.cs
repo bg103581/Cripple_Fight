@@ -49,7 +49,7 @@ public class MenuIA : MonoBehaviour {
     }
 
     public void SelectFedor2() {
-        NumPlayer1 = 1;
+        NumPlayer1 = 3;
         checkPlayer1 = true;
 
     }
@@ -61,7 +61,7 @@ public class MenuIA : MonoBehaviour {
     }
 
     public void SelectFFedor2() {
-        NumPlayer2 = 1;
+        NumPlayer2 = 3;
         checkPlayer2 = true;
 
     }
@@ -70,23 +70,23 @@ public class MenuIA : MonoBehaviour {
     // NATALYA
     public void SelectNatalya1() {
 
-        NumPlayer1 = 2;
+        NumPlayer1 = 1;
         checkPlayer1 = true;
 
     }
 
     public void SelectNatalya2() {
-        NumPlayer1 = 3;
+        NumPlayer1 = 4;
         checkPlayer1 = true;
     }
 
     public void SelectNNatalya1() {
-        NumPlayer2 = 2;
+        NumPlayer2 = 1;
         checkPlayer2 = true;
     }
 
     public void SelectNNatalya2() {
-        NumPlayer2 = 3;
+        NumPlayer2 = 4;
         checkPlayer2 = true;
     }
 
@@ -262,7 +262,7 @@ public class MenuIA : MonoBehaviour {
             FedorP1.SetActive(false);
             NatalyaP1.SetActive(false);
 
-            //EventP1.SetActive(true);
+            EventP1.SetActive(true);
 
             colorFedor1.SetActive(false);
             colorNatalya1.SetActive(false);
@@ -290,7 +290,7 @@ public class MenuIA : MonoBehaviour {
             FedorP2.SetActive(false);
             NatalyaP2.SetActive(false);
 
-            //EventP2.SetActive(true);
+            EventP2.SetActive(true);
 
             colorFedor2.SetActive(false);
             colorNatalya2.SetActive(false);
@@ -313,6 +313,7 @@ public class MenuIA : MonoBehaviour {
         }
     }
 
+
     // confirm player
     public void clickConfirm() {
         if (Menu4.activeInHierarchy) {
@@ -326,6 +327,9 @@ public class MenuIA : MonoBehaviour {
             }
         }
     }
+
+
+
     // select arena
     public void selectRingIA() {
         ringNom.SetActive(true);
@@ -340,6 +344,9 @@ public class MenuIA : MonoBehaviour {
         confirmButtonArena.SetActive(true);
         panelABArena.SetActive(false);
     }
+
+
+
 
     // confirm arena
     public void confirmArenaIA() {
