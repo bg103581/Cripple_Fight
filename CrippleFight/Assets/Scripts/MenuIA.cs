@@ -257,59 +257,66 @@ public class MenuIA : MonoBehaviour {
 
     public void CancelPlayer1() {
         if (Input.GetButton("B1") || Input.GetKeyDown(KeyCode.Backspace)) {
-            checkPlayer1 = false;
-            confirmButton.SetActive(false);
-            FedorP1.SetActive(false);
-            NatalyaP1.SetActive(false);
-
-            EventP1.SetActive(true);
-
-            colorFedor1.SetActive(false);
-            colorNatalya1.SetActive(false);
-
-            FedorP1.SetActive(false);
-            NatalyaP1.SetActive(false);
-
-            FedorP1Skin.SetActive(false);
-            NatalyaP1Skin.SetActive(false);
-
-            if (NumPlayer1 == 0 || NumPlayer1 == 3) {
-                Fedor2Pink.interactable = true;
-                Fedor2Green.interactable = true;
+            if (!checkPlayer1 && !checkPlayer2) {
+                goMenu3();
             } else {
-                Natalya2Yellow.interactable = true;
-                Natalya2Orange.interactable = true;
+                checkPlayer1 = false;
+                confirmButton.SetActive(false);
+                FedorP1.SetActive(false);
+                NatalyaP1.SetActive(false);
+
+                EventP1.SetActive(true);
+
+                colorFedor1.SetActive(false);
+                colorNatalya1.SetActive(false);
+
+                FedorP1.SetActive(false);
+                NatalyaP1.SetActive(false);
+
+                FedorP1Skin.SetActive(false);
+                NatalyaP1Skin.SetActive(false);
+
+                if (NumPlayer1 == 0 || NumPlayer1 == 3) {
+                    Fedor2Pink.interactable = true;
+                    Fedor2Green.interactable = true;
+                } else {
+                    Natalya2Yellow.interactable = true;
+                    Natalya2Orange.interactable = true;
+                }
             }
+            
         }
     }
 
     public void CancelPlayer2() {
         if (Input.GetButton("B2") || Input.GetKeyDown(KeyCode.Backspace)) {
-            checkPlayer2 = false;
-            confirmButton.SetActive(false);
-            FedorP2.SetActive(false);
-            NatalyaP2.SetActive(false);
-
-            EventP2.SetActive(true);
-
-            colorFedor2.SetActive(false);
-            colorNatalya2.SetActive(false);
-
-            FedorP2.SetActive(false);
-            NatalyaP2.SetActive(false);
-
-            FedorP2Skin.SetActive(false);
-            NatalyaP2Skin.SetActive(false);
-
-            if (NumPlayer2 == 0 || NumPlayer2 == 3) {
-                Fedor1Pink.interactable = true;
-                Fedor1Green.interactable = true;
+            if (!checkPlayer1 && !checkPlayer2) {
+                goMenu3();
             } else {
-                Natalya1Yellow.interactable = true;
-                Natalya1Orange.interactable = true;
+                checkPlayer2 = false;
+                confirmButton.SetActive(false);
+                FedorP2.SetActive(false);
+                NatalyaP2.SetActive(false);
+
+                EventP2.SetActive(true);
+
+                colorFedor2.SetActive(false);
+                colorNatalya2.SetActive(false);
+
+                FedorP2.SetActive(false);
+                NatalyaP2.SetActive(false);
+
+                FedorP2Skin.SetActive(false);
+                NatalyaP2Skin.SetActive(false);
+
+                if (NumPlayer2 == 0 || NumPlayer2 == 3) {
+                    Fedor1Pink.interactable = true;
+                    Fedor1Green.interactable = true;
+                } else {
+                    Natalya1Yellow.interactable = true;
+                    Natalya1Orange.interactable = true;
+                }
             }
-
-
         }
     }
 
@@ -318,7 +325,7 @@ public class MenuIA : MonoBehaviour {
     public void clickConfirm() {
         if (Menu4.activeInHierarchy) {
             if (confirmButton.activeInHierarchy) {
-                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start")) {
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1")) {
                     Menu3.SetActive(false);
                     Menu4.SetActive(false);
                     Menu5.SetActive(true);
@@ -351,9 +358,9 @@ public class MenuIA : MonoBehaviour {
     // confirm arena
     public void confirmArenaIA() {
         if (confirmButtonArena.activeInHierarchy) {
-            if (ringNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
+            if (ringNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1"))) {
                 SceneManager.LoadScene("IAring");
-            } else if (laboNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
+            } else if (laboNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1"))) {
                 SceneManager.LoadScene("IAlabo");
             }
         }
@@ -374,5 +381,12 @@ public class MenuIA : MonoBehaviour {
     // quit game
     public void quitMenu() {
         Application.Quit();
+    }
+
+
+    public void goMenu3() {
+        Menu3.SetActive(true);
+        Menu4.SetActive(false);
+        Menu5.SetActive(false);
     }
 }

@@ -584,20 +584,12 @@ public class Menu : MonoBehaviour {
             
         }
     }
-
-    /*public IEnumerator Versus()
-    {
-        yield return new WaitForSeconds(0.1f);
-        Menu4.SetActive(true);
-
-    }*/
-
-
+    
     // confirm player
     public void clickConfirm() {
         if (Menu4.activeInHierarchy) {
             if (confirmButton.activeInHierarchy) {
-                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start")) {
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1")) {
                     Menu1.SetActive(false);
                     Menu2.SetActive(false);
                     Menu3.SetActive(false);
@@ -630,11 +622,11 @@ public class Menu : MonoBehaviour {
     // confirm arena
     public void confirmArena() {
         if (confirmButtonArena.activeInHierarchy) {
-            if (ringNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
+            if (ringNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1"))) {
                 SceneManager.LoadScene("RocheScene");
             }
 
-            else if (laboNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
+            else if (laboNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1"))) {
                 SceneManager.LoadScene("SceneLabo");
             }
         }
