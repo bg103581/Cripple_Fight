@@ -14,17 +14,21 @@ public class Collusion : MonoBehaviour {
     GameObject visualEffectsGameobject;
     Animator visualEffects;
 
+    GameObject player1, player2;
+
     public string name;
     
     void Start()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        
         foreach (GameObject pl in players) {
 
             if (pl.layer == 9 && pl.CompareTag("Player"))
              {
                 playerControlEnemy = pl.GetComponent<PlayerControl>();
                 AnimatorPlayerEnemy = pl.GetComponent<Animator>();
+                player2 = pl;
             }
             if (pl.layer == 8)
             {
@@ -57,55 +61,106 @@ public class Collusion : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
         if ((collision.gameObject.tag == "UpP2") && ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "airdive") || (myPlayerControl.attackName == "Ulti"))) {
-            Debug.Log("checkUpP2");
-            if (circlecast2D.collider != null) {
-                Debug.Log(circlecast2D.point);
-                visualEffectsGameobject.transform.position = circlecast2D.point;
-                visualEffects.enabled = true;
-            }
-            else {
-                visualEffects.enabled = false;
-            }
-            if (!playerControlEnemy.blocklow && !playerControlEnemy.blockhigh) {
-                if (myPlayerControl.attackName == "Ulti") {
-                    HealthBarP2.Health -= 40f;
-                    SuperBarP2.Super += 20f;
+            if (player2.gameObject.name == "FedorP2(Clone)" || player2.gameObject.name == "FedorP2skin(Clone)") {
+                Debug.Log("checkUpP2");
+                if (circlecast2D.collider != null) {
+                    Debug.Log(circlecast2D.point);
+                    visualEffectsGameobject.transform.position = circlecast2D.point;
+                    visualEffects.enabled = true;
                 } else {
-                    HealthBarP2.Health -= 10f;
-                    SuperBarP2.Super += 12.5f;
+                    visualEffects.enabled = false;
                 }
-                playerControlEnemy.hit = true;
-                visualEffects.SetTrigger("hit_effect");
-                if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
-                    myPlayerControl.startTimerHitLag = true;
-                }
-                //myPlayerControl.startTimerHitLag = true;
-            } else if (playerControlEnemy.blocklow) {
-                if (myPlayerControl.attackName == "airdive") {
-                    HealthBarP2.Health -= 10f;
-                    SuperBarP2.Super += 12.5f;
+                if (!playerControlEnemy.blocklow && !playerControlEnemy.blockhigh) {
+                    if (myPlayerControl.attackName == "Ulti") {
+                        HealthBarP2.Health -= 40f;
+                        SuperBarP2.Super += 20f;
+                    } else {
+                        HealthBarP2.Health -= 6f;
+                        SuperBarP2.Super += 12.5f;
+                    }
                     playerControlEnemy.hit = true;
                     visualEffects.SetTrigger("hit_effect");
-                    myPlayerControl.startTimerHitLag = true;
-                } else {
-                    AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
+                    if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
+                        myPlayerControl.startTimerHitLag = true;
+                    }
+                    //myPlayerControl.startTimerHitLag = true;
+                } else if (playerControlEnemy.blocklow) {
+                    if (myPlayerControl.attackName == "airdive") {
+                        HealthBarP2.Health -= 6f;
+                        SuperBarP2.Super += 12.5f;
+                        playerControlEnemy.hit = true;
+                        visualEffects.SetTrigger("hit_effect");
+                        myPlayerControl.startTimerHitLag = true;
+                    } else {
+                        AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
+                        //playerControlEnemy.hit = true;
+                        myPlayerControl.startTimerHitLag = true;
+                        visualEffects.SetTrigger("block_effect");
+                    }
+                } else if (playerControlEnemy.blockhigh) {
+                    AnimatorPlayerEnemy.SetTrigger("isBlocking");
                     //playerControlEnemy.hit = true;
-                    myPlayerControl.startTimerHitLag = true;
+                    if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
+                        myPlayerControl.startTimerHitLag = true;
+                    }
+                    //myPlayerControl.startTimerHitLag = true;
                     visualEffects.SetTrigger("block_effect");
                 }
-            } else if (playerControlEnemy.blockhigh) {
-                AnimatorPlayerEnemy.SetTrigger("isBlocking");
-                //playerControlEnemy.hit = true;
-                if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
-                    myPlayerControl.startTimerHitLag = true;
-                }
-                //myPlayerControl.startTimerHitLag = true;
-                visualEffects.SetTrigger("block_effect");
-            }
 
-            if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
-                myPlayerControl.hitEnemyWall = true;
-                myPlayerControl.startTimerHitWall = true;
+                if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
+                    myPlayerControl.hitEnemyWall = true;
+                    myPlayerControl.startTimerHitWall = true;
+                }
+            } else {
+                Debug.Log("checkUpP2");
+                if (circlecast2D.collider != null) {
+                    Debug.Log(circlecast2D.point);
+                    visualEffectsGameobject.transform.position = circlecast2D.point;
+                    visualEffects.enabled = true;
+                } else {
+                    visualEffects.enabled = false;
+                }
+                if (!playerControlEnemy.blocklow && !playerControlEnemy.blockhigh) {
+                    if (myPlayerControl.attackName == "Ulti") {
+                        HealthBarP2.Health -= 40f;
+                        SuperBarP2.Super += 20f;
+                    } else {
+                        HealthBarP2.Health -= 10f;
+                        SuperBarP2.Super += 12.5f;
+                    }
+                    playerControlEnemy.hit = true;
+                    visualEffects.SetTrigger("hit_effect");
+                    if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
+                        myPlayerControl.startTimerHitLag = true;
+                    }
+                    //myPlayerControl.startTimerHitLag = true;
+                } else if (playerControlEnemy.blocklow) {
+                    if (myPlayerControl.attackName == "airdive") {
+                        HealthBarP2.Health -= 10f;
+                        SuperBarP2.Super += 12.5f;
+                        playerControlEnemy.hit = true;
+                        visualEffects.SetTrigger("hit_effect");
+                        myPlayerControl.startTimerHitLag = true;
+                    } else {
+                        AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
+                        //playerControlEnemy.hit = true;
+                        myPlayerControl.startTimerHitLag = true;
+                        visualEffects.SetTrigger("block_effect");
+                    }
+                } else if (playerControlEnemy.blockhigh) {
+                    AnimatorPlayerEnemy.SetTrigger("isBlocking");
+                    //playerControlEnemy.hit = true;
+                    if ((myPlayerControl.attackName == "kick") || (myPlayerControl.attackName == "Ulti")) {
+                        myPlayerControl.startTimerHitLag = true;
+                    }
+                    //myPlayerControl.startTimerHitLag = true;
+                    visualEffects.SetTrigger("block_effect");
+                }
+
+                if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
+                    myPlayerControl.hitEnemyWall = true;
+                    myPlayerControl.startTimerHitWall = true;
+                }
             }
         }
         
@@ -143,31 +198,60 @@ public class Collusion : MonoBehaviour {
         }
         
         if ((collision.gameObject.tag == "DownP2") && (myPlayerControl.attackName == "downkick")) {
-            Debug.Log("checkDownP2");
-            if (circlecast2D.collider != null) {
-                Debug.Log(circlecast2D.point);
-                visualEffectsGameobject.transform.position = circlecast2D.point;
-                visualEffects.enabled = true;
-            } else {
-                visualEffects.enabled = false;
-            }
-            if (!playerControlEnemy.blocklow) {
-                HealthBarP2.Health -= 10f;
-                SuperBarP2.Super += 12.5f;
-                playerControlEnemy.hit = true;
-                myPlayerControl.startTimerHitLag = true;
-                visualEffects.SetTrigger("hit_effect");
-            } else if (playerControlEnemy.blocklow) {
-                AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
-                //playerControlEnemy.hit = true;
-                myPlayerControl.startTimerHitLag = true;
-                visualEffects.SetTrigger("block_effect");
-            }
+            if (player2.gameObject.name == "FedorP2(Clone)" || player2.gameObject.name == "FedorP2skin(Clone)") {
+                Debug.Log("checkDownP2");
+                if (circlecast2D.collider != null) {
+                    Debug.Log(circlecast2D.point);
+                    visualEffectsGameobject.transform.position = circlecast2D.point;
+                    visualEffects.enabled = true;
+                } else {
+                    visualEffects.enabled = false;
+                }
+                if (!playerControlEnemy.blocklow) {
+                    HealthBarP2.Health -= 6f;
+                    SuperBarP2.Super += 12.5f;
+                    playerControlEnemy.hit = true;
+                    myPlayerControl.startTimerHitLag = true;
+                    visualEffects.SetTrigger("hit_effect");
+                } else if (playerControlEnemy.blocklow) {
+                    AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
+                    //playerControlEnemy.hit = true;
+                    myPlayerControl.startTimerHitLag = true;
+                    visualEffects.SetTrigger("block_effect");
+                }
 
-            if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
-                myPlayerControl.hitEnemyWall = true;
-                myPlayerControl.startTimerHitWall = true;
+                if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
+                    myPlayerControl.hitEnemyWall = true;
+                    myPlayerControl.startTimerHitWall = true;
+                }
+            } else {
+                Debug.Log("checkDownP2");
+                if (circlecast2D.collider != null) {
+                    Debug.Log(circlecast2D.point);
+                    visualEffectsGameobject.transform.position = circlecast2D.point;
+                    visualEffects.enabled = true;
+                } else {
+                    visualEffects.enabled = false;
+                }
+                if (!playerControlEnemy.blocklow) {
+                    HealthBarP2.Health -= 10f;
+                    SuperBarP2.Super += 12.5f;
+                    playerControlEnemy.hit = true;
+                    myPlayerControl.startTimerHitLag = true;
+                    visualEffects.SetTrigger("hit_effect");
+                } else if (playerControlEnemy.blocklow) {
+                    AnimatorPlayerEnemy.SetTrigger("isCrouchBlocking");
+                    //playerControlEnemy.hit = true;
+                    myPlayerControl.startTimerHitLag = true;
+                    visualEffects.SetTrigger("block_effect");
+                }
+
+                if (playerControlEnemy.hitWallLeft || playerControlEnemy.hitWallRight) {
+                    myPlayerControl.hitEnemyWall = true;
+                    myPlayerControl.startTimerHitWall = true;
+                }
             }
+            
         }
         if( collision.gameObject.tag == "DownEnemy")
         {

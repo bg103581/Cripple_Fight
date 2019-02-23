@@ -589,7 +589,7 @@ public class Menu : MonoBehaviour {
     public void clickConfirm() {
         if (Menu4.activeInHierarchy) {
             if (confirmButton.activeInHierarchy) {
-                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1")) {
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start")) {
                     Menu1.SetActive(false);
                     Menu2.SetActive(false);
                     Menu3.SetActive(false);
@@ -622,11 +622,11 @@ public class Menu : MonoBehaviour {
     // confirm arena
     public void confirmArena() {
         if (confirmButtonArena.activeInHierarchy) {
-            if (ringNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1"))) {
+            if (ringNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
                 SceneManager.LoadScene("RocheScene");
             }
 
-            else if (laboNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1"))) {
+            else if (laboNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
                 SceneManager.LoadScene("SceneLabo");
             }
         }

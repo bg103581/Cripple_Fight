@@ -325,7 +325,7 @@ public class MenuIA : MonoBehaviour {
     public void clickConfirm() {
         if (Menu4.activeInHierarchy) {
             if (confirmButton.activeInHierarchy) {
-                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1")) {
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start")) {
                     Menu3.SetActive(false);
                     Menu4.SetActive(false);
                     Menu5.SetActive(true);
@@ -358,9 +358,9 @@ public class MenuIA : MonoBehaviour {
     // confirm arena
     public void confirmArenaIA() {
         if (confirmButtonArena.activeInHierarchy) {
-            if (ringNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1"))) {
+            if (ringNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
                 SceneManager.LoadScene("IAring");
-            } else if (laboNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("A1"))) {
+            } else if (laboNom.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Start"))) {
                 SceneManager.LoadScene("IAlabo");
             }
         }
