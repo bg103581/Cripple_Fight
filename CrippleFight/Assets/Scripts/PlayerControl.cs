@@ -654,6 +654,7 @@ public class PlayerControl : MonoBehaviour {
         enemyGameobject.GetComponent<PlayerControl>().hasBlockLow = enemyGameobject.GetComponent<PlayerControl>().blocklow;
         enemyGameobject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         enemyGameobject.GetComponent<Animator>().enabled = false;
+        StartCoroutine(reBouger());
     }
 
     public void DeFreezeEnemy() {
@@ -693,6 +694,11 @@ public class PlayerControl : MonoBehaviour {
 
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    IEnumerator reBouger() {
+        yield return new WaitForSeconds(1.6f);
+        DeFreezeEnemy();
     }
     
 }
