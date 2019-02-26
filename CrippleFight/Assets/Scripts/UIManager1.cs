@@ -23,8 +23,7 @@ public class UIManager1 : MonoBehaviour
     public GameObject r1w, r2w, r1w1, r2w1;
 
     public GameObject PauseMenuUI;
-
-
+    public Rigidbody2D rb1, rb2;
 
 
     // Use this for initialization
@@ -58,7 +57,11 @@ public class UIManager1 : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+
     {
+        rb1 = Player1.GetComponent<Rigidbody2D>();
+        rb2 = Player2.GetComponent<Rigidbody2D>();
+
         if (!PauseMenuUI.activeInHierarchy) {
             CountTime();
         }
@@ -409,11 +412,29 @@ public class UIManager1 : MonoBehaviour
 
     // resume
     public void Resume() {
+        
+        Player1.GetComponent<Animator>().enabled = true;
+        Player2.GetComponent<Animator>().enabled = true;
+
+        Player1.GetComponent<PlayerControl>().enabled = true;
+        Player2.GetComponent<PlayerControl>().enabled = true;
+
+        rb1.velocity = new Vector2(rb1.position.x, rb1.position.y);
+        rb2.velocity = new Vector2(rb2.position.x, rb2.position.y);
+
         PauseMenuUI.SetActive(false);
     }
 
     // pause
     public void Pause() {
+        Player1.GetComponent<Animator>().enabled = false;
+        Player2.GetComponent<Animator>().enabled = false;
+        Player1.GetComponent<PlayerControl>().enabled = false;
+        Player2.GetComponent<PlayerControl>().enabled = false;
+        Time.timeScale = 0;
+        rb1.velocity = new Vector2(0,Player1.transform.position.y);
+        rb2.velocity = new Vector2(0, Player2.transform.position.y);
+
         PauseMenuUI.SetActive(true);
     }
 }

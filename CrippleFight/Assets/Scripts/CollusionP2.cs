@@ -79,7 +79,7 @@ public class CollusionP2 : MonoBehaviour
                 }
                 if (!playerControlEnemy.blocklow && !playerControlEnemy.blockhigh) {
                     if (myPlayerControl.attackName == "Ulti") {
-                        HealthBarP1.Health -= 40f;
+                        HealthBarP1.Health -= 30f;
                         SuperBarP1.Super += 20f;
                     } else {
                         HealthBarP1.Health -= 6f;

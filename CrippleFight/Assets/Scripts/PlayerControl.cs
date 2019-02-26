@@ -164,9 +164,8 @@ public class PlayerControl : MonoBehaviour {
                 }
             }*/
             
-
             // Movement is possible if the player is not crouching
-            if (!crouch) {
+            if (!crouch&& !UIManager.Checkpause) {
                 if (onGround) { //au sol
                     if (!walk && !jump && !CheckHead.CheckCollusion && !CheckHeadP2.CheckCollusion && !CheckHead.CheckCollusionL && !CheckHeadP2.CheckCollusionL)
                     {
@@ -248,6 +247,7 @@ public class PlayerControl : MonoBehaviour {
                 }*/
             } else {
                 rig2d.velocity = Vector2.zero;
+                UIManager.Checkpause = false;
             }
 
             

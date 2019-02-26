@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject HUD1, HUD2, triangle, counter;
     public GameObject r1w, r2w, r1w1, r2w1;
-    
+    public static bool Checkpause;
     public GameObject PauseMenuUI;
 
 
@@ -481,11 +481,19 @@ public class UIManager : MonoBehaviour
 
     // resume
     public void Resume() {
+        Player1.GetComponent<Animator>().enabled = true;
+        Player2.GetComponent<Animator>().enabled = true;
+        Checkpause = false;
         PauseMenuUI.SetActive(false);
     }
 
     // pause
     public void Pause() {
+        Player1.GetComponent<Animator>().enabled = false;
+        Player2.GetComponent<Animator>().enabled = false;
+
+        Checkpause = true;
+
         PauseMenuUI.SetActive(true);
     }
 }
